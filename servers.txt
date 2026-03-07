@@ -1,4 +1,4 @@
-serv99.xyz:8880
-dnsgma.top:80
-istreamv.xyz:80
-smpt.space:80
+http://serv99.xyz:8880/
+http://dnsgma.top:80/
+http://istreamv.xyz:80/
+http://smpt.space:80/

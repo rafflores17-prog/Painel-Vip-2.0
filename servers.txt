@@ -1,3 +1,4 @@
 serv99.xyz:8880
 dnsgma.top:80
 istreamv.xyz:80
+yesme.shop:80

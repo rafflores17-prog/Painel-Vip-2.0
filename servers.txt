@@ -1,1 +1,1 @@
-http://serv99.xyz:8880
+serv99.xyz:8880

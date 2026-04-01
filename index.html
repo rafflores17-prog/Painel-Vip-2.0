@@ -3,277 +3,91 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Gerador VIP IPTV</title><link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Inter:wght@300;400;600&display=swap" rel="stylesheet"><style>
-
-body{
-background:#050505;
-color:#fff;
-font-family:'Inter';
-display:flex;
-justify-content:center;
-align-items:center;
-min-height:100vh;
-margin:0;
-}
-
-.card{
-width:100%;
-max-width:420px;
-background:#0d0d0d;
-padding:20px;
-border-radius:20px;
-box-shadow:0 0 50px #000;
-}
-
-/* TITULO */
-.title{
-text-align:center;
-font-family:'Orbitron';
-color:#00ff9c;
-margin-bottom:5px;
-}
-
-.subtitle{
-text-align:center;
-font-size:11px;
-color:#777;
-margin-bottom:15px;
-}
-
-/* INPUT */
-.input{
-width:100%;
-padding:14px;
-border-radius:12px;
-border:1px solid #222;
-background:#000;
-color:#00ff9c;
-text-align:center;
-margin-bottom:10px;
-}
-
-/* BOTÕES */
-.btn{
-width:100%;
-padding:14px;
-border:none;
-border-radius:12px;
-cursor:pointer;
-font-weight:600;
-margin-top:10px;
-position:relative;
-overflow:hidden;
-transition:.2s;
-}
-
-/* brilho WOW */
-.btn::before{
-content:"";
-position:absolute;
-top:0;
-left:-100%;
-width:100%;
-height:100%;
-background:linear-gradient(120deg,transparent,rgba(255,255,255,0.6),transparent);
-opacity:0;
-}
-
-.btn.wow::before{
-animation:shine 1s linear;
-opacity:1;
-}
-
-@keyframes shine{
-0%{left:-100%;}
-100%{left:100%;}
-}
-
-.btn:active{
-transform:scale(0.96);
-}
-
-/* BOTÕES VIP/FREE */
-.grid{
-display:flex;
-gap:15px;
-margin-bottom:15px;
-}
-
-.grid a{flex:1;}
-
-.vip{
-background:linear-gradient(135deg,#bc13fe,#7a00aa);
-color:#fff;
-}
-
-.free{
-background:linear-gradient(135deg,#00d2ff,#006a80);
-color:#fff;
-}
-
-.main{
-background:linear-gradient(135deg,#00ff9c,#008f58);
-color:#000;
-}
-
-/* STATUS */
-.status{
-font-size:11px;
-text-align:center;
-color:#00ff9c;
-min-height:18px;
-font-family:'Orbitron';
-}
-
-/* PROGRESS */
-.progress{
-height:6px;
-background:#111;
-border-radius:10px;
-margin-top:10px;
-overflow:hidden;
-display:none;
-}
-
-.progress span{
-display:block;
-height:100%;
-width:0%;
-background:#00ff9c;
-transition:.3s;
-}
-
-/* RESULT */
-#out{
-display:none;
-margin-top:20px;
-animation:fadeIn 0.4s ease;
-}
-
-@keyframes fadeIn{
-from{opacity:0; transform:translateY(15px);}
-to{opacity:1; transform:translateY(0);}
-}
-
-.card-info{
-background:#111;
-padding:10px;
-border-radius:10px;
-margin-bottom:8px;
-animation:float 3s ease-in-out infinite;
-}
-
-@keyframes float{
-0%{transform:translateY(0);}
-50%{transform:translateY(-4px);}
-100%{transform:translateY(0);}
-}
-
-.label{
-font-size:10px;
-color:#777;
-}
-
-.value{
-font-size:13px;
-word-break:break-word;
-}
-
-.grid-2{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:10px;
-}
-
-/* hacker typing */
-.typing::after{
-content:"|";
-animation:blink 1s infinite;
-}
-
-@keyframes blink{
-0%,50%,100%{opacity:1;}
-25%,75%{opacity:0;}
-}
-
+body{background:#050505;color:#fff;font-family:'Inter';display:flex;justify-content:center;align-items:center;min-height:100vh;margin:0;}
+.card{width:100%;max-width:420px;background:#0d0d0d;padding:20px;border-radius:20px;}
+.title{text-align:center;font-family:'Orbitron';color:#00ff9c;}
+.subtitle{text-align:center;font-size:11px;color:#777;margin-bottom:10px;}
+.input{width:100%;padding:14px;border-radius:12px;border:1px solid #222;background:#000;color:#00ff9c;text-align:center;}
+.btn{width:100%;padding:14px;border:none;border-radius:12px;margin-top:10px;cursor:pointer;position:relative;overflow:hidden;}
+.btn::before{content:"";position:absolute;left:-100%;top:0;width:100%;height:100%;background:linear-gradient(120deg,transparent,rgba(255,255,255,0.6),transparent);}
+.btn.wow::before{animation:shine 1s;}
+@keyframes shine{0%{left:-100%}100%{left:100%}}
+.vip{background:#bc13fe;}
+.free{background:#00d2ff;}
+.main{background:#00ff9c;color:#000;}
+.grid{display:flex;gap:10px;}
+.status{text-align:center;font-size:11px;color:#00ff9c;}
+.progress{height:6px;background:#111;margin-top:10px;border-radius:10px;overflow:hidden;display:none;}
+.progress span{display:block;height:100%;background:#00ff9c;width:0%;}
+#out{display:none;margin-top:15px;}
+.card-info{background:#111;padding:10px;border-radius:10px;margin-bottom:8px;}
+.label{font-size:10px;color:#777;}
+.value{word-break:break-word;}
 </style></head><body><div class="card"><div class="title">GERADOR VIP IPTV</div>
-<div class="subtitle" id="sub">Sistema carregando...</div><div id="login">
+<div class="subtitle" id="sub">Carregando...</div><div id="login">
 <input type="password" class="input" id="senha" placeholder="Digite a chave">
 <button class="btn main" onclick="logar()">Desbloquear</button>
 </div><div id="painel" style="display:none;"><div class="grid">
-<a href="https://rafflores17-prog.github.io/vip-apk/" target="_blank">
-<button class="btn vip">💎 GRUPO VIP</button></a><a href="https://t.me/ApkBugado" target="_blank">
-<button class="btn free">📢 GRUPO FREE</button></a>
-</div><button id="gerarBtn" class="btn main" onclick="gerar()">GERAR ACESSO</button>
+<a href="https://rafflores17-prog.github.io/vip-apk/" target="_blank"><button class="btn vip">VIP</button></a>
+<a href="https://t.me/ApkBugado" target="_blank"><button class="btn free">FREE</button></a>
+</div><button class="btn main" onclick="gerar()">GERAR ACESSO</button>
+<button class="btn main" onclick="copiar()">COPIAR</button>
 
 <div class="status" id="status"></div>
 <div class="progress"><span id="bar"></span></div><div id="out"></div></div></div><script>
 
-/* 🔊 SOM SCAN */
-function somScan(){
-let ctx=new (window.AudioContext||window.webkitAudioContext)();
-let osc=ctx.createOscillator();
-osc.type="sine";
-osc.frequency.setValueAtTime(200,ctx.currentTime);
-osc.frequency.linearRampToValueAtTime(800,ctx.currentTime+0.3);
-osc.connect(ctx.destination);
-osc.start();
-osc.stop(ctx.currentTime+0.3);
-}
-
-/* 📳 VIBRAR */
-function vibrar(){
-if(navigator.vibrate){
-navigator.vibrate([100,50,100]);
-}
-}
-
-/* NORMALIZAR */
-function limpar(txt){
-return txt.normalize("NFKD")
-.replace(/[\u0300-\u036f]/g,"")
-.replace(/[^\x00-\x7F]/g,"")
-.toLowerCase();
+function limpar(t){
+return t.normalize("NFKD").replace(/[\u0300-\u036f]/g,"").toLowerCase();
 }
 
 let lista=[];
 let usadas=[];
-let ultimoHost=null;
+let memoria=JSON.parse(localStorage.getItem("hosts")||"{}");
 
 /* LOGIN */
 async function logar(){
-let senha=document.getElementById("senha").value.trim();
+let senha=document.getElementById("senha").value;
 let cfg=await (await fetch("config.json")).json();
-
 if(cfg.access_keys.includes(senha)){
-document.getElementById("login").style.display="none";
-document.getElementById("painel").style.display="block";
+login.style.display="none";
+painel.style.display="block";
 carregar();
-}else alert("Acesso negado");
+}
 }
 
-/* PARSER */
+/* CARREGAR */
 async function carregar(){
-
 let txt=await (await fetch("listas.txt?"+Date.now())).text();
 let blocos=txt.split(/┏|『/g);
 
 lista=blocos.map(b=>{
 
-let clean=limpar(b);
-
 let host=b.match(/http:\/\/[^\s]+:\d+/i)?.[0];
-let user=clean.match(/user[^a-z0-9]*([a-z0-9._-]+)/)?.[1];
-let pass=clean.match(/pass[^a-z0-9]*([a-z0-9._-]+)/)?.[1];
+let user=b.match(/user[^a-z0-9]*([a-z0-9._-]+)/i)?.[1];
+let pass=b.match(/pass[^a-z0-9]*([a-z0-9._-]+)/i)?.[1];
 
-let m=b.match(/get\.php\?username=([^\s&]+)&password=([^\s&]+)/i);
+let m=b.match(/username=([^\s&]+)&password=([^\s&]+)/i);
+if(m){user=m[1];pass=m[2];}
 
-if(m){
-user=m[1];
-pass=m[2];
+/* DATA INTELIGENTE */
+let exp=null;
+let linhas=b.split("\n");
+
+for(let l of linhas){
+let c=limpar(l);
+
+if(c.includes("scan")||c.includes("criado")||c.includes("dias")) continue;
+
+if(c.includes("exp")||c.includes("venc")){
+let m=l.match(/([0-9]{2}\/[0-9]{2}\/[0-9]{4})/);
+if(m){exp=m[1];break;}
+}
 }
 
+if(!exp){
 let datas=[...b.matchAll(/([0-9]{2}\/[0-9]{2}\/[0-9]{4})/g)];
-let exp=datas.length?datas[datas.length-1][1]:null;
+exp=datas.length?datas[datas.length-1][1]:null;
+}
 
 if(host&&user&&pass){
 return {host,user,pass,exp};
@@ -282,116 +96,82 @@ return {host,user,pass,exp};
 }).filter(x=>x);
 
 let hosts=[...new Set(lista.map(x=>x.host))];
-document.getElementById("sub").innerText=hosts.length+" hosts detectados";
+sub.innerText=hosts.length+" hosts detectados";
 }
 
 /* TESTE */
-async function testar(link){
+async function testar(host){
 try{
-let r=await fetch(link);
-return r.status==200;
-}catch{return false;}
+let r=await fetch(host,{method:"HEAD"});
+return r.ok;
+}catch{
+return true;
+}
+}
+
+/* IA SCORE */
+function score(h){
+let m=memoria[h]||{ok:0,fail:0};
+return m.ok - m.fail;
 }
 
 /* GERAR */
 async function gerar(){
 
-let btn=document.getElementById("gerarBtn");
-let status=document.getElementById("status");
-let bar=document.getElementById("bar");
-let out=document.getElementById("out");
-
-/* efeitos */
+let btn=document.querySelector(".main");
 btn.classList.add("wow");
-vibrar();
-somScan();
 
-/* reset animação */
-out.style.display="none";
+status.innerText="Conectando...";
+document.querySelector(".progress").style.display="block";
 
-await etapa("🔎 Analisando base...",20);
-await etapa("🌐 Conectando servidor...",50);
-await etapa("🔐 Gerando credenciais...",80);
+let ordenada=[...lista].sort((a,b)=>score(b.host)-score(a.host));
 
-let disponiveis=lista.filter(x=>!usadas.includes(x.user));
-if(disponiveis.length==0){usadas=[];disponiveis=lista;}
+let disponivel=ordenada.filter(x=>!usadas.includes(x.user));
+if(disponivel.length==0){usadas=[];disponivel=ordenada;}
 
-let filtrado=disponiveis.filter(x=>x.host!==ultimoHost);
-if(filtrado.length==0) filtrado=disponiveis;
-
-let c=filtrado[Math.floor(Math.random()*filtrado.length)];
+let c=disponivel[Math.floor(Math.random()*Math.min(5,disponivel.length))];
 
 usadas.push(c.user);
-ultimoHost=c.host;
+
+bar.style.width="70%";
 
 let link=`${c.host}/get.php?username=${c.user}&password=${c.pass}&type=m3u_plus&output=ts`;
 
-await etapa("📡 Testando conexão...",100);
+let online=await testar(c.host);
 
-let online=await testar(link);
+/* salvar IA */
+if(!memoria[c.host]) memoria[c.host]={ok:0,fail:0};
+online?memoria[c.host].ok++:memoria[c.host].fail++;
+localStorage.setItem("hosts",JSON.stringify(memoria));
 
-/* render com reset */
-out.innerHTML="";
-setTimeout(()=>{
+bar.style.width="100%";
 
 out.innerHTML=`
-
-<div class="card-info">
-<div class="label">HOST</div>
-<div class="value" style="color:#00d2ff;">${c.host}</div>
-</div>
-
-<div class="card-info">
-<div class="label">M3U</div>
-<div class="value" style="color:#00ff9c;">${link}</div>
-</div>
-
-<div class="grid-2">
-
-<div class="card-info">
-<div class="label">USER</div>
-<div class="value" style="color:#00ff9c;">${c.user}</div>
-</div>
-
-<div class="card-info">
-<div class="label">PASS</div>
-<div class="value" style="color:#f9d423;">${c.pass}</div>
-</div>
-
-<div class="card-info">
-<div class="label">VALIDADE</div>
-<div class="value" style="color:#bc13fe;">${c.exp||"Desconhecida"}</div>
-</div>
-
-<div class="card-info">
-<div class="label">STATUS</div>
-<div class="value">${online?"🟢 ONLINE":"🔴 OFFLINE"}</div>
-</div>
-
-</div>
+<div class="card-info"><div class="label">HOST</div><div class="value">${c.host}</div></div>
+<div class="card-info"><div class="label">M3U</div><div class="value">${link}</div></div>
+<div class="card-info"><div class="label">USER</div><div class="value">${c.user}</div></div>
+<div class="card-info"><div class="label">PASS</div><div class="value">${c.pass}</div></div>
+<div class="card-info"><div class="label">VALIDADE</div><div class="value">${c.exp||"Desconhecida"}</div></div>
+<div class="card-info"><div class="label">STATUS</div><div class="value">${online?"🟢 ONLINE":"🔴 OFFLINE"}</div></div>
 `;
 
 out.style.display="block";
+status.innerText="✔ Gerado";
 
-},10);
-
-/* reset UI */
-status.innerText="✔ Acesso liberado";
-document.querySelector(".progress").style.display="none";
+setTimeout(()=>{
 bar.style.width="0%";
-
+document.querySelector(".progress").style.display="none";
 btn.classList.remove("wow");
+},800);
 
 }
 
-/* ETAPA */
-function etapa(txt,p){
-return new Promise(r=>{
-document.getElementById("status").innerText=txt;
-document.getElementById("bar").style.width=p+"%";
-document.querySelector(".progress").style.display="block";
-setTimeout(r,700);
-});
+/* COPIAR */
+function copiar(){
+if(out.innerText){
+navigator.clipboard.writeText(out.innerText);
+status.innerText="✔ Copiado";
+}
 }
 
 </script></body>

@@ -38,16 +38,14 @@ color:#666;
 margin-bottom:15px;
 }
 
-/* LOGIN BOX NOVO */
-.login-box{
-background:#080808;
-padding:15px;
-border-radius:15px;
-border:1px solid #111;
-box-shadow:0 0 10px #000 inset;
+/* LOGIN CORRIGIDO */
+#login{
+width:100%;
+display:flex;
+flex-direction:column;
+gap:10px;
 }
 
-/* INPUT */
 input{
 width:100%;
 padding:14px;
@@ -56,9 +54,6 @@ border:1px solid #222;
 background:#000;
 color:#00ff9c;
 text-align:center;
-margin-bottom:10px;
-font-size:14px;
-outline:none;
 }
 
 /* BOTÕES */
@@ -72,12 +67,10 @@ cursor:pointer;
 position:relative;
 overflow:hidden;
 margin-top:10px;
-transition:.2s;
 }
 
 .btn:active{transform:scale(0.95);}
 
-/* brilho */
 .btn::before{
 content:"";
 position:absolute;
@@ -107,20 +100,17 @@ margin-bottom:15px;
 .vip{
 flex:1;
 background:linear-gradient(135deg,#bc13fe,#7a00aa);
-color:#fff;
 }
 
 .free{
 flex:1;
 background:linear-gradient(135deg,#00d2ff,#006a80);
-color:#fff;
 }
 
-/* GERAR */
+/* MAIN */
 .main{
 background:linear-gradient(135deg,#00ff9c,#008f58);
 color:#000;
-font-size:15px;
 }
 
 /* STATUS */
@@ -136,12 +126,6 @@ font-family:'Orbitron';
 #out{
 display:none;
 margin-top:15px;
-animation:fade .3s ease;
-}
-
-@keyframes fade{
-from{opacity:0; transform:translateY(10px);}
-to{opacity:1; transform:translateY(0);}
 }
 
 .card-info{
@@ -168,15 +152,15 @@ gap:10px;
 }
 
 </style></head><body><div class="card"><div class="title">GERADOR VIP IPTV</div>
-<div class="subtitle" id="sub">Carregando...</div><div id="login" class="login-box">
-<input type="password" id="senha" placeholder="Digite a chave de acesso">
+<div class="subtitle" id="sub">Aguardando login...</div><div id="login">
+<input type="password" id="senha" placeholder="Digite a chave">
 <button class="btn main" onclick="logar()">DESBLOQUEAR</button>
 </div><div id="painel" style="display:none;"><div class="grid">
 <a href="https://rafflores17-prog.github.io/vip-apk/" target="_blank">
-<button class="btn vip">💎 GRUPO VIP</button></a><a href="https://t.me/ApkBugado" target="_blank">
-<button class="btn free">📢 GRUPO FREE</button></a>
-</div><button class="btn main" onclick="gerar()">🚀 GERAR ACESSO VIP</button>
-<button class="btn main" onclick="copiar()">📋 COPIAR TUDO</button>
+<button class="btn vip">💎 VIP</button></a><a href="https://t.me/ApkBugado" target="_blank">
+<button class="btn free">📢 FREE</button></a>
+</div><button class="btn main" onclick="gerar()">🚀 GERAR</button>
+<button class="btn main" onclick="copiar()">📋 COPIAR</button>
 
 <div class="status" id="status"></div>
 <div id="out"></div></div></div><script>
@@ -192,27 +176,103 @@ try{
 
 let senha = document.getElementById("senha").value.trim();
 
-let cfg = await (await fetch("config.json")).json();
+let r = await fetch("config.json?"+Date.now());
+
+if(!r.ok) throw "erro";
+
+let cfg = await r.json();
 
 if(cfg.access_keys.includes(senha)){
     
-    document.getElementById("login").style.display = "none";
-    document.getElementById("painel").style.display = "block";
+    document.getElementById("login").style.display="none";
+    document.getElementById("painel").style.display="block";
     
-    carregar();
+    document.getElementById("sub").innerText="Carregando contas...";
+    
+    await carregar();
 
 }else{
-    alert("❌ Senha inválida");
+    alert("Senha inválida");
 }
 
 }catch(e){
-    alert("Erro ao carregar config.json");
-    console.log(e);
+alert("Erro ao carregar config.json");
+console.log(e);
 }
 
 }
 
-/* RESTO DO SISTEMA IGUAL (NÃO ALTERADO) */
+/* CARREGAR */
+async function carregar(){
+
+let txt=await (await fetch("listas.txt?"+Date.now())).text();
+
+let blocos=txt.split(/┏|『/g);
+
+lista=blocos.map(b=>{
+
+let host=b.match(/http:\/\/[^\s]+:\d+/i)?.[0];
+let user=b.match(/user[^a-z0-9]*([a-z0-9._-]+)/i)?.[1];
+let pass=b.match(/pass[^a-z0-9]*([a-z0-9._-]+)/i)?.[1];
+
+let m=b.match(/username=([^\s&]+)&password=([^\s&]+)/i);
+if(m){user=m[1];pass=m[2];}
+
+let exp=null;
+let linhas=b.split("\n");
+
+for(let l of linhas){
+let c=l.toLowerCase();
+if(c.includes("scan")||c.includes("criado")||c.includes("dias")) continue;
+
+if(c.includes("exp")||c.includes("venc")){
+let m=l.match(/([0-9]{2}\/[0-9]{2}\/[0-9]{4})/);
+if(m){exp=m[1];break;}
+}
+}
+
+if(host&&user&&pass){
+return {host,user,pass,exp};
+}
+
+}).filter(x=>x);
+
+let hosts=[...new Set(lista.map(x=>x.host))];
+document.getElementById("sub").innerText=hosts.length+" hosts detectados";
+
+}
+
+/* GERAR */
+async function gerar(){
+
+let btn=document.querySelector(".main");
+btn.classList.add("wow");
+
+let c=lista[Math.floor(Math.random()*lista.length)];
+
+let link=`${c.host}/get.php?username=${c.user}&password=${c.pass}&type=m3u_plus&output=ts`;
+
+out.innerHTML=`
+<div class="card-info"><div class="label">HOST</div><div class="value">${c.host}</div></div>
+<div class="card-info"><div class="label">M3U</div><div class="value">${link}</div></div>
+<div class="card-info"><div class="label">USER</div><div class="value">${c.user}</div></div>
+<div class="card-info"><div class="label">PASS</div><div class="value">${c.pass}</div></div>
+<div class="card-info"><div class="label">VALIDADE</div><div class="value">${c.exp||"Desconhecida"}</div></div>
+`;
+
+out.style.display="block";
+
+setTimeout(()=>btn.classList.remove("wow"),500);
+
+}
+
+/* COPIAR */
+function copiar(){
+if(out.innerText){
+navigator.clipboard.writeText(out.innerText);
+status.innerText="Copiado!";
+}
+}
 
 </script></body>
 </html>

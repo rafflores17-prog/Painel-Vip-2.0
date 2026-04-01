@@ -2,11 +2,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gerador VIP IPTV</title><link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Inter&display=swap" rel="stylesheet"><style>
+<title>Gerador VIP IPTV</title><link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Inter:wght@300;400;600&display=swap" rel="stylesheet"><style>
 body{
-background:#050505;
+background:#060606;
 color:#fff;
-font-family:'Inter';
+font-family:'Inter',sans-serif;
 display:flex;
 justify-content:center;
 align-items:center;
@@ -15,31 +15,34 @@ margin:0;
 }
 
 .card{
-max-width:420px;
 width:100%;
+max-width:420px;
 background:#111;
 padding:25px;
 border-radius:20px;
 box-shadow:0 0 50px #000;
 }
 
+/* TÍTULO */
 .title{
-text-align:center;
 font-family:'Orbitron';
+text-align:center;
+font-size:18px;
 color:#00ff9c;
 margin-bottom:20px;
+letter-spacing:2px;
 }
 
-/* LOGIN */
+/* INPUT */
 input{
 width:100%;
-padding:12px;
-border-radius:8px;
-border:none;
-margin-bottom:10px;
+padding:14px;
+border-radius:10px;
+border:1px solid #222;
 background:#000;
 color:#00ff9c;
 text-align:center;
+margin-bottom:10px;
 }
 
 /* GRID */
@@ -49,48 +52,83 @@ gap:10px;
 margin-bottom:20px;
 }
 
+.grid a{flex:1;}
+
+/* BOTÕES */
 .btn{
-flex:1;
+width:100%;
 padding:14px;
 border:none;
-border-radius:10px;
+border-radius:12px;
 cursor:pointer;
-font-weight:bold;
+font-weight:600;
+font-size:12px;
+transition:.2s;
 }
 
-.vip{background:#bc13fe;}
-.free{background:#00d2ff;}
-.main{background:#00ff9c;color:#000;}
+.vip{background:linear-gradient(135deg,#bc13fe,#7a00aa);}
+.free{background:linear-gradient(135deg,#00d2ff,#006a80);}
+.main{background:linear-gradient(135deg,#00ff9c,#008f58);color:#000;}
 
+.btn:hover{transform:scale(1.04);}
+
+/* STATUS */
 .status{
 text-align:center;
-font-size:12px;
-margin-top:10px;
+font-size:11px;
 color:#888;
+margin-top:10px;
 }
 
+/* LOADING */
+.loader{
+height:4px;
+background:#222;
+border-radius:10px;
+overflow:hidden;
+display:none;
+margin-top:10px;
+}
+
+.loader span{
+display:block;
+height:100%;
+width:40%;
+background:linear-gradient(90deg,#00ff9c,#00d2ff);
+animation:load 1s infinite;
+}
+
+@keyframes load{
+0%{margin-left:-40%;}
+100%{margin-left:100%;}
+}
+
+/* RESULTADO */
 #out{
 display:none;
-margin-top:15px;
+margin-top:20px;
 padding:15px;
 background:#0a0a0a;
-border-radius:10px;
+border-radius:12px;
+border:1px solid #222;
+animation:fade .3s ease;
+}
+
+@keyframes fade{
+from{opacity:0;transform:translateY(10px);}
+to{opacity:1;transform:translateY(0);}
 }
 
 .link{
 background:#000;
 padding:10px;
-border-radius:6px;
+border-radius:8px;
+color:#00ff9c;
 word-break:break-word;
-color:#00ff9c;
+margin-top:5px;
 }
 
-.creditos{
-text-align:center;
-margin-top:10px;
-color:#00ff9c;
-}
-
+/* COPY */
 .copy.done{
 background:#00ff9c;
 color:#000;
@@ -100,17 +138,17 @@ color:#000;
 <button class="btn main" onclick="logar()">DESBLOQUEAR SISTEMA</button>
 </div><!-- PAINEL --><div id="painel" style="display:none;"><div class="grid">
 <a href="https://rafflores17-prog.github.io/vip-apk/" target="_blank">
-<button class="btn vip">💎 VIP</button></a><a href="https://t.me/ApkBugado" target="_blank">
-<button class="btn free">📢 FREE</button></a>
+<button class="btn vip">💎 GRUPO VIP</button></a><a href="https://t.me/ApkBugado" target="_blank">
+<button class="btn free">📢 GRUPO FREE</button></a>
 </div><button class="btn main" onclick="gerar()">GERAR ACESSO</button>
 
-<div class="creditos" id="creditos"></div><div class="status" id="status">Sistema ativo</div><div id="out"></div></div></div><script>
+<div class="status" id="status">Sistema pronto</div><div class="loader" id="loader"><span></span></div><div id="out"></div></div></div><script>
 
 let lista=[];
-let creditos=localStorage.getItem("creditos") || 20;
 
 /* LOGIN */
 async function logar(){
+
 let senha=document.getElementById("senha").value.trim();
 
 try{
@@ -125,12 +163,16 @@ alert("ACESSO NEGADO");
 }
 
 }catch{
-alert("ERRO CONFIG");
+alert("Erro ao validar acesso");
 }
 }
 
-/* CARREGAR */
+/* CARREGAR LISTA */
 async function carregar(){
+
+let status=document.getElementById("status");
+
+status.innerText="Sincronizando base...";
 
 let t=await (await fetch("listas.txt?"+Date.now())).text();
 
@@ -157,45 +199,61 @@ return {host,user,pass,exp};
 
 }).filter(x=>x);
 
-document.getElementById("creditos").innerText="CRÉDITOS: "+creditos;
-
+status.innerText=lista.length+" contas disponíveis";
 }
 
 /* GERAR */
-function gerar(){
+async function gerar(){
 
-if(creditos<=0){
-alert("SEM CRÉDITOS");
+let out=document.getElementById("out");
+let status=document.getElementById("status");
+let loader=document.getElementById("loader");
+
+if(lista.length==0){
+status.innerText="Nenhuma conta carregada";
 return;
 }
 
-creditos--;
-localStorage.setItem("creditos",creditos);
-document.getElementById("creditos").innerText="CRÉDITOS: "+creditos;
+/* RESET */
+out.style.display="none";
+out.innerHTML="";
+loader.style.display="block";
 
+/* PROCESSO */
+status.innerText="Conectando...";
+await delay(500);
+
+status.innerText="Validando...";
+await delay(500);
+
+status.innerText="Gerando acesso...";
+await delay(600);
+
+/* GERAR */
 let c=lista[Math.floor(Math.random()*lista.length)];
 
 let link=`${c.host}/get.php?username=${c.user}&password=${c.pass}&type=m3u_plus&output=ts`;
-
-let out=document.getElementById("out");
 
 out.innerHTML=`
 <b style="color:#bc13fe;">ACESSO LIBERADO</b><br><br>
 
 <div class="link">${link}</div>
 
-<br>USER: ${c.user}
-<br>PASS: ${c.pass}
+<br>Usuário: ${c.user}
+<br>Senha: ${c.pass}
 
-<br><br>VALIDADE: ${c.exp || "N/A"}
+<br><br>Validade: ${c.exp || "Não informada"}
 
 <button class="btn main copy" onclick="copiar('${link}', this)">COPIAR</button>
 `;
 
+loader.style.display="none";
 out.style.display="block";
+status.innerText="Acesso pronto";
+
 }
 
-/* COPIAR */
+/* COPY */
 function copiar(text,btn){
 navigator.clipboard.writeText(text);
 btn.innerText="COPIADO ✔";
@@ -205,6 +263,10 @@ setTimeout(()=>{
 btn.innerText="COPIAR";
 btn.classList.remove("done");
 },1500);
+}
+
+function delay(ms){
+return new Promise(r=>setTimeout(r,ms));
 }
 
 </script></body>

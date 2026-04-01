@@ -3,105 +3,138 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>PAINEL VIP APKBUGADO</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Source+Code+Pro&display=swap" rel="stylesheet">
+    <title>APK BUGADO - COMMAND CENTER</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
     <style>
-        :root { --neon-green: #00ff9c; --neon-purple: #bc13fe; --dark: #000; }
+        :root { 
+            --neon-green: #00ff9c; 
+            --neon-purple: #bc13fe; 
+            --neon-blue: #00d2ff;
+            --neon-yellow: #f9d423;
+            --dark-bg: #050505;
+        }
+
         * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         
         body {
-            background: var(--dark); color: #fff;
-            font-family: 'Source Code Pro', monospace;
+            background: var(--dark-bg); color: #fff;
+            font-family: 'Share Tech Mono', monospace;
             display: flex; justify-content: center; align-items: center;
             min-height: 100vh; margin: 0; padding: 15px;
         }
 
         .card-painel {
             width: 100%; max-width: 420px; padding: 25px;
-            border: 1px solid var(--neon-green); border-radius: 20px;
-            box-shadow: 0 0 30px rgba(0,255,156,0.3); text-align: center;
-            background: rgba(5, 5, 5, 0.95);
+            border: 1px solid rgba(0, 255, 156, 0.2); border-radius: 20px;
+            box-shadow: 0 0 40px rgba(0,0,0,1), inset 0 0 15px rgba(0,255,156,0.1);
+            text-align: center; background: #0a0a0a;
+            position: relative; overflow: hidden;
         }
 
-        /* LOGO EM CÓDIGO (CSS) */
-        .logo-vip { display: flex; justify-content: center; margin-bottom: 20px; }
-        .circle {
-            width: 140px; height: 140px; border-radius: 50%;
-            border: 3px solid var(--neon-green); position: relative;
+        /* LOGO VIP ANIMADA */
+        .logo-container { margin-bottom: 25px; position: relative; }
+        .vip-ring {
+            width: 120px; height: 120px; border-radius: 50%;
+            border: 2px solid var(--neon-green); margin: 0 auto;
             display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 0 20px var(--neon-green);
+            box-shadow: 0 0 20px var(--neon-green), inset 0 0 10px var(--neon-green);
+            position: relative;
         }
-        .circle::before {
-            content: "VIP"; font-family: 'Orbitron'; font-size: 35px; color: var(--neon-green);
-            text-shadow: 0 0 10px var(--neon-green);
+        .vip-ring::after {
+            content: "VIP"; font-family: 'Orbitron'; font-size: 30px; 
+            color: var(--neon-green); text-shadow: 0 0 10px var(--neon-green);
         }
-        .circle::after {
-            content: ""; position: absolute; inset: -8px;
-            border: 2px dashed var(--neon-purple); border-radius: 50%;
-            animation: girar 10s linear infinite;
+        .scan-line {
+            position: absolute; width: 100%; height: 2px;
+            background: var(--neon-purple); top: 0;
+            box-shadow: 0 0 15px var(--neon-purple);
+            animation: scanning 3s linear infinite; opacity: 0.7;
         }
-        @keyframes girar { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-
-        /* LINKS */
-        .links-topo { display: flex; gap: 10px; margin-bottom: 20px; }
-        .btn-atalho {
-            flex: 1; padding: 12px; border-radius: 12px; font-size: 11px;
-            font-weight: bold; text-decoration: none; border: 1px solid var(--neon-green);
-            color: var(--neon-green); background: #012; font-family: 'Orbitron';
+        @keyframes scanning { 
+            0% { top: 0; } 50% { top: 100%; } 100% { top: 0; }
         }
 
-        /* INPUT E BOTÕES */
+        /* BOTÕES 3D ESTILO HACKER */
+        .btn-3d {
+            width: 100%; padding: 16px; border: none; border-radius: 12px;
+            font-family: 'Orbitron'; font-weight: bold; cursor: pointer;
+            text-transform: uppercase; letter-spacing: 1px; font-size: 13px;
+            transition: all 0.1s ease; margin-bottom: 15px;
+            display: inline-block; text-decoration: none;
+        }
+
+        /* Botão Verde 3D */
+        .btn-green {
+            background: linear-gradient(145deg, #00ff9c, #008f58);
+            color: #000; box-shadow: 0 6px #005a38, 0 10px 20px rgba(0,255,156,0.3);
+        }
+        .btn-green:active { box-shadow: 0 2px #005a38; transform: translateY(4px); }
+
+        /* Botão Roxo 3D (Secundário) */
+        .btn-purple {
+            background: linear-gradient(145deg, #bc13fe, #7a00aa);
+            color: #fff; box-shadow: 0 6px #520073, 0 10px 20px rgba(188,19,254,0.3);
+        }
+        .btn-purple:active { box-shadow: 0 2px #520073; transform: translateY(4px); }
+
+        .links-topo { display: flex; gap: 12px; margin-bottom: 20px; }
+        .btn-small { flex: 1; padding: 10px; font-size: 10px; }
+
+        /* INPUT */
         input {
-            width: 100%; padding: 15px; border-radius: 12px; border: 1px solid var(--neon-green);
-            background: #000; color: var(--neon-green); text-align: center; font-size: 15px; margin-bottom: 10px;
+            width: 100%; padding: 15px; border-radius: 12px; border: 1px solid #333;
+            background: #000; color: var(--neon-green); text-align: center;
+            font-size: 16px; margin-bottom: 15px; font-family: 'Share Tech Mono';
         }
-        button {
-            width: 100%; padding: 15px; border-radius: 12px; background: transparent;
-            border: 1px solid var(--neon-green); color: var(--neon-green);
-            font-weight: bold; cursor: pointer; font-family: 'Orbitron'; margin-top: 5px;
-        }
-        button:disabled { opacity: 0.5; cursor: not-allowed; }
-        button:hover:not(:disabled) { background: var(--neon-green); color: #000; }
 
-        /* ÁREA DE SAÍDA (O CARD GERADO) */
+        /* SAÍDA DE DADOS (RESULTADO) */
         #out {
-            background: #020202; padding: 15px; margin-top: 20px;
-            border-radius: 15px; font-size: 12px; text-align: left;
-            color: var(--neon-green); border: 1px solid var(--neon-green);
-            min-height: 150px; white-space: pre-wrap; word-break: break-all;
-            display: none; /* Escondido até gerar */
+            background: #020202; padding: 20px; margin-top: 20px;
+            border-radius: 15px; font-size: 13px; text-align: left;
+            border-left: 4px solid var(--neon-purple);
+            display: none; box-shadow: 0 5px 15px rgba(0,0,0,0.5);
         }
 
-        .status { margin-top: 10px; font-size: 11px; color: #888; }
-        .typing { border-right: 2px solid var(--neon-green); animation: blink 0.7s infinite; }
-        @keyframes blink { 50% { border-color: transparent } }
+        /* CORES DAS CREDENCIAIS */
+        .label { color: #888; font-size: 10px; display: block; margin-top: 8px; }
+        .val-host { color: var(--neon-blue); font-weight: bold; }
+        .val-user { color: #fff; text-shadow: 0 0 5px #fff; }
+        .val-pass { color: var(--neon-yellow); }
+        .val-exp  { color: var(--neon-green); }
+
+        .status-msg { margin-top: 15px; font-size: 11px; color: #555; height: 15px; }
     </style>
 </head>
 <body>
 
 <div class="card-painel">
-    <div style="color:var(--neon-green); letter-spacing: 4px; margin-bottom: 15px; font-family: 'Orbitron';">[ VIP_PAINEL ]</div>
+    <div style="color:var(--neon-green); font-size: 12px; letter-spacing: 3px; margin-bottom: 20px; font-family: 'Orbitron';">
+        [ APK_BUGADO_SYSTEM ]
+    </div>
 
-    <div class="logo-vip">
-        <div class="circle"></div>
+    <div class="logo-container">
+        <div class="vip-ring">
+            <div class="scan-line"></div>
+        </div>
     </div>
 
     <div class="links-topo">
-        <a href="#" class="btn-atalho">💎 ENTRAR VIP</a>
-        <a href="#" class="btn-atalho">📢 GRUPO</a>
+        <a href="https://rafflores17-prog.github.io/vip-apk/" target="_blank" class="btn-3d btn-purple btn-small">💎 ENTRAR VIP</a>
+        <a href="https://t.me/ApkBugado" target="_blank" class="btn-3d btn-green btn-small">📢 GRUPO FREE</a>
     </div>
 
     <div id="login-box">
-        <input type="password" id="senha" placeholder="DIGITE CÓDIGO MESTRE">
-        <button onclick="login()">DESBLOQUEAR</button>
+        <input type="password" id="senha" placeholder="INSIRA ACESSO MESTRE">
+        <button class="btn-3d btn-green" onclick="login()">DESBLOQUEAR SISTEMA</button>
     </div>
 
     <div id="painel" style="display:none;">
-        <button id="btn-gerar" onclick="gerar()">GERAR CONTA ALEATÓRIA</button>
-        <button onclick="copiar()">COPIAR DADOS</button>
+        <button id="btn-gerar" class="btn-3d btn-green" onclick="gerar()">ATIVAR ACESSO IPTV</button>
+        <button class="btn-3d btn-purple" style="padding: 10px; font-size: 11px;" onclick="copiar()">COPIAR CREDENCIAIS</button>
 
-        <div class="status" id="status">SISTEMA PRONTO</div>
-        <pre id="out"></pre>
+        <div class="status-msg" id="status">AGUARDANDO COMANDO...</div>
+        
+        <div id="out"></div>
     </div>
 </div>
 
@@ -109,93 +142,83 @@
 let listaGlobal = [];
 let emProcesso = false;
 
-// 1. LOGIN (Puxando do config.json para segurança)
 async function login() {
-    const input = document.getElementById('senha').value.trim();
-    try {
-        const res = await fetch('config.json');
-        const config = await res.json();
-        
-        if (config.access_keys.includes(input)) {
-            document.getElementById('login-box').style.display = "none";
-            document.getElementById('painel').style.display = "block";
-            carregarDados(); // Sincroniza em background
-        } else { alert("CÓDIGO INVÁLIDO!"); }
-    } catch(e) { alert("Erro ao validar acesso!"); }
+    const s = document.getElementById('senha').value.trim();
+    // Exemplo de senha direto no código (ou puxe do config.json como antes)
+    if(s === "MESTRE") { // Altere para sua senha preferida
+        document.getElementById('login-box').style.display = "none";
+        document.getElementById('painel').style.display = "block";
+        carregarBanco();
+    } else { alert("ACESSO NEGADO!"); }
 }
 
-// 2. CARREGAR DADOS DO TXT (Sincronização)
-async function carregarDados() {
-    const status = document.getElementById('status');
-    status.textContent = "SINCRONIZANDO BANCO DE DADOS...";
-    
+async function carregarBanco() {
+    document.getElementById('status').textContent = "ESTABELECENDO CONEXÃO SEGURA...";
     try {
-        const res = await fetch('listas.txt');
-        const text = await res.text();
+        const r = await fetch('listas.txt');
+        const t = await r.text();
+        const blocos = t.split(/┏●|『|▬▬▬▬▬|🌐Host/).filter(b => b.includes('http'));
         
-        // Extrai todas as contas do TXT e coloca no Array
-        const blocks = text.split(/┏●|『|▬▬▬▬▬|🌐Host/).filter(b => b.includes('http'));
+        listaGlobal = blocos.map(b => ({
+            host: b.match(/(?:http:\/\/[a-zA-Z0-9.-]+:[0-9]+)/i)?.[0],
+            user: b.match(/(?:Usuário|Usᴜᴀʀɪᴏ|👤Usuário)\s*►\s*([a-zA-Z0-9._-]+)/i)?.[1],
+            pass: b.match(/(?:Senha|Sᴇɴʜᴀ|🔒Senha)\s*►\s*([a-zA-Z0-9._-]+)/i)?.[1],
+            exp: b.match(/(?:Expira|Vᴇɴᴄɪᴍᴇɴᴛᴏ|⏳Expira)\s*►\s*([0-9\/.]+)/i)?.[1]
+        })).filter(a => a.host && a.user);
         
-        listaGlobal = blocks.map(block => {
-            return {
-                host: block.match(/(?:http:\/\/[a-zA-Z0-9.-]+:[0-9]+)/i)?.[0],
-                user: block.match(/(?:Usuário|Usᴜᴀʀɪᴏ|👤Usuário)\s*►\s*([a-zA-Z0-9._-]+)/i)?.[1],
-                pass: block.match(/(?:Senha|Sᴇɴʜᴀ|🔒Senha)\s*►\s*([a-zA-Z0-9._-]+)/i)?.[1],
-                exp: block.match(/(?:Expira|Vᴇɴᴄɪᴍᴇɴᴛᴏ|⏳Expira)\s*►\s*([0-9\/.]+)/i)?.[1]
-            };
-        }).filter(acc => acc.host && acc.user && acc.pass);
-
-        status.textContent = `SISTEMA ONLINE: ${listaGlobal.length} CONTAS CARREGADAS`;
-    } catch(e) { status.textContent = "ERRO AO CARREGAR LISTAS.TXT"; }
+        document.getElementById('status').textContent = `SISTEMA ONLINE: ${listaGlobal.length} NODES`;
+    } catch(e) { document.getElementById('status').textContent = "ERRO NA DATABASE"; }
 }
 
-// 3. LÓGICA DE SORTEIO (RANDOM)
 async function gerar() {
-    if (emProcesso || listaGlobal.length === 0) return;
+    if(emProcesso || listaGlobal.length === 0) return;
     emProcesso = true;
 
-    const btn = document.getElementById('btn-gerar');
-    const status = document.getElementById('status');
     const out = document.getElementById('out');
+    const status = document.getElementById('status');
+    const btn = document.getElementById('btn-gerar');
 
     btn.disabled = true;
     out.style.display = "none";
-    
-    // Efeito de "Minerando"
-    const fases = [" minerando contas...", " validando acesso...", " criptografando..."];
-    for(let f of fases) {
-        status.innerHTML = `<span style="color:var(--neon-purple)">●</span> ${f}`;
-        await new Promise(r => setTimeout(r, 600));
+
+    const logs = ["CONECTANDO AO SERVIDOR...", "DECODIFICANDO PROTOCOLOS...", "SINCRONIZANDO DATABASE...", "ACESSO CONCEDIDO!"];
+    for(let l of logs) {
+        status.innerHTML = `<span style="color:var(--neon-purple)">>></span> ${l}`;
+        await new Promise(r => setTimeout(r, 700));
     }
 
-    // SORTEIO ALEATÓRIO
-    const sorteada = listaGlobal[Math.floor(Math.random() * listaGlobal.length)];
-    const link = `${sorteada.host}/get.php?username=${sorteada.user}&password=${sorteada.pass}&type=m3u_plus&output=ts`;
-
-    // EXIBIÇÃO NO CARD
-    out.innerHTML = `💎 <span class="typing">VIP APKBUGADO PREMIUM</span>
-
-🔗 URL M3U8:
-<span style="color:#fff">${link}</span>
-
-⚙️ XTREAM:
-Host: ${sorteada.host}
-User: ${sorteada.user}
-Pass: ${sorteada.pass}
-
-📅 VENCIMENTO: ${sorteada.exp || '20/12/2026'}`;
+    const conta = listaGlobal[Math.floor(Math.random() * listaGlobal.length)];
+    
+    out.innerHTML = `
+        <span style="color:var(--neon-purple); font-weight:bold;">● APK BUGADO PREMIUM</span><br>
+        
+        <span class="label">DIRETÓRIO M3U8:</span>
+        <span style="font-size:10px; color:#666;">${conta.host}/get.php?username=${conta.user}&password=${conta.pass}&type=m3u_plus&output=ts</span><br>
+        
+        <span class="label">SERVIDOR HOST:</span>
+        <span class="val-host">${conta.host}</span><br>
+        
+        <span class="label">USER ID:</span>
+        <span class="val-user">${conta.user}</span><br>
+        
+        <span class="label">ACCESS KEY:</span>
+        <span class="val-pass">${conta.pass}</span><br>
+        
+        <span class="label">VALIDADE DO SCANNER:</span>
+        <span class="val-exp">${conta.exp || 'ILIMITADO'}</span>
+    `;
 
     out.style.display = "block";
-    status.innerHTML = "🟢 CONTA GERADA COM SUCESSO!";
+    status.innerHTML = "🟢 CREDENCIAIS EXTRAÍDAS";
     btn.disabled = false;
     emProcesso = false;
 }
 
 function copiar() {
     const out = document.getElementById('out');
-    if (out.style.display === "block") {
-        navigator.clipboard.writeText(out.textContent);
-        alert("DADOS COPIADOS!");
+    if(out.style.display === "block") {
+        navigator.clipboard.writeText(out.innerText);
+        alert("SISTEMA: DADOS COPIADOS!");
     }
 }
 </script>

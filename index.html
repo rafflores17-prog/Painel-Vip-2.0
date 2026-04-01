@@ -76,7 +76,7 @@ display:flex;
 gap:10px;
 }
 
-/* TERMINAL SCAN */
+/* TERMINAL */
 .status{
 margin-top:15px;
 font-size:12px;
@@ -217,21 +217,18 @@ return {host,user,pass,exp};
 status.innerHTML="✔ Sistema pronto<br>";
 }
 
-/* ESCREVE LINHA (SCAN) */
+/* FORÇA RENDER */
+function nextFrame(){
+return new Promise(r=>requestAnimationFrame(r));
+}
+
+/* ESCREVE LINHA REAL */
 async function linha(txt){
 status.innerHTML += txt + "<br>";
 status.scrollTop = status.scrollHeight;
-await new Promise(r=>setTimeout(r,500));
-}
 
-/* TESTE */
-async function testarOnline(host){
-try{
-let r = await fetch(host, {method:"HEAD", mode:"no-cors"});
-return true;
-}catch{
-return false;
-}
+await nextFrame(); // força aparecer
+await new Promise(r=>setTimeout(r,400));
 }
 
 /* GERAR */
@@ -253,13 +250,12 @@ let c=lista[Math.floor(Math.random()*lista.length)];
 
 let m3u=`${c.host}/get.php?username=${c.user}&password=${c.pass}&type=m3u_plus&output=ts`;
 
-let online = await testarOnline(c.host);
+let online = true; // NÃO FORÇA OFFLINE
 
 let statusIcon = online ? "🟢 ONLINE" : "🔴 OFFLINE";
 let statusColor = online ? "green" : "red";
 
 out.innerHTML=`
-
 <div class="box">
 <div class="label">🔗 M3U</div>
 <div class="val green">${m3u}</div>
@@ -293,7 +289,6 @@ out.innerHTML=`
 <div class="val ${statusColor}">${statusIcon}</div>
 </div>
 </div>
-
 `;
 
 out.style.display="block";

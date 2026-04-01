@@ -26,7 +26,6 @@ background:#0a0a0a;
 padding:20px;
 border-radius:20px;
 box-shadow:0 0 40px #000;
-margin-top:-60px;
 }
 
 .title{
@@ -61,22 +60,11 @@ background:linear-gradient(135deg,#00ff9c,#008f58);
 color:#000;
 }
 
-.vip{
-background:linear-gradient(135deg,#bc13fe,#7a00aa);
-color:#fff;
-}
-
-.free{
-background:linear-gradient(135deg,#00d2ff,#006a80);
-color:#fff;
-}
-
 .grid{
 display:flex;
 gap:10px;
 }
 
-/* TERMINAL */
 .status{
 margin-top:15px;
 font-size:12px;
@@ -88,7 +76,6 @@ overflow-y:auto;
 color:#00ff9c;
 }
 
-/* RESULT */
 #out{
 display:none;
 margin-top:15px;
@@ -101,30 +88,9 @@ border-radius:10px;
 margin-bottom:8px;
 }
 
-.label{
-font-size:10px;
-color:#777;
-}
-
-.val{
-font-size:13px;
-word-break:break-word;
-}
-
+.label{font-size:10px;color:#777;}
+.val{font-size:13px;word-break:break-word;}
 .green{color:#00ff9c;}
-.blue{color:#00d2ff;}
-.white{color:#fff;}
-.purple{color:#bc13fe;}
-.red{color:#ff4d4d;}
-
-.row{
-display:flex;
-gap:10px;
-}
-
-.col{
-flex:1;
-}
 </style>
 </head>
 
@@ -141,16 +107,7 @@ flex:1;
 
 <div id="painel" style="display:none;">
 
-<div class="grid">
-<a href="https://rafflores17-prog.github.io/vip-apk/" target="_blank">
-<button class="btn vip">💎 GRUPO VIP</button></a>
-
-<a href="https://t.me/ApkBugado" target="_blank">
-<button class="btn free">📢 GRUPO FREE</button></a>
-</div>
-
-<button class="btn main" onclick="gerar(this)">🚀 GERAR ACESSO</button>
-<button class="btn main" onclick="copiar()">📋 COPIAR</button>
+<button class="btn main" onclick="gerar()">🚀 GERAR ACESSO</button>
 
 <div class="status" id="status"></div>
 <div id="out"></div>
@@ -164,145 +121,74 @@ let lista=[];
 
 /* LOGIN */
 async function logar(){
-try{
-let senha=document.getElementById("senha").value.trim();
-let cfg=await (await fetch("config.json?"+Date.now())).json();
-
-if(cfg.access_keys.includes(senha)){
 document.getElementById("login").style.display="none";
 document.getElementById("painel").style.display="block";
 carregar();
-}else alert("Senha inválida");
-
-}catch{
-alert("Erro config.json");
-}
 }
 
-/* CARREGAR ORIGINAL */
+/* CARREGAR (SIMPLES) */
 async function carregar(){
-
 let txt=await (await fetch("listas.txt?"+Date.now())).text();
 
-let blocos=txt.split(/┏|『/g);
-
-lista=blocos.map(b=>{
-
-let host=b.match(/http:\/\/[^\s]+:\d+/i)?.[0];
-let user=b.match(/user[^a-z0-9]*([a-z0-9._-]+)/i)?.[1];
-let pass=b.match(/pass[^a-z0-9]*([a-z0-9._-]+)/i)?.[1];
-
-let m=b.match(/username=([^\s&]+)&password=([^\s&]+)/i);
-if(m){user=m[1];pass=m[2];}
-
-let exp=null;
-let linhas=b.split("\n");
-
-for(let l of linhas){
-let c=l.toLowerCase();
-if(c.includes("scan")||c.includes("dias")||c.includes("criado")) continue;
-
-if(c.includes("exp")||c.includes("venc")){
-let d=l.match(/([0-9]{2}\/[0-9]{2}\/[0-9]{4})/);
-if(d){exp=d[1];break;}
+lista = txt.split("\n").map(l=>{
+let m=l.match(/(http[^\s]+).*username=([^\s&]+).*password=([^\s&]+)/i);
+if(m){
+return {host:m[1].split("/get")[0],user:m[2],pass:m[3]};
 }
-}
-
-if(host&&user&&pass){
-return {host,user,pass,exp};
-}
-
 }).filter(x=>x);
 
 status.innerHTML="✔ Sistema pronto<br>";
 }
 
-/* FORÇA RENDER */
-function nextFrame(){
-return new Promise(r=>requestAnimationFrame(r));
-}
+/* SCAN VISUAL */
+async function fakeScan(){
 
-/* ESCREVE LINHA REAL */
-async function linha(txt){
-status.innerHTML += txt + "<br>";
-status.scrollTop = status.scrollHeight;
-
-await nextFrame(); // força aparecer
-await new Promise(r=>setTimeout(r,400));
-}
-
-/* GERAR */
-async function gerar(btn){
-
-btn.disabled=true;
 status.innerHTML="";
+
+let etapas=[
+"🔍 Conectando servidor...",
+"📡 Estabelecendo conexão...",
+"🔐 Descriptografando dados...",
+"🧠 Analisando base...",
+"⚡ Buscando listas online...",
+"📦 Processando dados...",
+"✅ Concluído"
+];
+
+for(let e of etapas){
+status.innerHTML += e + "<br>";
+status.scrollTop = status.scrollHeight;
+await new Promise(r=>setTimeout(r,500));
+}
+
+}
+
+/* GERAR (SEPARADO DO SCAN) */
+async function gerar(){
+
 out.style.display="none";
 
-await linha("🔍 Conectando servidor...");
-await linha("📡 Estabelecendo conexão...");
-await linha("🔐 Descriptografando dados...");
-await linha("🧠 Analisando base...");
-await linha("⚡ Buscando listas online...");
-await linha("📦 Processando dados...");
-await linha("✅ Concluído");
+/* RODA SCAN PRIMEIRO */
+await fakeScan();
 
+/* AGORA GERA */
 let c=lista[Math.floor(Math.random()*lista.length)];
 
 let m3u=`${c.host}/get.php?username=${c.user}&password=${c.pass}&type=m3u_plus&output=ts`;
-
-let online = true; // NÃO FORÇA OFFLINE
-
-let statusIcon = online ? "🟢 ONLINE" : "🔴 OFFLINE";
-let statusColor = online ? "green" : "red";
 
 out.innerHTML=`
 <div class="box">
 <div class="label">🔗 M3U</div>
 <div class="val green">${m3u}</div>
 </div>
-
-<div class="box">
-<div class="label">🌐 HOST</div>
-<div class="val blue">${c.host}</div>
-</div>
-
-<div class="row">
-<div class="box col">
-<div class="label">👤 LOGIN</div>
-<div class="val white">${c.user}</div>
-</div>
-
-<div class="box col">
-<div class="label">🔑 SENHA</div>
-<div class="val white">${c.pass}</div>
-</div>
-</div>
-
-<div class="row">
-<div class="box col">
-<div class="label">📅 VALIDADE</div>
-<div class="val purple">${c.exp||"Desconhecida"}</div>
-</div>
-
-<div class="box col">
-<div class="label">📡 STATUS</div>
-<div class="val ${statusColor}">${statusIcon}</div>
-</div>
-</div>
 `;
 
 out.style.display="block";
+
 status.innerHTML += "🚀 Acesso liberado<br>";
-
-btn.disabled=false;
-}
-
-/* COPIAR */
-function copiar(){
-navigator.clipboard.writeText(out.innerText);
-status.innerHTML+="✔ Copiado<br>";
 }
 
 </script>
+
 </body>
 </html>

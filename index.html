@@ -215,31 +215,40 @@ return {host,user,pass,exp};
 status.innerText="✔ Sistema pronto";
 }
 
-/* SCAN REAL */
-async function gerar(){
+/async function gerar(){
 
 let btn=document.querySelector(".main");
 btn.classList.add("anim");
 
 out.style.display="none";
 
+/* ETAPAS REAIS */
 let etapas=[
 "🔍 Conectando servidor...",
 "📡 Estabelecendo conexão...",
 "🔐 Descriptografando dados...",
 "🧠 Analisando base...",
-"⚡ Gerando acesso..."
+"📊 Selecionando melhor host...",
+"⚡ Finalizando..."
 ];
 
+/* MOSTRA UMA POR UMA */
 for(let i=0;i<etapas.length;i++){
 status.innerText=etapas[i];
-await new Promise(r=>setTimeout(r,400));
+await new Promise(r=>setTimeout(r,500));
 }
 
+/* SÓ AQUI ELE PEGA A CONTA */
 let c=lista[Math.floor(Math.random()*lista.length)];
 
 let m3u=`${c.host}/get.php?username=${c.user}&password=${c.pass}&type=m3u_plus&output=ts`;
 
+/* TESTE ONLINE */
+let online = await testarOnline(c.host);
+let statusIcon = online ? "🟢 ONLINE" : "🔴 OFFLINE";
+let statusColor = online ? "green" : "red";
+
+/* AGORA MOSTRA RESULTADO */
 out.innerHTML=`
 
 <div class="box">
@@ -275,7 +284,7 @@ out.innerHTML=`
 
 <div class="box col">
 <div class="label">📡 STATUS</div>
-<div class="val green">🟢 ONLINE</div>
+<div class="val ${statusColor}">${statusIcon}</div>
 </div>
 
 </div>
@@ -283,11 +292,13 @@ out.innerHTML=`
 `;
 
 out.style.display="block";
-status.innerText="✅ Acesso gerado";
+
+/* FINAL */
+status.innerText="✅ Concluído";
 
 btn.classList.remove("anim");
 
-}
+  }
 
 /* COPIAR */
 function copiar(){

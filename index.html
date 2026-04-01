@@ -2,267 +2,180 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>APK BUGADO - COMMAND CENTER</title><link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&display=swap" rel="stylesheet"><style>
-:root {
---green:#00ff9c;
---purple:#bc13fe;
---blue:#00d2ff;
---yellow:#f9d423;
---bg:#050505;
-}
-
+<title>APK BUGADO PRO</title><link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Share+Tech+Mono&display=swap" rel="stylesheet"><style>
 body{
-background:var(--bg);
-color:#fff;
-font-family:'Share Tech Mono';
-display:flex;
-justify-content:center;
-align-items:center;
-min-height:100vh;
-margin:0;
-padding:15px;
+background:#050505;color:#fff;font-family:'Share Tech Mono';
+display:flex;justify-content:center;align-items:center;
+min-height:100vh;margin:0;padding:15px;
 }
 
 .card{
-width:100%;
-max-width:420px;
-background:#0a0a0a;
-padding:25px;
-border-radius:20px;
-text-align:center;
-border:1px solid rgba(0,255,156,0.2);
+max-width:420px;width:100%;background:#0a0a0a;
+padding:25px;border-radius:20px;text-align:center;
 box-shadow:0 0 40px #000;
 }
 
-.vip{
-width:100px;height:100px;border-radius:50%;
-border:2px solid var(--green);
-margin:0 auto 15px;
-display:flex;align-items:center;justify-content:center;
-box-shadow:0 0 20px var(--green);
-}
-
-.vip::after{
-content:"VIP";
-color:var(--green);
-font-family:'Orbitron';
-font-size:24px;
-}
-
 .btn{
-width:100%;
-padding:14px;
-border:none;
-border-radius:12px;
-margin-bottom:10px;
-font-family:'Orbitron';
-font-size:11px;
-cursor:pointer;
+width:100%;padding:14px;border:none;border-radius:10px;
+margin-bottom:10px;font-family:'Orbitron';cursor:pointer;
 }
 
-.green{background:linear-gradient(145deg,#00ff9c,#008f58);color:#000;}
-.purple{background:linear-gradient(145deg,#bc13fe,#7a00aa);}
-.blue{background:linear-gradient(145deg,#00d2ff,#006a80);}
+.green{background:#00ff9c;color:#000;}
+.purple{background:#bc13fe;}
+.blue{background:#00d2ff;}
 
-input{
-width:100%;
-padding:14px;
-border-radius:10px;
-background:#000;
-border:1px solid #222;
-color:var(--green);
-margin-bottom:10px;
-text-align:center;
-}
+.progress{height:6px;background:#111;border-radius:10px;overflow:hidden;display:none;}
+.bar{height:100%;width:0;background:#00ff9c;transition:.3s;}
 
-/* 🔥 BARRA DE PROGRESSO */
-.progress{
-width:100%;
-height:6px;
-background:#111;
-border-radius:10px;
-overflow:hidden;
-margin-top:10px;
-display:none;
-}
-
-.bar{
-height:100%;
-width:0%;
-background:linear-gradient(90deg,var(--green),var(--blue));
-transition:width .4s;
-}
-
-/* 🔥 OUTPUT */
 #out{
-display:none;
-margin-top:15px;
-padding:15px;
-background:#020202;
-border-radius:15px;
-border-left:3px solid var(--purple);
-font-size:12px;
+margin-top:15px;padding:15px;background:#020202;
+border-radius:15px;border-left:3px solid #bc13fe;
+display:none;font-size:12px;
 }
-
-.label{color:#666;font-size:10px;margin-top:8px;display:block;}
 
 .val{
-color:var(--green);
-word-break:break-all;
-background:#080808;
-padding:8px;
-border-radius:6px;
-box-shadow:0 0 10px rgba(0,255,156,0.2);
-margin-top:5px;
+color:#00ff9c;background:#080808;padding:8px;
+border-radius:6px;word-break:break-all;
 }
 
-.status{font-size:10px;color:#555;margin-top:10px;}
-</style></head><body><div class="card"><div style="color:var(--green);font-size:10px;margin-bottom:10px;">
-[ APK_BUGADO_SYSTEM ]
-</div><div class="vip"></div><!-- 🔥 BOTÕES GRUPO --><a href="https://rafflores17-prog.github.io/vip-apk/" target="_blank">
-<button class="btn purple">💎 GRUPO VIP</button>
-</a><a href="https://t.me/ApkBugado" target="_blank">
-<button class="btn blue">📢 GRUPO FREE</button>
-</a><div id="login">
-<input type="password" id="senha" placeholder="DIGITE A CHAVE">
-<button class="btn green" onclick="login()">ENTRAR</button>
-</div><div id="painel" style="display:none;"><button id="gerar" class="btn green" onclick="gerar()">GERAR CONTA IPTV</button>
+.status{font-size:10px;color:#666;}
+</style></head><body><div class="card"><h3 style="color:#00ff9c;">APK BUGADO SYSTEM</h3><a href="https://rafflores17-prog.github.io/vip-apk/" target="_blank">
+<button class="btn purple">💎 GRUPO VIP</button></a><a href="https://t.me/ApkBugado" target="_blank">
+<button class="btn blue">📢 GRUPO FREE</button></a><button class="btn green" onclick="gerar()">GERAR CONTA</button>
 
-<button class="btn purple" onclick="copiar()">COPIAR TUDO</button>
-
-<div class="status" id="status">CARREGANDO...</div><div class="progress"><div class="bar" id="bar"></div></div><div id="out"></div></div></div><script>
+<div class="status" id="status">CARREGANDO...</div><div class="progress"><div class="bar" id="bar"></div></div><div id="out"></div></div><script>
 
 let lista=[];
-let usadas=[];
 
-async function login(){
-let s=document.getElementById("senha").value;
-
-let r=await fetch("config.json");
-let j=await r.json();
-
-if(j.access_keys.includes(s)){
-document.getElementById("login").style.display="none";
-document.getElementById("painel").style.display="block";
-carregar();
-}else{
-alert("ACESSO NEGADO");
-}
-}
-
-// 🔥 PARSER MELHORADO
 async function carregar(){
-let r=await fetch("listas.txt?"+Date.now());
-let t=await r.text();
+let t=await (await fetch("listas.txt?"+Date.now())).text();
 
-let blocos=t.split(/┏|『/g);
+// 🔥 divide por blocos reais
+let blocos = t.split(/┏|『/g);
 
-lista=blocos.map(b=>{
+lista = blocos.map(b=>{
 
-let m=b.match(/get\.php\?username=([^\s&]+)&password=([^\s&]+)/i);
+// limpa caracteres bugados
+b = b.normalize("NFD").replace(/[^\x00-\x7F]/g, "");
 
-if(m){
-let host=b.match(/http:\/\/[^\s]+:\d+/i)?.[0];
-let exp=b.match(/(?:Expira|Vencimento|⏳Expira)[^0-9]*([0-9\/]+)/i)?.[1];
+// HOST
+let host = b.match(/http:\/\/[^\s]+:\d+/i)?.[0];
 
-return {host,user:m[1],pass:m[2],exp};
+// USER
+let user = b.match(/user[^a-z0-9]*([a-z0-9._-]+)/i)?.[1];
+
+// PASS
+let pass = b.match(/pass[^a-z0-9]*([a-z0-9._-]+)/i)?.[1];
+
+// EXP
+let exp = b.match(/(expira|vencimento)[^0-9]*([0-9\/]+)/i)?.[2];
+
+// M3U
+let m3u = b.match(/http:\/\/[^\s]+get\.php\?username=([^\s&]+)&password=([^\s&]+)/i);
+
+// 🔥 PRIORIDADE: M3U
+if(m3u){
+return {
+host: m3u[0].match(/http:\/\/[^\s]+:\d+/)[0],
+user: m3u[1],
+pass: m3u[2],
+exp
+};
+}
+
+// 🔥 fallback manual
+if(host && user && pass){
+return {host,user,pass,exp};
 }
 
 return null;
 
 }).filter(x=>x);
 
-document.getElementById("status").innerText=lista.length+" CONTAS";
+document.getElementById("status").innerText =
+lista.length+" CONTAS CARREGADAS";
 }
 
-// 🚀 GERAR COM BARRA
-function gerar(){
+// 🔥 TESTE ONLINE
+async function testar(host){
+try{
+let r = await fetch(host,{method:"HEAD"});
+return r.status==200;
+}catch{
+return false;
+}
+}
 
-let btn=document.getElementById("gerar");
+async function gerar(){
+
 let out=document.getElementById("out");
 let bar=document.getElementById("bar");
-let progress=document.querySelector(".progress");
 let status=document.getElementById("status");
 
 if(lista.length==0){alert("SEM CONTAS");return;}
 
-btn.disabled=true;
-progress.style.display="block";
+document.querySelector(".progress").style.display="block";
 out.style.display="block";
 out.innerHTML="";
 
 let etapas=[
-"Conectando servidor...",
-"Acessando database...",
-"Filtrando contas...",
-"Descartando inválidas...",
+"Conectando...",
+"Lendo base...",
+"Filtrando...",
+"Testando host...",
 "Gerando acesso..."
 ];
 
-let i=0;
-
-let intervalo=setInterval(()=>{
+for(let i=0;i<etapas.length;i++){
 
 status.innerText=etapas[i];
 bar.style.width=((i+1)*20)+"%";
 
-out.innerHTML+=`<div style="color:#00ff9c;">${etapas[i]}</div>`;
+out.innerHTML+=`<div>${etapas[i]}</div>`;
 
-navigator.vibrate(30);
+await new Promise(r=>setTimeout(r,500));
+}
 
-i++;
+// 🔥 pega conta válida
+let conta;
+for(let i=0;i<lista.length;i++){
+let c=lista[Math.floor(Math.random()*lista.length)];
 
-if(i>=etapas.length){
-clearInterval(intervalo);
+let ok = await testar(c.host);
 
-setTimeout(()=>{
+if(ok){
+conta=c;
+break;
+}
+}
 
-let disp=lista.filter(x=>!usadas.includes(x.user));
-if(disp.length==0){usadas=[];disp=lista;}
+if(!conta){
+conta = lista[Math.floor(Math.random()*lista.length)];
+}
 
-let c=disp[Math.floor(Math.random()*disp.length)];
-usadas.push(c.user);
-
-let link=`${c.host}/get.php?username=${c.user}&password=${c.pass}&type=m3u_plus&output=ts`;
+let link = `${conta.host}/get.php?username=${conta.user}&password=${conta.pass}&type=m3u_plus&output=ts`;
 
 out.innerHTML=`
-<b style="color:#bc13fe;">💎 ACESSO LIBERADO</b><br><br>
+<b style="color:#bc13fe;">💎 ACESSO GERADO</b><br><br>
 
-<span class="label">LINK:</span>
-<span class="val">${link}</span>
+<span class="val">${link}</span><br><br>
 
-<br>
+HOST: ${conta.host}<br>
+USER: ${conta.user}<br>
+PASS: ${conta.pass}<br><br>
 
-HOST: ${c.host}<br>
-USER: ${c.user}<br>
-PASS: ${c.pass}<br>
-
-<span class="label">VALIDADE:</span>
-${c.exp || "DESCONHECIDA"}
+STATUS: <span style="color:#00ff9c;">ONLINE</span><br>
+VALIDADE: ${conta.exp || "DESCONHECIDA"}
 `;
 
-btn.disabled=false;
+status.innerText="PRONTO";
+
 bar.style.width="0%";
-progress.style.display="none";
-
-status.innerText="GERADAS "+usadas.length+"/"+lista.length;
-
-},600);
+document.querySelector(".progress").style.display="none";
 
 }
 
-},600);
-}
-
-// copiar
-function copiar(){
-let out=document.getElementById("out");
-
-if(out.style.display!="block"){alert("NADA");return;}
-
-navigator.clipboard.writeText(out.innerText)
-.then(()=>alert("COPIADO"));
-}
+carregar();
 
 </script></body>
 </html>

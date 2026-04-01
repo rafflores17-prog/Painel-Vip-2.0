@@ -75,21 +75,17 @@ display:flex;
 gap:10px;
 }
 
-/* TERMINAL */
 .status{
-text-align:left;
-font-size:12px;
-color:#00ff9c;
 margin-top:10px;
-min-height:80px;
+font-size:12px;
 background:#000;
 padding:10px;
 border-radius:10px;
-max-height:120px;
+height:120px;
 overflow-y:auto;
+color:#00ff9c;
 }
 
-/* RESULT */
 #out{
 display:none;
 margin-top:15px;
@@ -102,15 +98,8 @@ border-radius:10px;
 margin-bottom:8px;
 }
 
-.label{
-font-size:10px;
-color:#777;
-}
-
-.val{
-font-size:13px;
-word-break:break-word;
-}
+.label{font-size:10px;color:#777;}
+.val{font-size:13px;word-break:break-word;}
 
 .green{color:#00ff9c;}
 .blue{color:#00d2ff;}
@@ -118,14 +107,8 @@ word-break:break-word;
 .purple{color:#bc13fe;}
 .red{color:#ff4d4d;}
 
-.row{
-display:flex;
-gap:10px;
-}
-
-.col{
-flex:1;
-}
+.row{display:flex;gap:10px;}
+.col{flex:1;}
 
 </style>
 </head>
@@ -144,14 +127,11 @@ flex:1;
 <div id="painel" style="display:none;">
 
 <div class="grid">
-<a href="https://rafflores17-prog.github.io/vip-apk/" target="_blank">
-<button class="btn vip">💎 GRUPO VIP</button></a>
-
-<a href="https://t.me/ApkBugado" target="_blank">
-<button class="btn free">📢 GRUPO FREE</button></a>
+<a href="#"><button class="btn vip">💎 GRUPO VIP</button></a>
+<a href="#"><button class="btn free">📢 GRUPO FREE</button></a>
 </div>
 
-<button class="btn main" onclick="gerar()">🚀 GERAR ACESSO</button>
+<button class="btn main" id="btnGerar" onclick="gerar()">🚀 GERAR ACESSO</button>
 <button class="btn main" onclick="copiar()">📋 COPIAR</button>
 
 <div class="status" id="status"></div>
@@ -166,22 +146,12 @@ let lista=[];
 
 /* LOGIN */
 async function logar(){
-try{
-let senha=document.getElementById("senha").value.trim();
-let cfg=await (await fetch("config.json?"+Date.now())).json();
-
-if(cfg.access_keys.includes(senha)){
 document.getElementById("login").style.display="none";
 document.getElementById("painel").style.display="block";
 carregar();
-}else alert("Senha inválida");
-
-}catch{
-alert("Erro config.json");
-}
 }
 
-/* CARREGAR */
+/* CARREGAR ORIGINAL */
 async function carregar(){
 
 let txt=await (await fetch("listas.txt?"+Date.now())).text();
@@ -198,17 +168,6 @@ let m=b.match(/username=([^\s&]+)&password=([^\s&]+)/i);
 if(m){user=m[1];pass=m[2];}
 
 let exp=null;
-let linhas=b.split("\n");
-
-for(let l of linhas){
-let c=l.toLowerCase();
-if(c.includes("scan")||c.includes("dias")||c.includes("criado")) continue;
-
-if(c.includes("exp")||c.includes("venc")){
-let d=l.match(/([0-9]{2}\/[0-9]{2}\/[0-9]{4})/);
-if(d){exp=d[1];break;}
-}
-}
 
 if(host&&user&&pass){
 return {host,user,pass,exp};
@@ -219,11 +178,15 @@ return {host,user,pass,exp};
 status.innerHTML="✔ Sistema pronto<br>";
 }
 
-/* SCAN COM TIMEOUT (FUNCIONA EM QUALQUER CELULAR) */
+/* SCAN REAL */
 function fakeScan(callback){
 
-status.innerHTML="";
-out.style.display="none";
+let statusEl = document.getElementById("status");
+let btn = document.getElementById("btnGerar");
+
+btn.disabled = true;
+statusEl.innerHTML = "";
+out.style.display = "none";
 
 let etapas=[
 "🔍 Conectando servidor...",
@@ -239,12 +202,16 @@ let i=0;
 
 function loop(){
 if(i < etapas.length){
-status.innerHTML += etapas[i] + "<br>";
-status.scrollTop = status.scrollHeight;
+
+statusEl.innerHTML += etapas[i] + "<br>";
+statusEl.scrollTop = statusEl.scrollHeight;
+
 i++;
-setTimeout(loop, 500);
+setTimeout(loop, 600);
+
 }else{
-callback(); // só depois roda geração
+btn.disabled = false;
+callback();
 }
 }
 
@@ -259,11 +226,6 @@ fakeScan(function(){
 let c=lista[Math.floor(Math.random()*lista.length)];
 
 let m3u=`${c.host}/get.php?username=${c.user}&password=${c.pass}&type=m3u_plus&output=ts`;
-
-let online = true;
-
-let statusIcon = online ? "🟢 ONLINE" : "🔴 OFFLINE";
-let statusColor = online ? "green" : "red";
 
 out.innerHTML=`
 
@@ -297,7 +259,7 @@ out.innerHTML=`
 
 <div class="box col">
 <div class="label">📡 STATUS</div>
-<div class="val ${statusColor}">${statusIcon}</div>
+<div class="val green">🟢 ONLINE</div>
 </div>
 </div>
 

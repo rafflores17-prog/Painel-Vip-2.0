@@ -10,50 +10,45 @@
         * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         body { background: var(--dark-bg); color: #fff; font-family: 'Share Tech Mono', monospace; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; padding: 15px; }
         
-        .card-painel { width: 100%; max-width: 420px; padding: 25px; border: 1px solid rgba(0, 255, 156, 0.2); border-radius: 20px; box-shadow: 0 0 40px rgba(0,0,0,1); text-align: center; background: #0a0a0a; position: relative; overflow: hidden; }
+        .card-painel { width: 100%; max-width: 420px; padding: 25px; border: 1px solid rgba(0, 255, 156, 0.2); border-radius: 20px; box-shadow: 0 0 40px rgba(0,0,0,1); text-align: center; background: #0a0a0a; position: relative; }
         
         .vip-ring { width: 100px; height: 100px; border-radius: 50%; border: 2px solid var(--neon-green); margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 15px var(--neon-green); position: relative; }
         .vip-ring::after { content: "VIP"; font-family: 'Orbitron'; font-size: 24px; color: var(--neon-green); text-shadow: 0 0 10px var(--neon-green); }
 
-        .btn-3d { width: 100%; padding: 15px; border: none; border-radius: 12px; font-family: 'Orbitron'; font-weight: bold; cursor: pointer; text-transform: uppercase; font-size: 11px; transition: all 0.1s ease; margin-bottom: 15px; display: inline-block; text-decoration: none; text-align: center; }
+        .btn-3d { width: 100%; padding: 15px; border: none; border-radius: 12px; font-family: 'Orbitron'; font-weight: bold; cursor: pointer; text-transform: uppercase; font-size: 11px; transition: all 0.2s ease; margin-bottom: 15px; display: inline-block; text-decoration: none; text-align: center; }
         .btn-green { background: linear-gradient(145deg, #00ff9c, #008f58); color: #000; box-shadow: 0 6px #005a38; }
         .btn-green:active { box-shadow: 0 2px #005a38; transform: translateY(4px); }
         .btn-purple { background: linear-gradient(145deg, #bc13fe, #7a00aa); color: #fff; box-shadow: 0 6px #520073; }
-        .btn-purple:active { box-shadow: 0 2px #520073; transform: translateY(4px); }
 
         input { width: 100%; padding: 15px; border-radius: 12px; border: 1px solid #222; background: #000; color: var(--neon-green); text-align: center; font-size: 16px; margin-bottom: 15px; outline: none; font-family: 'Share Tech Mono'; }
 
-        #out { background: #020202; padding: 18px; margin-top: 15px; border-radius: 15px; font-size: 12px; text-align: left; border-left: 4px solid var(--neon-purple); display: none; }
+        /* Estilo do Painel de Saída */
+        #out { background: #020202; padding: 18px; margin-top: 15px; border-radius: 15px; font-size: 12px; text-align: left; border-left: 4px solid var(--neon-purple); display: none; opacity: 0; transition: opacity 0.3s ease; }
+        
+        /* Animação de Processamento */
+        .processing { animation: scan 0.5s ease infinite alternate; }
+        @keyframes scan { from { filter: brightness(1); } to { filter: brightness(1.5) drop-shadow(0 0 5px var(--neon-green)); } }
 
         .label { color: #666; font-size: 9px; display: block; margin-top: 8px; text-transform: uppercase; letter-spacing: 1px; }
         .val-m3u { color: var(--neon-green); font-size: 10px; word-break: break-all; background: #080808; padding: 8px; border-radius: 6px; display: block; margin-top: 5px; border: 1px solid #1a1a1a; }
-        .val-data { color: #fff; font-weight: bold; }
         .status-msg { margin-top: 10px; font-size: 10px; color: #444; text-transform: uppercase; }
-
-        .links-topo { display: flex; gap: 8px; margin-bottom: 15px; }
-        .btn-small { flex: 1; padding: 10px; font-size: 8px; margin-bottom: 0; }
     </style>
 </head>
 <body>
 
 <div class="card-painel">
-    <div style="color:var(--neon-green); font-size: 10px; letter-spacing: 4px; margin-bottom: 15px; font-family: 'Orbitron';">[ APK_BUGADO_SYSTEM ]</div>
+    <div style="color:var(--neon-green); font-size: 10px; letter-spacing: 4px; margin-bottom: 15px; font-family: 'Orbitron';">[ APK_BUGADO_V8 ]</div>
     <div class="vip-ring"></div>
 
-    <div class="links-topo">
-        <a href="https://rafflores17-prog.github.io/vip-apk/" target="_blank" class="btn-3d btn-purple btn-small">💎 GRUPO VIP</a>
-        <a href="https://t.me/ApkBugado" target="_blank" class="btn-3d btn-green btn-small">📢 GRUPO FREE</a>
-    </div>
-
     <div id="login-box">
-        <input type="password" id="senhaInput" placeholder="SISTEMA BLOQUEADO">
-        <button class="btn-3d btn-green" onclick="validarAcesso()">DECODIFICAR ACESSO</button>
+        <input type="password" id="senhaInput" placeholder="DIGITE A CHAVE MESTRA">
+        <button class="btn-3d btn-green" onclick="validarAcesso()">DESBLOQUEAR SISTEMA</button>
     </div>
 
     <div id="painel" style="display:none;">
         <button id="btn-gerar" class="btn-3d btn-green" onclick="gerarAcesso()">GERAR CONTA IPTV</button>
         <button class="btn-3d btn-purple" style="padding: 10px; font-size: 10px;" onclick="copiarDados()">COPIAR TUDO</button>
-        <div class="status-msg" id="status">AGUARDANDO...</div>
+        <div class="status-msg" id="status">SISTEMA ONLINE</div>
         <div id="out"></div>
     </div>
 </div>
@@ -62,105 +57,95 @@
 let listaContas = [];
 let contasUsadas = [];
 
-// 1. FUNÇÃO DE LOGIN CORRIGIDA
 async function validarAcesso() {
     const input = document.getElementById('senhaInput').value.trim();
-    if (!input) {
-        alert("POR FAVOR, INSIRA A SENHA.");
-        return;
-    }
-
     try {
         const response = await fetch('config.json?v=' + Date.now());
         const config = await response.json();
-        
-        // Verifica se o input existe dentro da array access_keys
-        if(config.access_keys && config.access_keys.includes(input)) {
+        if(config.access_keys.includes(input)) {
             document.getElementById('login-box').style.display = "none";
             document.getElementById('painel').style.display = "block";
             carregarDatabase();
-        } else { 
-            alert("ACESSO NEGADO! VERIFIQUE A SENHA."); 
-        }
-    } catch (e) { 
-        alert("ERRO AO CARREGAR CONFIG.JSON"); 
-        console.error(e);
-    }
+        } else { alert("ACESSO NEGADO!"); }
+    } catch (e) { alert("ERRO DE CONFIGURAÇÃO"); }
 }
 
-// 2. CARREGAR E ESCANEAR LISTAS
 async function carregarDatabase() {
     try {
         const r = await fetch('listas.txt?v=' + Date.now());
         const t = await r.text();
-        // Divide por http ou símbolos conhecidos
-        const blocos = t.split(/(?=┏●|『|▬▬▬▬▬|http)/g).filter(b => b.includes('http'));
+        const blocos = t.split(/(?=http)/g).filter(b => b.includes('http'));
         
         listaContas = blocos.map(b => {
             let host = b.match(/http:\/\/[a-zA-Z0-9.-]+:[0-9]+/i)?.[0];
-            let user = b.match(/(?:Usuário|Usᴜᴀʀɪᴏ|👤|⌑ Usᴜᴀʀɪᴏ|username=)\s*[►| ]*\s*([a-zA-Z0-9._-]+)/i)?.[1];
-            let pass = b.match(/(?:Senha|Sᴇɴʜᴀ|🔒|⌑ Sᴇɴʜᴀ|password=)\s*[►| ]*\s*([a-zA-Z0-9._-]+)/i)?.[1];
-            let exp = b.match(/(?:Expira|Vᴇɴᴄɪᴍᴇɴᴛᴏ|⏳|Vᴇɴᴄɪᴍᴇɴᴛᴏ)\s*[►| ]*\s*([0-9\/.]+)/i)?.[1];
+            // Regex melhorada: Ignora a palavra "Usuário" e pega apenas o valor real
+            let user = b.match(/(?:Usuário|👤|username=)\s*[:► ]*([a-zA-Z0-9._-]+)/i)?.[1];
+            let pass = b.match(/(?:Senha|🔒|password=)\s*[:► ]*([a-zA-Z0-9._-]+)/i)?.[1];
+            let exp = b.match(/(?:Vencimento|⏳|Expira)\s*[:► ]*([0-9\/.]+)/i)?.[1];
 
-            // Se não achou campos soltos, extrai do link
-            if(!user || !pass) {
-                let m3uLink = b.match(/username=([a-zA-Z0-9._-]+)&password=([a-zA-Z0-9._-]+)/i);
-                if(m3uLink) { user = m3uLink[1]; pass = m3uLink[2]; }
+            // Backup: Se falhou na regex acima, tenta pegar do link M3U
+            if(!user || user === "Usu") {
+                let m = b.match(/username=([a-zA-Z0-9._-]+)&password=([a-zA-Z0-9._-]+)/i);
+                if(m) { user = m[1]; pass = m[2]; }
             }
             return { host, user, pass, exp };
         }).filter(a => a.host && a.user && a.pass);
         
-        document.getElementById('status').textContent = `${listaContas.length} CONTAS DISPONÍVEIS`;
-    } catch(e) { 
-        document.getElementById('status').textContent = "ERRO NA LEITURA DO TXT"; 
-    }
+        document.getElementById('status').textContent = `${listaContas.length} CONTAS SINCRONIZADAS`;
+    } catch(e) { document.getElementById('status').textContent = "ERRO DE SINCRONIZAÇÃO"; }
 }
 
-// 3. GERAR ACESSO (CONSTRÓI M3U E XTREAM)
-async function gerarAcesso() {
+function gerarAcesso() {
     if(listaContas.length === 0) return;
     const out = document.getElementById('out');
-    const status = document.getElementById('status');
-    
-    let disponiveis = listaContas.filter(c => !contasUsadas.includes(c.user));
-    if(disponiveis.length === 0) { contasUsadas = []; disponiveis = listaContas; }
+    const btn = document.getElementById('btn-gerar');
 
-    const conta = disponiveis[Math.floor(Math.random() * disponiveis.length)];
-    contasUsadas.push(conta.user);
+    // EFEITO DE PROCESSAMENTO
+    out.style.opacity = "0";
+    btn.classList.add('processing');
+    btn.innerText = "PROCESSANDO...";
 
-    // CRIAÇÃO AUTOMÁTICA DA URL M3U
-    const urlM3u = `${conta.host}/get.php?username=${conta.user}&password=${conta.pass}&type=m3u_plus&output=ts`;
+    setTimeout(() => {
+        let disponiveis = listaContas.filter(c => !contasUsadas.includes(c.user));
+        if(disponiveis.length === 0) { contasUsadas = []; disponiveis = listaContas; }
 
-    out.innerHTML = `
-        <span style="color:var(--neon-purple); font-weight:bold;">💎 ACESSO VIP APKBUGADO</span><br>
-        
-        <span class="label">FORMATO M3U (LINK DIRETO):</span>
-        <span class="val-m3u">${urlM3u}</span>
-        
-        <span class="label">FORMATO XTREAM (PAINEL):</span>
-        <span style="color:var(--neon-blue); font-weight:bold;">HOST: ${conta.host}</span><br>
-        <span class="val-data">USER:</span> <span style="color:#fff">${conta.user}</span><br>
-        <span class="val-data">PASS:</span> <span style="color:var(--neon-yellow)">${conta.pass}</span>
-        
-        <span class="label">VENCIMENTO:</span>
-        <span style="color:var(--neon-green)">${conta.exp || 'ILIMITADO'}</span>
-    `;
+        const conta = disponiveis[Math.floor(Math.random() * disponiveis.length)];
+        contasUsadas.push(conta.user);
 
-    out.style.display = "block";
-    status.innerHTML = `GERADA: ${contasUsadas.length}/${listaContas.length}`;
+        const urlM3u = `${conta.host}/get.php?username=${conta.user}&password=${conta.pass}&type=m3u_plus&output=ts`;
+
+        out.innerHTML = `
+            <span style="color:var(--neon-purple); font-weight:bold; font-size:11px;">💎 ACESSO VIP EXTRATÍDO</span><br>
+            
+            <span class="label">LINK M3U8 (DIRETO):</span>
+            <span class="val-m3u">${urlM3u}</span>
+            
+            <span class="label">DADOS XTREAM:</span>
+            <span style="color:var(--neon-blue); font-weight:bold;">${conta.host}</span><br>
+            <span style="color:#fff">USER: ${conta.user}</span><br>
+            <span style="color:var(--neon-yellow)">PASS: ${conta.pass}</span>
+            
+            <span class="label">VALIDADE:</span>
+            <span style="color:var(--neon-green)">${conta.exp || '⚡ ACESSO VITALÍCIO'}</span>
+        `;
+
+        btn.classList.remove('processing');
+        btn.innerText = "GERAR CONTA IPTV";
+        out.style.display = "block";
+        setTimeout(() => out.style.opacity = "1", 50);
+        document.getElementById('status').textContent = `CONTA [${contasUsadas.length}/${listaContas.length}]`;
+    }, 600); // 0.6 segundos de delay para simular processamento
 }
 
-// 4. FUNÇÃO COPIAR
 function copiarDados() {
     const out = document.getElementById('out');
     if(out.style.display === "block") {
         const t = document.createElement('textarea');
         t.value = out.innerText;
-        document.body.appendChild(t);
-        t.select();
+        document.body.appendChild(t); t.select();
         document.execCommand('copy');
         document.body.removeChild(t);
-        alert("DADOS COPIADOS COM SUCESSO!");
+        alert("COPIADO PARA ÁREA DE TRANSFERÊNCIA!");
     }
 }
 </script>

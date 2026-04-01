@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MESTRE | APK BUGADO - XTREAM PANEL</title>
+    <title>APK BUGADO | DASHBOARD VIP</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto+Mono&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -34,18 +34,19 @@
         }
 
         .login-box {
-            padding: 30px; border: 2px solid var(--neon-purple);
+            padding: 40px; border: 2px solid var(--neon-purple);
             border-radius: 15px; text-align: center;
             box-shadow: 0 0 30px rgba(188, 19, 254, 0.4);
-            background: #0a0a0a;
+            background: #0a0a0a; width: 90%; max-width: 400px;
         }
 
-        .login-box h2 { font-family: 'Orbitron', sans-serif; color: var(--neon-green); margin-bottom: 20px; }
+        .login-box h2 { font-family: 'Orbitron', sans-serif; color: var(--neon-green); margin-bottom: 25px; text-shadow: 0 0 10px var(--neon-green); }
 
         input[type="password"] {
             background: #111; border: 1px solid var(--neon-purple);
-            padding: 12px; color: var(--neon-green); border-radius: 5px;
-            width: 100%; margin-bottom: 15px; outline: none; text-align: center;
+            padding: 15px; color: var(--neon-green); border-radius: 8px;
+            width: 100%; margin-bottom: 20px; outline: none; text-align: center;
+            font-size: 16px;
         }
 
         /* HEADER */
@@ -55,16 +56,17 @@
             display: none;
         }
 
-        header h1 { font-family: 'Orbitron', sans-serif; color: var(--neon-green); text-shadow: 0 0 15px var(--neon-green); }
+        header h1 { font-family: 'Orbitron', sans-serif; color: var(--neon-green); text-shadow: 0 0 15px var(--neon-green); font-size: 24px; }
 
         .btn-sync {
-            margin-top: 15px; padding: 10px 25px; cursor: pointer;
+            margin-top: 20px; padding: 12px 30px; cursor: pointer;
             background: transparent; border: 1px solid var(--neon-purple);
-            color: #fff; border-radius: 20px; font-weight: bold;
-            transition: 0.3s;
+            color: #fff; border-radius: 30px; font-weight: bold;
+            transition: 0.3s; font-family: 'Orbitron', sans-serif;
+            letter-spacing: 1px;
         }
 
-        .btn-sync:hover { background: var(--neon-purple); box-shadow: 0 0 20px var(--neon-purple); }
+        .btn-sync:hover { background: var(--neon-purple); box-shadow: 0 0 20px var(--neon-purple); transform: scale(1.05); }
 
         /* GRID DE CARDS */
         .container {
@@ -75,27 +77,32 @@
 
         .card {
             background: var(--card-bg); border: 1px solid #222;
-            border-radius: 12px; padding: 20px; position: relative;
+            border-radius: 15px; padding: 20px; position: relative;
             transition: 0.3s; border-left: 4px solid var(--neon-purple);
+            animation: fadeIn 0.5s ease-in;
         }
 
-        .card:hover { border-color: var(--neon-green); box-shadow: 0 0 15px rgba(57, 255, 20, 0.2); }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        .status-on { position: absolute; top: 15px; right: 15px; font-size: 10px; background: var(--neon-green); color: #000; padding: 2px 8px; border-radius: 4px; font-weight: bold; }
+        .card:hover { border-color: var(--neon-green); box-shadow: 0 0 20px rgba(57, 255, 20, 0.2); }
 
-        .info-row { margin-bottom: 12px; }
-        .label { font-size: 10px; color: #666; text-transform: uppercase; display: block; }
-        .value { color: #ddd; font-size: 14px; word-break: break-all; }
-        .value-green { color: var(--neon-green); }
+        .status-badge { position: absolute; top: 15px; right: 15px; font-size: 10px; background: var(--neon-green); color: #000; padding: 3px 10px; border-radius: 5px; font-weight: bold; }
+
+        .info-row { margin-bottom: 15px; }
+        .label { font-size: 11px; color: #777; text-transform: uppercase; display: block; margin-bottom: 4px; }
+        .value { color: #eee; font-size: 14px; word-break: break-all; line-height: 1.4; }
+        .value-neon { color: var(--neon-green); font-weight: bold; }
 
         .copy-btn {
-            width: 100%; padding: 10px; border: none; border-radius: 5px;
+            width: 100%; padding: 12px; border: none; border-radius: 8px;
             background: linear-gradient(45deg, #4b0082, #bc13fe);
             color: white; font-family: 'Orbitron', sans-serif;
-            font-size: 11px; cursor: pointer; margin-top: 10px;
+            font-size: 11px; cursor: pointer; margin-top: 5px;
+            transition: 0.3s;
         }
 
-        /* MOBILE FIX */
+        .copy-btn:active { transform: scale(0.95); }
+
         @media (max-width: 600px) { .container { grid-template-columns: 1fr; } }
     </style>
 </head>
@@ -103,14 +110,14 @@
 
     <div id="login-screen">
         <div class="login-box">
-            <h2>APK BUGADO</h2>
-            <input type="password" id="pass-field" placeholder="SENHA DE ACESSO">
-            <button class="btn-sync" onclick="login()">ENTRAR NO SISTEMA</button>
+            <h2>MESTRE ACCESS</h2>
+            <input type="password" id="pass-field" placeholder="SENHA DO SISTEMA">
+            <button class="btn-sync" onclick="login()">DECODIFICAR</button>
         </div>
     </div>
 
     <header id="header">
-        <h1>COMMAND CENTER</h1>
+        <h1>APK BUGADO DASHBOARD</h1>
         <button class="btn-sync" onclick="loadList()">🔄 SINCRONIZAR GITHUB</button>
     </header>
 
@@ -118,9 +125,11 @@
         </div>
 
 <script>
+    // ==========================================
     // CONFIGURAÇÕES DO MESTRE
-    const MINHA_SENHA = "123"; // Troque pela sua senha
-    const GITHUB_RAW_URL = "SUA_URL_DO_GITHUB_AQUI"; // Ex: https://raw.githubusercontent.com/usuario/repo/main/listas.txt
+    // ==========================================
+    const MINHA_SENHA = "123"; 
+    const GITHUB_RAW_URL = "https://raw.githubusercontent.com/rafflores17-prog/Painel-Vip-2.0/main/listas.txt";
 
     function login() {
         const input = document.getElementById('pass-field').value;
@@ -128,69 +137,69 @@
             document.getElementById('login-screen').style.display = 'none';
             document.getElementById('header').style.display = 'block';
             document.getElementById('cards-container').style.display = 'grid';
-            loadList(); // Carrega automático após login
+            loadList();
         } else {
-            alert("ACESSO NEGADO, MESTRE.");
+            alert("ACESSO NEGADO.");
         }
     }
 
     async function loadList() {
         const container = document.getElementById('cards-container');
-        container.innerHTML = "<p style='color:var(--neon-green)'>Lendo dados do satélite...</p>";
+        container.innerHTML = "<p style='color:var(--neon-green); grid-column: 1/-1; text-align:center;'>Acessando banco de dados...</p>";
 
         try {
-            // Se você ainda não tem a URL do Github, vou simular com seus dados enviados
-            const data = `COLE_AQUI_SEU_TEXTO_OU_USE_O_FETCH_ABAIXO`;
-            
-            // Caso queira usar o link real do Github:
-            // const response = await fetch(GITHUB_RAW_URL);
-            // const data = await response.text();
+            const response = await fetch(GITHUB_RAW_URL);
+            const text = await response.text();
 
-            // O motor que separa os blocos de texto
-            const blocks = data.split('┏●-•~¹°”ˆ˜¨').filter(b => b.includes('Host'));
-            container.innerHTML = ""; // Limpa o carregando
+            // Parser Potente: Aceita vários separadores de scanners
+            const blocks = text.split(/┏●-•~¹°”ˆ˜¨|『 ⨴ 🅤🅛🅣🅡🅐 🅢🅒🅐🅝 ⨵ 』|┏●▬▬▬▬▬/).filter(b => b.includes('Host') || b.includes('🌐Host') || b.includes('Sᴇʀᴠɪᴅᴏʀ'));
+            
+            container.innerHTML = ""; 
 
             blocks.forEach(block => {
-                const host = block.match(/Host\s*►\s*(http:\/\/[a-zA-Z0-9.-]+:[0-9]+)/i)?.[1];
-                const user = block.match(/Usuário\s*►\s*([a-zA-Z0-9._-]+)/i)?.[1];
-                const pass = block.match(/Senha\s*►\s*([a-zA-Z0-9._-]+)/i)?.[1];
-                const exp = block.match(/Expira\s*►\s*([0-9\/]+)/i)?.[1];
+                const host = block.match(/(?:Host\s*►|🌐Host\s*►|Sᴇʀᴠɪᴅᴏʀ►|🌐Host\s*►)\s*(http:\/\/[a-zA-Z0-9.-]+:[0-9]+)/i)?.[1];
+                const user = block.match(/(?:Usuário\s*►|Usᴜᴀʀɪᴏ►|👤Usuário\s*►|👤Usuário\s*►|Usᴜᴀʀɪᴏ►)\s*([a-zA-Z0-9._-]+)/i)?.[1];
+                const pass = block.match(/(?:Senha\s*►|Sᴇɴʜᴀ►|🔒Senha\s*►|🔒Senha\s*►|Sᴇɴʜᴀ►)\s*([a-zA-Z0-9._-]+)/i)?.[1];
+                const exp = block.match(/(?:Expira\s*►|Vᴇɴᴄɪᴍᴇɴᴛᴏ►|⏳Expira\s*►|Vᴇɴᴄɪᴍᴇɴᴛᴏ►)\s*([0-9\/]+)/i)?.[1];
 
                 if(host && user && pass) {
                     const m3uLink = `${host}/get.php?username=${user}&password=${pass}&type=m3u_plus&output=ts`;
                     
                     container.innerHTML += `
                         <div class="card">
-                            <span class="status-on">ONLINE</span>
+                            <span class="status-badge">ONLINE</span>
                             <div class="info-row">
-                                <span class="label">Portal / Host</span>
+                                <span class="label">🖥️ Portal / DNS</span>
                                 <span class="value">${host}</span>
                             </div>
                             <div class="info-row">
-                                <span class="label">Credenciais</span>
-                                <span class="value">User: <span class="value-green">${user}</span></span>
-                                <span class="value">Pass: <span class="value-green">${pass}</span></span>
+                                <span class="label">🔑 Credenciais</span>
+                                <span class="value">User: <span class="value-neon">${user}</span></span>
+                                <span class="value">Pass: <span class="value-neon">${pass}</span></span>
                             </div>
                             <div class="info-row">
-                                <span class="label">Vencimento Original</span>
-                                <span class="value">${exp || 'Não informado'}</span>
+                                <span class="label">📅 Validade Scanner</span>
+                                <span class="value">${exp || 'Não detectada'}</span>
                             </div>
-                            <button class="copy-btn" onclick="copyToClipboard('${m3uLink}')">COPY M3U8 LINK</button>
+                            <button class="copy-btn" onclick="copyToClipboard('${m3uLink}')">COPIAR LINK M3U8</button>
                         </div>
                     `;
                 }
             });
 
+            if(container.innerHTML === "") {
+                container.innerHTML = "<p style='color:orange; grid-column: 1/-1; text-align:center;'>Nenhuma conta válida encontrada no arquivo.</p>";
+            }
+
         } catch (error) {
-            container.innerHTML = "<p style='color:red'>ERRO AO SINCRONIZAR COM GITHUB.</p>";
+            container.innerHTML = "<p style='color:red; grid-column: 1/-1; text-align:center;'>FALHA NA CONEXÃO COM O GITHUB.</p>";
         }
     }
 
     function copyToClipboard(text) {
         navigator.clipboard.writeText(text);
-        alert("Link M3U8 copiado com sucesso!");
+        alert("Link M3U8 copiado!");
     }
 </script>
 </body>
 </html>
-

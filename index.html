@@ -1,154 +1,279 @@
-<script>
-let listaContas = [];
-let contasUsadas = [];
-
-async function validarAcesso() {
-    const input = document.getElementById('senhaInput').value.trim();
-    try {
-        const response = await fetch('config.json?v=' + Date.now());
-        const config = await response.json();
-
-        if(config.access_keys.includes(input)) {
-            document.getElementById('login-box').style.display = "none";
-            document.getElementById('painel').style.display = "block";
-            carregarDatabase();
-        } else {
-            alert("ACESSO NEGADO!");
-        }
-    } catch (e) {
-        alert("ERRO DE CONFIGURAÇÃO");
-    }
+<!DOCTYPE html><html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>APK BUGADO - COMMAND CENTER</title><link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&display=swap" rel="stylesheet"><style>
+:root {
+--neon-green:#00ff9c;
+--neon-purple:#bc13fe;
+--neon-blue:#00d2ff;
+--neon-yellow:#f9d423;
+--dark-bg:#050505;
 }
 
-// 🔥 PARSER PRO (LÊ QUALQUER BAGUNÇA)
-async function carregarDatabase() {
-    try {
-        const r = await fetch('listas.txt?v=' + Date.now());
-        const t = await r.text();
+*{box-sizing:border-box;}
 
-        // Divide blocos por "Host" ou "http"
-        const blocos = t.split(/(?=http|Host|Servidor)/gi);
-
-        listaContas = blocos.map(b => {
-
-            // HOST
-            let host = b.match(/http:\/\/[^\s]+:\d+/i)?.[0];
-
-            // USER (múltiplos padrões)
-            let user = b.match(/(?:Usu[aá]rio|User|username)[^a-zA-Z0-9]*([a-zA-Z0-9._-]+)/i)?.[1];
-
-            // PASS
-            let pass = b.match(/(?:Senha|Pass|password)[^a-zA-Z0-9]*([a-zA-Z0-9._-]+)/i)?.[1];
-
-            // EXPIRAÇÃO
-            let exp = b.match(/(?:Expira|Vencimento)[^0-9]*([0-9\/]+)/i)?.[1];
-
-            // 🔥 BACKUP MASTER (link M3U SEMPRE GANHA)
-            let m3u = b.match(/http:\/\/[^\s]+get\.php\?username=([a-zA-Z0-9._-]+)&password=([a-zA-Z0-9._-]+)/i);
-
-            if(m3u){
-                host = m3u[0].match(/http:\/\/[^\s]+:\d+/i)?.[0];
-                user = m3u[1];
-                pass = m3u[2];
-            }
-
-            return { host, user, pass, exp };
-
-        }).filter(a => a.host && a.user && a.pass);
-
-        document.getElementById('status').textContent =
-            `${listaContas.length} CONTAS CARREGADAS`;
-
-    } catch(e) {
-        document.getElementById('status').textContent =
-            "ERRO AO CARREGAR LISTA";
-    }
+body{
+background:var(--dark-bg);
+color:#fff;
+font-family:'Share Tech Mono';
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+margin:0;
+padding:15px;
 }
 
-// 🚀 GERAR CONTA (SEM BUG)
-function gerarAcesso() {
-    const out = document.getElementById('out');
-    const btn = document.getElementById('btn-gerar');
-
-    if(listaContas.length === 0){
-        alert("SEM CONTAS!");
-        return;
-    }
-
-    // RESET VISUAL
-    out.style.display = "none";
-    out.innerHTML = "";
-
-    btn.classList.add('processing');
-    btn.innerText = "PROCESSANDO...";
-    btn.disabled = true;
-
-    document.getElementById('status').textContent = "ESCANEANDO...";
-    navigator.vibrate(50);
-
-    setTimeout(() => {
-
-        let disponiveis = listaContas.filter(c => !contasUsadas.includes(c.user));
-
-        if(disponiveis.length === 0){
-            contasUsadas = [];
-            disponiveis = listaContas;
-        }
-
-        if(!disponiveis.length){
-            alert("SEM CONTAS DISPONÍVEIS");
-            return;
-        }
-
-        const conta = disponiveis[Math.floor(Math.random() * disponiveis.length)];
-        contasUsadas.push(conta.user);
-
-        const urlM3u =
-            `${conta.host}/get.php?username=${conta.user}&password=${conta.pass}&type=m3u_plus&output=ts`;
-
-        out.innerHTML = `
-        <span style="color:#bc13fe;font-weight:bold;">💎 ACESSO VIP</span><br>
-
-        <span class="label">LINK M3U:</span>
-        <span class="val-m3u">${urlM3u}</span>
-
-        <span class="label">HOST:</span>
-        <span style="color:#00d2ff">${conta.host}</span><br>
-
-        <span style="color:#fff">USER: ${conta.user}</span><br>
-        <span style="color:#f9d423">PASS: ${conta.pass}</span>
-
-        <span class="label">VALIDADE:</span>
-        <span style="color:#00ff9c">${conta.exp || "ILIMITADO"}</span>
-        `;
-
-        // RESET BOTÃO
-        btn.classList.remove('processing');
-        btn.innerText = "GERAR CONTA IPTV";
-        btn.disabled = false;
-
-        out.style.display = "block";
-        setTimeout(() => out.style.opacity = "1", 50);
-
-        out.scrollIntoView({behavior: "smooth"});
-
-        document.getElementById('status').textContent =
-            `GERADAS: ${contasUsadas.length}/${listaContas.length}`;
-
-    }, 800);
+.card{
+width:100%;
+max-width:420px;
+padding:25px;
+border-radius:20px;
+background:#0a0a0a;
+text-align:center;
+box-shadow:0 0 40px #000;
+border:1px solid rgba(0,255,156,0.2);
 }
 
-// 📋 COPIAR MODERNO
-function copiarDados() {
-    const out = document.getElementById('out');
-
-    if(out.style.display !== "block"){
-        alert("NADA PARA COPIAR");
-        return;
-    }
-
-    navigator.clipboard.writeText(out.innerText)
-        .then(() => alert("COPIADO COM SUCESSO"))
-        .catch(() => alert("ERRO AO COPIAR"));
+.vip{
+width:100px;
+height:100px;
+border-radius:50%;
+border:2px solid var(--neon-green);
+margin:0 auto 20px;
+display:flex;
+align-items:center;
+justify-content:center;
+box-shadow:0 0 20px var(--neon-green);
 }
-</script>
+
+.vip::after{
+content:"VIP";
+color:var(--neon-green);
+font-family:'Orbitron';
+font-size:24px;
+}
+
+.btn{
+width:100%;
+padding:15px;
+border:none;
+border-radius:12px;
+font-family:'Orbitron';
+font-size:11px;
+cursor:pointer;
+margin-bottom:15px;
+}
+
+.green{
+background:linear-gradient(145deg,#00ff9c,#008f58);
+color:#000;
+}
+
+.purple{
+background:linear-gradient(145deg,#bc13fe,#7a00aa);
+color:#fff;
+}
+
+.processing{
+animation:scan .5s infinite alternate;
+}
+
+@keyframes scan{
+from{filter:brightness(1);}
+to{filter:brightness(1.5) drop-shadow(0 0 5px var(--neon-green));}
+}
+
+input{
+width:100%;
+padding:15px;
+border-radius:12px;
+border:1px solid #222;
+background:#000;
+color:var(--neon-green);
+text-align:center;
+margin-bottom:15px;
+}
+
+#out{
+display:none;
+margin-top:15px;
+padding:15px;
+border-radius:15px;
+background:#020202;
+border-left:4px solid var(--neon-purple);
+font-size:12px;
+}
+
+.label{
+color:#666;
+font-size:10px;
+display:block;
+margin-top:10px;
+}
+
+.val{
+color:var(--neon-green);
+word-break:break-all;
+display:block;
+margin-top:5px;
+background:#080808;
+padding:8px;
+border-radius:6px;
+}
+
+.status{
+font-size:10px;
+color:#444;
+margin-top:10px;
+}
+</style></head><body><div class="card"><div style="color:var(--neon-green);font-size:10px;margin-bottom:10px;">
+[ APK_BUGADO_SYSTEM ]
+</div><div class="vip"></div><div id="login">
+<input type="password" id="senha" placeholder="DIGITE A CHAVE">
+<button class="btn green" onclick="login()">ENTRAR</button>
+</div><div id="painel" style="display:none;"><button id="gerar" class="btn green" onclick="gerar()">GERAR CONTA IPTV</button>
+
+<button class="btn purple" onclick="copiar()">COPIAR TUDO</button>
+
+<div class="status" id="status">CARREGANDO...</div><div id="out"></div></div></div><script>
+
+let lista=[];
+let usadas=[];
+
+async function login(){
+let s=document.getElementById("senha").value;
+
+let r=await fetch("config.json");
+let j=await r.json();
+
+if(j.access_keys.includes(s)){
+document.getElementById("login").style.display="none";
+document.getElementById("painel").style.display="block";
+carregar();
+}else{
+alert("ACESSO NEGADO");
+}
+}
+
+// 🔥 PARSER UNIVERSAL
+async function carregar(){
+try{
+
+let r=await fetch("listas.txt?"+Date.now());
+let t=await r.text();
+
+let blocos=t.split(/(?=http|Host|Servidor)/gi);
+
+lista=blocos.map(b=>{
+
+let host=b.match(/http:\/\/[^\s]+:\d+/i)?.[0];
+
+let user=b.match(/(?:Usu[aá]rio|User|username)[^a-zA-Z0-9]*([a-zA-Z0-9._-]+)/i)?.[1];
+
+let pass=b.match(/(?:Senha|Pass|password)[^a-zA-Z0-9]*([a-zA-Z0-9._-]+)/i)?.[1];
+
+let exp=b.match(/(?:Expira|Vencimento)[^0-9]*([0-9\/]+)/i)?.[1];
+
+// backup pelo link m3u
+let m=b.match(/get\.php\?username=([a-zA-Z0-9._-]+)&password=([a-zA-Z0-9._-]+)/i);
+
+if(m){
+host=b.match(/http:\/\/[^\s]+:\d+/i)?.[0];
+user=m[1];
+pass=m[2];
+}
+
+return {host,user,pass,exp};
+
+}).filter(x=>x.host&&x.user&&x.pass);
+
+document.getElementById("status").innerText=lista.length+" CONTAS";
+
+}catch(e){
+document.getElementById("status").innerText="ERRO AO CARREGAR";
+}
+}
+
+// 🚀 GERAR
+function gerar(){
+
+let out=document.getElementById("out");
+let btn=document.getElementById("gerar");
+
+if(lista.length==0){
+alert("SEM CONTAS");
+return;
+}
+
+out.style.display="none";
+out.innerHTML="";
+
+btn.classList.add("processing");
+btn.innerText="PROCESSANDO...";
+btn.disabled=true;
+
+navigator.vibrate(50);
+
+setTimeout(()=>{
+
+let disp=lista.filter(x=>!usadas.includes(x.user));
+
+if(disp.length==0){
+usadas=[];
+disp=lista;
+}
+
+let c=disp[Math.floor(Math.random()*disp.length)];
+
+usadas.push(c.user);
+
+let m3u=`${c.host}/get.php?username=${c.user}&password=${c.pass}&type=m3u_plus&output=ts`;
+
+out.innerHTML=`
+<b style="color:#bc13fe;">💎 ACESSO VIP</b><br>
+
+<span class="label">LINK:</span>
+<span class="val">${m3u}</span>
+
+<span class="label">HOST:</span>
+${c.host}<br>
+
+USER: ${c.user}<br>
+PASS: ${c.pass}
+
+<span class="label">VALIDADE:</span>
+${c.exp || "ILIMITADO"}
+`;
+
+btn.classList.remove("processing");
+btn.innerText="GERAR CONTA IPTV";
+btn.disabled=false;
+
+out.style.display="block";
+
+out.scrollIntoView({behavior:"smooth"});
+
+document.getElementById("status").innerText=
+"GERADAS "+usadas.length+"/"+lista.length;
+
+},800);
+}
+
+// 📋 copiar moderno
+function copiar(){
+let out=document.getElementById("out");
+
+if(out.style.display!="block"){
+alert("NADA PARA COPIAR");
+return;
+}
+
+navigator.clipboard.writeText(out.innerText)
+.then(()=>alert("COPIADO"))
+.catch(()=>alert("ERRO"));
+}
+
+</script></body>
+</html>

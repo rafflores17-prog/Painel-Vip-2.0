@@ -2,39 +2,172 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gerador VIP IPTV</title><link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Inter:wght@300;400;600&display=swap" rel="stylesheet"><style>
-body{background:#050505;color:#fff;font-family:'Inter';display:flex;justify-content:center;align-items:center;min-height:100vh;margin:0;}
-.card{width:100%;max-width:420px;background:#0d0d0d;padding:20px;border-radius:20px;}
-.title{text-align:center;font-family:'Orbitron';color:#00ff9c;}
-.subtitle{text-align:center;font-size:11px;color:#777;margin-bottom:10px;}
-.input{width:100%;padding:14px;border-radius:12px;border:1px solid #222;background:#000;color:#00ff9c;text-align:center;}
-.btn{width:100%;padding:14px;border:none;border-radius:12px;margin-top:10px;cursor:pointer;position:relative;overflow:hidden;}
-.btn::before{content:"";position:absolute;left:-100%;top:0;width:100%;height:100%;background:linear-gradient(120deg,transparent,rgba(255,255,255,0.6),transparent);}
-.btn.wow::before{animation:shine 1s;}
-@keyframes shine{0%{left:-100%}100%{left:100%}}
-.vip{background:#bc13fe;}
-.free{background:#00d2ff;}
-.main{background:#00ff9c;color:#000;}
-.grid{display:flex;gap:10px;}
-.status{text-align:center;font-size:11px;color:#00ff9c;}
-.progress{height:6px;background:#111;margin-top:10px;border-radius:10px;overflow:hidden;display:none;}
-.progress span{display:block;height:100%;background:#00ff9c;width:0%;}
-#out{display:none;margin-top:15px;}
-.card-info{background:#111;padding:10px;border-radius:10px;margin-bottom:8px;}
-.label{font-size:10px;color:#777;}
-.value{word-break:break-word;}
+<title>GERADOR VIP IPTV</title><link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Inter:wght@300;500&display=swap" rel="stylesheet"><style>
+
+body{
+background:#050505;
+color:#fff;
+font-family:'Inter';
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+margin:0;
+}
+
+.card{
+width:100%;
+max-width:420px;
+background:#0d0d0d;
+padding:20px;
+border-radius:20px;
+box-shadow:0 0 40px #000;
+}
+
+.title{
+font-family:'Orbitron';
+text-align:center;
+color:#00ff9c;
+margin-bottom:5px;
+}
+
+.subtitle{
+text-align:center;
+font-size:11px;
+color:#666;
+margin-bottom:15px;
+}
+
+/* LOGIN */
+input{
+width:100%;
+padding:14px;
+border-radius:12px;
+border:1px solid #222;
+background:#000;
+color:#00ff9c;
+text-align:center;
+margin-bottom:10px;
+}
+
+/* BOTÕES */
+.btn{
+width:100%;
+padding:15px;
+border:none;
+border-radius:12px;
+font-weight:bold;
+cursor:pointer;
+position:relative;
+overflow:hidden;
+margin-top:10px;
+transition:.2s;
+}
+
+.btn:active{transform:scale(0.95);}
+
+/* brilho */
+.btn::before{
+content:"";
+position:absolute;
+left:-100%;
+top:0;
+width:100%;
+height:100%;
+background:linear-gradient(120deg,transparent,rgba(255,255,255,0.6),transparent);
+}
+
+.btn.wow::before{
+animation:shine 1s linear;
+}
+
+@keyframes shine{
+0%{left:-100%;}
+100%{left:100%;}
+}
+
+/* VIP FREE */
+.grid{
+display:flex;
+gap:15px;
+margin-bottom:15px;
+}
+
+.vip{
+flex:1;
+background:linear-gradient(135deg,#bc13fe,#7a00aa);
+color:#fff;
+}
+
+.free{
+flex:1;
+background:linear-gradient(135deg,#00d2ff,#006a80);
+color:#fff;
+}
+
+/* GERAR */
+.main{
+background:linear-gradient(135deg,#00ff9c,#008f58);
+color:#000;
+font-size:15px;
+}
+
+/* STATUS */
+.status{
+text-align:center;
+font-size:11px;
+color:#00ff9c;
+min-height:18px;
+font-family:'Orbitron';
+}
+
+/* RESULT */
+#out{
+display:none;
+margin-top:15px;
+animation:fade .3s ease;
+}
+
+@keyframes fade{
+from{opacity:0; transform:translateY(10px);}
+to{opacity:1; transform:translateY(0);}
+}
+
+.card-info{
+background:#111;
+padding:10px;
+border-radius:10px;
+margin-bottom:8px;
+}
+
+.label{
+font-size:10px;
+color:#777;
+}
+
+.value{
+font-size:13px;
+word-break:break-word;
+}
+
+.grid2{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:10px;
+}
+
 </style></head><body><div class="card"><div class="title">GERADOR VIP IPTV</div>
 <div class="subtitle" id="sub">Carregando...</div><div id="login">
-<input type="password" class="input" id="senha" placeholder="Digite a chave">
-<button class="btn main" onclick="logar()">Desbloquear</button>
+<input type="password" id="senha" placeholder="Digite a chave">
+<button class="btn main" onclick="logar()">DESBLOQUEAR</button>
 </div><div id="painel" style="display:none;"><div class="grid">
-<a href="https://rafflores17-prog.github.io/vip-apk/" target="_blank"><button class="btn vip">VIP</button></a>
-<a href="https://t.me/ApkBugado" target="_blank"><button class="btn free">FREE</button></a>
-</div><button class="btn main" onclick="gerar()">GERAR ACESSO</button>
-<button class="btn main" onclick="copiar()">COPIAR</button>
+<a href="https://rafflores17-prog.github.io/vip-apk/" target="_blank">
+<button class="btn vip">💎 GRUPO VIP</button></a><a href="https://t.me/ApkBugado" target="_blank">
+<button class="btn free">📢 GRUPO FREE</button></a>
+</div><button class="btn main" onclick="gerar()">🚀 GERAR ACESSO VIP</button>
+<button class="btn main" onclick="copiar()">📋 COPIAR TUDO</button>
 
-<div class="status" id="status"></div>
-<div class="progress"><span id="bar"></span></div><div id="out"></div></div></div><script>
+<div class="status" id="status"></div><div id="out"></div></div></div><script>
 
 function limpar(t){
 return t.normalize("NFKD").replace(/[\u0300-\u036f]/g,"").toLowerCase();
@@ -46,18 +179,21 @@ let memoria=JSON.parse(localStorage.getItem("hosts")||"{}");
 
 /* LOGIN */
 async function logar(){
-let senha=document.getElementById("senha").value;
+let senha=senhaInput.value;
 let cfg=await (await fetch("config.json")).json();
+
 if(cfg.access_keys.includes(senha)){
 login.style.display="none";
 painel.style.display="block";
 carregar();
-}
+}else alert("Acesso negado");
 }
 
 /* CARREGAR */
 async function carregar(){
+
 let txt=await (await fetch("listas.txt?"+Date.now())).text();
+
 let blocos=txt.split(/┏|『/g);
 
 lista=blocos.map(b=>{
@@ -99,30 +235,27 @@ let hosts=[...new Set(lista.map(x=>x.host))];
 sub.innerText=hosts.length+" hosts detectados";
 }
 
-/* TESTE */
-async function testar(host){
-try{
-let r=await fetch(host,{method:"HEAD"});
-return r.ok;
-}catch{
-return true;
-}
-}
-
 /* IA SCORE */
 function score(h){
 let m=memoria[h]||{ok:0,fail:0};
 return m.ok - m.fail;
 }
 
+/* TESTE */
+async function testar(host){
+try{
+let r=await fetch(host,{method:"HEAD"});
+return r.ok;
+}catch{return true;}
+}
+
 /* GERAR */
 async function gerar(){
 
-let btn=document.querySelector(".main");
+let btn=document.querySelectorAll(".main")[0];
 btn.classList.add("wow");
 
-status.innerText="Conectando...";
-document.querySelector(".progress").style.display="block";
+status.innerText="Conectando servidor...";
 
 let ordenada=[...lista].sort((a,b)=>score(b.host)-score(a.host));
 
@@ -133,36 +266,55 @@ let c=disponivel[Math.floor(Math.random()*Math.min(5,disponivel.length))];
 
 usadas.push(c.user);
 
-bar.style.width="70%";
-
 let link=`${c.host}/get.php?username=${c.user}&password=${c.pass}&type=m3u_plus&output=ts`;
 
 let online=await testar(c.host);
 
-/* salvar IA */
+/* IA aprende */
 if(!memoria[c.host]) memoria[c.host]={ok:0,fail:0};
 online?memoria[c.host].ok++:memoria[c.host].fail++;
 localStorage.setItem("hosts",JSON.stringify(memoria));
 
-bar.style.width="100%";
-
 out.innerHTML=`
-<div class="card-info"><div class="label">HOST</div><div class="value">${c.host}</div></div>
-<div class="card-info"><div class="label">M3U</div><div class="value">${link}</div></div>
-<div class="card-info"><div class="label">USER</div><div class="value">${c.user}</div></div>
-<div class="card-info"><div class="label">PASS</div><div class="value">${c.pass}</div></div>
-<div class="card-info"><div class="label">VALIDADE</div><div class="value">${c.exp||"Desconhecida"}</div></div>
-<div class="card-info"><div class="label">STATUS</div><div class="value">${online?"🟢 ONLINE":"🔴 OFFLINE"}</div></div>
+<div class="card-info">
+<div class="label">🌐 HOST</div>
+<div class="value" style="color:#00d2ff">${c.host}</div>
+</div>
+
+<div class="card-info">
+<div class="label">🔗 M3U</div>
+<div class="value" style="color:#00ff9c">${link}</div>
+</div>
+
+<div class="grid2">
+
+<div class="card-info">
+<div class="label">👤 USER</div>
+<div class="value" style="color:#00ff9c">${c.user}</div>
+</div>
+
+<div class="card-info">
+<div class="label">🔑 PASS</div>
+<div class="value" style="color:#f9d423">${c.pass}</div>
+</div>
+
+<div class="card-info">
+<div class="label">📅 VALIDADE</div>
+<div class="value" style="color:#bc13fe">${c.exp||"Desconhecida"}</div>
+</div>
+
+<div class="card-info">
+<div class="label">📡 STATUS</div>
+<div class="value">${online?"🟢 ONLINE":"🔴 OFFLINE"}</div>
+</div>
+
+</div>
 `;
 
 out.style.display="block";
-status.innerText="✔ Gerado";
+status.innerText="✔ Acesso gerado";
 
-setTimeout(()=>{
-bar.style.width="0%";
-document.querySelector(".progress").style.display="none";
-btn.classList.remove("wow");
-},800);
+setTimeout(()=>btn.classList.remove("wow"),800);
 
 }
 
@@ -170,7 +322,7 @@ btn.classList.remove("wow");
 function copiar(){
 if(out.innerText){
 navigator.clipboard.writeText(out.innerText);
-status.innerText="✔ Copiado";
+status.innerText="✔ Copiado!";
 }
 }
 

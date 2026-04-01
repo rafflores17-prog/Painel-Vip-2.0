@@ -4,86 +4,121 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>APK BUGADO PRO</title><link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Share+Tech+Mono&display=swap" rel="stylesheet"><style>
 body{
-background:#050505;color:#fff;font-family:'Share Tech Mono';
+background:#050505;color:#fff;
+font-family:'Share Tech Mono';
 display:flex;justify-content:center;align-items:center;
 min-height:100vh;margin:0;padding:15px;
 }
 
 .card{
-max-width:420px;width:100%;background:#0a0a0a;
-padding:25px;border-radius:20px;text-align:center;
+max-width:420px;width:100%;
+background:#0a0a0a;padding:25px;
+border-radius:20px;text-align:center;
 box-shadow:0 0 40px #000;
 }
 
+/* LOGIN */
+input{
+width:100%;padding:14px;margin-bottom:10px;
+border-radius:10px;border:1px solid #222;
+background:#000;color:#00ff9c;text-align:center;
+}
+
 .btn{
-width:100%;padding:14px;border:none;border-radius:10px;
-margin-bottom:10px;font-family:'Orbitron';cursor:pointer;
+width:100%;padding:14px;border:none;
+border-radius:10px;margin-bottom:10px;
+font-family:'Orbitron';cursor:pointer;
 }
 
 .green{background:#00ff9c;color:#000;}
 .purple{background:#bc13fe;}
 .blue{background:#00d2ff;}
 
-.progress{height:6px;background:#111;border-radius:10px;overflow:hidden;display:none;}
-.bar{height:100%;width:0;background:#00ff9c;transition:.3s;}
-
-#out{
-margin-top:15px;padding:15px;background:#020202;
-border-radius:15px;border-left:3px solid #bc13fe;
-display:none;font-size:12px;
+.progress{
+height:6px;background:#111;border-radius:10px;
+overflow:hidden;display:none;margin-bottom:10px;
 }
 
+.bar{
+height:100%;width:0;background:#00ff9c;
+transition:.4s;
+}
+
+#out{
+margin-top:15px;padding:15px;
+background:#020202;border-radius:15px;
+border-left:3px solid #bc13fe;
+display:none;font-size:12px;
+text-align:left;
+}
+
+/* 🔥 CORREÇÃO M3U */
 .val{
-color:#00ff9c;background:#080808;padding:8px;
-border-radius:6px;word-break:break-all;
+color:#00ff9c;
+background:#080808;
+padding:10px;
+border-radius:6px;
+display:block;
+word-break:break-word;
+overflow-wrap:anywhere;
+line-height:1.4;
+margin-top:5px;
 }
 
 .status{font-size:10px;color:#666;}
-</style></head><body><div class="card"><h3 style="color:#00ff9c;">APK BUGADO SYSTEM</h3><a href="https://rafflores17-prog.github.io/vip-apk/" target="_blank">
+</style></head><body><div class="card"><h3 style="color:#00ff9c;">APK BUGADO SYSTEM</h3><!-- LOGIN --><div id="login">
+<input type="password" id="senha" placeholder="DIGITE A CHAVE">
+<button class="btn green" onclick="logar()">ENTRAR</button>
+</div><!-- PAINEL --><div id="painel" style="display:none;"><a href="https://rafflores17-prog.github.io/vip-apk/" target="_blank">
 <button class="btn purple">💎 GRUPO VIP</button></a><a href="https://t.me/ApkBugado" target="_blank">
 <button class="btn blue">📢 GRUPO FREE</button></a><button class="btn green" onclick="gerar()">GERAR CONTA</button>
 
-<div class="status" id="status">CARREGANDO...</div><div class="progress"><div class="bar" id="bar"></div></div><div id="out"></div></div><script>
+<div class="status" id="status">CARREGANDO...</div><div class="progress"><div class="bar" id="bar"></div></div><div id="out"></div></div></div><script>
 
 let lista=[];
 
+/* LOGIN */
+async function logar(){
+let senha=document.getElementById("senha").value.trim();
+
+let cfg=await (await fetch("config.json")).json();
+
+if(cfg.access_keys.includes(senha)){
+document.getElementById("login").style.display="none";
+document.getElementById("painel").style.display="block";
+carregar();
+}else{
+alert("ACESSO NEGADO");
+}
+}
+
+/* CARREGAR LISTA */
 async function carregar(){
+
 let t=await (await fetch("listas.txt?"+Date.now())).text();
 
-// 🔥 divide por blocos reais
-let blocos = t.split(/┏|『/g);
+let blocos=t.split(/┏|『/g);
 
-lista = blocos.map(b=>{
+lista=blocos.map(b=>{
 
-// limpa caracteres bugados
-b = b.normalize("NFD").replace(/[^\x00-\x7F]/g, "");
+b=b.normalize("NFD").replace(/[^\x00-\x7F]/g,"");
 
-// HOST
-let host = b.match(/http:\/\/[^\s]+:\d+/i)?.[0];
+let host=b.match(/http:\/\/[^\s]+:\d+/i)?.[0];
+let user=b.match(/user[^a-z0-9]*([a-z0-9._-]+)/i)?.[1];
+let pass=b.match(/pass[^a-z0-9]*([a-z0-9._-]+)/i)?.[1];
+let exp=b.match(/(expira|vencimento)[^0-9]*([0-9\/]+)/i)?.[2];
 
-// USER
-let user = b.match(/user[^a-z0-9]*([a-z0-9._-]+)/i)?.[1];
+let m3u=b.match(/http:\/\/[^\s]+get\.php\?username=([^\s&]+)&password=([^\s&]+)/i);
 
-// PASS
-let pass = b.match(/pass[^a-z0-9]*([a-z0-9._-]+)/i)?.[1];
-
-// EXP
-let exp = b.match(/(expira|vencimento)[^0-9]*([0-9\/]+)/i)?.[2];
-
-// M3U
-let m3u = b.match(/http:\/\/[^\s]+get\.php\?username=([^\s&]+)&password=([^\s&]+)/i);
-
-// 🔥 PRIORIDADE: M3U
 if(m3u){
 return {
-host: m3u[0].match(/http:\/\/[^\s]+:\d+/)[0],
-user: m3u[1],
-pass: m3u[2],
+host:m3u[0].match(/http:\/\/[^\s]+:\d+/)[0],
+user:m3u[1],
+pass:m3u[2],
 exp
 };
 }
 
-// 🔥 fallback manual
 if(host && user && pass){
 return {host,user,pass,exp};
 }
@@ -92,90 +127,63 @@ return null;
 
 }).filter(x=>x);
 
-document.getElementById("status").innerText =
+document.getElementById("status").innerText=
 lista.length+" CONTAS CARREGADAS";
 }
 
-// 🔥 TESTE ONLINE
-async function testar(host){
-try{
-let r = await fetch(host,{method:"HEAD"});
-return r.status==200;
-}catch{
-return false;
-}
-}
-
+/* GERAR */
 async function gerar(){
+
+if(lista.length==0){alert("SEM CONTAS");return;}
 
 let out=document.getElementById("out");
 let bar=document.getElementById("bar");
 let status=document.getElementById("status");
 
-if(lista.length==0){alert("SEM CONTAS");return;}
-
-document.querySelector(".progress").style.display="block";
 out.style.display="block";
-out.innerHTML="";
+document.querySelector(".progress").style.display="block";
 
 let etapas=[
-"Conectando...",
-"Lendo base...",
-"Filtrando...",
-"Testando host...",
-"Gerando acesso..."
+"🔌 Conectando ao servidor...",
+"📡 Lendo database...",
+"🧠 Filtrando dados...",
+"⚡ Validando credenciais...",
+"🚀 Gerando acesso..."
 ];
 
-for(let i=0;i<etapas.length;i++){
+out.innerHTML="";
 
+for(let i=0;i<etapas.length;i++){
 status.innerText=etapas[i];
 bar.style.width=((i+1)*20)+"%";
 
 out.innerHTML+=`<div>${etapas[i]}</div>`;
-
-await new Promise(r=>setTimeout(r,500));
+await new Promise(r=>setTimeout(r,600));
 }
 
-// 🔥 pega conta válida
-let conta;
-for(let i=0;i<lista.length;i++){
-let c=lista[Math.floor(Math.random()*lista.length)];
+/* ESCOLHE CONTA */
+let conta=lista[Math.floor(Math.random()*lista.length)];
 
-let ok = await testar(c.host);
-
-if(ok){
-conta=c;
-break;
-}
-}
-
-if(!conta){
-conta = lista[Math.floor(Math.random()*lista.length)];
-}
-
-let link = `${conta.host}/get.php?username=${conta.user}&password=${conta.pass}&type=m3u_plus&output=ts`;
+let link=`${conta.host}/get.php?username=${conta.user}&password=${conta.pass}&type=m3u_plus&output=ts`;
 
 out.innerHTML=`
 <b style="color:#bc13fe;">💎 ACESSO GERADO</b><br><br>
 
-<span class="val">${link}</span><br><br>
+LINK M3U:
+<span class="val">${link}</span>
 
-HOST: ${conta.host}<br>
-USER: ${conta.user}<br>
-PASS: ${conta.pass}<br><br>
+<br>HOST: ${conta.host}
+<br>USER: ${conta.user}
+<br>PASS: ${conta.pass}
 
-STATUS: <span style="color:#00ff9c;">ONLINE</span><br>
-VALIDADE: ${conta.exp || "DESCONHECIDA"}
+<br><br>VALIDADE: ${conta.exp || "DESCONHECIDA"}
 `;
 
 status.innerText="PRONTO";
-
 bar.style.width="0%";
 document.querySelector(".progress").style.display="none";
 
 }
-
-carregar();
 
 </script></body>
 </html>

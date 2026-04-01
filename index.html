@@ -44,8 +44,15 @@ input{width:100%;padding:15px;border-radius:12px;border:1px solid #111;backgroun
 
 <div id="painel" style="display:none;">
 <div class="grid">
+
+<a href="https://rafflores17-prog.github.io/vip-apk/" target="_blank">
 <button class="btn vip">💎 GRUPO VIP</button>
+</a>
+
+<a href="https://t.me/ApkBugado" target="_blank">
 <button class="btn free">📢 GRUPO FREE</button>
+</a>
+
 </div>
 
 <button class="btn main" onclick="abrirAd(); gerar();">🚀 GERAR ACESSO</button>
@@ -118,7 +125,7 @@ return {host,user,pass,exp};
 status.innerHTML="✔ Sistema pronto<br>";
 }
 
-/* SCAN */
+/* SCAN (já funcionando) */
 function fakeScan(callback){
 
 let s=document.getElementById("status");
@@ -148,21 +155,32 @@ setTimeout(loop,400);
 loop();
 }
 
-/* ADS */
+/* ADS CORRETO */
 function carregarAds(){
 
-let ads=document.getElementById("ads");
-ads.innerHTML="";
+let ads = document.getElementById("ads");
+ads.innerHTML = "";
 
-/* recria script corretamente */
-let script1=document.createElement("script");
-script1.innerHTML=`atOptions={key:'a8a116d252f41a02d16bcf030d61ce58',format:'iframe',height:300,width:160,params:{}};`;
+setTimeout(()=>{
 
-let script2=document.createElement("script");
-script2.src="https://encouragingjawsordinarily.com/a8a116d252f41a02d16bcf030d61ce58/invoke.js";
+let s1 = document.createElement("script");
+s1.innerHTML = `
+atOptions = {
+'key' : 'a8a116d252f41a02d16bcf030d61ce58',
+'format' : 'iframe',
+'height' : 300,
+'width' : 160,
+'params' : {}
+};`;
 
-ads.appendChild(script1);
-ads.appendChild(script2);
+let s2 = document.createElement("script");
+s2.src = "https://encouragingjawsordinarily.com/a8a116d252f41a02d16bcf030d61ce58/invoke.js";
+
+ads.appendChild(s1);
+ads.appendChild(s2);
+
+},200);
+
 }
 
 /* GERAR */
@@ -177,7 +195,7 @@ status.innerHTML="";
 /* SCAN */
 fakeScan(function(){
 
-/* ADS APARECE AQUI */
+/* ADS */
 carregarAds();
 
 /* GERAR DADOS */

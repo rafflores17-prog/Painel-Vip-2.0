@@ -2,11 +2,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>APK BUGADO ULTRA</title><link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Share+Tech+Mono&display=swap" rel="stylesheet"><style>
+<title>Gerador VIP IPTV</title><link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Inter:wght@300;400;600&display=swap" rel="stylesheet"><style>
+
 body{
-background:#050505;
+background:#070707;
 color:#fff;
-font-family:'Share Tech Mono';
+font-family:'Inter',sans-serif;
 display:flex;
 justify-content:center;
 align-items:center;
@@ -17,83 +18,133 @@ margin:0;
 .card{
 width:100%;
 max-width:420px;
-background:#0a0a0a;
-padding:20px;
+background:#111;
+padding:25px;
 border-radius:20px;
-text-align:center;
-box-shadow:0 0 40px #000;
+box-shadow:0 0 40px rgba(0,0,0,1);
 }
 
-/* 🔥 GRID VIP / FREE */
+/* TITULO */
+.title{
+font-family:'Orbitron';
+text-align:center;
+font-size:18px;
+color:#00ff9c;
+margin-bottom:20px;
+letter-spacing:2px;
+}
+
+/* GRID BOTÕES */
 .grid{
 display:flex;
 gap:10px;
-margin-bottom:15px;
+margin-bottom:20px;
 }
 
 .grid a{flex:1;}
 
 .btn{
 width:100%;
-padding:12px;
+padding:14px;
 border:none;
-border-radius:10px;
-font-family:'Orbitron';
+border-radius:12px;
 cursor:pointer;
+font-weight:600;
+font-size:12px;
+transition:0.2s;
 }
 
-.vip{background:#bc13fe;}
-.free{background:#00d2ff;}
-.main{background:#00ff9c;color:#000;}
-
-.progress{
-height:6px;background:#111;border-radius:10px;
-overflow:hidden;display:none;margin-top:10px;
+.vip{
+background:linear-gradient(135deg,#bc13fe,#7a00aa);
 }
 
-.bar{height:100%;width:0;background:#00ff9c;}
+.free{
+background:linear-gradient(135deg,#00d2ff,#006a80);
+}
 
-#out{
-margin-top:15px;
-padding:15px;
-background:#020202;
-border-radius:15px;
-border-left:3px solid #bc13fe;
+.main{
+background:linear-gradient(135deg,#00ff9c,#008f58);
+color:#000;
+}
+
+.btn:hover{
+transform:scale(1.03);
+}
+
+/* STATUS */
+.status{
+text-align:center;
+font-size:11px;
+color:#888;
+margin-bottom:10px;
+}
+
+/* LOADING */
+.loader{
+height:4px;
+background:#222;
+border-radius:10px;
+overflow:hidden;
 display:none;
-text-align:left;
-animation:glow 1s infinite alternate;
 }
 
-@keyframes glow{
-from{box-shadow:0 0 5px #bc13fe;}
-to{box-shadow:0 0 15px #bc13fe;}
-}
-
-.val{
-background:#080808;
-padding:8px;
-border-radius:6px;
-word-break:break-word;
-color:#00ff9c;
-margin-top:5px;
+.loader span{
 display:block;
+height:100%;
+width:40%;
+background:linear-gradient(90deg,#00ff9c,#00d2ff);
+animation:load 1s infinite;
 }
 
-.status{font-size:10px;color:#666;margin-top:10px;}
-</style></head><body><div class="card"><h3 style="color:#00ff9c;">APK BUGADO ULTRA</h3><!-- 🔥 GRID --><div class="grid">
-<a href="https://rafflores17-prog.github.io/vip-apk/" target="_blank">
-<button class="btn vip">💎 VIP</button></a><a href="https://t.me/ApkBugado" target="_blank">
-<button class="btn free">📢 FREE</button></a>
-</div><button class="btn main" onclick="gerar()">GERAR ACESSO</button>
+@keyframes load{
+0%{margin-left:-40%;}
+100%{margin-left:100%;}
+}
 
-<div class="status" id="status">CARREGANDO...</div><div class="progress"><div class="bar" id="bar"></div></div><div id="out"></div></div><script>
+/* RESULTADO */
+#out{
+display:none;
+margin-top:20px;
+padding:15px;
+background:#0a0a0a;
+border-radius:12px;
+border:1px solid #222;
+}
+
+.link{
+background:#000;
+padding:10px;
+border-radius:8px;
+color:#00ff9c;
+word-break:break-word;
+margin-top:5px;
+}
+
+/* BOTÃO COPIAR */
+.copy{
+margin-top:15px;
+}
+
+.copy.done{
+background:#00ff9c;
+color:#000;
+}
+
+</style></head><body><div class="card"><div class="title">GERADOR VIP IPTV</div><!-- BOTÕES --><div class="grid">
+<a href="https://rafflores17-prog.github.io/vip-apk/" target="_blank">
+<button class="btn vip">💎 GRUPO VIP</button>
+</a><a href="https://t.me/ApkBugado" target="_blank">
+<button class="btn free">📢 GRUPO FREE</button>
+</a>
+</div><!-- GERAR --><button class="btn main" onclick="gerar()">GERAR ACESSO VIP</button>
+
+<div class="status" id="status">Sistema pronto</div><div class="loader" id="loader"><span></span></div><div id="out"></div></div><script>
 
 let lista=[];
-let usadas=[];
 
 /* CARREGAR */
 (async()=>{
-let t=await (await fetch("listas.txt")).text();
+let t=await (await fetch("listas.txt?"+Date.now())).text();
 
 let blocos=t.split(/┏|『/g);
 
@@ -118,68 +169,71 @@ return {host,user,pass,exp};
 
 }).filter(x=>x);
 
-document.getElementById("status").innerText=
-lista.length+" CONTAS PRONTAS";
-
 })();
 
 /* GERAR */
 async function gerar(){
 
 let out=document.getElementById("out");
-let bar=document.getElementById("bar");
 let status=document.getElementById("status");
+let loader=document.getElementById("loader");
 
-if(lista.length==0){alert("SEM CONTAS");return;}
-
-out.style.display="block";
-document.querySelector(".progress").style.display="block";
-out.innerHTML="";
-
-for(let i=0;i<lista.length;i++){
-
-status.innerText=`ESCANEANDO ${i+1}/${lista.length}`;
-bar.style.width=((i+1)/lista.length*100)+"%";
-
-out.innerHTML+=`<div>🔍 Verificando conta ${i+1}</div>`;
-
-await new Promise(r=>setTimeout(r,300));
+if(lista.length==0){
+status.innerText="Carregando contas...";
+return;
 }
 
-/* evitar repetição */
-let disp=lista.filter(x=>!usadas.includes(x.user));
-if(disp.length==0){usadas=[];disp=lista;}
+loader.style.display="block";
+out.style.display="none";
 
-let c=disp[Math.floor(Math.random()*disp.length)];
-usadas.push(c.user);
+status.innerText="Conectando servidor...";
+await delay(600);
+
+status.innerText="Validando base de dados...";
+await delay(600);
+
+status.innerText="Gerando acesso...";
+await delay(600);
+
+let c=lista[Math.floor(Math.random()*lista.length)];
 
 let link=`${c.host}/get.php?username=${c.user}&password=${c.pass}&type=m3u_plus&output=ts`;
 
 out.innerHTML=`
-<b style="color:#bc13fe;">💎 ACESSO LIBERADO</b><br><br>
+<b style="color:#bc13fe;">ACESSO VIP GERADO</b><br><br>
 
-LINK:
-<span class="val">${link}</span>
+LINK M3U:
+<div class="link">${link}</div>
 
-<br>USER: ${c.user}
-<br>PASS: ${c.pass}
-<br>HOST: ${c.host}
+<br>Usuário: ${c.user}
+<br>Senha: ${c.pass}
 
-<br><br>VALIDADE: ${c.exp || "N/A"}
+<br><br>Validade: ${c.exp || "Desconhecida"}
 
-<button class="btn main" onclick="copiar('${link}', this)">COPIAR</button>
+<button class="btn main copy" onclick="copiar('${link}', this)">COPIAR</button>
 `;
 
-status.innerText="FINALIZADO";
-bar.style.width="0%";
-document.querySelector(".progress").style.display="none";
+loader.style.display="none";
+out.style.display="block";
+
+status.innerText="Acesso liberado";
+
 }
 
-/* copiar */
+/* COPY */
 function copiar(text,btn){
 navigator.clipboard.writeText(text);
 btn.innerText="COPIADO ✔";
-setTimeout(()=>btn.innerText="COPIAR",1500);
+btn.classList.add("done");
+
+setTimeout(()=>{
+btn.innerText="COPIAR";
+btn.classList.remove("done");
+},1500);
+}
+
+function delay(ms){
+return new Promise(r=>setTimeout(r,ms));
 }
 
 </script></body>

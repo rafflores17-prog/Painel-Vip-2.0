@@ -24,14 +24,22 @@ border-radius:20px;
 box-shadow:0 0 50px #000;
 }
 
-/* LOGIN */
+/* TITULO */
 .title{
 text-align:center;
 font-family:'Orbitron';
 color:#00ff9c;
-margin-bottom:10px;
+margin-bottom:5px;
 }
 
+.subtitle{
+text-align:center;
+font-size:11px;
+color:#777;
+margin-bottom:15px;
+}
+
+/* LOGIN */
 .input{
 width:100%;
 padding:14px;
@@ -50,28 +58,41 @@ border:none;
 border-radius:12px;
 cursor:pointer;
 font-weight:600;
-background:#00ff9c;
-color:#000;
 margin-top:10px;
 }
 
-/* LINKS */
+/* BOTÕES */
+.vip{
+background:linear-gradient(135deg,#bc13fe,#7a00aa);
+color:#fff;
+}
+
+.free{
+background:linear-gradient(135deg,#00d2ff,#006a80);
+color:#fff;
+}
+
+.main{
+background:linear-gradient(135deg,#00ff9c,#008f58);
+color:#000;
+}
+
+/* GRID */
 .grid{
 display:flex;
 gap:10px;
-margin-top:10px;
+margin-bottom:10px;
 }
 
-.vip{background:#bc13fe;color:#fff;}
-.free{background:#00d2ff;color:#000;}
-
+/* STATUS */
 .status{
 font-size:11px;
 text-align:center;
-margin-top:10px;
 color:#aaa;
+min-height:15px;
 }
 
+/* PROGRESS */
 .progress{
 height:5px;
 background:#111;
@@ -86,6 +107,7 @@ display:block;
 height:100%;
 width:0%;
 background:#00ff9c;
+transition:.3s;
 }
 
 /* RESULT */
@@ -108,21 +130,29 @@ color:#777;
 
 .value{
 font-size:13px;
-word-break:break-all;
+word-break:break-word;
 }
 
-</style></head><body><div class="card"><div class="title">GERADOR VIP IPTV</div><div id="login">
+.grid-2{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:10px;
+}
+
+</style></head><body><div class="card"><div class="title">GERADOR VIP IPTV</div>
+<div class="subtitle" id="sub">Sistema carregando...</div><div id="login">
 <input class="input" id="senha" placeholder="Digite a chave">
-<button class="btn" onclick="logar()">Desbloquear</button><div class="grid">
+<button class="btn main" onclick="logar()">Desbloquear</button>
+</div><div id="painel" style="display:none;"><div class="grid">
 <a href="https://rafflores17-prog.github.io/vip-apk/" target="_blank">
-<button class="btn vip">VIP</button></a><a href="https://t.me/ApkBugado" target="_blank">
-<button class="btn free">FREE</button></a>
-</div></div><div id="painel" style="display:none;"><button class="btn" onclick="gerar()">GERAR ACESSO</button>
+<button class="btn vip">💎 VIP</button></a><a href="https://t.me/ApkBugado" target="_blank">
+<button class="btn free">📢 FREE</button></a>
+</div><button class="btn main" onclick="gerar()">GERAR ACESSO</button>
 
 <div class="status" id="status"></div>
 <div class="progress"><span id="bar"></span></div><div id="out"></div></div></div><script>
 
-/* 🔥 NORMALIZAÇÃO */
+/* NORMALIZAR TEXTO */
 function limpar(txt){
 return txt.normalize("NFKD")
 .replace(/[\u0300-\u036f]/g,"")
@@ -131,6 +161,8 @@ return txt.normalize("NFKD")
 }
 
 let lista=[];
+let usadas=[];
+let ultimoHost=null;
 
 /* LOGIN */
 async function logar(){
@@ -144,7 +176,7 @@ carregar();
 }else alert("Acesso negado");
 }
 
-/* PARSER ULTRA */
+/* PARSER */
 async function carregar(){
 
 let txt=await (await fetch("listas.txt?"+Date.now())).text();
@@ -176,10 +208,12 @@ return {host,user,pass,exp};
 
 }).filter(x=>x);
 
-document.getElementById("status").innerText=lista.length+" contas carregadas";
+/* CONTAR HOSTS */
+let hosts=[...new Set(lista.map(x=>x.host))];
+document.getElementById("sub").innerText=hosts.length+" hosts detectados";
 }
 
-/* TESTE REAL */
+/* TESTE */
 async function testar(link){
 try{
 let r=await fetch(link);
@@ -196,46 +230,79 @@ let out=document.getElementById("out");
 
 out.style.display="none";
 
-status.innerText="Analisando...";
-bar.style.width="20%";
+/* animação */
+await etapa("🔎 Analisando base...",20);
+await etapa("🌐 Conectando servidor...",50);
+await etapa("🔐 Gerando credenciais...",80);
 
-await delay(600);
+/* lógica */
+let disponiveis=lista.filter(x=>!usadas.includes(x.user));
+if(disponiveis.length==0){usadas=[];disponiveis=lista;}
 
-status.innerText="Conectando...";
-bar.style.width="50%";
+let filtrado=disponiveis.filter(x=>x.host!==ultimoHost);
+if(filtrado.length==0) filtrado=disponiveis;
 
-await delay(600);
+let c=filtrado[Math.floor(Math.random()*filtrado.length)];
 
-let c=lista[Math.floor(Math.random()*lista.length)];
+usadas.push(c.user);
+ultimoHost=c.host;
 
 let link=`${c.host}/get.php?username=${c.user}&password=${c.pass}&type=m3u_plus&output=ts`;
 
-status.innerText="Testando...";
-bar.style.width="80%";
+await etapa("📡 Testando conexão...",100);
 
 let online=await testar(link);
 
-status.innerText="Finalizando...";
-bar.style.width="100%";
-
-await delay(400);
-
+/* render */
 out.innerHTML=`
-<div class="card-info"><div class="label">HOST</div><div class="value">${c.host}</div></div>
-<div class="card-info"><div class="label">M3U</div><div class="value">${link}</div></div>
-<div class="card-info"><div class="label">USER</div><div class="value">${c.user}</div></div>
-<div class="card-info"><div class="label">PASS</div><div class="value">${c.pass}</div></div>
-<div class="card-info"><div class="label">VALIDADE</div><div class="value">${c.exp||"Desconhecida"}</div></div>
-<div class="card-info"><div class="label">STATUS</div><div class="value">${online?"🟢 Online":"🔴 Offline"}</div></div>
+
+<div class="card-info">
+<div class="label">HOST</div>
+<div class="value" style="color:#00d2ff;">${c.host}</div>
+</div>
+
+<div class="card-info">
+<div class="label">M3U</div>
+<div class="value" style="color:#00ff9c;">${link}</div>
+</div>
+
+<div class="grid-2">
+
+<div class="card-info">
+<div class="label">USER</div>
+<div class="value" style="color:#00ff9c;">${c.user}</div>
+</div>
+
+<div class="card-info">
+<div class="label">PASS</div>
+<div class="value" style="color:#f9d423;">${c.pass}</div>
+</div>
+
+<div class="card-info">
+<div class="label">VALIDADE</div>
+<div class="value" style="color:#bc13fe;">${c.exp||"Desconhecida"}</div>
+</div>
+
+<div class="card-info">
+<div class="label">STATUS</div>
+<div class="value">${online?"🟢 ONLINE":"🔴 OFFLINE"}</div>
+</div>
+
+</div>
+
 `;
 
 out.style.display="block";
-
 }
 
-/* DELAY */
-function delay(ms){
-return new Promise(r=>setTimeout(r,ms));
+/* ETAPA */
+function etapa(txt,p){
+return new Promise(r=>{
+document.getElementById("status").innerText=txt;
+document.getElementById("bar").style.width=p+"%";
+document.querySelector(".progress").style.display="block";
+setTimeout(r,800);
+});
 }
 
 </script></body>

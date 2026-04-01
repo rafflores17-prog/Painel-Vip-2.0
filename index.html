@@ -7,7 +7,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 
 <style>
-
 body{
 background:#050505;
 color:#fff;
@@ -18,7 +17,6 @@ align-items:center;
 min-height:100vh;
 margin:0;
 }
-
 .card{
 width:100%;
 max-width:420px;
@@ -27,14 +25,12 @@ padding:20px;
 border-radius:20px;
 box-shadow:0 0 40px #000;
 }
-
 .title{
 text-align:center;
 font-family:'Orbitron';
 color:#00ff9c;
 margin-bottom:10px;
 }
-
 input{
 width:100%;
 padding:15px;
@@ -44,7 +40,6 @@ background:#000;
 color:#00ff9c;
 text-align:center;
 }
-
 .btn{
 width:100%;
 padding:15px;
@@ -54,27 +49,10 @@ cursor:pointer;
 font-weight:bold;
 margin-top:10px;
 }
-
-.vip{
-background:linear-gradient(135deg,#bc13fe,#7a00aa);
-color:#fff;
-}
-
-.free{
-background:linear-gradient(135deg,#00d2ff,#006a80);
-color:#fff;
-}
-
-.main{
-background:linear-gradient(135deg,#00ff9c,#008f58);
-color:#000;
-}
-
-.grid{
-display:flex;
-gap:10px;
-}
-
+.vip{background:linear-gradient(135deg,#bc13fe,#7a00aa);color:#fff;}
+.free{background:linear-gradient(135deg,#00d2ff,#006a80);color:#fff;}
+.main{background:linear-gradient(135deg,#00ff9c,#008f58);color:#000;}
+.grid{display:flex;gap:10px;}
 .status{
 margin-top:10px;
 font-size:12px;
@@ -85,38 +63,22 @@ height:120px;
 overflow-y:auto;
 color:#00ff9c;
 }
-
-#out{
-display:none;
-margin-top:15px;
-}
-
-.box{
-background:#111;
-padding:10px;
-border-radius:10px;
-margin-bottom:8px;
-}
-
+#out{display:none;margin-top:15px;}
+.box{background:#111;padding:10px;border-radius:10px;margin-bottom:8px;}
 .label{font-size:10px;color:#777;}
 .val{font-size:13px;word-break:break-word;}
-
 .green{color:#00ff9c;}
 .blue{color:#00d2ff;}
 .white{color:#fff;}
 .purple{color:#bc13fe;}
-.red{color:#ff4d4d;}
-
 .row{display:flex;gap:10px;}
 .col{flex:1;}
-
 </style>
 </head>
 
 <body>
 
 <div class="card">
-
 <div class="title">GERADOR VIP IPTV</div>
 
 <div id="login">
@@ -125,7 +87,6 @@ margin-bottom:8px;
 </div>
 
 <div id="painel" style="display:none;">
-
 <div class="grid">
 <a href="#"><button class="btn vip">💎 GRUPO VIP</button></a>
 <a href="#"><button class="btn free">📢 GRUPO FREE</button></a>
@@ -136,7 +97,6 @@ margin-bottom:8px;
 
 <div class="status" id="status"></div>
 <div id="out"></div>
-
 </div>
 </div>
 
@@ -151,23 +111,54 @@ document.getElementById("painel").style.display="block";
 carregar();
 }
 
-/* CARREGAR ORIGINAL */
+/* CARREGAR COM PARSER INTELIGENTE */
 async function carregar(){
 
 let txt=await (await fetch("listas.txt?"+Date.now())).text();
 
-let blocos=txt.split(/┏|『/g);
+let blocos=txt.split(/┏|『|Host/g);
 
 lista=blocos.map(b=>{
 
 let host=b.match(/http:\/\/[^\s]+:\d+/i)?.[0];
-let user=b.match(/user[^a-z0-9]*([a-z0-9._-]+)/i)?.[1];
-let pass=b.match(/pass[^a-z0-9]*([a-z0-9._-]+)/i)?.[1];
+let user=b.match(/Usu[aá]rio[^a-z0-9]*([a-z0-9@._-]+)/i)?.[1];
+let pass=b.match(/Senha[^a-z0-9]*([a-z0-9@._-]+)/i)?.[1];
 
 let m=b.match(/username=([^\s&]+)&password=([^\s&]+)/i);
 if(m){user=m[1];pass=m[2];}
 
+/* VALIDADE INTELIGENTE */
 let exp=null;
+let linhas=b.split("\n");
+
+for(let l of linhas){
+
+let c=l.toLowerCase();
+
+/* IGNORA LIXO */
+if(
+c.includes("scan") ||
+c.includes("criado") ||
+c.includes("dias") ||
+c.includes("conex") ||
+c.includes("ip")
+) continue;
+
+/* PROCURA DATA */
+let d=l.match(/(\d{2}\/\d{2}\/\d{4})/);
+
+if(d){
+if(
+c.includes("exp") ||
+c.includes("venc") ||
+c.includes("expira") ||
+c.includes("validade")
+){
+exp=d[1];
+break;
+}
+}
+}
 
 if(host&&user&&pass){
 return {host,user,pass,exp};
@@ -178,7 +169,7 @@ return {host,user,pass,exp};
 status.innerHTML="✔ Sistema pronto<br>";
 }
 
-/* SCAN REAL */
+/* SCAN */
 function fakeScan(callback){
 
 let statusEl = document.getElementById("status");
@@ -202,15 +193,12 @@ let i=0;
 
 function loop(){
 if(i < etapas.length){
-
 statusEl.innerHTML += etapas[i] + "<br>";
 statusEl.scrollTop = statusEl.scrollHeight;
-
 i++;
-setTimeout(loop, 600);
-
+setTimeout(loop, 500);
 }else{
-btn.disabled = false;
+btn.disabled=false;
 callback();
 }
 }
@@ -228,7 +216,6 @@ let c=lista[Math.floor(Math.random()*lista.length)];
 let m3u=`${c.host}/get.php?username=${c.user}&password=${c.pass}&type=m3u_plus&output=ts`;
 
 out.innerHTML=`
-
 <div class="box">
 <div class="label">🔗 M3U</div>
 <div class="val green">${m3u}</div>
@@ -262,14 +249,12 @@ out.innerHTML=`
 <div class="val green">🟢 ONLINE</div>
 </div>
 </div>
-
 `;
 
 out.style.display="block";
 status.innerHTML += "🚀 Acesso liberado<br>";
 
 });
-
 }
 
 /* COPIAR */

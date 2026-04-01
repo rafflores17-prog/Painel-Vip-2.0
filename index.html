@@ -39,7 +39,7 @@ color:#777;
 margin-bottom:15px;
 }
 
-/* LOGIN */
+/* INPUT */
 .input{
 width:100%;
 padding:14px;
@@ -51,6 +51,7 @@ text-align:center;
 margin-bottom:10px;
 }
 
+/* BOTÕES */
 .btn{
 width:100%;
 padding:14px;
@@ -59,6 +60,29 @@ border-radius:12px;
 cursor:pointer;
 font-weight:600;
 margin-top:10px;
+position:relative;
+overflow:hidden;
+transition:.2s;
+}
+
+/* brilho */
+.btn::before{
+content:"";
+position:absolute;
+top:0;
+left:-100%;
+width:100%;
+height:100%;
+background:linear-gradient(120deg,transparent,rgba(255,255,255,0.4),transparent);
+transition:0.5s;
+}
+
+.btn:hover::before{
+left:100%;
+}
+
+.btn:active{
+transform:scale(0.97);
 }
 
 /* BOTÕES VIP/FREE */
@@ -120,6 +144,12 @@ transition:.3s;
 #out{
 display:none;
 margin-top:20px;
+animation:fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn{
+from{opacity:0; transform:translateY(10px);}
+to{opacity:1; transform:translateY(0);}
 }
 
 .card-info{
@@ -127,6 +157,13 @@ background:#111;
 padding:10px;
 border-radius:10px;
 margin-bottom:8px;
+animation:float 3s ease-in-out infinite;
+}
+
+@keyframes float{
+0%{transform:translateY(0);}
+50%{transform:translateY(-3px);}
+100%{transform:translateY(0);}
 }
 
 .label{
@@ -147,7 +184,7 @@ gap:10px;
 
 </style></head><body><div class="card"><div class="title">GERADOR VIP IPTV</div>
 <div class="subtitle" id="sub">Sistema carregando...</div><div id="login">
-<input class="input" id="senha" placeholder="Digite a chave">
+<input type="password" class="input" id="senha" placeholder="Digite a chave">
 <button class="btn main" onclick="logar()">Desbloquear</button>
 </div><div id="painel" style="display:none;"><div class="grid">
 <a href="https://rafflores17-prog.github.io/vip-apk/" target="_blank">

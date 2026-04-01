@@ -7,67 +7,23 @@
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 
 <style>
-body{
-background:#050505;
-color:#fff;
-font-family:'Share Tech Mono', monospace;
-display:flex;
-justify-content:center;
-align-items:center;
-min-height:100vh;
-margin:0;
-}
-.card{
-width:100%;
-max-width:420px;
-background:#0a0a0a;
-padding:20px;
-border-radius:20px;
-box-shadow:0 0 40px #000;
-}
-.title{
-text-align:center;
-font-family:'Orbitron';
-color:#00ff9c;
-margin-bottom:10px;
-}
-input{
-width:100%;
-padding:15px;
-border-radius:12px;
-border:1px solid #111;
-background:#000;
-color:#00ff9c;
-text-align:center;
-}
-.btn{
-width:100%;
-padding:15px;
-border:none;
-border-radius:12px;
-cursor:pointer;
-font-weight:bold;
-margin-top:10px;
-}
-.vip{background:linear-gradient(135deg,#bc13fe,#7a00aa);color:#fff;}
-.free{background:linear-gradient(135deg,#00d2ff,#006a80);color:#fff;}
+body{background:#050505;color:#fff;font-family:'Share Tech Mono', monospace;display:flex;justify-content:center;align-items:center;min-height:100vh;margin:0;}
+.card{width:100%;max-width:420px;background:#0a0a0a;padding:20px;border-radius:20px;box-shadow:0 0 40px #000;}
+.title{text-align:center;font-family:'Orbitron';color:#00ff9c;margin-bottom:10px;}
+input{width:100%;padding:15px;border-radius:12px;border:1px solid #111;background:#000;color:#00ff9c;text-align:center;}
+.btn{width:100%;padding:15px;border:none;border-radius:12px;cursor:pointer;font-weight:bold;margin-top:10px;}
+.vip{background:linear-gradient(135deg,#bc13fe,#7a00aa);}
+.free{background:linear-gradient(135deg,#00d2ff,#006a80);}
 .main{background:linear-gradient(135deg,#00ff9c,#008f58);color:#000;}
 .grid{display:flex;gap:10px;}
-.status{
-margin-top:10px;
-font-size:12px;
-background:#000;
-padding:10px;
-border-radius:10px;
-height:120px;
-overflow-y:auto;
-color:#00ff9c;
-}
+.status{margin-top:10px;font-size:12px;background:#000;padding:10px;border-radius:10px;height:120px;overflow-y:auto;color:#00ff9c;}
+#ads{margin-top:10px;text-align:center;}
 #out{display:none;margin-top:15px;}
 .box{background:#111;padding:10px;border-radius:10px;margin-bottom:8px;}
 .label{font-size:10px;color:#777;}
 .val{font-size:13px;word-break:break-word;}
 .green{color:#00ff9c;}
+.red{color:#ff4d4d;}
 .blue{color:#00d2ff;}
 .white{color:#fff;}
 .purple{color:#bc13fe;}
@@ -88,14 +44,15 @@ color:#00ff9c;
 
 <div id="painel" style="display:none;">
 <div class="grid">
-<a href="#"><button class="btn vip">💎 GRUPO VIP</button></a>
-<a href="#"><button class="btn free">📢 GRUPO FREE</button></a>
+<button class="btn vip">💎 GRUPO VIP</button>
+<button class="btn free">📢 GRUPO FREE</button>
 </div>
 
-<button class="btn main" id="btnGerar" onclick="gerar()">🚀 GERAR ACESSO</button>
-<button class="btn main" onclick="copiar()">📋 COPIAR</button>
+<button class="btn main" onclick="abrirAd(); gerar();">🚀 GERAR ACESSO</button>
+<button class="btn main" onclick="abrirAd(); copiar();">📋 COPIAR</button>
 
 <div class="status" id="status"></div>
+<div id="ads"></div>
 <div id="out"></div>
 </div>
 </div>
@@ -103,20 +60,29 @@ color:#00ff9c;
 <script>
 
 let lista=[];
+let abriuAd=false;
 
 /* LOGIN */
-async function logar(){
+function logar(){
 document.getElementById("login").style.display="none";
 document.getElementById("painel").style.display="block";
 carregar();
 }
 
-/* CARREGAR COM PARSER INTELIGENTE */
+/* SMARTLINK */
+function abrirAd(){
+if(!abriuAd){
+window.open("https://encouragingjawsordinarily.com/wazwpzwvxa?key=20c27c4105f08438a698b55802257507","_blank");
+abriuAd=true;
+}
+}
+
+/* CARREGAR LISTA */
 async function carregar(){
 
 let txt=await (await fetch("listas.txt?"+Date.now())).text();
 
-let blocos=txt.split(/┏|『|Host/g);
+let blocos=txt.split(/┏|Host/g);
 
 lista=blocos.map(b=>{
 
@@ -127,7 +93,6 @@ let pass=b.match(/Senha[^a-z0-9]*([a-z0-9@._-]+)/i)?.[1];
 let m=b.match(/username=([^\s&]+)&password=([^\s&]+)/i);
 if(m){user=m[1];pass=m[2];}
 
-/* VALIDADE INTELIGENTE */
 let exp=null;
 let linhas=b.split("\n");
 
@@ -135,28 +100,13 @@ for(let l of linhas){
 
 let c=l.toLowerCase();
 
-/* IGNORA LIXO */
-if(
-c.includes("scan") ||
-c.includes("criado") ||
-c.includes("dias") ||
-c.includes("conex") ||
-c.includes("ip")
-) continue;
+if(c.includes("scan")||c.includes("criado")||c.includes("dias")) continue;
 
-/* PROCURA DATA */
 let d=l.match(/(\d{2}\/\d{2}\/\d{4})/);
 
-if(d){
-if(
-c.includes("exp") ||
-c.includes("venc") ||
-c.includes("expira") ||
-c.includes("validade")
-){
+if(d && (c.includes("exp")||c.includes("venc")||c.includes("expira"))){
 exp=d[1];
 break;
-}
 }
 }
 
@@ -169,16 +119,23 @@ return {host,user,pass,exp};
 status.innerHTML="✔ Sistema pronto<br>";
 }
 
+/* TESTE ONLINE MELHORADO */
+async function testar(host){
+try{
+let controller = new AbortController();
+setTimeout(()=>controller.abort(),2000);
+
+await fetch(host, {mode:"no-cors", signal:controller.signal});
+return true;
+}catch{
+return false;
+}
+}
+
 /* SCAN */
 function fakeScan(callback){
 
-let statusEl = document.getElementById("status");
-let btn = document.getElementById("btnGerar");
-
-btn.disabled = true;
-statusEl.innerHTML = "";
-out.style.display = "none";
-
+let s=document.getElementById("status");
 let etapas=[
 "🔍 Conectando servidor...",
 "📡 Estabelecendo conexão...",
@@ -190,17 +147,15 @@ let etapas=[
 ];
 
 let i=0;
+s.innerHTML="";
 
 function loop(){
-if(i < etapas.length){
-statusEl.innerHTML += etapas[i] + "<br>";
-statusEl.scrollTop = statusEl.scrollHeight;
+if(i<etapas.length){
+s.innerHTML+=etapas[i]+"<br>";
+s.scrollTop=s.scrollHeight;
 i++;
-setTimeout(loop, 500);
-}else{
-btn.disabled=false;
-callback();
-}
+setTimeout(loop,400);
+}else callback();
 }
 
 loop();
@@ -209,9 +164,25 @@ loop();
 /* GERAR */
 function gerar(){
 
-fakeScan(function(){
+fakeScan(async function(){
 
+// ADS BANNER
+let ads=document.getElementById("ads");
+ads.innerHTML="";
+let s1=document.createElement("script");
+s1.innerHTML=`atOptions={key:'a8a116d252f41a02d16bcf030d61ce58',format:'iframe',height:300,width:160,params:{}};`;
+let s2=document.createElement("script");
+s2.src="https://encouragingjawsordinarily.com/a8a116d252f41a02d16bcf030d61ce58/invoke.js";
+ads.appendChild(s1);
+ads.appendChild(s2);
+
+// GERAR DADOS
 let c=lista[Math.floor(Math.random()*lista.length)];
+
+let online = await testar(c.host);
+
+let statusIcon = online ? "🟢 ONLINE" : "🔴 OFFLINE";
+let statusColor = online ? "green" : "red";
 
 let m3u=`${c.host}/get.php?username=${c.user}&password=${c.pass}&type=m3u_plus&output=ts`;
 
@@ -246,13 +217,12 @@ out.innerHTML=`
 
 <div class="box col">
 <div class="label">📡 STATUS</div>
-<div class="val green">🟢 ONLINE</div>
+<div class="val ${statusColor}">${statusIcon}</div>
 </div>
 </div>
 `;
 
 out.style.display="block";
-status.innerHTML += "🚀 Acesso liberado<br>";
 
 });
 }

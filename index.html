@@ -144,6 +144,7 @@ margin-bottom:4px;
 .value{
 font-size:13px;
 font-weight:600;
+word-break:break-word;
 }
 
 .grid-2{
@@ -170,8 +171,8 @@ color:#000;
 <button class="btn main" onclick="logar()">DESBLOQUEAR SISTEMA</button>
 </div><!-- PAINEL --><div id="painel" style="display:none;"><div class="grid">
 <a href="https://rafflores17-prog.github.io/vip-apk/" target="_blank">
-<button class="btn vip">💎 VIP</button></a><a href="https://t.me/ApkBugado" target="_blank">
-<button class="btn free">📢 FREE</button></a>
+<button class="btn vip">💎 GRUPO VIP</button></a><a href="https://t.me/ApkBugado" target="_blank">
+<button class="btn free">📢 GRUPO FREE</button></a>
 </div><button class="btn main" onclick="gerar()">GERAR ACESSO</button>
 
 <div class="status" id="status">Sistema pronto</div><div class="loader" id="loader"><span></span></div><div id="out"></div><div class="history" id="history"></div></div></div><script>
@@ -232,10 +233,14 @@ return {host,user,pass,exp};
 
 }).filter(x=>x);
 
-/* ordenar melhores */
+/* ordenar por validade */
 lista.sort((a,b)=>parseData(b.exp)-parseData(a.exp));
 
-status.innerText=lista.length+" contas disponíveis";
+/* contar hosts únicos */
+let hostsUnicos=[...new Set(lista.map(x=>x.host))];
+
+status.innerText=hostsUnicos.length+" hosts detectados";
+
 mostrarHistorico();
 }
 
@@ -280,7 +285,7 @@ let online=await testar(link);
 
 let statusOnline=online?"🟢 ONLINE":"🔴 OFFLINE";
 
-/* HIST */
+/* histórico */
 let hist=JSON.parse(localStorage.getItem("hist")||"[]");
 hist.unshift(c);
 hist=hist.slice(0,5);
@@ -299,7 +304,7 @@ ACESSO LIBERADO
 
 <div class="card-info">
 <div class="label">LINK M3U</div>
-<div class="value" style="color:#00ff9c;font-size:11px;">${link}</div>
+<div class="value" style="color:#00ff9c;">${link}</div>
 </div>
 
 <div class="grid-2">

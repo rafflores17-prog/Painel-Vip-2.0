@@ -1,240 +1,153 @@
-<!DOCTYPE html><html lang="pt-br">
+<!DOCTYPE html>
+<html lang="pt-br">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gerador VIP IPTV</title><link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Inter:wght@300;400;600&display=swap" rel="stylesheet"><style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>APK BUGADO - COMMAND CENTER</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <style>
+        :root { --neon-green: #00ff9c; --neon-purple: #bc13fe; --neon-blue: #00d2ff; --neon-yellow: #f9d423; --dark-bg: #050505; }
+        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        body { background: var(--dark-bg); color: #fff; font-family: 'Share Tech Mono', monospace; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; padding: 15px; }
+        
+        .card-painel { width: 100%; max-width: 420px; padding: 25px; border: 1px solid rgba(0, 255, 156, 0.2); border-radius: 20px; box-shadow: 0 0 40px rgba(0,0,0,1); text-align: center; background: #0a0a0a; position: relative; }
+        
+        .vip-ring { width: 100px; height: 100px; border-radius: 50%; border: 2px solid var(--neon-green); margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 15px var(--neon-green); position: relative; }
+        .vip-ring::after { content: "VIP"; font-family: 'Orbitron'; font-size: 24px; color: var(--neon-green); text-shadow: 0 0 10px var(--neon-green); }
 
-body{
-background:#070707;
-color:#fff;
-font-family:'Inter',sans-serif;
-display:flex;
-justify-content:center;
-align-items:center;
-min-height:100vh;
-margin:0;
+        .btn-3d { width: 100%; padding: 15px; border: none; border-radius: 12px; font-family: 'Orbitron'; font-weight: bold; cursor: pointer; text-transform: uppercase; font-size: 11px; transition: all 0.2s ease; margin-bottom: 15px; display: inline-block; text-decoration: none; text-align: center; }
+        .btn-green { background: linear-gradient(145deg, #00ff9c, #008f58); color: #000; box-shadow: 0 6px #005a38; }
+        .btn-green:active { box-shadow: 0 2px #005a38; transform: translateY(4px); }
+        .btn-purple { background: linear-gradient(145deg, #bc13fe, #7a00aa); color: #fff; box-shadow: 0 6px #520073; }
+
+        input { width: 100%; padding: 15px; border-radius: 12px; border: 1px solid #222; background: #000; color: var(--neon-green); text-align: center; font-size: 16px; margin-bottom: 15px; outline: none; font-family: 'Share Tech Mono'; }
+
+        /* Estilo do Painel de Saída */
+        #out { background: #020202; padding: 18px; margin-top: 15px; border-radius: 15px; font-size: 12px; text-align: left; border-left: 4px solid var(--neon-purple); display: none; opacity: 0; transition: opacity 0.3s ease; }
+        
+        /* Animação de Processamento */
+        .processing { animation: scan 0.5s ease infinite alternate; }
+        @keyframes scan { from { filter: brightness(1); } to { filter: brightness(1.5) drop-shadow(0 0 5px var(--neon-green)); } }
+
+        .label { color: #666; font-size: 9px; display: block; margin-top: 8px; text-transform: uppercase; letter-spacing: 1px; }
+        .val-m3u { color: var(--neon-green); font-size: 10px; word-break: break-all; background: #080808; padding: 8px; border-radius: 6px; display: block; margin-top: 5px; border: 1px solid #1a1a1a; }
+        .status-msg { margin-top: 10px; font-size: 10px; color: #444; text-transform: uppercase; }
+    </style>
+</head>
+<body>
+
+<div class="card-painel">
+    <div style="color:var(--neon-green); font-size: 10px; letter-spacing: 4px; margin-bottom: 15px; font-family: 'Orbitron';">[ APK_BUGADO_V8 ]</div>
+    <div class="vip-ring"></div>
+
+    <div id="login-box">
+        <input type="password" id="senhaInput" placeholder="DIGITE A CHAVE MESTRA">
+        <button class="btn-3d btn-green" onclick="validarAcesso()">DESBLOQUEAR SISTEMA</button>
+    </div>
+
+    <div id="painel" style="display:none;">
+        <button id="btn-gerar" class="btn-3d btn-green" onclick="gerarAcesso()">GERAR CONTA IPTV</button>
+        <button class="btn-3d btn-purple" style="padding: 10px; font-size: 10px;" onclick="copiarDados()">COPIAR TUDO</button>
+        <div class="status-msg" id="status">SISTEMA ONLINE</div>
+        <div id="out"></div>
+    </div>
+</div>
+
+<script>
+let listaContas = [];
+let contasUsadas = [];
+
+async function validarAcesso() {
+    const input = document.getElementById('senhaInput').value.trim();
+    try {
+        const response = await fetch('config.json?v=' + Date.now());
+        const config = await response.json();
+        if(config.access_keys.includes(input)) {
+            document.getElementById('login-box').style.display = "none";
+            document.getElementById('painel').style.display = "block";
+            carregarDatabase();
+        } else { alert("ACESSO NEGADO!"); }
+    } catch (e) { alert("ERRO DE CONFIGURAÇÃO"); }
 }
 
-.card{
-width:100%;
-max-width:420px;
-background:#111;
-padding:25px;
-border-radius:20px;
-box-shadow:0 0 40px rgba(0,0,0,1);
+async function carregarDatabase() {
+    try {
+        const r = await fetch('listas.txt?v=' + Date.now());
+        const t = await r.text();
+        const blocos = t.split(/(?=http)/g).filter(b => b.includes('http'));
+        
+        listaContas = blocos.map(b => {
+            let host = b.match(/http:\/\/[a-zA-Z0-9.-]+:[0-9]+/i)?.[0];
+            // Regex melhorada: Ignora a palavra "Usuário" e pega apenas o valor real
+            let user = b.match(/(?:Usuário|👤|username=)\s*[:► ]*([a-zA-Z0-9._-]+)/i)?.[1];
+            let pass = b.match(/(?:Senha|🔒|password=)\s*[:► ]*([a-zA-Z0-9._-]+)/i)?.[1];
+            let exp = b.match(/(?:Vencimento|⏳|Expira)\s*[:► ]*([0-9\/.]+)/i)?.[1];
+
+            // Backup: Se falhou na regex acima, tenta pegar do link M3U
+            if(!user || user === "Usu") {
+                let m = b.match(/username=([a-zA-Z0-9._-]+)&password=([a-zA-Z0-9._-]+)/i);
+                if(m) { user = m[1]; pass = m[2]; }
+            }
+            return { host, user, pass, exp };
+        }).filter(a => a.host && a.user && a.pass);
+        
+        document.getElementById('status').textContent = `${listaContas.length} CONTAS SINCRONIZADAS`;
+    } catch(e) { document.getElementById('status').textContent = "ERRO DE SINCRONIZAÇÃO"; }
 }
 
-/* TITULO */
-.title{
-font-family:'Orbitron';
-text-align:center;
-font-size:18px;
-color:#00ff9c;
-margin-bottom:20px;
-letter-spacing:2px;
+function gerarAcesso() {
+    if(listaContas.length === 0) return;
+    const out = document.getElementById('out');
+    const btn = document.getElementById('btn-gerar');
+
+    // EFEITO DE PROCESSAMENTO
+    out.style.opacity = "0";
+    btn.classList.add('processing');
+    btn.innerText = "PROCESSANDO...";
+
+    setTimeout(() => {
+        let disponiveis = listaContas.filter(c => !contasUsadas.includes(c.user));
+        if(disponiveis.length === 0) { contasUsadas = []; disponiveis = listaContas; }
+
+        const conta = disponiveis[Math.floor(Math.random() * disponiveis.length)];
+        contasUsadas.push(conta.user);
+
+        const urlM3u = `${conta.host}/get.php?username=${conta.user}&password=${conta.pass}&type=m3u_plus&output=ts`;
+
+        out.innerHTML = `
+            <span style="color:var(--neon-purple); font-weight:bold; font-size:11px;">💎 ACESSO VIP EXTRATÍDO</span><br>
+            
+            <span class="label">LINK M3U8 (DIRETO):</span>
+            <span class="val-m3u">${urlM3u}</span>
+            
+            <span class="label">DADOS XTREAM:</span>
+            <span style="color:var(--neon-blue); font-weight:bold;">${conta.host}</span><br>
+            <span style="color:#fff">USER: ${conta.user}</span><br>
+            <span style="color:var(--neon-yellow)">PASS: ${conta.pass}</span>
+            
+            <span class="label">VALIDADE:</span>
+            <span style="color:var(--neon-green)">${conta.exp || '⚡ ACESSO VITALÍCIO'}</span>
+        `;
+
+        btn.classList.remove('processing');
+        btn.innerText = "GERAR CONTA IPTV";
+        out.style.display = "block";
+        setTimeout(() => out.style.opacity = "1", 50);
+        document.getElementById('status').textContent = `CONTA [${contasUsadas.length}/${listaContas.length}]`;
+    }, 600); // 0.6 segundos de delay para simular processamento
 }
 
-/* GRID BOTÕES */
-.grid{
-display:flex;
-gap:10px;
-margin-bottom:20px;
+function copiarDados() {
+    const out = document.getElementById('out');
+    if(out.style.display === "block") {
+        const t = document.createElement('textarea');
+        t.value = out.innerText;
+        document.body.appendChild(t); t.select();
+        document.execCommand('copy');
+        document.body.removeChild(t);
+        alert("COPIADO PARA ÁREA DE TRANSFERÊNCIA!");
+    }
 }
-
-.grid a{flex:1;}
-
-.btn{
-width:100%;
-padding:14px;
-border:none;
-border-radius:12px;
-cursor:pointer;
-font-weight:600;
-font-size:12px;
-transition:0.2s;
-}
-
-.vip{
-background:linear-gradient(135deg,#bc13fe,#7a00aa);
-}
-
-.free{
-background:linear-gradient(135deg,#00d2ff,#006a80);
-}
-
-.main{
-background:linear-gradient(135deg,#00ff9c,#008f58);
-color:#000;
-}
-
-.btn:hover{
-transform:scale(1.03);
-}
-
-/* STATUS */
-.status{
-text-align:center;
-font-size:11px;
-color:#888;
-margin-bottom:10px;
-}
-
-/* LOADING */
-.loader{
-height:4px;
-background:#222;
-border-radius:10px;
-overflow:hidden;
-display:none;
-}
-
-.loader span{
-display:block;
-height:100%;
-width:40%;
-background:linear-gradient(90deg,#00ff9c,#00d2ff);
-animation:load 1s infinite;
-}
-
-@keyframes load{
-0%{margin-left:-40%;}
-100%{margin-left:100%;}
-}
-
-/* RESULTADO */
-#out{
-display:none;
-margin-top:20px;
-padding:15px;
-background:#0a0a0a;
-border-radius:12px;
-border:1px solid #222;
-}
-
-.link{
-background:#000;
-padding:10px;
-border-radius:8px;
-color:#00ff9c;
-word-break:break-word;
-margin-top:5px;
-}
-
-/* BOTÃO COPIAR */
-.copy{
-margin-top:15px;
-}
-
-.copy.done{
-background:#00ff9c;
-color:#000;
-}
-
-</style></head><body><div class="card"><div class="title">GERADOR VIP IPTV</div><!-- BOTÕES --><div class="grid">
-<a href="https://rafflores17-prog.github.io/vip-apk/" target="_blank">
-<button class="btn vip">💎 GRUPO VIP</button>
-</a><a href="https://t.me/ApkBugado" target="_blank">
-<button class="btn free">📢 GRUPO FREE</button>
-</a>
-</div><!-- GERAR --><button class="btn main" onclick="gerar()">GERAR ACESSO VIP</button>
-
-<div class="status" id="status">Sistema pronto</div><div class="loader" id="loader"><span></span></div><div id="out"></div></div><script>
-
-let lista=[];
-
-/* CARREGAR */
-(async()=>{
-let t=await (await fetch("listas.txt?"+Date.now())).text();
-
-let blocos=t.split(/┏|『/g);
-
-lista=blocos.map(b=>{
-
-b=b.normalize("NFD").replace(/[^\x00-\x7F]/g,"");
-
-let host=b.match(/http:\/\/[^\s]+:\d+/i)?.[0];
-let user=b.match(/user[^a-z0-9]*([a-z0-9._-]+)/i)?.[1];
-let pass=b.match(/pass[^a-z0-9]*([a-z0-9._-]+)/i)?.[1];
-let exp=b.match(/(expira|vencimento)[^0-9]*([0-9\/]+)/i)?.[2];
-
-let m=b.match(/get\.php\?username=([^\s&]+)&password=([^\s&]+)/i);
-
-if(m){
-return {host,user:m[1],pass:m[2],exp};
-}
-
-if(host&&user&&pass){
-return {host,user,pass,exp};
-}
-
-}).filter(x=>x);
-
-})();
-
-/* GERAR */
-async function gerar(){
-
-let out=document.getElementById("out");
-let status=document.getElementById("status");
-let loader=document.getElementById("loader");
-
-if(lista.length==0){
-status.innerText="Carregando contas...";
-return;
-}
-
-loader.style.display="block";
-out.style.display="none";
-
-status.innerText="Conectando servidor...";
-await delay(600);
-
-status.innerText="Validando base de dados...";
-await delay(600);
-
-status.innerText="Gerando acesso...";
-await delay(600);
-
-let c=lista[Math.floor(Math.random()*lista.length)];
-
-let link=`${c.host}/get.php?username=${c.user}&password=${c.pass}&type=m3u_plus&output=ts`;
-
-out.innerHTML=`
-<b style="color:#bc13fe;">ACESSO VIP GERADO</b><br><br>
-
-LINK M3U:
-<div class="link">${link}</div>
-
-<br>Usuário: ${c.user}
-<br>Senha: ${c.pass}
-
-<br><br>Validade: ${c.exp || "Desconhecida"}
-
-<button class="btn main copy" onclick="copiar('${link}', this)">COPIAR</button>
-`;
-
-loader.style.display="none";
-out.style.display="block";
-
-status.innerText="Acesso liberado";
-
-}
-
-/* COPY */
-function copiar(text,btn){
-navigator.clipboard.writeText(text);
-btn.innerText="COPIADO ✔";
-btn.classList.add("done");
-
-setTimeout(()=>{
-btn.innerText="COPIAR";
-btn.classList.remove("done");
-},1500);
-}
-
-function delay(ms){
-return new Promise(r=>setTimeout(r,ms));
-}
-
-</script></body>
+</script>
+</body>
 </html>

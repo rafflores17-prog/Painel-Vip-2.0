@@ -62,23 +62,38 @@
 let listaContas = [];
 let contasUsadas = [];
 
+// 1. FUNÇÃO DE LOGIN CORRIGIDA
 async function validarAcesso() {
     const input = document.getElementById('senhaInput').value.trim();
+    if (!input) {
+        alert("POR FAVOR, INSIRA A SENHA.");
+        return;
+    }
+
     try {
         const response = await fetch('config.json?v=' + Date.now());
         const config = await response.json();
-        if(config.access_keys.includes(input)) {
+        
+        // Verifica se o input existe dentro da array access_keys
+        if(config.access_keys && config.access_keys.includes(input)) {
             document.getElementById('login-box').style.display = "none";
             document.getElementById('painel').style.display = "block";
             carregarDatabase();
-        } else { alert("ACESSO NEGADO!"); }
-    } catch (e) { alert("ERRO NO CONFIG.JSON"); }
+        } else { 
+            alert("ACESSO NEGADO! VERIFIQUE A SENHA."); 
+        }
+    } catch (e) { 
+        alert("ERRO AO CARREGAR CONFIG.JSON"); 
+        console.error(e);
+    }
 }
 
+// 2. CARREGAR E ESCANEAR LISTAS
 async function carregarDatabase() {
     try {
         const r = await fetch('listas.txt?v=' + Date.now());
         const t = await r.text();
+        // Divide por http ou símbolos conhecidos
         const blocos = t.split(/(?=┏●|『|▬▬▬▬▬|http)/g).filter(b => b.includes('http'));
         
         listaContas = blocos.map(b => {
@@ -87,7 +102,7 @@ async function carregarDatabase() {
             let pass = b.match(/(?:Senha|Sᴇɴʜᴀ|🔒|⌑ Sᴇɴʜᴀ|password=)\s*[►| ]*\s*([a-zA-Z0-9._-]+)/i)?.[1];
             let exp = b.match(/(?:Expira|Vᴇɴᴄɪᴍᴇɴᴛᴏ|⏳|Vᴇɴᴄɪᴍᴇɴᴛᴏ)\s*[►| ]*\s*([0-9\/.]+)/i)?.[1];
 
-            // Busca profunda dentro de links M3U se não achou campos soltos
+            // Se não achou campos soltos, extrai do link
             if(!user || !pass) {
                 let m3uLink = b.match(/username=([a-zA-Z0-9._-]+)&password=([a-zA-Z0-9._-]+)/i);
                 if(m3uLink) { user = m3uLink[1]; pass = m3uLink[2]; }
@@ -96,9 +111,12 @@ async function carregarDatabase() {
         }).filter(a => a.host && a.user && a.pass);
         
         document.getElementById('status').textContent = `${listaContas.length} CONTAS DISPONÍVEIS`;
-    } catch(e) { document.getElementById('status').textContent = "ERRO NA LEITURA"; }
+    } catch(e) { 
+        document.getElementById('status').textContent = "ERRO NA LEITURA DO TXT"; 
+    }
 }
 
+// 3. GERAR ACESSO (CONSTRÓI M3U E XTREAM)
 async function gerarAcesso() {
     if(listaContas.length === 0) return;
     const out = document.getElementById('out');
@@ -110,7 +128,7 @@ async function gerarAcesso() {
     const conta = disponiveis[Math.floor(Math.random() * disponiveis.length)];
     contasUsadas.push(conta.user);
 
-    // AUTO-CONSTRUÇÃO DO LINK M3U (Mesmo que não exista no TXT)
+    // CRIAÇÃO AUTOMÁTICA DA URL M3U
     const urlM3u = `${conta.host}/get.php?username=${conta.user}&password=${conta.pass}&type=m3u_plus&output=ts`;
 
     out.innerHTML = `
@@ -132,15 +150,17 @@ async function gerarAcesso() {
     status.innerHTML = `GERADA: ${contasUsadas.length}/${listaContas.length}`;
 }
 
+// 4. FUNÇÃO COPIAR
 function copiarDados() {
     const out = document.getElementById('out');
     if(out.style.display === "block") {
         const t = document.createElement('textarea');
         t.value = out.innerText;
-        document.body.appendChild(t); t.select();
+        document.body.appendChild(t);
+        t.select();
         document.execCommand('copy');
         document.body.removeChild(t);
-        alert("COPIADO!");
+        alert("DADOS COPIADOS COM SUCESSO!");
     }
 }
 </script>

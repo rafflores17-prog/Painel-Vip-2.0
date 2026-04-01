@@ -61,27 +61,33 @@ font-weight:600;
 margin-top:10px;
 }
 
-/* BOTÕES */
+/* BOTÕES VIP/FREE */
+.grid{
+display:flex;
+justify-content:space-between;
+gap:15px;
+margin-bottom:15px;
+}
+
+.grid a{
+flex:1;
+}
+
 .vip{
 background:linear-gradient(135deg,#bc13fe,#7a00aa);
 color:#fff;
+font-size:13px;
 }
 
 .free{
 background:linear-gradient(135deg,#00d2ff,#006a80);
 color:#fff;
+font-size:13px;
 }
 
 .main{
 background:linear-gradient(135deg,#00ff9c,#008f58);
 color:#000;
-}
-
-/* GRID */
-.grid{
-display:flex;
-gap:10px;
-margin-bottom:10px;
 }
 
 /* STATUS */
@@ -145,14 +151,13 @@ gap:10px;
 <button class="btn main" onclick="logar()">Desbloquear</button>
 </div><div id="painel" style="display:none;"><div class="grid">
 <a href="https://rafflores17-prog.github.io/vip-apk/" target="_blank">
-<button class="btn vip">💎 VIP</button></a><a href="https://t.me/ApkBugado" target="_blank">
-<button class="btn free">📢 FREE</button></a>
+<button class="btn vip">💎 GRUPO VIP</button></a><a href="https://t.me/ApkBugado" target="_blank">
+<button class="btn free">📢 GRUPO FREE</button></a>
 </div><button class="btn main" onclick="gerar()">GERAR ACESSO</button>
 
 <div class="status" id="status"></div>
 <div class="progress"><span id="bar"></span></div><div id="out"></div></div></div><script>
 
-/* NORMALIZAR TEXTO */
 function limpar(txt){
 return txt.normalize("NFKD")
 .replace(/[\u0300-\u036f]/g,"")
@@ -164,7 +169,6 @@ let lista=[];
 let usadas=[];
 let ultimoHost=null;
 
-/* LOGIN */
 async function logar(){
 let senha=document.getElementById("senha").value.trim();
 let cfg=await (await fetch("config.json")).json();
@@ -176,11 +180,9 @@ carregar();
 }else alert("Acesso negado");
 }
 
-/* PARSER */
 async function carregar(){
 
 let txt=await (await fetch("listas.txt?"+Date.now())).text();
-
 let blocos=txt.split(/┏|『/g);
 
 lista=blocos.map(b=>{
@@ -188,7 +190,6 @@ lista=blocos.map(b=>{
 let clean=limpar(b);
 
 let host=b.match(/http:\/\/[^\s]+:\d+/i)?.[0];
-
 let user=clean.match(/user[^a-z0-9]*([a-z0-9._-]+)/)?.[1];
 let pass=clean.match(/pass[^a-z0-9]*([a-z0-9._-]+)/)?.[1];
 
@@ -208,12 +209,10 @@ return {host,user,pass,exp};
 
 }).filter(x=>x);
 
-/* CONTAR HOSTS */
 let hosts=[...new Set(lista.map(x=>x.host))];
 document.getElementById("sub").innerText=hosts.length+" hosts detectados";
 }
 
-/* TESTE */
 async function testar(link){
 try{
 let r=await fetch(link);
@@ -221,7 +220,6 @@ return r.status==200;
 }catch{return false;}
 }
 
-/* GERAR */
 async function gerar(){
 
 let status=document.getElementById("status");
@@ -230,12 +228,10 @@ let out=document.getElementById("out");
 
 out.style.display="none";
 
-/* animação */
 await etapa("🔎 Analisando base...",20);
 await etapa("🌐 Conectando servidor...",50);
 await etapa("🔐 Gerando credenciais...",80);
 
-/* lógica */
 let disponiveis=lista.filter(x=>!usadas.includes(x.user));
 if(disponiveis.length==0){usadas=[];disponiveis=lista;}
 
@@ -253,7 +249,7 @@ await etapa("📡 Testando conexão...",100);
 
 let online=await testar(link);
 
-/* render */
+/* RESULTADO */
 out.innerHTML=`
 
 <div class="card-info">
@@ -293,9 +289,14 @@ out.innerHTML=`
 `;
 
 out.style.display="block";
+
+/* RESET FINAL */
+status.innerText="Acesso pronto ✔";
+document.querySelector(".progress").style.display="none";
+bar.style.width="0%";
+
 }
 
-/* ETAPA */
 function etapa(txt,p){
 return new Promise(r=>{
 document.getElementById("status").innerText=txt;

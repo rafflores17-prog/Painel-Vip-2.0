@@ -23,10 +23,10 @@ input{width:100%;padding:15px;border-radius:12px;border:1px solid #111;backgroun
 .label{font-size:10px;color:#777;}
 .val{font-size:13px;word-break:break-word;}
 .green{color:#00ff9c;}
-.red{color:#ff4d4d;}
 .blue{color:#00d2ff;}
 .white{color:#fff;}
 .purple{color:#bc13fe;}
+.red{color:#ff4d4d;}
 .row{display:flex;gap:10px;}
 .col{flex:1;}
 </style>
@@ -97,7 +97,6 @@ let exp=null;
 let linhas=b.split("\n");
 
 for(let l of linhas){
-
 let c=l.toLowerCase();
 
 if(c.includes("scan")||c.includes("criado")||c.includes("dias")) continue;
@@ -119,23 +118,11 @@ return {host,user,pass,exp};
 status.innerHTML="✔ Sistema pronto<br>";
 }
 
-/* TESTE ONLINE MELHORADO */
-async function testar(host){
-try{
-let controller = new AbortController();
-setTimeout(()=>controller.abort(),2000);
-
-await fetch(host, {mode:"no-cors", signal:controller.signal});
-return true;
-}catch{
-return false;
-}
-}
-
 /* SCAN */
 function fakeScan(callback){
 
 let s=document.getElementById("status");
+
 let etapas=[
 "🔍 Conectando servidor...",
 "📡 Estabelecendo conexão...",
@@ -161,28 +148,40 @@ setTimeout(loop,400);
 loop();
 }
 
+/* ADS */
+function carregarAds(){
+
+let ads=document.getElementById("ads");
+ads.innerHTML="";
+
+/* recria script corretamente */
+let script1=document.createElement("script");
+script1.innerHTML=`atOptions={key:'a8a116d252f41a02d16bcf030d61ce58',format:'iframe',height:300,width:160,params:{}};`;
+
+let script2=document.createElement("script");
+script2.src="https://encouragingjawsordinarily.com/a8a116d252f41a02d16bcf030d61ce58/invoke.js";
+
+ads.appendChild(script1);
+ads.appendChild(script2);
+}
+
 /* GERAR */
 function gerar(){
 
-fakeScan(async function(){
+/* RESET TOTAL */
+out.style.display="none";
+out.innerHTML="";
+document.getElementById("ads").innerHTML="";
+status.innerHTML="";
 
-// ADS BANNER
-let ads=document.getElementById("ads");
-ads.innerHTML="";
-let s1=document.createElement("script");
-s1.innerHTML=`atOptions={key:'a8a116d252f41a02d16bcf030d61ce58',format:'iframe',height:300,width:160,params:{}};`;
-let s2=document.createElement("script");
-s2.src="https://encouragingjawsordinarily.com/a8a116d252f41a02d16bcf030d61ce58/invoke.js";
-ads.appendChild(s1);
-ads.appendChild(s2);
+/* SCAN */
+fakeScan(function(){
 
-// GERAR DADOS
+/* ADS APARECE AQUI */
+carregarAds();
+
+/* GERAR DADOS */
 let c=lista[Math.floor(Math.random()*lista.length)];
-
-let online = await testar(c.host);
-
-let statusIcon = online ? "🟢 ONLINE" : "🔴 OFFLINE";
-let statusColor = online ? "green" : "red";
 
 let m3u=`${c.host}/get.php?username=${c.user}&password=${c.pass}&type=m3u_plus&output=ts`;
 
@@ -217,7 +216,7 @@ out.innerHTML=`
 
 <div class="box col">
 <div class="label">📡 STATUS</div>
-<div class="val ${statusColor}">${statusIcon}</div>
+<div class="val green">🟢 ONLINE</div>
 </div>
 </div>
 `;

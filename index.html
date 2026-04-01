@@ -65,7 +65,7 @@ overflow:hidden;
 transition:.2s;
 }
 
-/* brilho */
+/* brilho WOW */
 .btn::before{
 content:"";
 position:absolute;
@@ -73,40 +73,41 @@ top:0;
 left:-100%;
 width:100%;
 height:100%;
-background:linear-gradient(120deg,transparent,rgba(255,255,255,0.4),transparent);
-transition:0.5s;
+background:linear-gradient(120deg,transparent,rgba(255,255,255,0.6),transparent);
+opacity:0;
 }
 
-.btn:hover::before{
-left:100%;
+.btn.wow::before{
+animation:shine 1s linear;
+opacity:1;
+}
+
+@keyframes shine{
+0%{left:-100%;}
+100%{left:100%;}
 }
 
 .btn:active{
-transform:scale(0.97);
+transform:scale(0.96);
 }
 
 /* BOTÕES VIP/FREE */
 .grid{
 display:flex;
-justify-content:space-between;
 gap:15px;
 margin-bottom:15px;
 }
 
-.grid a{
-flex:1;
-}
+.grid a{flex:1;}
 
 .vip{
 background:linear-gradient(135deg,#bc13fe,#7a00aa);
 color:#fff;
-font-size:13px;
 }
 
 .free{
 background:linear-gradient(135deg,#00d2ff,#006a80);
 color:#fff;
-font-size:13px;
 }
 
 .main{
@@ -118,13 +119,14 @@ color:#000;
 .status{
 font-size:11px;
 text-align:center;
-color:#aaa;
-min-height:15px;
+color:#00ff9c;
+min-height:18px;
+font-family:'Orbitron';
 }
 
 /* PROGRESS */
 .progress{
-height:5px;
+height:6px;
 background:#111;
 border-radius:10px;
 margin-top:10px;
@@ -144,11 +146,11 @@ transition:.3s;
 #out{
 display:none;
 margin-top:20px;
-animation:fadeIn 0.5s ease;
+animation:fadeIn 0.4s ease;
 }
 
 @keyframes fadeIn{
-from{opacity:0; transform:translateY(10px);}
+from{opacity:0; transform:translateY(15px);}
 to{opacity:1; transform:translateY(0);}
 }
 
@@ -162,7 +164,7 @@ animation:float 3s ease-in-out infinite;
 
 @keyframes float{
 0%{transform:translateY(0);}
-50%{transform:translateY(-3px);}
+50%{transform:translateY(-4px);}
 100%{transform:translateY(0);}
 }
 
@@ -182,6 +184,17 @@ grid-template-columns:1fr 1fr;
 gap:10px;
 }
 
+/* hacker typing */
+.typing::after{
+content:"|";
+animation:blink 1s infinite;
+}
+
+@keyframes blink{
+0%,50%,100%{opacity:1;}
+25%,75%{opacity:0;}
+}
+
 </style></head><body><div class="card"><div class="title">GERADOR VIP IPTV</div>
 <div class="subtitle" id="sub">Sistema carregando...</div><div id="login">
 <input type="password" class="input" id="senha" placeholder="Digite a chave">
@@ -190,11 +203,31 @@ gap:10px;
 <a href="https://rafflores17-prog.github.io/vip-apk/" target="_blank">
 <button class="btn vip">💎 GRUPO VIP</button></a><a href="https://t.me/ApkBugado" target="_blank">
 <button class="btn free">📢 GRUPO FREE</button></a>
-</div><button class="btn main" onclick="gerar()">GERAR ACESSO</button>
+</div><button id="gerarBtn" class="btn main" onclick="gerar()">GERAR ACESSO</button>
 
 <div class="status" id="status"></div>
 <div class="progress"><span id="bar"></span></div><div id="out"></div></div></div><script>
 
+/* 🔊 SOM SCAN */
+function somScan(){
+let ctx=new (window.AudioContext||window.webkitAudioContext)();
+let osc=ctx.createOscillator();
+osc.type="sine";
+osc.frequency.setValueAtTime(200,ctx.currentTime);
+osc.frequency.linearRampToValueAtTime(800,ctx.currentTime+0.3);
+osc.connect(ctx.destination);
+osc.start();
+osc.stop(ctx.currentTime+0.3);
+}
+
+/* 📳 VIBRAR */
+function vibrar(){
+if(navigator.vibrate){
+navigator.vibrate([100,50,100]);
+}
+}
+
+/* NORMALIZAR */
 function limpar(txt){
 return txt.normalize("NFKD")
 .replace(/[\u0300-\u036f]/g,"")
@@ -206,6 +239,7 @@ let lista=[];
 let usadas=[];
 let ultimoHost=null;
 
+/* LOGIN */
 async function logar(){
 let senha=document.getElementById("senha").value.trim();
 let cfg=await (await fetch("config.json")).json();
@@ -217,6 +251,7 @@ carregar();
 }else alert("Acesso negado");
 }
 
+/* PARSER */
 async function carregar(){
 
 let txt=await (await fetch("listas.txt?"+Date.now())).text();
@@ -250,6 +285,7 @@ let hosts=[...new Set(lista.map(x=>x.host))];
 document.getElementById("sub").innerText=hosts.length+" hosts detectados";
 }
 
+/* TESTE */
 async function testar(link){
 try{
 let r=await fetch(link);
@@ -257,12 +293,20 @@ return r.status==200;
 }catch{return false;}
 }
 
+/* GERAR */
 async function gerar(){
 
+let btn=document.getElementById("gerarBtn");
 let status=document.getElementById("status");
 let bar=document.getElementById("bar");
 let out=document.getElementById("out");
 
+/* efeitos */
+btn.classList.add("wow");
+vibrar();
+somScan();
+
+/* reset animação */
 out.style.display="none";
 
 await etapa("🔎 Analisando base...",20);
@@ -286,7 +330,10 @@ await etapa("📡 Testando conexão...",100);
 
 let online=await testar(link);
 
-/* RESULTADO */
+/* render com reset */
+out.innerHTML="";
+setTimeout(()=>{
+
 out.innerHTML=`
 
 <div class="card-info">
@@ -322,24 +369,28 @@ out.innerHTML=`
 </div>
 
 </div>
-
 `;
 
 out.style.display="block";
 
-/* RESET FINAL */
-status.innerText="Acesso pronto ✔";
+},10);
+
+/* reset UI */
+status.innerText="✔ Acesso liberado";
 document.querySelector(".progress").style.display="none";
 bar.style.width="0%";
 
+btn.classList.remove("wow");
+
 }
 
+/* ETAPA */
 function etapa(txt,p){
 return new Promise(r=>{
 document.getElementById("status").innerText=txt;
 document.getElementById("bar").style.width=p+"%";
 document.querySelector(".progress").style.display="block";
-setTimeout(r,800);
+setTimeout(r,700);
 });
 }
 

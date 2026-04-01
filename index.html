@@ -2,9 +2,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gerador VIP IPTV</title><link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Inter&display=swap" rel="stylesheet"><style>
+<title>Gerador VIP IPTV</title><link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Inter:wght@300;400;600&display=swap" rel="stylesheet"><style>
+
 body{
-background:#060606;
+background:linear-gradient(180deg,#050505,#0b0b0b);
 color:#fff;
 font-family:'Inter';
 display:flex;
@@ -15,57 +16,82 @@ margin:0;
 }
 
 .card{
-max-width:420px;
 width:100%;
-background:#111;
-padding:25px;
+max-width:420px;
+background:#0e0e0e;
+padding:20px;
 border-radius:20px;
+box-shadow:0 0 40px #000;
 }
 
+/* TITLE */
 .title{
 text-align:center;
 font-family:'Orbitron';
 color:#00ff9c;
 margin-bottom:20px;
+letter-spacing:2px;
 }
 
+/* INPUT */
 input{
 width:100%;
-padding:12px;
-border-radius:8px;
-border:none;
-margin-bottom:10px;
+padding:14px;
+border-radius:12px;
+border:1px solid #222;
 background:#000;
 color:#00ff9c;
 text-align:center;
+margin-bottom:12px;
 }
 
+/* GRID */
 .grid{
 display:flex;
-gap:10px;
+gap:12px;
 margin-bottom:20px;
 }
 
+.grid a{flex:1;}
+
+/* BUTTONS */
 .btn{
-flex:1;
+width:100%;
 padding:14px;
 border:none;
-border-radius:10px;
+border-radius:14px;
 cursor:pointer;
-font-weight:bold;
+font-weight:600;
+font-size:12px;
+transition:.2s;
 }
 
-.vip{background:#bc13fe;}
-.free{background:#00d2ff;}
-.main{background:#00ff9c;color:#000;}
+.vip{
+background:linear-gradient(135deg,#bc13fe,#7a00aa);
+box-shadow:0 0 12px #bc13fe;
+}
 
+.free{
+background:linear-gradient(135deg,#00d2ff,#006a80);
+box-shadow:0 0 12px #00d2ff;
+}
+
+.main{
+background:linear-gradient(135deg,#00ff9c,#008f58);
+color:#000;
+}
+
+.btn:hover{transform:scale(1.05);}
+
+/* STATUS */
 .status{
 text-align:center;
-font-size:12px;
-margin-top:10px;
+font-size:11px;
 color:#888;
+margin-top:10px;
 }
 
+/* LOADER */
 .loader{
 height:4px;
 background:#222;
@@ -88,42 +114,67 @@ animation:load 1s infinite;
 100%{margin-left:100%;}
 }
 
+/* RESULT */
 #out{
 display:none;
-margin-top:15px;
-padding:15px;
-background:#0a0a0a;
-border-radius:10px;
+margin-top:20px;
+animation:fade .3s ease;
 }
 
-.box{
-background:#000;
-padding:8px;
-border-radius:6px;
-margin-bottom:6px;
-word-break:break-word;
+@keyframes fade{
+from{opacity:0;transform:translateY(10px);}
+to{opacity:1;transform:translateY(0);}
 }
 
+.card-info{
+background:#121212;
+padding:12px;
+border-radius:12px;
+margin-bottom:10px;
+border:1px solid #1f1f1f;
+}
+
+.label{
+font-size:9px;
+color:#777;
+letter-spacing:1px;
+margin-bottom:4px;
+}
+
+.value{
+font-size:13px;
+font-weight:600;
+}
+
+.grid-2{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:10px;
+}
+
+/* HISTORY */
 .history{
 margin-top:15px;
-font-size:11px;
-color:#888;
+font-size:10px;
+color:#666;
 }
 
+/* COPY */
 .copy.done{
 background:#00ff9c;
 color:#000;
 }
-</style></head><body><div class="card"><div class="title">GERADOR VIP IPTV</div><div id="login">
+
+</style></head><body><div class="card"><div class="title">GERADOR VIP IPTV</div><!-- LOGIN --><div id="login">
 <input type="password" id="senha" placeholder="DIGITE A CHAVE">
-<button class="btn main" onclick="logar()">DESBLOQUEAR</button>
-</div><div id="painel" style="display:none;"><div class="grid">
+<button class="btn main" onclick="logar()">DESBLOQUEAR SISTEMA</button>
+</div><!-- PAINEL --><div id="painel" style="display:none;"><div class="grid">
 <a href="https://rafflores17-prog.github.io/vip-apk/" target="_blank">
-<button class="btn vip">VIP</button></a><a href="https://t.me/ApkBugado" target="_blank">
-<button class="btn free">FREE</button></a>
+<button class="btn vip">💎 VIP</button></a><a href="https://t.me/ApkBugado" target="_blank">
+<button class="btn free">📢 FREE</button></a>
 </div><button class="btn main" onclick="gerar()">GERAR ACESSO</button>
 
-<div class="status" id="status">Sistema ativo</div><div class="loader" id="loader"><span></span></div><div id="out"></div><div class="history" id="history"></div></div></div><script>
+<div class="status" id="status">Sistema pronto</div><div class="loader" id="loader"><span></span></div><div id="out"></div><div class="history" id="history"></div></div></div><script>
 
 let lista=[];
 let usadas=[];
@@ -132,17 +183,18 @@ let ultimoHost=null;
 /* LOGIN */
 async function logar(){
 let senha=document.getElementById("senha").value.trim();
-
 let cfg=await (await fetch("config.json")).json();
 
 if(cfg.access_keys.includes(senha)){
 document.getElementById("login").style.display="none";
 document.getElementById("painel").style.display="block";
 carregar();
+}else{
+alert("ACESSO NEGADO");
 }
 }
 
-/* DATA PARA ORDENAR */
+/* PARSE DATA */
 function parseData(d){
 if(!d) return 0;
 let p=d.split("/");
@@ -153,7 +205,7 @@ return new Date(p[2],p[1]-1,p[0]).getTime();
 async function carregar(){
 
 let status=document.getElementById("status");
-status.innerText="Carregando base...";
+status.innerText="Sincronizando base...";
 
 let t=await (await fetch("listas.txt?"+Date.now())).text();
 
@@ -180,15 +232,14 @@ return {host,user,pass,exp};
 
 }).filter(x=>x);
 
-/* ordenar por validade */
+/* ordenar melhores */
 lista.sort((a,b)=>parseData(b.exp)-parseData(a.exp));
 
-status.innerText=lista.length+" contas carregadas";
-
+status.innerText=lista.length+" contas disponíveis";
 mostrarHistorico();
 }
 
-/* TESTE ONLINE */
+/* TESTE */
 async function testar(link){
 try{
 let r=await fetch(link,{method:"HEAD"});
@@ -209,13 +260,10 @@ out.style.display="none";
 loader.style.display="block";
 
 status.innerText="Processando...";
-await delay(500);
+await delay(400);
 
 let disponiveis=lista.filter(x=>!usadas.includes(x.user));
-if(disponiveis.length==0){
-usadas=[];
-disponiveis=lista;
-}
+if(disponiveis.length==0){usadas=[];disponiveis=lista;}
 
 let filtrado=disponiveis.filter(x=>x.host!==ultimoHost);
 if(filtrado.length==0) filtrado=disponiveis;
@@ -230,35 +278,61 @@ let link=`${c.host}/get.php?username=${c.user}&password=${c.pass}&type=m3u_plus&
 status.innerText="Testando conexão...";
 let online=await testar(link);
 
-let statusOnline=online ? "🟢 ONLINE" : "🔴 OFFLINE";
+let statusOnline=online?"🟢 ONLINE":"🔴 OFFLINE";
 
-/* salvar histórico */
+/* HIST */
 let hist=JSON.parse(localStorage.getItem("hist")||"[]");
 hist.unshift(c);
 hist=hist.slice(0,5);
 localStorage.setItem("hist",JSON.stringify(hist));
 
 out.innerHTML=`
-<b style="color:#bc13fe;">ACESSO LIBERADO</b><br><br>
 
-🌐 HOST<div class="box">${c.host}</div>
+<div style="text-align:center;color:#bc13fe;margin-bottom:10px;">
+ACESSO LIBERADO
+</div>
 
-🔗 M3U<div class="box">${link}</div>
+<div class="card-info">
+<div class="label">HOST</div>
+<div class="value" style="color:#00d2ff;">${c.host}</div>
+</div>
 
-👤 USER<div>${c.user}</div>
+<div class="card-info">
+<div class="label">LINK M3U</div>
+<div class="value" style="color:#00ff9c;font-size:11px;">${link}</div>
+</div>
 
-🔑 PASS<div>${c.pass}</div>
+<div class="grid-2">
 
-📅 VALIDADE<div>${c.exp || "N/A"}</div>
+<div class="card-info">
+<div class="label">USUÁRIO</div>
+<div class="value" style="color:#00ff9c;">${c.user}</div>
+</div>
 
-📡 STATUS<div>${statusOnline}</div>
+<div class="card-info">
+<div class="label">SENHA</div>
+<div class="value" style="color:#f9d423;">${c.pass}</div>
+</div>
+
+<div class="card-info">
+<div class="label">VALIDADE</div>
+<div class="value" style="color:#bc13fe;">${c.exp || "N/A"}</div>
+</div>
+
+<div class="card-info">
+<div class="label">STATUS</div>
+<div class="value">${statusOnline}</div>
+</div>
+
+</div>
 
 <button class="btn main copy" onclick="copiar('${link}', this)">COPIAR</button>
+
 `;
 
 loader.style.display="none";
 out.style.display="block";
-status.innerText="Concluído";
+status.innerText="Acesso pronto";
 
 mostrarHistorico();
 }
@@ -266,10 +340,8 @@ mostrarHistorico();
 /* HISTÓRICO */
 function mostrarHistorico(){
 let h=JSON.parse(localStorage.getItem("hist")||"[]");
-
-let div=document.getElementById("history");
-
-div.innerHTML="<br>Últimos acessos:<br>" + h.map(x=>`• ${x.user}`).join("<br>");
+document.getElementById("history").innerHTML=
+"<br>Últimos acessos:<br>"+h.map(x=>"• "+x.user).join("<br>");
 }
 
 /* COPY */

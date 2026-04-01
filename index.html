@@ -5,7 +5,7 @@
 <title>Gerador VIP IPTV</title><link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Inter:wght@300;400;600&display=swap" rel="stylesheet"><style>
 
 body{
-background:linear-gradient(180deg,#050505,#0b0b0b);
+background:#050505;
 color:#fff;
 font-family:'Inter';
 display:flex;
@@ -13,15 +13,17 @@ justify-content:center;
 align-items:center;
 min-height:100vh;
 margin:0;
+overflow:hidden;
 }
 
 .card{
 width:100%;
 max-width:420px;
-background:#0e0e0e;
+background:#0d0d0d;
 padding:20px;
 border-radius:20px;
-box-shadow:0 0 40px #000;
+box-shadow:0 0 60px #000;
+position:relative;
 }
 
 .title{
@@ -30,8 +32,10 @@ font-family:'Orbitron';
 color:#00ff9c;
 margin-bottom:20px;
 letter-spacing:2px;
+text-shadow:0 0 10px #00ff9c;
 }
 
+/* INPUT */
 input{
 width:100%;
 padding:14px;
@@ -43,6 +47,7 @@ text-align:center;
 margin-bottom:12px;
 }
 
+/* GRID */
 .grid{
 display:flex;
 gap:12px;
@@ -60,63 +65,72 @@ cursor:pointer;
 font-weight:600;
 font-size:12px;
 transition:.2s;
+position:relative;
+overflow:hidden;
+}
+
+.btn::after{
+content:"";
+position:absolute;
+top:0;
+left:-100%;
+width:100%;
+height:100%;
+background:linear-gradient(90deg,transparent,#fff,transparent);
+opacity:.2;
+animation:shine 2s infinite;
+}
+
+@keyframes shine{
+100%{left:100%;}
 }
 
 .vip{
 background:linear-gradient(135deg,#bc13fe,#7a00aa);
-box-shadow:0 0 12px #bc13fe;
+box-shadow:0 0 15px #bc13fe;
 }
 
 .free{
 background:linear-gradient(135deg,#00d2ff,#006a80);
-box-shadow:0 0 12px #00d2ff;
+box-shadow:0 0 15px #00d2ff;
 }
 
 .main{
 background:linear-gradient(135deg,#00ff9c,#008f58);
 color:#000;
+box-shadow:0 0 15px #00ff9c;
 }
-
-.btn:hover{transform:scale(1.05);}
 
 .status{
 text-align:center;
 font-size:11px;
-color:#888;
+color:#aaa;
 margin-top:10px;
+min-height:16px;
 }
 
-.loader{
-height:4px;
-background:#222;
+/* PROGRESS */
+.progress{
+height:6px;
+background:#111;
 border-radius:10px;
 overflow:hidden;
-display:none;
 margin-top:10px;
+display:none;
 }
 
-.loader span{
+.progress span{
 display:block;
 height:100%;
-width:40%;
+width:0%;
 background:linear-gradient(90deg,#00ff9c,#00d2ff);
-animation:load 1s infinite;
+transition:width .3s;
 }
 
-@keyframes load{
-0%{margin-left:-40%;}
-100%{margin-left:100%;}
-}
-
+/* RESULT */
 #out{
 display:none;
 margin-top:20px;
-animation:fade .3s ease;
-}
-
-@keyframes fade{
-from{opacity:0;transform:translateY(10px);}
-to{opacity:1;transform:translateY(0);}
 }
 
 .card-info{
@@ -125,12 +139,23 @@ padding:12px;
 border-radius:12px;
 margin-bottom:10px;
 border:1px solid #1f1f1f;
+opacity:0;
+transform:translateY(10px);
+animation:fadeUp .4s forwards;
+}
+
+.card-info:nth-child(1){animation-delay:.1s;}
+.card-info:nth-child(2){animation-delay:.2s;}
+.card-info:nth-child(3){animation-delay:.3s;}
+.card-info:nth-child(4){animation-delay:.4s;}
+
+@keyframes fadeUp{
+to{opacity:1;transform:translateY(0);}
 }
 
 .label{
 font-size:9px;
 color:#777;
-letter-spacing:1px;
 margin-bottom:4px;
 }
 
@@ -156,12 +181,11 @@ color:#000;
 <button class="btn main" onclick="logar()">DESBLOQUEAR SISTEMA</button>
 </div><div id="painel" style="display:none;"><div class="grid">
 <a href="https://rafflores17-prog.github.io/vip-apk/" target="_blank">
-<button class="btn vip">💎 GRUPO VIP</button></a><a href="https://t.me/ApkBugado" target="_blank">
-<button class="btn free">📢 GRUPO FREE</button></a>
+<button class="btn vip">💎 VIP</button></a><a href="https://t.me/ApkBugado" target="_blank">
+<button class="btn free">📢 FREE</button></a>
 </div><button class="btn main" onclick="gerar()">GERAR ACESSO</button>
 
-<div class="status" id="status">Sistema pronto</div>
-<div class="loader" id="loader"><span></span></div><div id="out"></div></div></div><script>
+<div class="status" id="status"></div><div class="progress" id="progress"><span id="bar"></span></div><div id="out"></div></div></div><script>
 
 let lista=[];
 let usadas=[];
@@ -187,11 +211,7 @@ return new Date(p[2],p[1]-1,p[0]).getTime();
 }
 
 async function carregar(){
-let status=document.getElementById("status");
-status.innerText="Sincronizando base...";
-
 let t=await (await fetch("listas.txt?"+Date.now())).text();
-
 let blocos=t.split(/┏|『/g);
 
 lista=blocos.map(b=>{
@@ -204,49 +224,29 @@ let exp=b.match(/(expira|vencimento)[^0-9]*([0-9\/]+)/i)?.[2];
 
 let m=b.match(/get\.php\?username=([^\s&]+)&password=([^\s&]+)/i);
 
-if(m){
-return {host,user:m[1],pass:m[2],exp};
-}
-
-if(host&&user&&pass){
-return {host,user,pass,exp};
-}
+if(m){return {host,user:m[1],pass:m[2],exp};}
+if(host&&user&&pass){return {host,user,pass,exp};}
 
 }).filter(x=>x);
 
 lista.sort((a,b)=>parseData(b.exp)-parseData(a.exp));
 
-let hostsUnicos=[...new Set(lista.map(x=>x.host))];
-status.innerText=hostsUnicos.length+" hosts detectados";
-}
-
-async function testar(link){
-try{
-let r=await fetch(link,{method:"HEAD"});
-return r.status==200;
-}catch{
-return false;
-}
+let hosts=[...new Set(lista.map(x=>x.host))];
+digitar("✔ "+hosts.length+" hosts carregados");
 }
 
 async function gerar(){
 
 let out=document.getElementById("out");
-let status=document.getElementById("status");
-let loader=document.getElementById("loader");
+let bar=document.getElementById("bar");
+let progress=document.getElementById("progress");
 
 out.style.display="none";
-loader.style.display="block";
+progress.style.display="block";
 
-/* PROCESSO REALISTA */
-status.innerText="🔎 Analisando base...";
-await delay(700);
-
-status.innerText="🌐 Conectando ao servidor...";
-await delay(900);
-
-status.innerText="🔐 Gerando credenciais...";
-await delay(800);
+await etapa("🔎 Analisando base",20);
+await etapa("🌐 Conectando servidor",45);
+await etapa("🔐 Gerando credenciais",70);
 
 let disponiveis=lista.filter(x=>!usadas.includes(x.user));
 if(disponiveis.length==0){usadas=[];disponiveis=lista;}
@@ -255,19 +255,17 @@ let filtrado=disponiveis.filter(x=>x.host!==ultimoHost);
 if(filtrado.length==0) filtrado=disponiveis;
 
 let c=filtrado[Math.floor(Math.random()*filtrado.length)];
-
 usadas.push(c.user);
 ultimoHost=c.host;
 
 let link=`${c.host}/get.php?username=${c.user}&password=${c.pass}&type=m3u_plus&output=ts`;
 
-status.innerText="📡 Testando conexão...";
-let online=await testar(link);
+await etapa("📡 Testando conexão",100);
 
+let online=await testar(link);
 let statusOnline=online?"🟢 ONLINE":"🔴 OFFLINE";
 
 out.innerHTML=`
-
 <div style="text-align:center;color:#bc13fe;margin-bottom:10px;">
 ACESSO LIBERADO
 </div>
@@ -278,41 +276,65 @@ ACESSO LIBERADO
 </div>
 
 <div class="card-info">
-<div class="label">LINK M3U</div>
+<div class="label">M3U</div>
 <div class="value" style="color:#00ff9c;">${link}</div>
 </div>
 
 <div class="grid-2">
-
 <div class="card-info">
-<div class="label">USUÁRIO</div>
+<div class="label">USER</div>
 <div class="value" style="color:#00ff9c;">${c.user}</div>
 </div>
 
 <div class="card-info">
-<div class="label">SENHA</div>
+<div class="label">PASS</div>
 <div class="value" style="color:#f9d423;">${c.pass}</div>
 </div>
 
 <div class="card-info">
 <div class="label">VALIDADE</div>
-<div class="value" style="color:#bc13fe;">${c.exp || "N/A"}</div>
+<div class="value" style="color:#bc13fe;">${c.exp||"N/A"}</div>
 </div>
 
 <div class="card-info">
 <div class="label">STATUS</div>
 <div class="value">${statusOnline}</div>
 </div>
-
 </div>
 
-<button class="btn main copy" onclick="copiar('${link}', this)">COPIAR</button>
-
+<button class="btn main copy" onclick="copiar('${link}',this)">COPIAR</button>
 `;
 
-loader.style.display="none";
+progress.style.display="none";
 out.style.display="block";
-status.innerText="Acesso pronto";
+
+}
+
+/* animações */
+function etapa(txt,percent){
+return new Promise(r=>{
+digitar(txt);
+document.getElementById("bar").style.width=percent+"%";
+setTimeout(r,800);
+});
+}
+
+function digitar(txt){
+let el=document.getElementById("status");
+el.innerText="";
+let i=0;
+let t=setInterval(()=>{
+el.innerText+=txt[i];
+i++;
+if(i>=txt.length) clearInterval(t);
+},20);
+}
+
+async function testar(link){
+try{
+let r=await fetch(link,{method:"HEAD"});
+return r.status==200;
+}catch{return false;}
 }
 
 function copiar(text,btn){
@@ -324,10 +346,6 @@ setTimeout(()=>{
 btn.innerText="COPIAR";
 btn.classList.remove("done");
 },1500);
-}
-
-function delay(ms){
-return new Promise(r=>setTimeout(r,ms));
 }
 
 </script></body>

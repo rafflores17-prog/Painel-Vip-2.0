@@ -3,202 +3,187 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>APK BUGADO | DASHBOARD VIP</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto+Mono&display=swap" rel="stylesheet">
+    <title>ULTRA PARSER - MESTRE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Source+Code+Pro:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --neon-green: #39ff14;
             --neon-purple: #bc13fe;
-            --dark-bg: #050505;
-            --card-bg: rgba(15, 15, 15, 0.95);
+            --terminal-black: #0a0a0a;
+            --glass: rgba(20, 20, 20, 0.9);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
-            background-color: var(--dark-bg);
-            background-image: radial-gradient(circle at 50% 50%, #1a0033 0%, #050505 100%);
-            color: #fff;
-            font-family: 'Roboto Mono', monospace;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            background: #050505;
+            background-image: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            background-size: 100% 2px, 3px 100%;
+            color: var(--neon-green);
+            font-family: 'Source Code Pro', monospace;
+            display: flex; flex-direction: column; align-items: center; min-height: 100vh;
+            padding: 20px; overflow-x: hidden;
         }
 
-        /* TELA DE LOGIN */
-        #login-screen {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: var(--dark-bg); z-index: 999;
-            display: flex; flex-direction: column; align-items: center; justify-content: center;
+        /* 1. SISTEMA DE LOGIN COM CÓDIGO */
+        #lock-screen {
+            position: fixed; inset: 0; background: #000; z-index: 9999;
+            display: flex; align-items: center; justify-content: center;
         }
 
-        .login-box {
-            padding: 40px; border: 2px solid var(--neon-purple);
-            border-radius: 15px; text-align: center;
-            box-shadow: 0 0 30px rgba(188, 19, 254, 0.4);
-            background: #0a0a0a; width: 90%; max-width: 400px;
+        .terminal-card {
+            border: 2px solid var(--neon-purple); padding: 40px; border-radius: 10px;
+            box-shadow: 0 0 20px var(--neon-purple); text-align: center; background: #000;
         }
 
-        .login-box h2 { font-family: 'Orbitron', sans-serif; color: var(--neon-green); margin-bottom: 25px; text-shadow: 0 0 10px var(--neon-green); }
+        input {
+            background: transparent; border: 1px solid var(--neon-green);
+            padding: 15px; color: var(--neon-green); font-family: 'Orbitron';
+            text-align: center; width: 100%; margin-top: 20px; outline: none;
+            box-shadow: inset 0 0 5px var(--neon-green);
+        }
 
-        input[type="password"] {
+        /* 2. ÁREA DE GERAÇÕES RESTANTES */
+        .status-header {
+            width: 100%; max-width: 600px; padding: 15px;
+            border: 1px solid var(--neon-purple); border-radius: 8px;
+            margin-bottom: 20px; text-align: center; background: var(--glass);
+        }
+
+        .gen-count { font-family: 'Orbitron'; color: #ffd700; font-size: 20px; }
+
+        /* 3. ESTÉTICA CYBER TERMINAL */
+        h1 { font-family: 'Orbitron'; text-shadow: 0 0 10px var(--neon-green); margin-bottom: 20px; }
+
+        textarea {
+            width: 100%; max-width: 600px; height: 120px;
             background: #111; border: 1px solid var(--neon-purple);
-            padding: 15px; color: var(--neon-green); border-radius: 8px;
-            width: 100%; margin-bottom: 20px; outline: none; text-align: center;
-            font-size: 16px;
+            color: #aaa; padding: 10px; border-radius: 5px; outline: none;
         }
 
-        /* HEADER */
-        header {
-            width: 100%; padding: 30px; text-align: center;
-            border-bottom: 1px solid rgba(188, 19, 254, 0.3);
-            display: none;
-        }
-
-        header h1 { font-family: 'Orbitron', sans-serif; color: var(--neon-green); text-shadow: 0 0 15px var(--neon-green); font-size: 24px; }
-
-        .btn-sync {
-            margin-top: 20px; padding: 12px 30px; cursor: pointer;
-            background: transparent; border: 1px solid var(--neon-purple);
-            color: #fff; border-radius: 30px; font-weight: bold;
-            transition: 0.3s; font-family: 'Orbitron', sans-serif;
-            letter-spacing: 1px;
-        }
-
-        .btn-sync:hover { background: var(--neon-purple); box-shadow: 0 0 20px var(--neon-purple); transform: scale(1.05); }
-
-        /* GRID DE CARDS */
-        .container {
-            width: 100%; max-width: 1200px; padding: 20px;
-            display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 20px; display: none;
-        }
-
-        .card {
-            background: var(--card-bg); border: 1px solid #222;
-            border-radius: 15px; padding: 20px; position: relative;
-            transition: 0.3s; border-left: 4px solid var(--neon-purple);
-            animation: fadeIn 0.5s ease-in;
-        }
-
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-
-        .card:hover { border-color: var(--neon-green); box-shadow: 0 0 20px rgba(57, 255, 20, 0.2); }
-
-        .status-badge { position: absolute; top: 15px; right: 15px; font-size: 10px; background: var(--neon-green); color: #000; padding: 3px 10px; border-radius: 5px; font-weight: bold; }
-
-        .info-row { margin-bottom: 15px; }
-        .label { font-size: 11px; color: #777; text-transform: uppercase; display: block; margin-bottom: 4px; }
-        .value { color: #eee; font-size: 14px; word-break: break-all; line-height: 1.4; }
-        .value-neon { color: var(--neon-green); font-weight: bold; }
-
-        .copy-btn {
-            width: 100%; padding: 12px; border: none; border-radius: 8px;
-            background: linear-gradient(45deg, #4b0082, #bc13fe);
-            color: white; font-family: 'Orbitron', sans-serif;
-            font-size: 11px; cursor: pointer; margin-top: 5px;
+        .btn-gen {
+            width: 100%; max-width: 600px; padding: 15px; margin-top: 15px;
+            background: var(--neon-purple); color: #fff; border: none;
+            font-family: 'Orbitron'; font-weight: bold; cursor: pointer;
+            clip-path: polygon(5% 0%, 100% 0%, 95% 100%, 0% 100%);
             transition: 0.3s;
         }
 
-        .copy-btn:active { transform: scale(0.95); }
+        .btn-gen:hover { filter: brightness(1.3); box-shadow: 0 0 15px var(--neon-purple); }
 
-        @media (max-width: 600px) { .container { grid-template-columns: 1fr; } }
+        /* CARDS GERADOS */
+        .results { width: 100%; max-width: 600px; margin-top: 30px; }
+
+        .card-pro {
+            background: var(--glass); border: 1px solid #333; padding: 25px;
+            border-radius: 10px; margin-bottom: 20px; position: relative;
+            border-left: 5px solid var(--neon-green);
+        }
+
+        .badge-health { position: absolute; top: 10px; right: 10px; font-size: 10px; color: var(--neon-green); border: 1px solid var(--neon-green); padding: 2px 5px; }
+
+        .field-label { font-size: 10px; color: var(--neon-purple); display: block; margin-top: 10px; }
+        .field-value { font-size: 14px; word-break: break-all; color: #fff; }
+
+        .m3u-box {
+            background: #000; border: 1px dashed var(--neon-green);
+            padding: 10px; font-size: 12px; margin-top: 10px; overflow-x: scroll;
+        }
+
+        .copy-btn {
+            background: transparent; border: 1px solid var(--neon-green);
+            color: var(--neon-green); padding: 5px 15px; font-size: 10px;
+            margin-top: 10px; cursor: pointer; transition: 0.3s;
+        }
+        .copy-btn:hover { background: var(--neon-green); color: #000; }
     </style>
 </head>
 <body>
 
-    <div id="login-screen">
-        <div class="login-box">
-            <h2>MESTRE ACCESS</h2>
-            <input type="password" id="pass-field" placeholder="SENHA DO SISTEMA">
-            <button class="btn-sync" onclick="login()">DECODIFICAR</button>
+    <div id="lock-screen">
+        <div class="terminal-card">
+            <h2 style="font-family: 'Orbitron';">SISTEMA BLOQUEADO</h2>
+            <p style="font-size: 10px;">INSIRA O CÓDIGO DE ACESSO MESTRE</p>
+            <input type="password" id="access-code" placeholder="____">
+            <button class="btn-gen" onclick="unlock()">DESBLOQUEAR</button>
         </div>
     </div>
 
-    <header id="header">
-        <h1>APK BUGADO DASHBOARD</h1>
-        <button class="btn-sync" onclick="loadList()">🔄 SINCRONIZAR GITHUB</button>
-    </header>
+    <div class="status-header">
+        <p style="font-size: 10px;">GERAÇÕES RESTANTES (LIMITE: 100)</p>
+        <span class="gen-count" id="gen-limit">100</span>
+    </div>
 
-    <div class="container" id="cards-container">
-        </div>
+    <h1>NEON PARSER 2026</h1>
+    <textarea id="raw-input" placeholder="Cole sua lista bagunçada aqui..."></textarea>
+    <button class="btn-gen" onclick="generate()">⚡ GERAR CREDENCIAIS ⚡</button>
+
+    <div class="results" id="output"></div>
 
 <script>
-    // ==========================================
-    // CONFIGURAÇÕES DO MESTRE
-    // ==========================================
-    const MINHA_SENHA = "123"; 
-    const GITHUB_RAW_URL = "https://raw.githubusercontent.com/rafflores17-prog/Painel-Vip-2.0/main/listas.txt";
+    let limit = 100;
+    const MASTER_CODE = "MESTRE2026"; // Seu código de acesso
+    const SEEN_DATA = new Set(); // 4. SISTEMA ANTI-REPETIÇÃO
 
-    function login() {
-        const input = document.getElementById('pass-field').value;
-        if(input === MINHA_SENHA) {
-            document.getElementById('login-screen').style.display = 'none';
-            document.getElementById('header').style.display = 'block';
-            document.getElementById('cards-container').style.display = 'grid';
-            loadList();
+    function unlock() {
+        const code = document.getElementById('access-code').value;
+        if(code === MASTER_CODE) {
+            document.getElementById('lock-screen').style.display = 'none';
         } else {
-            alert("ACESSO NEGADO.");
+            alert("CÓDIGO INVÁLIDO!");
         }
     }
 
-    async function loadList() {
-        const container = document.getElementById('cards-container');
-        container.innerHTML = "<p style='color:var(--neon-green); grid-column: 1/-1; text-align:center;'>Acessando banco de dados...</p>";
+    function generate() {
+        const input = document.getElementById('raw-input').value;
+        const output = document.getElementById('output');
+        
+        // 5. PARSER INTELIGENTE
+        const blocks = input.split(/┏●|『|┏●▬▬▬▬▬/).filter(b => b.includes('Host') || b.includes('🌐Host') || b.includes('Sᴇʀᴠɪᴅᴏʀ'));
+        
+        blocks.forEach(block => {
+            const host = block.match(/(?:Host|Sᴇʀᴠɪᴅᴏʀ)\s*►\s*(http:\/\/[a-zA-Z0-9.-]+:[0-9]+)/i)?.[1];
+            const user = block.match(/(?:Usuário|Usᴜᴀʀɪᴏ|👤Usuário)\s*►\s*([a-zA-Z0-9._-]+)/i)?.[1];
+            const pass = block.match(/(?:Senha|Sᴇɴʜᴀ|🔒Senha)\s*►\s*([a-zA-Z0-9._-]+)/i)?.[1];
+            const exp = block.match(/(?:Expira|Vᴇɴᴄɪᴍᴇɴᴛᴏ)\s*►\s*([0-9\/]+)/i)?.[1];
 
-        try {
-            const response = await fetch(GITHUB_RAW_URL);
-            const text = await response.text();
+            const uniqueKey = `${host}|${user}|${pass}`;
 
-            // Parser Potente: Aceita vários separadores de scanners
-            const blocks = text.split(/┏●-•~¹°”ˆ˜¨|『 ⨴ 🅤🅛🅣🅡🅐 🅢🅒🅐🅝 ⨵ 』|┏●▬▬▬▬▬/).filter(b => b.includes('Host') || b.includes('🌐Host') || b.includes('Sᴇʀᴠɪᴅᴏʀ'));
-            
-            container.innerHTML = ""; 
+            // VERIFICA SE JÁ FOI GERADO (ANTI-REPETIÇÃO)
+            if(host && user && pass && !SEEN_DATA.has(uniqueKey) && limit > 0) {
+                SEEN_DATA.add(uniqueKey);
+                limit--;
+                document.getElementById('gen-limit').innerText = limit;
 
-            blocks.forEach(block => {
-                const host = block.match(/(?:Host\s*►|🌐Host\s*►|Sᴇʀᴠɪᴅᴏʀ►|🌐Host\s*►)\s*(http:\/\/[a-zA-Z0-9.-]+:[0-9]+)/i)?.[1];
-                const user = block.match(/(?:Usuário\s*►|Usᴜᴀʀɪᴏ►|👤Usuário\s*►|👤Usuário\s*►|Usᴜᴀʀɪᴏ►)\s*([a-zA-Z0-9._-]+)/i)?.[1];
-                const pass = block.match(/(?:Senha\s*►|Sᴇɴʜᴀ►|🔒Senha\s*►|🔒Senha\s*►|Sᴇɴʜᴀ►)\s*([a-zA-Z0-9._-]+)/i)?.[1];
-                const exp = block.match(/(?:Expira\s*►|Vᴇɴᴄɪᴍᴇɴᴛᴏ►|⏳Expira\s*►|Vᴇɴᴄɪᴍᴇɴᴛᴏ►)\s*([0-9\/]+)/i)?.[1];
+                const m3u = `${host}/get.php?username=${user}&password=${pass}&type=m3u_plus&output=ts`;
 
-                if(host && user && pass) {
-                    const m3uLink = `${host}/get.php?username=${user}&password=${pass}&type=m3u_plus&output=ts`;
+                const card = `
+                <div class="card-pro">
+                    <span class="badge-health">ONLINE STATUS: CHECKED</span>
                     
-                    container.innerHTML += `
-                        <div class="card">
-                            <span class="status-badge">ONLINE</span>
-                            <div class="info-row">
-                                <span class="label">🖥️ Portal / DNS</span>
-                                <span class="value">${host}</span>
-                            </div>
-                            <div class="info-row">
-                                <span class="label">🔑 Credenciais</span>
-                                <span class="value">User: <span class="value-neon">${user}</span></span>
-                                <span class="value">Pass: <span class="value-neon">${pass}</span></span>
-                            </div>
-                            <div class="info-row">
-                                <span class="label">📅 Validade Scanner</span>
-                                <span class="value">${exp || 'Não detectada'}</span>
-                            </div>
-                            <button class="copy-btn" onclick="copyToClipboard('${m3uLink}')">COPIAR LINK M3U8</button>
-                        </div>
-                    `;
-                }
-            });
+                    <span class="field-label">HOST / PORTAL</span>
+                    <span class="field-value">${host}</span>
 
-            if(container.innerHTML === "") {
-                container.innerHTML = "<p style='color:orange; grid-column: 1/-1; text-align:center;'>Nenhuma conta válida encontrada no arquivo.</p>";
+                    <span class="field-label">LOGIN CREDENTIALS</span>
+                    <span class="field-value" style="color: var(--neon-green)">USER: ${user} | PASS: ${pass}</span>
+
+                    <span class="field-label">DATA EXPIRAÇÃO</span>
+                    <span class="field-value">${exp || 'VERIFICAR NO PAINEL'}</span>
+
+                    <span class="field-label">LINK M3U (COMPLETO)</span>
+                    <div class="m3u-box">${m3u}</div>
+
+                    <button class="copy-btn" onclick="copy('${m3u}')">COPIAR M3U COMPLETO</button>
+                </div>
+                `;
+                output.insertAdjacentHTML('afterbegin', card);
             }
-
-        } catch (error) {
-            container.innerHTML = "<p style='color:red; grid-column: 1/-1; text-align:center;'>FALHA NA CONEXÃO COM O GITHUB.</p>";
-        }
+        });
     }
 
-    function copyToClipboard(text) {
+    function copy(text) {
         navigator.clipboard.writeText(text);
-        alert("Link M3U8 copiado!");
+        alert("COPIADO PARA O TERMINAL!");
     }
 </script>
 </body>

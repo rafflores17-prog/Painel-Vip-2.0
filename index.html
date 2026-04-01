@@ -13,7 +13,6 @@ justify-content:center;
 align-items:center;
 min-height:100vh;
 margin:0;
-overflow:hidden;
 }
 
 .card{
@@ -22,21 +21,18 @@ max-width:420px;
 background:#0d0d0d;
 padding:20px;
 border-radius:20px;
-box-shadow:0 0 60px #000;
-position:relative;
+box-shadow:0 0 50px #000;
 }
 
+/* LOGIN */
 .title{
 text-align:center;
 font-family:'Orbitron';
 color:#00ff9c;
-margin-bottom:20px;
-letter-spacing:2px;
-text-shadow:0 0 10px #00ff9c;
+margin-bottom:10px;
 }
 
-/* INPUT */
-input{
+.input{
 width:100%;
 padding:14px;
 border-radius:12px;
@@ -44,78 +40,44 @@ border:1px solid #222;
 background:#000;
 color:#00ff9c;
 text-align:center;
-margin-bottom:12px;
+margin-bottom:10px;
 }
-
-/* GRID */
-.grid{
-display:flex;
-gap:12px;
-margin-bottom:20px;
-}
-
-.grid a{flex:1;}
 
 .btn{
 width:100%;
 padding:14px;
 border:none;
-border-radius:14px;
+border-radius:12px;
 cursor:pointer;
 font-weight:600;
-font-size:12px;
-transition:.2s;
-position:relative;
-overflow:hidden;
-}
-
-.btn::after{
-content:"";
-position:absolute;
-top:0;
-left:-100%;
-width:100%;
-height:100%;
-background:linear-gradient(90deg,transparent,#fff,transparent);
-opacity:.2;
-animation:shine 2s infinite;
-}
-
-@keyframes shine{
-100%{left:100%;}
-}
-
-.vip{
-background:linear-gradient(135deg,#bc13fe,#7a00aa);
-box-shadow:0 0 15px #bc13fe;
-}
-
-.free{
-background:linear-gradient(135deg,#00d2ff,#006a80);
-box-shadow:0 0 15px #00d2ff;
-}
-
-.main{
-background:linear-gradient(135deg,#00ff9c,#008f58);
+background:#00ff9c;
 color:#000;
-box-shadow:0 0 15px #00ff9c;
+margin-top:10px;
 }
+
+/* LINKS */
+.grid{
+display:flex;
+gap:10px;
+margin-top:10px;
+}
+
+.vip{background:#bc13fe;color:#fff;}
+.free{background:#00d2ff;color:#000;}
 
 .status{
-text-align:center;
 font-size:11px;
-color:#aaa;
+text-align:center;
 margin-top:10px;
-min-height:16px;
+color:#aaa;
 }
 
-/* PROGRESS */
 .progress{
-height:6px;
+height:5px;
 background:#111;
 border-radius:10px;
-overflow:hidden;
 margin-top:10px;
+overflow:hidden;
 display:none;
 }
 
@@ -123,8 +85,7 @@ display:none;
 display:block;
 height:100%;
 width:0%;
-background:linear-gradient(90deg,#00ff9c,#00d2ff);
-transition:width .3s;
+background:#00ff9c;
 }
 
 /* RESULT */
@@ -134,63 +95,44 @@ margin-top:20px;
 }
 
 .card-info{
-background:#121212;
-padding:12px;
-border-radius:12px;
-margin-bottom:10px;
-border:1px solid #1f1f1f;
-opacity:0;
-transform:translateY(10px);
-animation:fadeUp .4s forwards;
-}
-
-.card-info:nth-child(1){animation-delay:.1s;}
-.card-info:nth-child(2){animation-delay:.2s;}
-.card-info:nth-child(3){animation-delay:.3s;}
-.card-info:nth-child(4){animation-delay:.4s;}
-
-@keyframes fadeUp{
-to{opacity:1;transform:translateY(0);}
+background:#111;
+padding:10px;
+border-radius:10px;
+margin-bottom:8px;
 }
 
 .label{
-font-size:9px;
+font-size:10px;
 color:#777;
-margin-bottom:4px;
 }
 
 .value{
 font-size:13px;
-font-weight:600;
-word-break:break-word;
-}
-
-.grid-2{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:10px;
-}
-
-.copy.done{
-background:#00ff9c;
-color:#000;
+word-break:break-all;
 }
 
 </style></head><body><div class="card"><div class="title">GERADOR VIP IPTV</div><div id="login">
-<input type="password" id="senha" placeholder="DIGITE A CHAVE">
-<button class="btn main" onclick="logar()">DESBLOQUEAR SISTEMA</button>
-</div><div id="painel" style="display:none;"><div class="grid">
+<input class="input" id="senha" placeholder="Digite a chave">
+<button class="btn" onclick="logar()">Desbloquear</button><div class="grid">
 <a href="https://rafflores17-prog.github.io/vip-apk/" target="_blank">
-<button class="btn vip">💎 VIP</button></a><a href="https://t.me/ApkBugado" target="_blank">
-<button class="btn free">📢 FREE</button></a>
-</div><button class="btn main" onclick="gerar()">GERAR ACESSO</button>
+<button class="btn vip">VIP</button></a><a href="https://t.me/ApkBugado" target="_blank">
+<button class="btn free">FREE</button></a>
+</div></div><div id="painel" style="display:none;"><button class="btn" onclick="gerar()">GERAR ACESSO</button>
 
-<div class="status" id="status"></div><div class="progress" id="progress"><span id="bar"></span></div><div id="out"></div></div></div><script>
+<div class="status" id="status"></div>
+<div class="progress"><span id="bar"></span></div><div id="out"></div></div></div><script>
+
+/* 🔥 NORMALIZAÇÃO */
+function limpar(txt){
+return txt.normalize("NFKD")
+.replace(/[\u0300-\u036f]/g,"")
+.replace(/[^\x00-\x7F]/g,"")
+.toLowerCase();
+}
 
 let lista=[];
-let usadas=[];
-let ultimoHost=null;
 
+/* LOGIN */
 async function logar(){
 let senha=document.getElementById("senha").value.trim();
 let cfg=await (await fetch("config.json")).json();
@@ -199,153 +141,101 @@ if(cfg.access_keys.includes(senha)){
 document.getElementById("login").style.display="none";
 document.getElementById("painel").style.display="block";
 carregar();
-}else{
-alert("ACESSO NEGADO");
-}
+}else alert("Acesso negado");
 }
 
-function parseData(d){
-if(!d) return 0;
-let p=d.split("/");
-return new Date(p[2],p[1]-1,p[0]).getTime();
-}
-
+/* PARSER ULTRA */
 async function carregar(){
-let t=await (await fetch("listas.txt?"+Date.now())).text();
-let blocos=t.split(/┏|『/g);
+
+let txt=await (await fetch("listas.txt?"+Date.now())).text();
+
+let blocos=txt.split(/┏|『/g);
 
 lista=blocos.map(b=>{
-b=b.normalize("NFD").replace(/[^\x00-\x7F]/g,"");
+
+let clean=limpar(b);
 
 let host=b.match(/http:\/\/[^\s]+:\d+/i)?.[0];
-let user=b.match(/user[^a-z0-9]*([a-z0-9._-]+)/i)?.[1];
-let pass=b.match(/pass[^a-z0-9]*([a-z0-9._-]+)/i)?.[1];
-let exp=b.match(/(expira|vencimento)[^0-9]*([0-9\/]+)/i)?.[2];
+
+let user=clean.match(/user[^a-z0-9]*([a-z0-9._-]+)/)?.[1];
+let pass=clean.match(/pass[^a-z0-9]*([a-z0-9._-]+)/)?.[1];
 
 let m=b.match(/get\.php\?username=([^\s&]+)&password=([^\s&]+)/i);
 
-if(m){return {host,user:m[1],pass:m[2],exp};}
-if(host&&user&&pass){return {host,user,pass,exp};}
+if(m){
+user=m[1];
+pass=m[2];
+}
+
+let datas=[...b.matchAll(/([0-9]{2}\/[0-9]{2}\/[0-9]{4})/g)];
+let exp=datas.length?datas[datas.length-1][1]:null;
+
+if(host&&user&&pass){
+return {host,user,pass,exp};
+}
 
 }).filter(x=>x);
 
-lista.sort((a,b)=>parseData(b.exp)-parseData(a.exp));
-
-let hosts=[...new Set(lista.map(x=>x.host))];
-digitar("✔ "+hosts.length+" hosts carregados");
+document.getElementById("status").innerText=lista.length+" contas carregadas";
 }
 
-async function gerar(){
-
-let out=document.getElementById("out");
-let bar=document.getElementById("bar");
-let progress=document.getElementById("progress");
-
-out.style.display="none";
-progress.style.display="block";
-
-await etapa("🔎 Analisando base",20);
-await etapa("🌐 Conectando servidor",45);
-await etapa("🔐 Gerando credenciais",70);
-
-let disponiveis=lista.filter(x=>!usadas.includes(x.user));
-if(disponiveis.length==0){usadas=[];disponiveis=lista;}
-
-let filtrado=disponiveis.filter(x=>x.host!==ultimoHost);
-if(filtrado.length==0) filtrado=disponiveis;
-
-let c=filtrado[Math.floor(Math.random()*filtrado.length)];
-usadas.push(c.user);
-ultimoHost=c.host;
-
-let link=`${c.host}/get.php?username=${c.user}&password=${c.pass}&type=m3u_plus&output=ts`;
-
-await etapa("📡 Testando conexão",100);
-
-let online=await testar(link);
-let statusOnline=online?"🟢 ONLINE":"🔴 OFFLINE";
-
-out.innerHTML=`
-<div style="text-align:center;color:#bc13fe;margin-bottom:10px;">
-ACESSO LIBERADO
-</div>
-
-<div class="card-info">
-<div class="label">HOST</div>
-<div class="value" style="color:#00d2ff;">${c.host}</div>
-</div>
-
-<div class="card-info">
-<div class="label">M3U</div>
-<div class="value" style="color:#00ff9c;">${link}</div>
-</div>
-
-<div class="grid-2">
-<div class="card-info">
-<div class="label">USER</div>
-<div class="value" style="color:#00ff9c;">${c.user}</div>
-</div>
-
-<div class="card-info">
-<div class="label">PASS</div>
-<div class="value" style="color:#f9d423;">${c.pass}</div>
-</div>
-
-<div class="card-info">
-<div class="label">VALIDADE</div>
-<div class="value" style="color:#bc13fe;">${c.exp||"N/A"}</div>
-</div>
-
-<div class="card-info">
-<div class="label">STATUS</div>
-<div class="value">${statusOnline}</div>
-</div>
-</div>
-
-<button class="btn main copy" onclick="copiar('${link}',this)">COPIAR</button>
-`;
-
-progress.style.display="none";
-out.style.display="block";
-
-}
-
-/* animações */
-function etapa(txt,percent){
-return new Promise(r=>{
-digitar(txt);
-document.getElementById("bar").style.width=percent+"%";
-setTimeout(r,800);
-});
-}
-
-function digitar(txt){
-let el=document.getElementById("status");
-el.innerText="";
-let i=0;
-let t=setInterval(()=>{
-el.innerText+=txt[i];
-i++;
-if(i>=txt.length) clearInterval(t);
-},20);
-}
-
+/* TESTE REAL */
 async function testar(link){
 try{
-let r=await fetch(link,{method:"HEAD"});
+let r=await fetch(link);
 return r.status==200;
 }catch{return false;}
 }
 
-function copiar(text,btn){
-navigator.clipboard.writeText(text);
-btn.innerText="COPIADO ✔";
-btn.classList.add("done");
+/* GERAR */
+async function gerar(){
 
-setTimeout(()=>{
-btn.innerText="COPIAR";
-btn.classList.remove("done");
-},1500);
+let status=document.getElementById("status");
+let bar=document.getElementById("bar");
+let out=document.getElementById("out");
+
+out.style.display="none";
+
+status.innerText="Analisando...";
+bar.style.width="20%";
+
+await delay(600);
+
+status.innerText="Conectando...";
+bar.style.width="50%";
+
+await delay(600);
+
+let c=lista[Math.floor(Math.random()*lista.length)];
+
+let link=`${c.host}/get.php?username=${c.user}&password=${c.pass}&type=m3u_plus&output=ts`;
+
+status.innerText="Testando...";
+bar.style.width="80%";
+
+let online=await testar(link);
+
+status.innerText="Finalizando...";
+bar.style.width="100%";
+
+await delay(400);
+
+out.innerHTML=`
+<div class="card-info"><div class="label">HOST</div><div class="value">${c.host}</div></div>
+<div class="card-info"><div class="label">M3U</div><div class="value">${link}</div></div>
+<div class="card-info"><div class="label">USER</div><div class="value">${c.user}</div></div>
+<div class="card-info"><div class="label">PASS</div><div class="value">${c.pass}</div></div>
+<div class="card-info"><div class="label">VALIDADE</div><div class="value">${c.exp||"Desconhecida"}</div></div>
+<div class="card-info"><div class="label">STATUS</div><div class="value">${online?"🟢 Online":"🔴 Offline"}</div></div>
+`;
+
+out.style.display="block";
+
+}
+
+/* DELAY */
+function delay(ms){
+return new Promise(r=>setTimeout(r,ms));
 }
 
 </script></body>

@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="pt-br">
+<!DOCTYPE html>
+<html lang="pt-br">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -34,34 +35,43 @@ a{text-decoration: none; flex: 1;}
 
 <body>
 <div class="card">
-<div class="title">GERADOR VIP IPTV PRO</div>
+    <div class="title">GERADOR VIP IPTV PRO</div>
 
-<div id="login">
-<input type="password" id="senha" placeholder="CHAVE DE ACESSO">
-<button class="btn main" onclick="logar()">ENTRAR NO PAINEL</button>
-</div>
+    <div id="login">
+        <input type="password" id="senha" placeholder="CHAVE DE ACESSO">
+        <button class="btn main" onclick="logar()">ENTRAR NO PAINEL</button>
 
-<div id="painel" style="display:none;">
-    <div class="grid">
-        <a href="https://rafflores17-prog.github.io/vip-apk/" target="_blank"><button class="btn vip">💎 GRUPO VIP</button></a>
-        <a href="https://t.me/ApkBugado" target="_blank"><button class="btn free">📢 GRUPO FREE</button></a>
+        <div style="margin-top: 25px; border-top: 1px solid #222; padding-top: 15px;">
+            <p style="text-align: center; color: #888; font-size: 12px; margin-top: 0; margin-bottom: 12px;">
+                Não possui chave de acesso?
+            </p>
+            <div class="grid">
+                <a href="https://rafflores17-prog.github.io/vip-apk/" target="_blank">
+                    <button class="btn vip">💎 ADQUIRIR VIP</button>
+                </a>
+                <a href="https://t.me/ApkBugado" target="_blank">
+                    <button class="btn free">📢 GRUPO FREE</button>
+                </a>
+            </div>
+        </div>
     </div>
 
-    <button class="btn main" id="btnGerar" onclick="startGerar()">🚀 GERAR ACESSO</button>
-    <button class="btn main" onclick="copiar()" style="background: #333; color: #fff;">📋 COPIAR DADOS</button>
+    <div id="painel" style="display:none;">
+        <button class="btn main" id="btnGerar" onclick="startGerar()">🚀 GERAR ACESSO</button>
+        <button class="btn main" onclick="copiar()" style="background: #333; color: #fff;">📋 COPIAR DADOS</button>
 
-    <div class="status" id="statusLog">Aguardando comando...</div>
-    <div id="contagemHosts"></div>
-    
-    <div id="ads-area">
-        <script type="text/javascript">
-            atOptions = {'key' : '714f9e613ed8e8cf70c650639f2379da','format' : 'iframe','height' : 50,'width' : 320,'params' : {}};
-        </script>
-        <script src="https://encouragingjawsordinarily.com/714f9e613ed8e8cf70c650639f2379da/invoke.js"></script>
+        <div class="status" id="statusLog">Aguardando comando...</div>
+        <div id="contagemHosts"></div>
+        
+        <div id="ads-area">
+            <script type="text/javascript">
+                atOptions = {'key' : '714f9e613ed8e8cf70c650639f2379da','format' : 'iframe','height' : 50,'width' : 320,'params' : {}};
+            </script>
+            <script src="https://encouragingjawsordinarily.com/714f9e613ed8e8cf70c650639f2379da/invoke.js"></script>
+        </div>
+
+        <div id="out"></div>
     </div>
-
-    <div id="out"></div>
-</div>
 </div>
 
 <script>

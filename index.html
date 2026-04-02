@@ -3,19 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GERADOR APKBUGADO VIP</title>
+    <title>GERADOR IPTV VIP</title>
     <style>
         :root { --primary: #00ff88; --bg: #050505; --card: #0f0f0f; }
         body { background: var(--bg); color: #fff; font-family: sans-serif; margin: 0; display: flex; justify-content: center; padding: 15px; }
         .container { width: 100%; max-width: 400px; background: var(--card); border-radius: 20px; padding: 20px; border: 1px solid #1a1a1a; }
         .title { color: var(--primary); text-align: center; font-weight: bold; margin-bottom: 20px; text-transform: uppercase; }
         
-        /* ESPAÇO PARA SEUS ADS */
         .ad-container { margin: 15px 0; text-align: center; min-height: 50px; background: #000; border-radius: 10px; border: 1px dashed #333; overflow: hidden; }
+
+        .btn-row { display: flex; gap: 10px; margin-bottom: 15px; }
+        .btn-sub { flex: 1; padding: 12px; border-radius: 10px; border: none; color: #fff; font-weight: bold; cursor: pointer; }
+        .btn-vip { background: #8a2be2; }
+        .btn-free { background: #1e90ff; }
 
         .btn-main { width: 100%; padding: 16px; border-radius: 12px; border: none; background: var(--primary); color: #000; font-weight: bold; cursor: pointer; margin-bottom: 15px; font-size: 16px; }
         
-        #logs { background: #000; border-radius: 10px; padding: 15px; font-family: monospace; font-size: 13px; color: var(--primary); margin-bottom: 15px; border: 1px solid #111; min-height: 60px; }
+        #logs { background: #000; border-radius: 10px; padding: 15px; font-family: monospace; font-size: 13px; color: var(--primary); margin-bottom: 15px; border: 1px solid #111; min-height: 50px; }
         
         .box-info { background: #141414; padding: 15px; border-radius: 12px; margin-bottom: 10px; border-left: 4px solid #0088cc; }
         .label { font-size: 11px; color: #0088cc; font-weight: bold; margin-bottom: 5px; }
@@ -35,7 +39,7 @@
     </div>
 
     <div id="main-panel" style="display:none">
-        <div class="title">GERADOR APKBUGADO</div>
+        <div class="title">GERADOR IPTV VIP</div>
 
         <div class="ad-container">
             <script type="text/javascript">
@@ -44,7 +48,12 @@
             <script type="text/javascript" src="//encouragingjawsordinarily.com/invoke.js"></script>
         </div>
 
-        <button class="btn-main" id="btnGerar" onclick="gerar()">🚀 SORTEAR NOVO ACESSO</button>
+        <div class="btn-row">
+            <button class="btn-sub btn-vip" onclick="window.open('https://encouragingjawsordinarily.com/wazwpzwvxa?key=20c27c4105f08438a698b55802257507')">💎 GRUPO VIP</button>
+            <button class="btn-sub btn-free">📢 GRUPO FREE</button>
+        </div>
+
+        <button class="btn-main" id="btnGerar" onclick="gerar()">🚀 GERAR LISTA IPTV</button>
 
         <div id="logs">📡 Aguardando comando...</div>
 
@@ -57,13 +66,12 @@
         </div>
 
         <div class="ad-container">
-            <a href="https://encouragingjawsordinarily.com/wazwpzwvxa?key=20c27c4105f08438a698b55802257507" target="_blank" style="color:#555; text-decoration:none; font-size:10px; display:block; padding:10px;">CLIQUE AQUI PARA LIBERAR MAIS VELOCIDADE</a>
+            <a href="https://encouragingjawsordinarily.com/wazwpzwvxa?key=20c27c4105f08438a698b55802257507" target="_blank" style="color:#555; text-decoration:none; font-size:11px; display:block; padding:10px;">CLIQUE AQUI PARA MAIS VELOCIDADE</a>
         </div>
     </div>
 </div>
 
 <script>
-    // URL CORRETA DO SEU GITHUB
     const URL_LISTA = "https://raw.githubusercontent.com/rafflores17-prog/Painel-Vip-2.0/main/listas.txt";
     let dados = [];
 
@@ -78,14 +86,12 @@
     async function carregarDados() {
         const logs = document.getElementById("logs");
         try {
-            // PROXY PARA NÃO DAR ERRO NO VERCEL
+            // Usa proxy para evitar "Erro no Servidor" no Vercel
             const proxy = "https://api.allorigins.win/get?url=" + encodeURIComponent(URL_LISTA + "?" + Date.now());
             const resp = await fetch(proxy);
             const json = await resp.json();
-            const texto = json.contents;
             
-            // Lógica de corte para o seu formato de lista
-            const partes = texto.split(/┏●/);
+            const partes = json.contents.split(/┏●/);
             dados = partes.map(p => {
                 const h = p.match(/Host\s*►\s*(https?:\/\/[^\s\n\r]+)/i);
                 const u = p.match(/Usuário\s*►\s*([^\s\n\r]+)/i);
@@ -94,29 +100,23 @@
             }).filter(x => x);
 
             logs.innerHTML = `✅ Sucesso! ${dados.length} listas carregadas.`;
-        } catch(e) { logs.innerHTML = "❌ Erro ao carregar listas do GitHub."; }
+        } catch(e) { logs.innerHTML = "❌ Erro ao conectar com o banco de dados."; }
     }
 
     function gerar() {
-        if(dados.length === 0) return alert("Lista ainda não carregou!");
-        const logs = document.getElementById("logs");
+        if(dados.length === 0) return alert("Lista carregando, aguarde...");
         const resDiv = document.getElementById("resultado");
+        const item = dados[Math.floor(Math.random() * dados.length)];
         
-        logs.innerHTML = "🔄 Sorteando...<br>📡 Conectando servidor...";
-        resDiv.style.display = "none";
-
-        setTimeout(() => {
-            const item = dados[Math.floor(Math.random() * dados.length)];
-            document.getElementById("res-m3u").innerText = `${item.h}/get.php?username=${item.u}&password=${item.p}&type=m3u_plus&output=ts`;
-            document.getElementById("res-u").innerText = item.u;
-            document.getElementById("res-p").innerText = item.p;
-            
-            logs.innerHTML = "✅ ACESSO LIBERADO!";
-            resDiv.style.display = "block";
-            
-            // Abre seu anúncio ao gerar
-            window.open('https://encouragingjawsordinarily.com/wazwpzwvxa?key=20c27c4105f08438a698b55802257507', '_blank');
-        }, 1200);
+        document.getElementById("res-m3u").innerText = `${item.h}/get.php?username=${item.u}&password=${item.p}&type=m3u_plus&output=ts`;
+        document.getElementById("res-u").innerText = item.u;
+        document.getElementById("res-p").innerText = item.p;
+        
+        resDiv.style.display = "block";
+        document.getElementById("logs").innerHTML = "✅ ACESSO GERADO COM SUCESSO!";
+        
+        // Seu anúncio abre ao gerar
+        window.open('https://encouragingjawsordinarily.com/wazwpzwvxa?key=20c27c4105f08438a698b55802257507', '_blank');
     }
 </script>
 </body>

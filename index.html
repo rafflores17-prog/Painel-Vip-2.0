@@ -1,123 +1,156 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<!DOCTYPE html><html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GERADOR IPTV VIP</title>
-    <style>
-        :root { --primary: #00ff88; --bg: #050505; --card: #0f0f0f; }
-        body { background: var(--bg); color: #fff; font-family: sans-serif; margin: 0; display: flex; justify-content: center; padding: 15px; }
-        .container { width: 100%; max-width: 400px; background: var(--card); border-radius: 20px; padding: 20px; border: 1px solid #1a1a1a; }
-        .title { color: var(--primary); text-align: center; font-weight: bold; margin-bottom: 20px; text-transform: uppercase; }
-        
-        .ad-container { margin: 15px 0; text-align: center; min-height: 50px; background: #000; border-radius: 10px; border: 1px dashed #333; overflow: hidden; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GERADOR VIP IPTV PRO</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 
-        .btn-row { display: flex; gap: 10px; margin-bottom: 15px; }
-        .btn-sub { flex: 1; padding: 12px; border-radius: 10px; border: none; color: #fff; font-weight: bold; cursor: pointer; }
-        .btn-vip { background: #8a2be2; }
-        .btn-free { background: #1e90ff; }
-
-        .btn-main { width: 100%; padding: 16px; border-radius: 12px; border: none; background: var(--primary); color: #000; font-weight: bold; cursor: pointer; margin-bottom: 15px; font-size: 16px; }
-        
-        #logs { background: #000; border-radius: 10px; padding: 15px; font-family: monospace; font-size: 13px; color: var(--primary); margin-bottom: 15px; border: 1px solid #111; min-height: 50px; }
-        
-        .box-info { background: #141414; padding: 15px; border-radius: 12px; margin-bottom: 10px; border-left: 4px solid #0088cc; }
-        .label { font-size: 11px; color: #0088cc; font-weight: bold; margin-bottom: 5px; }
-        .val { font-size: 13px; color: #eee; word-break: break-all; }
-        
-        #login-screen { text-align: center; padding: 20px 0; }
-        input { width: 100%; padding: 15px; background: #000; border: 1px solid #333; color: var(--primary); border-radius: 12px; text-align: center; font-size: 20px; margin-bottom: 20px; box-sizing: border-box; }
-    </style>
+<style>
+body{background:#050505;color:#fff;font-family:'Share Tech Mono', monospace;display:flex;justify-content:center;align-items:center;min-height:100vh;margin:0;}
+.card{width:100%;max-width:420px;background:#0a0a0a;padding:20px;border-radius:20px;box-shadow:0 0 40px #000;border: 1px solid #1a1a1a;}
+.title{text-align:center;font-family:'Orbitron';color:#00ff9c;margin-bottom:20px;text-transform: uppercase; font-size: 1.1rem;}
+input{width:100%;padding:15px;border-radius:12px;border:1px solid #111;background:#000;color:#00ff9c;text-align:center;box-sizing: border-box; font-size: 18px; margin-bottom: 10px;}
+.btn{width:100%;padding:15px;border:none;border-radius:12px;cursor:pointer;font-weight:bold;margin-top:10px; transition: 0.3s;}
+.vip{background:linear-gradient(135deg,#bc13fe,#7a00aa); color: #fff;}
+.free{background:linear-gradient(135deg,#00d2ff,#006a80); color: #fff;}
+.main{background:linear-gradient(135deg,#00ff9c,#008f58);color:#000;}
+.grid{display:flex;gap:10px; margin-bottom: 10px;}
+.status{margin-top:10px;font-size:12px;background:#000;padding:10px;border-radius:10px;height:120px;overflow-y:auto;color:#00ff9c; border: 1px solid #111;}
+#ads{margin:15px 0;text-align:center;}
+#out{display:none;margin-top:15px;}
+.box{background:#111;padding:12px;border-radius:10px;margin-bottom:8px; border: 1px solid #222;}
+.label{font-size:10px;color:#0088cc; font-weight: bold; margin-bottom: 4px;}
+.val{font-size:13px;word-break:break-all;}
+.green{color:#00ff9c;} .blue{color:#00d2ff;} .white{color:#fff;} .purple{color:#bc13fe;}
+.row{display:flex;gap:10px;} .col{flex:1;}
+a{text-decoration: none; flex: 1;}
+</style>
 </head>
+
 <body>
+<div class="card">
+<div class="title">GERADOR VIP IPTV PRO</div>
 
-<div class="container">
-    <div id="login-screen">
-        <div class="title">ACESSO RESTRITO</div>
-        <input type="password" id="keyInput" placeholder="SENHA VIP">
-        <button class="btn-main" onclick="entrar()">ENTRAR NO PAINEL</button>
+<div id="login">
+<input type="password" id="senha" placeholder="DIGITE A CHAVE VIP">
+<button class="btn main" onclick="logar()">DESBLOQUEAR ACESSO</button>
+</div>
+
+<div id="painel" style="display:none;">
+    <div class="grid">
+        <a href="https://t.me/ApkBugado" target="_blank"><button class="btn vip">💎 GRUPO VIP</button></a>
+        <a href="https://t.me/ApkBugado" target="_blank"><button class="btn free">📢 GRUPO FREE</button></a>
     </div>
 
-    <div id="main-panel" style="display:none">
-        <div class="title">GERADOR IPTV VIP</div>
+    <button class="btn main" id="btnGerar" onclick="startGerar()">🚀 GERAR LISTA IPTV</button>
+    <button class="btn main" onclick="copiar()">📋 COPIAR DADOS</button>
 
-        <div class="ad-container">
-            <script type="text/javascript">
-                atOptions = { 'key' : 'a8a116d252f41a02d16bcf030d61ce58', 'format' : 'iframe', 'height' : 50, 'width' : 320, 'params' : {} };
-            </script>
-            <script type="text/javascript" src="//encouragingjawsordinarily.com/invoke.js"></script>
-        </div>
-
-        <div class="btn-row">
-            <button class="btn-sub btn-vip" onclick="window.open('https://encouragingjawsordinarily.com/wazwpzwvxa?key=20c27c4105f08438a698b55802257507')">💎 GRUPO VIP</button>
-            <button class="btn-sub btn-free">📢 GRUPO FREE</button>
-        </div>
-
-        <button class="btn-main" id="btnGerar" onclick="gerar()">🚀 GERAR LISTA IPTV</button>
-
-        <div id="logs">📡 Aguardando comando...</div>
-
-        <div id="resultado" style="display:none">
-            <div class="box-info"><div class="label">M3U</div><div id="res-m3u" class="val"></div></div>
-            <div style="display:flex; gap:10px;">
-                <div class="box-info" style="flex:1"><div class="label">Usuário</div><div id="res-u" class="val"></div></div>
-                <div class="box-info" style="flex:1"><div class="label">Senha</div><div id="res-p" class="val"></div></div>
-            </div>
-        </div>
-
-        <div class="ad-container">
-            <a href="https://encouragingjawsordinarily.com/wazwpzwvxa?key=20c27c4105f08438a698b55802257507" target="_blank" style="color:#555; text-decoration:none; font-size:11px; display:block; padding:10px;">CLIQUE AQUI PARA MAIS VELOCIDADE</a>
-        </div>
+    <div class="status" id="statusLog">Aguardando comando...</div>
+    
+    <div id="ads">
+        <script type="text/javascript">
+            atOptions = { 'key' : 'a8a116d252f41a02d16bcf030d61ce58', 'format' : 'iframe', 'height' : 50, 'width' : 320, 'params' : {} };
+        </script>
+        <script type="text/javascript" src="//encouragingjawsordinarily.com/invoke.js"></script>
     </div>
+
+    <div id="out"></div>
+</div>
 </div>
 
 <script>
-    const URL_LISTA = "https://raw.githubusercontent.com/rafflores17-prog/Painel-Vip-2.0/main/listas.txt";
-    let dados = [];
+let listaContas = [];
+let processando = false;
 
-    async function entrar() {
-        if(document.getElementById("keyInput").value === "VIP2030") {
-            document.getElementById("login-screen").style.display = "none";
-            document.getElementById("main-panel").style.display = "block";
-            carregarDados();
-        } else { alert("Senha Errada!"); }
+// LOGIN 100% JAVASCRIPT
+function logar(){
+    let senha = document.getElementById("senha").value.trim();
+    if(senha === "VIP2030") {
+        document.getElementById("login").style.display="none";
+        document.getElementById("painel").style.display="block";
+        carregarLista();
+    } else {
+        alert("Chave VIP inválida!");
     }
+}
 
-    async function carregarDados() {
-        const logs = document.getElementById("logs");
-        try {
-            // Usa proxy para evitar "Erro no Servidor" no Vercel
-            const proxy = "https://api.allorigins.win/get?url=" + encodeURIComponent(URL_LISTA + "?" + Date.now());
-            const resp = await fetch(proxy);
-            const json = await resp.json();
+// CARREGAR LISTA DO GITHUB SEM PHP
+async function carregarLista(){
+    const statusDiv = document.getElementById("statusLog");
+    try {
+        // Link direto do seu arquivo TXT
+        let r = await fetch("https://raw.githubusercontent.com/rafflores17-prog/Painel-Vip-2.0/main/listas.txt?" + Date.now());
+        let txt = await r.text();
+
+        // Regex para o seu formato de SCAN
+        let blocos = txt.split(/┏●/);
+        listaContas = blocos.map(b => {
+            let h = b.match(/Host\s*►\s*(https?:\/\/[^\s\n\r]+)/i);
+            let u = b.match(/Usuário\s*►\s*([^\s\n\r]+)/i);
+            let p = b.match(/Senha\s*►\s*([^\s\n\r]+)/i);
+            let e = b.match(/Expira\s*►\s*([^\s\n\r]+)/i);
             
-            const partes = json.contents.split(/┏●/);
-            dados = partes.map(p => {
-                const h = p.match(/Host\s*►\s*(https?:\/\/[^\s\n\r]+)/i);
-                const u = p.match(/Usuário\s*►\s*([^\s\n\r]+)/i);
-                const psw = p.match(/Senha\s*►\s*([^\s\n\r]+)/i);
-                return (h && u && psw) ? {h: h[1], u: u[1], p: psw[1]} : null;
-            }).filter(x => x);
+            if(h && u && p) {
+                return { host: h[1].trim(), user: u[1].trim(), pass: p[1].trim(), exp: e ? e[1].trim() : "Ilimitada" };
+            }
+        }).filter(x => x);
 
-            logs.innerHTML = `✅ Sucesso! ${dados.length} listas carregadas.`;
-        } catch(e) { logs.innerHTML = "❌ Erro ao conectar com o banco de dados."; }
+        statusDiv.innerHTML = "✔ Sistema pronto!<br>✔ " + listaContas.length + " Contas carregadas.";
+    } catch(e) {
+        statusDiv.innerHTML = "❌ Erro ao carregar listas.txt";
     }
+}
 
-    function gerar() {
-        if(dados.length === 0) return alert("Lista carregando, aguarde...");
-        const resDiv = document.getElementById("resultado");
-        const item = dados[Math.floor(Math.random() * dados.length)];
-        
-        document.getElementById("res-m3u").innerText = `${item.h}/get.php?username=${item.u}&password=${item.p}&type=m3u_plus&output=ts`;
-        document.getElementById("res-u").innerText = item.u;
-        document.getElementById("res-p").innerText = item.p;
-        
-        resDiv.style.display = "block";
-        document.getElementById("logs").innerHTML = "✅ ACESSO GERADO COM SUCESSO!";
-        
-        // Seu anúncio abre ao gerar
-        window.open('https://encouragingjawsordinarily.com/wazwpzwvxa?key=20c27c4105f08438a698b55802257507', '_blank');
-    }
+function startGerar(){
+    if(processando || listaContas.length === 0) return;
+    processando = true;
+    document.getElementById("btnGerar").innerText = "⏳ GERANDO...";
+    
+    // Abre seu Adsterra (Monetização)
+    window.open("https://encouragingjawsordinarily.com/wazwpzwvxa?key=20c27c4105f08438a698b55802257507", "_blank");
+    
+    // Efeito de Scan
+    let s = document.getElementById("statusLog");
+    let etapas = ["🔍 Conectando...", "📡 Analisando...", "⚡ Gerando Link...", "✅ Concluído!"];
+    let i = 0;
+    s.innerHTML = "";
+    
+    let interval = setInterval(() => {
+        if(i < etapas.length){
+            s.innerHTML += etapas[i] + "<br>";
+            i++;
+        } else {
+            clearInterval(interval);
+            exibirResultado();
+        }
+    }, 400);
+}
+
+function exibirResultado(){
+    let out = document.getElementById("out");
+    let c = listaContas[Math.floor(Math.random() * listaContas.length)];
+    let m3u = `${c.host}/get.php?username=${c.user}&password=${c.pass}&type=m3u_plus&output=ts`;
+
+    out.innerHTML = `
+        <div class="box"><div class="label">🔗 LINK M3U</div><div class="val green">${m3u}</div></div>
+        <div class="box"><div class="label">🌐 HOST</div><div class="val blue">${c.host}</div></div>
+        <div class="row">
+            <div class="box col"><div class="label">👤 USUÁRIO</div><div class="val white">${c.user}</div></div>
+            <div class="box col"><div class="label">🔑 SENHA</div><div class="val white">${c.pass}</div></div>
+        </div>
+        <div class="box"><div class="label">📅 VALIDADE</div><div class="val purple">${c.exp}</div></div>
+    `;
+
+    out.style.display = "block";
+    document.getElementById("btnGerar").innerText = "🚀 GERAR LISTA IPTV";
+    processando = false;
+}
+
+function copiar(){
+    let texto = document.getElementById("out").innerText;
+    navigator.clipboard.writeText(texto);
+    alert("Copiado!");
+}
 </script>
 </body>
 </html>

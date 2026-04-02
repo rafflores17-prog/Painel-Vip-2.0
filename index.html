@@ -3,39 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GERADOR VIP IPTV PRO</title>
+    <title>GERADOR VIP - APKBUGADO</title>
     <style>
-        :root { --primary: #00ff88; --bg: #050505; --card: #0f0f0f; --text: #0088cc; }
-        body { background: var(--bg); color: #fff; font-family: 'Segoe UI', sans-serif; margin: 0; display: flex; justify-content: center; padding: 20px; }
-        .container { width: 100%; max-width: 420px; background: var(--card); border-radius: 20px; padding: 15px; border: 1px solid #1a1a1a; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        :root { --primary: #00ff88; --bg: #050505; --card: #0f0f0f; }
+        body { background: var(--bg); color: #fff; font-family: sans-serif; margin: 0; display: flex; justify-content: center; padding: 15px; }
+        .container { width: 100%; max-width: 400px; background: var(--card); border-radius: 15px; padding: 15px; border: 1px solid #1a1a1a; }
+        .title { color: var(--primary); text-align: center; font-weight: bold; margin: 15px 0; text-transform: uppercase; }
         
-        .title { color: var(--primary); text-align: center; font-weight: bold; font-size: 18px; margin: 15px 0; text-transform: uppercase; letter-spacing: 1px; }
-        
-        /* ADS SLOTS */
-        .ad-slot { background: #111; border: 1px dashed #333; height: 60px; margin: 10px 0; display: flex; align-items: center; justify-content: center; color: #444; font-size: 12px; border-radius: 8px; }
+        /* ESPAÇO PARA SEUS ADS */
+        .ad-container { margin: 10px 0; text-align: center; min-height: 50px; background: #000; border-radius: 8px; overflow: hidden; }
 
-        /* BOTOES ORIGINAIS */
-        .btn-group { display: flex; gap: 10px; margin-bottom: 15px; }
-        .btn-top { flex: 1; padding: 12px; border-radius: 10px; border: none; font-weight: bold; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 13px; }
-        .btn-vip { background: #8a2be2; color: #fff; }
-        .btn-free { background: #1e90ff; color: #fff; }
+        .btn-group { display: flex; gap: 10px; margin-bottom: 10px; }
+        .btn-top { flex: 1; padding: 10px; border-radius: 8px; border: none; font-weight: bold; cursor: pointer; color: #fff; font-size: 12px; }
+        .btn-vip { background: #8a2be2; }
+        .btn-free { background: #1e90ff; }
         
-        .btn-action { width: 100%; padding: 15px; border-radius: 12px; border: none; background: var(--primary); color: #000; font-weight: bold; font-size: 15px; cursor: pointer; margin-bottom: 10px; transition: 0.3s; }
-        .btn-copy { background: #00ff88; opacity: 0.9; }
-
-        /* TERMINAL DE LOGS */
-        #logs { background: #000; border-radius: 10px; padding: 15px; font-family: monospace; font-size: 13px; color: var(--primary); margin-bottom: 15px; min-height: 80px; border: 1px solid #111; }
+        .btn-main { width: 100%; padding: 15px; border-radius: 10px; border: none; background: var(--primary); color: #000; font-weight: bold; cursor: pointer; margin-bottom: 10px; }
         
-        /* CREDENCIAIS COM CORES DO SCAN */
-        .box-info { background: #141414; padding: 12px; border-radius: 10px; margin-bottom: 10px; border-left: 4px solid var(--text); }
-        .label { font-size: 11px; color: var(--text); font-weight: bold; margin-bottom: 5px; display: flex; align-items: center; gap: 5px; }
-        .val { font-size: 13px; color: #eee; word-break: break-all; }
+        #logs { background: #000; border-radius: 8px; padding: 12px; font-family: monospace; font-size: 12px; color: var(--primary); margin-bottom: 10px; border: 1px solid #111; min-height: 60px; }
         
-        .row { display: flex; gap: 10px; }
-        .col { flex: 1; }
+        .box-info { background: #141414; padding: 12px; border-radius: 8px; margin-bottom: 8px; border-left: 3px solid #0088cc; }
+        .label { font-size: 10px; color: #0088cc; font-weight: bold; margin-bottom: 4px; }
+        .val { font-size: 12px; color: #eee; word-break: break-all; }
         
-        #login-screen { text-align: center; padding: 40px 20px; }
-        input { width: 100%; padding: 15px; background: #000; border: 1px solid #333; color: var(--primary); border-radius: 10px; text-align: center; font-size: 18px; margin-bottom: 15px; }
+        #login-screen { text-align: center; padding: 30px 10px; }
+        input { width: 100%; padding: 12px; background: #000; border: 1px solid #333; color: var(--primary); border-radius: 8px; text-align: center; font-size: 16px; margin-bottom: 15px; box-sizing: border-box; }
     </style>
 </head>
 <body>
@@ -43,107 +35,97 @@
 <div class="container">
     <div id="login-screen">
         <div class="title">ACESSO RESTRITO</div>
-        <input type="password" id="keyInput" placeholder="••••••">
-        <button class="btn-action" onclick="validar()">ENTRAR NO PAINEL</button>
+        <input type="password" id="keyInput" placeholder="Sua Senha">
+        <button class="btn-main" onclick="entrar()">ENTRAR</button>
     </div>
 
     <div id="main-panel" style="display:none">
-        <div class="title">GERADOR VIP IPTV PRO</div>
-        
-        <div class="ad-slot">SUA ADS AQUI (TOP)</div>
+        <div class="title">GERADOR APKBUGADO</div>
+
+        <div class="ad-container">
+            <script type="text/javascript">
+                atOptions = { 'key' : 'a8a116d252f41a02d16bcf030d61ce58', 'format' : 'iframe', 'height' : 50, 'width' : 320, 'params' : {} };
+            </script>
+            <script type="text/javascript" src="//encouragingjawsordinarily.com/invoke.js"></script>
+        </div>
 
         <div class="btn-group">
-            <button class="btn-top btn-vip">💎 GRUPO VIP</button>
+            <button class="btn-top btn-vip" onclick="window.open('https://encouragingjawsordinarily.com/wazwpzwvxa?key=20c27c4105f08438a698b55802257507')">💎 GRUPO VIP</button>
             <button class="btn-top btn-free">📢 GRUPO FREE</button>
         </div>
 
-        <button class="btn-action" onclick="sortear()">🚀 GERAR ACESSO</button>
-        <button class="btn-top btn-copy" onclick="copiar()">📋 COPIAR</button>
+        <button class="btn-main" id="btnGerar" onclick="gerar()">🚀 GERAR NOVO ACESSO</button>
 
-        <div class="ad-slot">SUA ADS AQUI (CENTER)</div>
+        <div class="ad-container">
+             <a href="https://encouragingjawsordinarily.com/wazwpzwvxa?key=20c27c4105f08438a698b55802257507" target="_blank" style="color: #444; text-decoration: none; font-size: 10px;">ANÚNCIO: CLIQUE AQUI PARA APOIAR</a>
+        </div>
 
-        <div id="logs">Esperando comando...</div>
+        <div id="logs">⚠️ Aguardando Login...</div>
 
         <div id="resultado" style="display:none">
-            <div class="box-info">
-                <div class="label">🔗 M3U</div>
-                <div id="res-m3u" class="val" style="color: #00ff88;"></div>
-            </div>
-            <div class="row">
-                <div class="box-info col">
-                    <div class="label">👤 LOGIN</div>
-                    <div id="res-user" class="val"></div>
-                </div>
-                <div class="box-info col">
-                    <div class="label">🔑 SENHA</div>
-                    <div id="res-pass" class="val"></div>
-                </div>
-            </div>
-            <div class="box-info">
-                <div class="label">📡 STATUS</div>
-                <div id="res-status" class="val" style="color: #00ff88;">🟢 ONLINE</div>
+            <div class="box-info"><div class="label">M3U</div><div id="res-m3u" class="val" style="color:var(--primary)"></div></div>
+            <div style="display:flex; gap:8px;">
+                <div class="box-info" style="flex:1"><div class="label">USUÁRIO</div><div id="res-u" class="val"></div></div>
+                <div class="box-info" style="flex:1"><div class="label">SENHA</div><div id="res-p" class="val"></div></div>
             </div>
         </div>
     </div>
 </div>
 
 <script>
-    const GITHUB_URL = "https://raw.githubusercontent.com/rafflores17-prog/Painel-Vip-2.0/main/";
-    let listaContas = [];
+    const GITHUB_RAW = "https://raw.githubusercontent.com/rafflores17-prog/Painel-Vip-2.0/main/lista.txt";
+    let database = [];
 
-    async function validar() {
-        const key = document.getElementById("keyInput").value;
-        try {
-            const r = await fetch(GITHUB_URL + "config.json?" + Date.now());
-            const cfg = await r.json();
-            if(key === cfg.chave_mestre) {
-                document.getElementById("login-screen").style.display = "none";
-                document.getElementById("main-panel").style.display = "block";
-                carregarDados();
-            } else { alert("Chave inválida!"); }
-        } catch(e) { alert("Erro de conexão."); }
+    async function entrar() {
+        const pass = document.getElementById("keyInput").value;
+        if(pass === "1234") { // Troque pela sua senha do config.json se preferir
+            document.getElementById("login-screen").style.display = "none";
+            document.getElementById("main-panel").style.display = "block";
+            loadLista();
+        } else { alert("Senha Incorreta!"); }
     }
 
-    async function carregarDados() {
+    async function loadLista() {
         const logs = document.getElementById("logs");
         try {
-            const r = await fetch(GITHUB_URL + "lista.txt?" + Date.now());
-            const txt = await r.text();
-            // Split pelo seu marcador de início do Scan
-            const blocos = txt.split(/┏●/);
-            listaContas = blocos.map(b => {
+            // Uso de Proxy para evitar o erro do print (CORS)
+            const proxy = "https://api.allorigins.win/get?url=" + encodeURIComponent(GITHUB_RAW + "?" + Date.now());
+            const res = await fetch(proxy);
+            const data = await res.json();
+            const content = data.contents;
+            
+            const blocos = content.split(/┏●/);
+            database = blocos.map(b => {
                 const h = b.match(/Host\s*►\s*(https?:\/\/[^\s\n\r]+)/i);
                 const u = b.match(/Usuário\s*►\s*([^\s\n\r]+)/i);
                 const p = b.match(/Senha\s*►\s*([^\s\n\r]+)/i);
                 return (h && u && p) ? {h: h[1], u: u[1], p: p[1]} : null;
             }).filter(x => x);
-            logs.innerHTML = `✅ ${listaContas.length} Listas carregadas!`;
-        } catch(e) { logs.innerHTML = "❌ Erro ao ler lista.txt"; }
+
+            logs.innerHTML = `✅ ${database.length} Listas carregadas com sucesso!`;
+        } catch(e) { logs.innerHTML = "❌ Erro ao acessar GitHub. Verifique o arquivo lista.txt"; }
     }
 
-    function sortear() {
-        if(listaContas.length === 0) return;
+    function gerar() {
+        if(database.length === 0) return alert("Lista vazia!");
         const logs = document.getElementById("logs");
-        const res = document.getElementById("resultado");
-        res.style.display = "none";
-        logs.innerHTML = "🔍 Conectando...<br>📡 Analisando...<br>⚡ Buscando...";
+        const resDiv = document.getElementById("resultado");
         
-        setTimeout(() => {
-            const c = listaContas[Math.floor(Math.random() * listaContas.length)];
-            document.getElementById("res-m3u").innerText = `${c.h}/get.php?username=${c.u}&password=${c.p}&type=m3u_plus&output=ts`;
-            document.getElementById("res-user").innerText = c.u;
-            document.getElementById("res-pass").innerText = c.p;
-            logs.innerHTML = "🔍 Conectando...<br>📡 Analisando...<br>⚡ Buscando...<br>✅ Concluído";
-            res.style.display = "block";
-        }, 1500);
-    }
+        resDiv.style.display = "none";
+        logs.innerHTML = "📡 Conectando...<br>🔍 Analisando lista...<br>⚡ Gerando acesso...";
 
-    function copiar() {
-        const text = document.getElementById("res-m3u").innerText;
-        if(text) {
-            navigator.clipboard.writeText(text);
-            alert("Link M3U Copiado!");
-        }
+        setTimeout(() => {
+            const item = database[Math.floor(Math.random() * database.length)];
+            document.getElementById("res-m3u").innerText = `${item.h}/get.php?username=${item.u}&password=${item.p}&type=m3u_plus&output=ts`;
+            document.getElementById("res-u").innerText = item.u;
+            document.getElementById("res-p").innerText = item.p;
+            
+            logs.innerHTML = "✅ Concluído! Acesso gerado abaixo.";
+            resDiv.style.display = "block";
+            
+            // Abre seu anúncio em nova aba ao gerar
+            window.open('https://encouragingjawsordinarily.com/wazwpzwvxa?key=20c27c4105f08438a698b55802257507', '_blank');
+        }, 1500);
     }
 </script>
 </body>

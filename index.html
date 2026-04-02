@@ -7,25 +7,22 @@
     <style>
         :root { --primary: #00ff88; --bg: #050505; --card: #0f0f0f; }
         body { background: var(--bg); color: #fff; font-family: sans-serif; margin: 0; display: flex; justify-content: center; padding: 15px; }
-        .container { width: 100%; max-width: 400px; background: var(--card); border-radius: 20px; padding: 20px; border: 1px solid #1a1a1a; box-shadow: 0 10px 30px rgba(0,0,0,0.8); }
-        .title { color: var(--primary); text-align: center; font-weight: bold; margin-bottom: 20px; text-transform: uppercase; font-size: 1.2em; }
+        .container { width: 100%; max-width: 400px; background: var(--card); border-radius: 20px; padding: 20px; border: 1px solid #1a1a1a; }
+        .title { color: var(--primary); text-align: center; font-weight: bold; margin-bottom: 20px; text-transform: uppercase; }
         
-        /* ADS CONTAINERS */
-        .ad-box { margin: 15px 0; text-align: center; background: #000; border-radius: 10px; min-height: 50px; border: 1px dashed #333; overflow: hidden; }
+        /* ESPAÇO PARA SEUS ADS */
+        .ad-container { margin: 15px 0; text-align: center; min-height: 50px; background: #000; border-radius: 10px; border: 1px dashed #333; overflow: hidden; }
 
-        .btn-main { width: 100%; padding: 16px; border-radius: 12px; border: none; background: var(--primary); color: #000; font-weight: bold; cursor: pointer; margin-bottom: 15px; font-size: 16px; transition: 0.3s; }
-        .btn-main:active { transform: scale(0.98); }
-
-        #logs { background: #000; border-radius: 10px; padding: 15px; font-family: 'Courier New', monospace; font-size: 13px; color: var(--primary); margin-bottom: 15px; border: 1px solid #111; min-height: 80px; line-height: 1.5; }
+        .btn-main { width: 100%; padding: 16px; border-radius: 12px; border: none; background: var(--primary); color: #000; font-weight: bold; cursor: pointer; margin-bottom: 15px; font-size: 16px; }
         
-        .box-info { background: #141414; padding: 15px; border-radius: 12px; margin-bottom: 10px; border-left: 4px solid #0088cc; animation: fadeIn 0.5s; }
-        .label { font-size: 11px; color: #0088cc; font-weight: bold; margin-bottom: 5px; text-transform: uppercase; }
-        .val { font-size: 13px; color: #eee; word-break: break-all; font-family: monospace; }
+        #logs { background: #000; border-radius: 10px; padding: 15px; font-family: monospace; font-size: 13px; color: var(--primary); margin-bottom: 15px; border: 1px solid #111; min-height: 60px; }
+        
+        .box-info { background: #141414; padding: 15px; border-radius: 12px; margin-bottom: 10px; border-left: 4px solid #0088cc; }
+        .label { font-size: 11px; color: #0088cc; font-weight: bold; margin-bottom: 5px; }
+        .val { font-size: 13px; color: #eee; word-break: break-all; }
         
         #login-screen { text-align: center; padding: 20px 0; }
         input { width: 100%; padding: 15px; background: #000; border: 1px solid #333; color: var(--primary); border-radius: 12px; text-align: center; font-size: 20px; margin-bottom: 20px; box-sizing: border-box; }
-        
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body>
@@ -33,14 +30,14 @@
 <div class="container">
     <div id="login-screen">
         <div class="title">ACESSO RESTRITO</div>
-        <input type="password" id="keyInput" placeholder="DIGITE A SENHA VIP">
+        <input type="password" id="keyInput" placeholder="SENHA VIP">
         <button class="btn-main" onclick="entrar()">ENTRAR NO PAINEL</button>
     </div>
 
     <div id="main-panel" style="display:none">
         <div class="title">GERADOR APKBUGADO</div>
 
-        <div class="ad-box">
+        <div class="ad-container">
             <script type="text/javascript">
                 atOptions = { 'key' : 'a8a116d252f41a02d16bcf030d61ce58', 'format' : 'iframe', 'height' : 50, 'width' : 320, 'params' : {} };
             </script>
@@ -49,91 +46,77 @@
 
         <button class="btn-main" id="btnGerar" onclick="gerar()">🚀 SORTEAR NOVO ACESSO</button>
 
-        <div class="ad-box">
-            <a href="https://encouragingjawsordinarily.com/wazwpzwvxa?key=20c27c4105f08438a698b55802257507" target="_blank" style="color: #666; text-decoration: none; font-size: 11px; display: block; padding: 10px;">
-                CLIQUE AQUI PARA LIBERAR MAIS VELOCIDADE
-            </a>
-        </div>
-
-        <div id="logs">📡 Sistema pronto. Aguardando comando...</div>
+        <div id="logs">📡 Aguardando comando...</div>
 
         <div id="resultado" style="display:none">
-            <div class="box-info">
-                <div class="label">Link M3U (Copie e Cole)</div>
-                <div id="res-m3u" class="val" style="color: var(--primary);"></div>
-            </div>
+            <div class="box-info"><div class="label">M3U</div><div id="res-m3u" class="val"></div></div>
             <div style="display:flex; gap:10px;">
                 <div class="box-info" style="flex:1"><div class="label">Usuário</div><div id="res-u" class="val"></div></div>
                 <div class="box-info" style="flex:1"><div class="label">Senha</div><div id="res-p" class="val"></div></div>
             </div>
         </div>
+
+        <div class="ad-container">
+            <a href="https://encouragingjawsordinarily.com/wazwpzwvxa?key=20c27c4105f08438a698b55802257507" target="_blank" style="color:#555; text-decoration:none; font-size:10px; display:block; padding:10px;">CLIQUE AQUI PARA LIBERAR MAIS VELOCIDADE</a>
+        </div>
     </div>
 </div>
 
 <script>
-    const GITHUB_FILE = "https://raw.githubusercontent.com/rafflores17-prog/Painel-Vip-2.0/main/lista.txt";
-    let bancoDados = [];
+    // URL CORRETA DO SEU GITHUB
+    const URL_LISTA = "https://raw.githubusercontent.com/rafflores17-prog/Painel-Vip-2.0/main/listas.txt";
+    let dados = [];
 
     async function entrar() {
-        const inputSenha = document.getElementById("keyInput").value;
-        // Definida a senha conforme seu pedido
-        if(inputSenha === "VIP2030") {
+        if(document.getElementById("keyInput").value === "VIP2030") {
             document.getElementById("login-screen").style.display = "none";
             document.getElementById("main-panel").style.display = "block";
-            await carregarLista();
-        } else {
-            alert("Senha incorreta, Mestre!");
-        }
+            carregarDados();
+        } else { alert("Senha Errada!"); }
     }
 
-    async function carregarLista() {
+    async function carregarDados() {
         const logs = document.getElementById("logs");
         try {
-            // Usando proxy para evitar erro de servidor/CORS do Vercel
-            const proxyUrl = "https://api.allorigins.win/get?url=" + encodeURIComponent(GITHUB_FILE + "?" + Date.now());
-            const response = await fetch(proxyUrl);
-            const data = await response.json();
-            const texto = data.contents;
+            // PROXY PARA NÃO DAR ERRO NO VERCEL
+            const proxy = "https://api.allorigins.win/get?url=" + encodeURIComponent(URL_LISTA + "?" + Date.now());
+            const resp = await fetch(proxy);
+            const json = await resp.json();
+            const texto = json.contents;
             
-            // Regex para capturar os dados do seu layout de Scan
-            const blocos = texto.split(/┏●/);
-            bancoDados = blocos.map(bloco => {
-                const h = bloco.match(/Host\s*►\s*(https?:\/\/[^\s\n\r]+)/i);
-                const u = bloco.match(/Usuário\s*►\s*([^\s\n\r]+)/i);
-                const p = bloco.match(/Senha\s*►\s*([^\s\n\r]+)/i);
-                return (h && u && p) ? {h: h[1].trim(), u: u[1].trim(), p: p[1].trim()} : null;
-            }).filter(item => item !== null);
+            // Lógica de corte para o seu formato de lista
+            const partes = texto.split(/┏●/);
+            dados = partes.map(p => {
+                const h = p.match(/Host\s*►\s*(https?:\/\/[^\s\n\r]+)/i);
+                const u = p.match(/Usuário\s*►\s*([^\s\n\r]+)/i);
+                const psw = p.match(/Senha\s*►\s*([^\s\n\r]+)/i);
+                return (h && u && psw) ? {h: h[1], u: u[1], p: psw[1]} : null;
+            }).filter(x => x);
 
-            logs.innerHTML = `✅ Sucesso! ${bancoDados.length} acessos carregados.`;
-        } catch(err) {
-            logs.innerHTML = "❌ Erro ao conectar ao banco de dados GitHub.";
-        }
+            logs.innerHTML = `✅ Sucesso! ${dados.length} listas carregadas.`;
+        } catch(e) { logs.innerHTML = "❌ Erro ao carregar listas do GitHub."; }
     }
 
     function gerar() {
-        if(bancoDados.length === 0) return alert("Aguarde o carregamento da lista...");
-        
+        if(dados.length === 0) return alert("Lista ainda não carregou!");
         const logs = document.getElementById("logs");
         const resDiv = document.getElementById("resultado");
-        resDiv.style.display = "none";
         
-        // Efeito de processamento visual
-        logs.innerHTML = "🔍 Localizando servidor...<br>📡 Validando Token...<br>⚡ Gerando URL Final...";
+        logs.innerHTML = "🔄 Sorteando...<br>📡 Conectando servidor...";
+        resDiv.style.display = "none";
 
         setTimeout(() => {
-            const conta = bancoDados[Math.floor(Math.random() * bancoDados.length)];
-            const m3uUrl = `${conta.h}/get.php?username=${conta.u}&password=${conta.p}&type=m3u_plus&output=ts`;
+            const item = dados[Math.floor(Math.random() * dados.length)];
+            document.getElementById("res-m3u").innerText = `${item.h}/get.php?username=${item.u}&password=${item.p}&type=m3u_plus&output=ts`;
+            document.getElementById("res-u").innerText = item.u;
+            document.getElementById("res-p").innerText = item.p;
             
-            document.getElementById("res-m3u").innerText = m3uUrl;
-            document.getElementById("res-u").innerText = conta.u;
-            document.getElementById("res-p").innerText = conta.p;
-            
-            logs.innerHTML = "✅ ACESSO GERADO COM SUCESSO!";
+            logs.innerHTML = "✅ ACESSO LIBERADO!";
             resDiv.style.display = "block";
             
-            // Abre o anúncio em nova aba ao gerar (Monetização)
+            // Abre seu anúncio ao gerar
             window.open('https://encouragingjawsordinarily.com/wazwpzwvxa?key=20c27c4105f08438a698b55802257507', '_blank');
-        }, 1800);
+        }, 1200);
     }
 </script>
 </body>

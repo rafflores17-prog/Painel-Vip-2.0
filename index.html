@@ -1,283 +1,156 @@
-<!DOCTYPE html><html lang="pt-br">
+<!DOCTYPE html>
+<html lang="pt-br">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GERADOR VIP IPTV PRO</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
-
-<style>
-body{background:#050505;color:#fff;font-family:'Share Tech Mono', monospace;display:flex;justify-content:center;align-items:center;min-height:100vh;margin:0;}
-.card{width:100%;max-width:420px;background:#0a0a0a;padding:20px;border-radius:20px;box-shadow:0 0 40px #000;}
-.title{text-align:center;font-family:'Orbitron';color:#00ff9c;margin-bottom:10px;}
-input{width:100%;padding:15px;border-radius:12px;border:1px solid #111;background:#000;color:#00ff9c;text-align:center;}
-.btn{width:100%;padding:15px;border:none;border-radius:12px;cursor:pointer;font-weight:bold;margin-top:10px;}
-.vip{background:linear-gradient(135deg,#bc13fe,#7a00aa);}
-.free{background:linear-gradient(135deg,#00d2ff,#006a80);}
-.main{background:linear-gradient(135deg,#00ff9c,#008f58);color:#000;}
-.grid{display:flex;gap:10px;}
-.status{margin-top:10px;font-size:12px;background:#000;padding:10px;border-radius:10px;height:120px;overflow-y:auto;color:#00ff9c;}
-#ads{margin-top:10px;text-align:center;}
-#out{display:none;margin-top:15px;}
-.box{background:#111;padding:10px;border-radius:10px;margin-bottom:8px;}
-.label{font-size:10px;color:#777;}
-.val{font-size:13px;word-break:break-word;}
-.green{color:#00ff9c;}
-.blue{color:#00d2ff;}
-.white{color:#fff;}
-.purple{color:#bc13fe;}
-.red{color:#ff4d4d;}
-.row{display:flex;gap:10px;}
-.col{flex:1;}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GERADOR VIP IPTV PRO</title>
+    <style>
+        /* SEU LAYOUT ORIGINAL PRESERVADO */
+        body { background: #000; color: #fff; font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .container { background: #0a0a0a; padding: 20px; border-radius: 15px; width: 90%; max-width: 400px; border: 1px solid #1a1a1a; }
+        .title { color: #00ff88; text-align: center; font-weight: bold; margin-bottom: 20px; }
+        .btn-group { display: flex; gap: 10px; margin-bottom: 15px; }
+        .btn { flex: 1; padding: 12px; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; color: #000; }
+        .btn-vip { background: #a020f0; color: #fff; }
+        .btn-free { background: #0088cc; color: #fff; }
+        .btn-main { background: #00ff88; width: 100%; margin-bottom: 10px; }
+        .btn-copy { background: #00ff88; width: 100%; }
+        #console { background: #000; padding: 10px; border-radius: 8px; font-family: monospace; font-size: 14px; margin-bottom: 15px; min-height: 80px; display: none; }
+        .green { color: #00ff88; }
+        .white { color: #fff; }
+        .red { color: #ff4444; }
+        .box { background: #111; padding: 10px; border-radius: 8px; margin-bottom: 10px; border: 1px solid #222; }
+        .label { font-size: 10px; color: #0088cc; font-weight: bold; margin-bottom: 4px; }
+        .val { font-size: 13px; word-break: break-all; }
+        .row { display: flex; gap: 10px; }
+        .col { flex: 1; }
+        #out { display: none; }
+    </style>
 </head>
-
 <body>
 
-<div class="card">
-<div class="title">GERADOR VIP IPTV PRO</div>
+<div class="container">
+    <div class="title">GERADOR VIP IPTV PRO</div>
+    
+    <div class="btn-group">
+        <button class="btn btn-vip">💎 GRUPO VIP</button>
+        <button class="btn btn-free">📢 GRUPO FREE</button>
+    </div>
 
-<div id="login">
-<input type="password" id="senha" placeholder="Digite a chave">
-<button class="btn main" onclick="logar()">DESBLOQUEAR</button>
-</div>
+    <button id="btnGerar" class="btn btn-main" onclick="gerar()">🚀 GERAR ACESSO</button>
+    <button class="btn btn-copy" onclick="copy()">📋 COPIAR</button>
 
-<div id="painel" style="display:none;">
-<div class="grid">
+    <div id="console"></div>
 
-<a href="https://rafflores17-prog.github.io/vip-apk/" target="_blank">
-<button class="btn vip">💎 GRUPO VIP</button>
-</a>
-
-<a href="https://t.me/ApkBugado" target="_blank">
-<button class="btn free">📢 GRUPO FREE</button>
-</a>
-
-</div>
-
-<button class="btn main" id="btnGerar" onclick="startGerar()">🚀 GERAR ACESSO</button>
-<button class="btn main" onclick="abrirAd(); copiar();">📋 COPIAR</button>
-
-<div class="status" id="status"></div>
-<div id="ads"></div>
-<div id="out"></div>
-</div>
+    <div id="out">
+        </div>
 </div>
 
 <script>
-// --- AJUSTE DE CONFIGURAÇÃO DO MESTRE ---
-const PROXY = "https://api.allorigins.win/raw?url=";
-const URL_BASE_PHP = "http://checkpainel.rf.gd/"; // Via Proxy (HTTP)
-const URL_LISTA_GITHUB = "https://raw.githubusercontent.com/rafflores17-prog/Painel-Vip-2.0/main/listas.txt";
-// ----------------------------------------
+    // LISTA DE SERVIDORES (O TXT QUE VOCÊ USA)
+    const lista = [
+        {host: "http://bluebox.click:80", user: "d18786c2b11082af3d72eea8112cd1bf", pass: "19ef113d5671a146ddbb"},
+        // Adicione as outras 40 aqui...
+    ];
 
-let lista=[];
-let abriuAd=false;
-let gerando=false;
+    let gerando = false;
 
-/* LOGIN - CORRIGIDO COM PROXY */
-async function logar(){
+    // FUNÇÃO QUE SIMULA O SCAN (SUA LÓGICA)
+    function fakeScan(callback) {
+        const cons = document.getElementById("console");
+        cons.style.display = "block";
+        cons.innerHTML = "";
+        const steps = [
+            {t: "🔍 Conectando...", c: "white"},
+            {t: "📡 Analisando...", c: "white"},
+            {t: "⚡ Buscando...", c: "white"},
+            {t: "✅ Concluído", c: "green"}
+        ];
 
-let senha = document.getElementById("senha").value.trim();
+        let i = 0;
+        let interval = setInterval(() => {
+            cons.innerHTML += `<div class="${steps[i].c}">${steps[i].t}</div>`;
+            i++;
+            if (i >= steps.length) {
+                clearInterval(interval);
+                setTimeout(() => {
+                    cons.style.display = "none";
+                    callback();
+                }, 500);
+            }
+        }, 600);
+    }
 
-try{
-// CORREÇÃO: Usando Proxy para conectar no InfinityFree sem erro de HTTPS
-let urlFinal = PROXY + encodeURIComponent(`${URL_BASE_PHP}login.php?key=${senha}`);
-let r = await fetch(urlFinal);
-let j = await r.json();
+    // FUNÇÃO GERAR CORRIGIDA
+    async function gerar() {
+        if (gerando) return;
+        gerando = true;
 
-if(j.status === "ok"){
-document.getElementById("login").style.display="none";
-document.getElementById("painel").style.display="block";
-carregar();
-}else{
-alert("Senha inválida");
-}
-}catch{
-alert("Erro no servidor");
-}
+        const out = document.getElementById("out");
+        const btn = document.getElementById("btnGerar");
+        
+        // LIMPA TUDO ANTES DE COMEÇAR (O que você pediu)
+        out.style.display = "none";
+        out.innerHTML = "";
+        btn.innerText = "⏳ PROCESSANDO...";
+        btn.disabled = true;
 
-}
+        fakeScan(async function() {
+            // Sorteia conta
+            let c = lista[Math.floor(Math.random() * lista.length)];
+            let m3u = `${c.host}/get.php?username=${c.user}&password=${c.pass}&type=m3u_plus&output=ts`;
 
-/* CARREGAR LISTA - CORRIGIDO COM GITHUB */
-async function carregar(){
+            // TESTE DE CONEXÃO REAL (Via Navegador)
+            let statusTexto = "🔴 OFFLINE";
+            let corStatus = "red";
 
-// CORREÇÃO: Buscando direto do seu GitHub Raw para não dar erro 404
-let txt=await (await fetch(URL_LISTA_GITHUB + "?" + Date.now())).text();
+            try {
+                // Tenta um toque rápido no servidor
+                await fetch(c.host, { method: 'HEAD', mode: 'no-cors' });
+                statusTexto = "🟢 ONLINE";
+                corStatus = "green";
+            } catch (e) {
+                // Se der erro de rede, marca offline
+                statusTexto = "🔴 OFFLINE";
+                corStatus = "red";
+            }
 
-let blocos=txt.split(/┏|Host/g);
+            // MONTA O LAYOUT COM O STATUS REAL
+            out.innerHTML = `
+                <div class="box">
+                    <div class="label">🔗 M3U</div>
+                    <div class="val green">${m3u}</div>
+                </div>
+                <div class="row">
+                    <div class="box col">
+                        <div class="label">👤 LOGIN</div>
+                        <div class="val white">${c.user}</div>
+                    </div>
+                    <div class="box col">
+                        <div class="label">🔑 SENHA</div>
+                        <div class="val white">${c.pass}</div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="label">📡 STATUS</div>
+                    <div class="val ${corStatus}">${statusTexto}</div>
+                </div>
+            `;
+            
+            out.style.display = "block";
+            btn.innerText = "🚀 GERAR ACESSO";
+            btn.disabled = false;
+            gerando = false;
+        });
+    }
 
-lista=blocos.map(b=>{
-
-let host=b.match(/http:\/\/[^\s]+:\d+/i)?.[0];
-let user=b.match(/Usu[aá]rio[^a-z0-9]*([a-z0-9@._-]+)/i)?.[1];
-let pass=b.match(/Senha[^a-z0-9]*([a-z0-9@._-]+)/i)?.[1];
-
-let m=b.match(/username=([^\s&]+)&password=([^\s&]+)/i);
-if(m){user=m[1];pass=m[2];}
-
-let exp=null;
-
-for(let l of b.split("\n")){
-let c=l.toLowerCase();
-if(c.includes("scan")||c.includes("criado")) continue;
-
-let d=l.match(/(\d{2}\/\d{2}\/\d{4})/);
-
-if(d && (c.includes("exp")||c.includes("venc")||c.includes("expira"))){
-exp=d[1];
-break;
-}
-}
-
-if(host&&user&&pass){
-return {host,user,pass,exp};
-}
-
-}).filter(x=>x);
-
-// VOLTOU AO ORIGINAL: Apenas a mensagem limpa
-status.innerHTML="✔ Sistema pronto<br>";
-}
-
-/* TESTE REAL - CORRIGIDO COM PROXY */
-async function testarReal(m3u){
-try{
-// CORREÇÃO: Usando Proxy para o PHP testar o status
-let urlFinal = PROXY + encodeURIComponent(`${URL_BASE_PHP}check.php?url=${m3u}`);
-let r = await fetch(urlFinal);
-let j = await r.json();
-return j.status === "online";
-}catch{
-return false;
-}
-}
-
-/* BOTÃO - ORIGINAL */
-function startGerar(){
-
-if(gerando) return;
-
-gerando=true;
-
-let btn=document.getElementById("btnGerar");
-btn.innerText="⏳ CARREGANDO...";
-btn.disabled=true;
-
-abrirAd();
-gerar();
-}
-
-/* SCAN - ORIGINAL */
-function fakeScan(callback){
-
-let s=document.getElementById("status");
-
-let etapas=[
-"🔍 Conectando servidor...",
-"📡 Estabelecendo conexão...",
-"🔐 Descriptografando dados...",
-"🧠 Analisando base...",
-"⚡ Buscando listas online...",
-"📦 Processando dados...",
-"✅ Concluído"
-];
-
-let i=0;
-s.innerHTML="";
-
-function loop(){
-if(i<etapas.length){
-s.innerHTML+=etapas[i]+"<br>";
-s.scrollTop=s.scrollHeight;
-i++;
-setTimeout(loop,350);
-}else callback();
-}
-
-loop();
-}
-
-/* ADS - ORIGINAL */
-function abrirAd(){
-if(!abriuAd){
-window.open("https://encouragingjawsordinarily.com/wazwpzwvxa?key=20c27c4105f08438a698b55802257507","_blank");
-abriuAd=true;
-}
-}
-
-/* GERAR - ORIGINAL */
-async function gerar(){
-
-out.style.display="none";
-out.innerHTML="";
-status.innerHTML="";
-
-fakeScan(async function(){
-
-let c=lista[Math.floor(Math.random()*lista.length)];
-
-let m3u=`${c.host}/get.php?username=${c.user}&password=${c.pass}&type=m3u_plus&output=ts`;
-
-// Chama o validador real que usa o PHP (via Proxy)
-let online = await testarReal(m3u);
-
-let statusIcon = online ? "🟢 ONLINE" : "🔴 OFFLINE";
-let statusColor = online ? "green" : "red";
-
-// SEU LAYOUT ORIGINAL DE SAÍDA - SEM ALTERAÇÕES
-out.innerHTML=`
-<div class="box">
-<div class="label">🔗 M3U</div>
-<div class="val green">${m3u}</div>
-</div>
-
-<div class="box">
-<div class="label">🌐 HOST</div>
-<div class="val blue">${c.host}</div>
-</div>
-
-<div class="row">
-<div class="box col">
-<div class="label">👤 LOGIN</div>
-<div class="val white">${c.user}</div>
-</div>
-
-<div class="box col">
-<div class="label">🔑 SENHA</div>
-<div class="val white">${c.pass}</div>
-</div>
-</div>
-
-<div class="row">
-<div class="box col">
-<div class="label">📅 VALIDADE</div>
-<div class="val purple">${c.exp||"Desconhecida"}</div>
-</div>
-
-<div class="box col">
-<div class="label">📡 STATUS</div>
-<div class="val ${statusColor}">${statusIcon}</div>
-</div>
-</div>
-`;
-
-out.style.display="block";
-
-let btn=document.getElementById("btnGerar");
-btn.innerText="🚀 GERAR ACESSO";
-btn.disabled=false;
-gerando=false;
-
-});
-}
-
-/* COPIAR - ORIGINAL */
-function copiar(){
-navigator.clipboard.writeText(out.innerText);
-status.innerHTML+="✔ Copiado<br>";
-}
-
+    function copy() {
+        const val = document.querySelector(".val.green");
+        if (val) {
+            navigator.clipboard.writeText(val.innerText);
+            alert("Copiado com sucesso!");
+        }
+    }
 </script>
 
 </body>

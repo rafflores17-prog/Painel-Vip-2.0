@@ -70,13 +70,12 @@ let lista=[];
 let abriuAd=false;
 let gerando=false;
 
-/* LOGIN SEGURO */
+/* LOGIN */
 async function logar(){
 
 let senha = document.getElementById("senha").value.trim();
 
 try{
-
 let r = await fetch("https://checkpainel.rf.gd/login.php?key="+encodeURIComponent(senha));
 let j = await r.json();
 
@@ -87,16 +86,184 @@ carregar();
 }else{
 alert("Senha inválida");
 }
-
 }catch{
 alert("Erro no servidor");
 }
 
 }
 
-/* RESTO DO SISTEMA IGUAL (scan + gerar + ads) */
+/* CARREGAR LISTA */
+async function carregar(){
 
-/* ... mantém tudo igual que já está funcionando ... */
+let txt=await (await fetch("listas.txt?"+Date.now())).text();
+
+let blocos=txt.split(/┏|Host/g);
+
+lista=blocos.map(b=>{
+
+let host=b.match(/http:\/\/[^\s]+:\d+/i)?.[0];
+let user=b.match(/Usu[aá]rio[^a-z0-9]*([a-z0-9@._-]+)/i)?.[1];
+let pass=b.match(/Senha[^a-z0-9]*([a-z0-9@._-]+)/i)?.[1];
+
+let m=b.match(/username=([^\s&]+)&password=([^\s&]+)/i);
+if(m){user=m[1];pass=m[2];}
+
+let exp=null;
+
+for(let l of b.split("\n")){
+let c=l.toLowerCase();
+if(c.includes("scan")||c.includes("criado")) continue;
+
+let d=l.match(/(\d{2}\/\d{2}\/\d{4})/);
+
+if(d && (c.includes("exp")||c.includes("venc")||c.includes("expira"))){
+exp=d[1];
+break;
+}
+}
+
+if(host&&user&&pass){
+return {host,user,pass,exp};
+}
+
+}).filter(x=>x);
+
+status.innerHTML="✔ Sistema pronto<br>";
+}
+
+/* TESTE REAL */
+async function testarReal(m3u){
+try{
+let r = await fetch("https://checkpainel.rf.gd/check.php?url="+encodeURIComponent(m3u));
+let j = await r.json();
+return j.status === "online";
+}catch{
+return false;
+}
+}
+
+/* BOTÃO */
+function startGerar(){
+
+if(gerando) return;
+
+gerando=true;
+
+let btn=document.getElementById("btnGerar");
+btn.innerText="⏳ CARREGANDO...";
+btn.disabled=true;
+
+abrirAd();
+gerar();
+}
+
+/* SCAN */
+function fakeScan(callback){
+
+let s=document.getElementById("status");
+
+let etapas=[
+"🔍 Conectando servidor...",
+"📡 Estabelecendo conexão...",
+"🔐 Descriptografando dados...",
+"🧠 Analisando base...",
+"⚡ Buscando listas online...",
+"📦 Processando dados...",
+"✅ Concluído"
+];
+
+let i=0;
+s.innerHTML="";
+
+function loop(){
+if(i<etapas.length){
+s.innerHTML+=etapas[i]+"<br>";
+s.scrollTop=s.scrollHeight;
+i++;
+setTimeout(loop,350);
+}else callback();
+}
+
+loop();
+}
+
+/* ADS */
+function abrirAd(){
+if(!abriuAd){
+window.open("https://encouragingjawsordinarily.com/wazwpzwvxa?key=20c27c4105f08438a698b55802257507","_blank");
+abriuAd=true;
+}
+}
+
+/* GERAR */
+async function gerar(){
+
+out.style.display="none";
+out.innerHTML="";
+status.innerHTML="";
+
+fakeScan(async function(){
+
+let c=lista[Math.floor(Math.random()*lista.length)];
+
+let m3u=`${c.host}/get.php?username=${c.user}&password=${c.pass}&type=m3u_plus&output=ts`;
+
+let online = await testarReal(m3u);
+
+let statusIcon = online ? "🟢 ONLINE" : "🔴 OFFLINE";
+let statusColor = online ? "green" : "red";
+
+out.innerHTML=`
+<div class="box">
+<div class="label">🔗 M3U</div>
+<div class="val green">${m3u}</div>
+</div>
+
+<div class="box">
+<div class="label">🌐 HOST</div>
+<div class="val blue">${c.host}</div>
+</div>
+
+<div class="row">
+<div class="box col">
+<div class="label">👤 LOGIN</div>
+<div class="val white">${c.user}</div>
+</div>
+
+<div class="box col">
+<div class="label">🔑 SENHA</div>
+<div class="val white">${c.pass}</div>
+</div>
+</div>
+
+<div class="row">
+<div class="box col">
+<div class="label">📅 VALIDADE</div>
+<div class="val purple">${c.exp||"Desconhecida"}</div>
+</div>
+
+<div class="box col">
+<div class="label">📡 STATUS</div>
+<div class="val ${statusColor}">${statusIcon}</div>
+</div>
+</div>
+`;
+
+out.style.display="block";
+
+let btn=document.getElementById("btnGerar");
+btn.innerText="🚀 GERAR ACESSO";
+btn.disabled=false;
+gerando=false;
+
+});
+}
+
+/* COPIAR */
+function copiar(){
+navigator.clipboard.writeText(out.innerText);
+status.innerHTML+="✔ Copiado<br>";
+}
 
 </script>
 

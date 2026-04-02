@@ -17,14 +17,15 @@ input{width:100%;padding:15px;border-radius:12px;border:1px solid #111;backgroun
 .grid{display:flex;gap:10px; margin-bottom: 10px;}
 .status{margin-top:10px;font-size:11px;background:#000;padding:12px;border-radius:10px;height:90px;overflow-y:auto;color:#00ff9c; border: 1px solid #111; line-height: 1.5;}
 
-/* DESTAQUE NEON NO CONTADOR */
 #contagemHosts{font-size: 11px; color: #00ff9c; text-align: right; margin-top: 8px; text-transform: uppercase; font-weight: bold; text-shadow: 0 0 8px #00ff9c;}
-
 #ads-area{margin:15px 0; text-align:center; min-height: 60px; display: flex; flex-direction: column; align-items: center; justify-content: center;}
 #out{display:none;margin-top:15px; animation: fadeIn 0.5s;}
+
+/* CREDENCIAIS FORMATADAS */
 .box{background:#111;padding:12px;border-radius:10px;margin-bottom:8px; border: 1px solid #222;}
-.label{font-size:10px;color:#0088cc; font-weight: bold; margin-bottom: 4px; text-transform: uppercase;}
-.val{font-size:13px;word-break:break-all; color: #eee;}
+.label{font-size:10px; font-weight: bold; margin-bottom: 4px; text-transform: uppercase; display: flex; align-items: center; gap: 5px;}
+.val{font-size:13px;word-break:break-all; font-family: 'Share Tech Mono';}
+.green{color: #00ff9c;} .blue{color: #00d2ff;} .white{color: #ffffff;} .purple{color: #bc13fe;}
 .row{display:flex;gap:10px;} .col{flex:1;}
 a{text-decoration: none; flex: 1;}
 @keyframes fadeIn { from{opacity:0; transform: translateY(10px);} to{opacity:1; transform: translateY(0);} }
@@ -54,13 +55,7 @@ a{text-decoration: none; flex: 1;}
     
     <div id="ads-area">
         <script type="text/javascript">
-            atOptions = {
-                'key' : '714f9e613ed8e8cf70c650639f2379da',
-                'format' : 'iframe',
-                'height' : 50,
-                'width' : 320,
-                'params' : {}
-            };
+            atOptions = {'key' : '714f9e613ed8e8cf70c650639f2379da','format' : 'iframe','height' : 50,'width' : 320,'params' : {}};
         </script>
         <script src="https://encouragingjawsordinarily.com/714f9e613ed8e8cf70c650639f2379da/invoke.js"></script>
     </div>
@@ -72,6 +67,7 @@ a{text-decoration: none; flex: 1;}
 <script>
 let listaContas = [];
 let processando = false;
+let adsAberto = false; // Controle para o anúncio não ser agressivo
 
 async function logar(){
     const inputSenha = document.getElementById("senha").value.trim();
@@ -92,23 +88,24 @@ async function carregarLista(){
     try {
         let r = await fetch("https://raw.githubusercontent.com/rafflores17-prog/Painel-Vip-2.0/main/listas.txt?" + Date.now());
         let txt = await r.text();
-        
-        // Filtra apenas blocos válidos
         let blocos = txt.split(/┏●/).filter(b => b.includes("Host"));
         
         listaContas = blocos.map(b => {
             let h = b.match(/Host\s*►\s*(https?:\/\/[^\s\n\r]+)/i);
             let u = b.match(/Usuário\s*►\s*([^\s\n\r]+)/i);
             let p = b.match(/Senha\s*►\s*([^\s\n\r]+)/i);
-            if(h && u && p) return { host: h[1].trim().replace(/\/$/, ""), user: u[1].trim(), pass: p[1].trim() };
+            let v = b.match(/Validade\s*►\s*([^\s\n\r]+)/i) || b.match(/Expira\s*►\s*([^\s\n\r]+)/i);
+            if(h && u && p) return { 
+                host: h[1].trim().replace(/\/$/, ""), 
+                user: u[1].trim(), 
+                pass: p[1].trim(),
+                validade: v ? v[1].trim() : "ILIMITADA"
+            };
         }).filter(x => x);
 
-        // LÓGICA DE HOST ÚNICO (Remove duplicatas para a contagem)
         const servidoresUnicos = [...new Set(listaContas.map(item => item.host))];
-        
         log.innerHTML = "✔ Sistema pronto!<br>✔ Banco de dados carregado.";
         countDiv.innerHTML = servidoresUnicos.length + " SERVIDORES ÚNICOS ATIVOS"; 
-
     } catch(e) { log.innerHTML = "❌ Erro ao ler listas.txt."; }
 }
 
@@ -116,14 +113,17 @@ function startGerar(){
     if(processando || listaContas.length === 0) return;
     processando = true;
     document.getElementById("out").style.display = "none"; 
-    document.getElementById("statusLog").innerHTML = "";
     document.getElementById("btnGerar").innerText = "⏳ PROCESSANDO...";
     
-    // SMART LINK
-    window.open("https://encouragingjawsordinarily.com/wazwpzwvxa?key=20c27c4105f08438a698b55802257507", "_blank");
+    // ANÚNCIO INTELIGENTE: Só abre uma vez por acesso ao site
+    if(!adsAberto) {
+        window.open("https://encouragingjawsordinarily.com/wazwpzwvxa?key=20c27c4105f08438a698b55802257507", "_blank");
+        adsAberto = true;
+    }
     
     let s = document.getElementById("statusLog");
-    let etapas = ["🔍 Localizando...", "📡 Extraindo...", "🔐 Validando...", "✅ Concluído!"];
+    s.innerHTML = "";
+    let etapas = ["🔍 Localizando host...", "📡 Extraindo credenciais...", "🔐 Validando acesso...", "⚡ Gerando Link M3U...", "✅ Concluído!"];
     let i = 0;
     let interval = setInterval(() => {
         if(i < etapas.length){
@@ -142,12 +142,13 @@ function exibirResultado(){
     let m3u = `${c.host}/get.php?username=${c.user}&password=${c.pass}&type=m3u_plus&output=ts`;
 
     out.innerHTML = `
-        <div class="box"><div class="label">🔗 LINK M3U</div><div class="val green" id="copy-target">${m3u}</div></div>
-        <div class="box"><div class="label">🌐 HOST</div><div class="val blue">${c.host}</div></div>
+        <div class="box"><div class="label blue">🔗 LINK M3U</div><div class="val green" id="copy-target">${m3u}</div></div>
+        <div class="box"><div class="label blue">🌐 HOST</div><div class="val white">${c.host}</div></div>
         <div class="row">
-            <div class="box col"><div class="label">👤 USUÁRIO</div><div class="val white">${c.user}</div></div>
-            <div class="box col"><div class="label">🔑 SENHA</div><div class="val white">${c.pass}</div></div>
+            <div class="box col"><div class="label blue">👤 USUÁRIO</div><div class="val white">${c.user}</div></div>
+            <div class="box col"><div class="label blue">🔑 SENHA</div><div class="val white">${c.pass}</div></div>
         </div>
+        <div class="box"><div class="label blue">📅 VALIDADE</div><div class="val purple">${c.validade}</div></div>
     `;
     out.style.display = "block";
     document.getElementById("btnGerar").innerText = "🚀 GERAR ACESSO";
@@ -163,7 +164,7 @@ function copiar(){
     temp.select();
     document.execCommand('copy');
     document.body.removeChild(temp);
-    alert("Copiado!");
+    alert("Copiado com sucesso!");
 }
 </script>
 </body>

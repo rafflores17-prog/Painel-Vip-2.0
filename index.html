@@ -9,18 +9,27 @@
         body { background: #000; color: #fff; font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
         .container { background: #0a0a0a; padding: 20px; border-radius: 15px; width: 90%; max-width: 400px; border: 1px solid #1a1a1a; }
         .title { color: #00ff88; text-align: center; font-weight: bold; margin-bottom: 20px; }
+        
+        /* TELA DE LOGIN */
+        #login-screen { text-align: center; }
+        input { width: 100%; padding: 12px; margin: 10px 0; border-radius: 8px; border: 1px solid #333; background: #000; color: #fff; box-sizing: border-box; }
+        
+        /* PAINEL PRINCIPAL */
+        #main-panel { display: none; }
         .btn-group { display: flex; gap: 10px; margin-bottom: 15px; }
-        .btn { flex: 1; padding: 12px; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; color: #000; }
-        .btn-vip { background: #a020f0; color: #fff; }
-        .btn-free { background: #0088cc; color: #fff; }
-        .btn-main { background: #00ff88; width: 100%; margin-bottom: 10px; }
-        .btn-copy { background: #00ff88; width: 100%; }
-        #console { background: #000; padding: 10px; border-radius: 8px; font-family: monospace; font-size: 14px; margin-bottom: 15px; min-height: 80px; display: none; }
+        .btn { flex: 1; padding: 12px; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; color: #fff; }
+        .btn-vip { background: #a020f0; }
+        .btn-free { background: #0088cc; }
+        .btn-main { background: #00ff88; width: 100%; color: #000; margin-bottom: 10px; }
+        .btn-copy { background: #00ff88; width: 100%; color: #000; }
+        
+        #console { background: #000; padding: 10px; border-radius: 8px; font-family: monospace; font-size: 14px; margin-bottom: 15px; min-height: 80px; display: none; border: 1px solid #1a1a1a; }
         .green { color: #00ff88; }
         .white { color: #fff; }
         .red { color: #ff4444; }
+
         .box { background: #111; padding: 10px; border-radius: 8px; margin-bottom: 10px; border: 1px solid #222; }
-        .label { font-size: 10px; color: #0088cc; font-weight: bold; margin-bottom: 4px; }
+        .label { font-size: 10px; color: #0088cc; font-weight: bold; margin-bottom: 4px; text-transform: uppercase; }
         .val { font-size: 13px; word-break: break-all; }
         .row { display: flex; gap: 10px; }
         .col { flex: 1; }
@@ -30,32 +39,51 @@
 <body>
 
 <div class="container">
-    <div class="title">GERADOR VIP IPTV PRO</div>
-    
-    <div class="btn-group">
-        <button class="btn btn-vip">💎 GRUPO VIP</button>
-        <button class="btn btn-free">📢 GRUPO FREE</button>
+    <div id="login-screen">
+        <div class="title">GERADOR VIP IPTV PRO</div>
+        <input type="text" id="keyInput" placeholder="Digite a chave de acesso...">
+        <button class="btn btn-main" onclick="validarChave()">DESBLOQUEAR</button>
     </div>
 
-    <button id="btnGerar" class="btn btn-main" onclick="gerar()">🚀 GERAR ACESSO</button>
-    <button class="btn btn-copy" onclick="copy()">📋 COPIAR</button>
-
-    <div id="console"></div>
-
-    <div id="out">
+    <div id="main-panel">
+        <div class="title">GERADOR VIP IPTV PRO</div>
+        <div class="btn-group">
+            <button class="btn btn-vip">💎 GRUPO VIP</button>
+            <button class="btn btn-free">📢 GRUPO FREE</button>
         </div>
+
+        <button id="btnGerar" class="btn btn-main" onclick="gerar()">🚀 GERAR ACESSO</button>
+        <button class="btn btn-copy" onclick="copy()">📋 COPIAR</button>
+
+        <div id="console"></div>
+        <div id="out"></div>
+    </div>
 </div>
 
 <script>
-    // LISTA DE SERVIDORES (O TXT QUE VOCÊ USA)
+    // CHAVE DE ACESSO
+    const CHAVE_MESTRE = "apkbugado"; // Altere aqui a sua senha
+
+    // LISTA DE SERVIDORES (Sorteio aleatório real)
     const lista = [
         {host: "http://bluebox.click:80", user: "d18786c2b11082af3d72eea8112cd1bf", pass: "19ef113d5671a146ddbb"},
+        {host: "http://exemplo2.com:80", user: "user_teste_2", pass: "pass_teste_2"},
+        {host: "http://exemplo3.com:80", user: "user_teste_3", pass: "pass_teste_3"}
         // Adicione as outras 40 aqui...
     ];
 
+    function validarChave() {
+        const input = document.getElementById("keyInput").value;
+        if (input === CHAVE_MESTRE) {
+            document.getElementById("login-screen").style.display = "none";
+            document.getElementById("main-panel").style.display = "block";
+        } else {
+            alert("Chave incorreta, Mestre!");
+        }
+    }
+
     let gerando = false;
 
-    // FUNÇÃO QUE SIMULA O SCAN (SUA LÓGICA)
     function fakeScan(callback) {
         const cons = document.getElementById("console");
         cons.style.display = "block";
@@ -63,8 +91,8 @@
         const steps = [
             {t: "🔍 Conectando...", c: "white"},
             {t: "📡 Analisando...", c: "white"},
-            {t: "⚡ Buscando...", c: "white"},
-            {t: "✅ Concluído", c: "green"}
+            {t: "⚡ Buscando conta disponível...", c: "white"},
+            {t: "✅ Concluído!", c: "green"}
         ];
 
         let i = 0;
@@ -81,7 +109,6 @@
         }, 600);
     }
 
-    // FUNÇÃO GERAR CORRIGIDA
     async function gerar() {
         if (gerando) return;
         gerando = true;
@@ -89,33 +116,30 @@
         const out = document.getElementById("out");
         const btn = document.getElementById("btnGerar");
         
-        // LIMPA TUDO ANTES DE COMEÇAR (O que você pediu)
+        // LIMPA O RESULTADO ANTERIOR PARA NÃO REPETIR NA TELA
         out.style.display = "none";
         out.innerHTML = "";
         btn.innerText = "⏳ PROCESSANDO...";
         btn.disabled = true;
 
         fakeScan(async function() {
-            // Sorteia conta
+            // SORTEIO ALEATÓRIO REAL
             let c = lista[Math.floor(Math.random() * lista.length)];
             let m3u = `${c.host}/get.php?username=${c.user}&password=${c.pass}&type=m3u_plus&output=ts`;
 
-            // TESTE DE CONEXÃO REAL (Via Navegador)
             let statusTexto = "🔴 OFFLINE";
             let corStatus = "red";
 
             try {
-                // Tenta um toque rápido no servidor
+                // TESTE DE CONEXÃO DIRETO (SEM PROXY)
                 await fetch(c.host, { method: 'HEAD', mode: 'no-cors' });
                 statusTexto = "🟢 ONLINE";
                 corStatus = "green";
             } catch (e) {
-                // Se der erro de rede, marca offline
                 statusTexto = "🔴 OFFLINE";
                 corStatus = "red";
             }
 
-            // MONTA O LAYOUT COM O STATUS REAL
             out.innerHTML = `
                 <div class="box">
                     <div class="label">🔗 M3U</div>
@@ -148,10 +172,9 @@
         const val = document.querySelector(".val.green");
         if (val) {
             navigator.clipboard.writeText(val.innerText);
-            alert("Copiado com sucesso!");
+            alert("M3U copiado!");
         }
     }
 </script>
-
 </body>
 </html>

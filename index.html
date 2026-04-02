@@ -17,12 +17,13 @@ input:focus{border-color: #00ff9c;}
 .main{background:linear-gradient(135deg,#00ff9c,#008f58);color:#000;}
 .btn:active{transform: scale(0.95);}
 .grid{display:flex;gap:10px; margin-bottom: 10px;}
-.status{margin-top:10px;font-size:12px;background:#000;padding:12px;border-radius:10px;height:100px;overflow-y:auto;color:#00ff9c; border: 1px solid #111; line-height: 1.6;}
-#ads-area{margin:15px 0;text-align:center; min-height: 55px; background: #000; border-radius: 10px; display: flex; align-items: center; justify-content: center;}
+.status{margin-top:10px;font-size:11px;background:#000;padding:12px;border-radius:10px;height:90px;overflow-y:auto;color:#00ff9c; border: 1px solid #111; line-height: 1.5;}
+#ads-area{margin:15px 0;text-align:center; min-height: 55px; background: #070707; border-radius: 10px; display: flex; align-items: center; justify-content: center; border: 1px dashed #222;}
 #out{display:none;margin-top:15px; animation: fadeIn 0.5s;}
 .box{background:#111;padding:12px;border-radius:10px;margin-bottom:8px; border: 1px solid #222;}
 .label{font-size:10px;color:#0088cc; font-weight: bold; margin-bottom: 4px; text-transform: uppercase;}
 .val{font-size:13px;word-break:break-all; color: #eee;}
+.info-discreta{font-size: 9px; color: #444; text-align: right; margin-top: 5px; text-transform: uppercase;}
 .green{color:#00ff9c;} .blue{color:#00d2ff;} .white{color:#fff;} .purple{color:#bc13fe;}
 .row{display:flex;gap:10px;} .col{flex:1;}
 a{text-decoration: none; flex: 1;}
@@ -35,8 +36,8 @@ a{text-decoration: none; flex: 1;}
 <div class="title">GERADOR VIP IPTV PRO</div>
 
 <div id="login">
-<input type="password" id="senha" placeholder="DIGITE A CHAVE VIP">
-<button class="btn main" onclick="logar()">DESBLOQUEAR</button>
+<input type="password" id="senha" placeholder="CHAVE DE ACESSO">
+<button class="btn main" onclick="logar()">ENTRAR NO PAINEL</button>
 </div>
 
 <div id="painel" style="display:none;">
@@ -45,10 +46,11 @@ a{text-decoration: none; flex: 1;}
         <a href="https://t.me/ApkBugado" target="_blank"><button class="btn free">📢 GRUPO FREE</button></a>
     </div>
 
-    <button class="btn main" id="btnGerar" onclick="startGerar()">🚀 GERAR LISTA IPTV</button>
-    <button class="btn main" onclick="copiar()" style="background: #444; color: #fff;">📋 COPIAR DADOS</button>
+    <button class="btn main" id="btnGerar" onclick="startGerar()">🚀 GERAR ACESSO</button>
+    <button class="btn main" onclick="copiar()" style="background: #333; color: #fff;">📋 COPIAR DADOS</button>
 
     <div class="status" id="statusLog">Aguardando comando...</div>
+    <div id="contagemHosts" class="info-discreta"></div>
     
     <div id="ads-area">
         <script type="text/javascript">
@@ -65,17 +67,28 @@ a{text-decoration: none; flex: 1;}
 let listaContas = [];
 let processando = false;
 
-function logar(){
-    let senha = document.getElementById("senha").value.trim();
-    if(senha === "VIP2030") {
-        document.getElementById("login").style.display="none";
-        document.getElementById("painel").style.display="block";
-        carregarLista();
-    } else { alert("Chave VIP inválida!"); }
+// Busca a senha no config.json
+async function logar(){
+    const inputSenha = document.getElementById("senha").value.trim();
+    try {
+        const response = await fetch('config.json?' + Date.now());
+        const config = await response.json();
+        
+        if(inputSenha === config.chave_mestre) {
+            document.getElementById("login").style.display="none";
+            document.getElementById("painel").style.display="block";
+            carregarLista();
+        } else { 
+            alert("Chave VIP incorreta!"); 
+        }
+    } catch(e) { 
+        alert("Erro ao validar configuração."); 
+    }
 }
 
 async function carregarLista(){
-    const s = document.getElementById("statusLog");
+    const log = document.getElementById("statusLog");
+    const countDiv = document.getElementById("contagemHosts");
     try {
         let r = await fetch("https://raw.githubusercontent.com/rafflores17-prog/Painel-Vip-2.0/main/listas.txt?" + Date.now());
         let txt = await r.text();
@@ -87,25 +100,27 @@ async function carregarLista(){
             let e = b.match(/Expira\s*►\s*([^\s\n\r]+)/i);
             if(h && u && p) return { host: h[1].trim(), user: u[1].trim(), pass: p[1].trim(), exp: e ? e[1].trim() : "Ilimitada" };
         }).filter(x => x);
-        s.innerHTML = "✔ Sistema pronto!<br>✔ " + listaContas.length + " Listas carregadas.";
-    } catch(e) { s.innerHTML = "❌ Erro ao conectar com o banco de dados."; }
+        
+        log.innerHTML = "✔ Sistema inicializado.<br>✔ Banco de dados conectado.";
+        countDiv.innerHTML = listaContas.length + " HOSTS LOCALIZADOS";
+    } catch(e) { 
+        log.innerHTML = "❌ Falha na conexão externa."; 
+    }
 }
 
 function startGerar(){
     if(processando || listaContas.length === 0) return;
     
-    // RESET TOTAL ANTES DE COMEÇAR
     processando = true;
     document.getElementById("out").style.display = "none"; 
     document.getElementById("statusLog").innerHTML = "";
-    document.getElementById("btnGerar").innerText = "⏳ SCANNEANDO...";
+    document.getElementById("btnGerar").innerText = "⏳ GERANDO...";
     
-    // SMART LINK (ADS TERRA) - ABRE AO CLICAR
+    // SMART LINK ADSTERRA
     window.open("https://encouragingjawsordinarily.com/wazwpzwvxa?key=20c27c4105f08438a698b55802257507", "_blank");
     
-    // INICIA O SCAN FAKE
     let s = document.getElementById("statusLog");
-    let etapas = ["🔍 Localizando host...", "📡 Extraindo credenciais...", "🔐 Validando token...", "⚡ Gerando Link M3U...", "✅ Pronto!"];
+    let etapas = ["🔍 Localizando host...", "📡 Extraindo credenciais...", "🔐 Validando acesso...", "⚡ Gerando Link M3U...", "✅ Concluído!"];
     let i = 0;
 
     let interval = setInterval(() => {
@@ -117,7 +132,7 @@ function startGerar(){
             clearInterval(interval);
             exibirResultado();
         }
-    }, 500);
+    }, 400);
 }
 
 function exibirResultado(){
@@ -126,7 +141,7 @@ function exibirResultado(){
     let m3u = `${c.host}/get.php?username=${c.user}&password=${c.pass}&type=m3u_plus&output=ts`;
 
     out.innerHTML = `
-        <div class="box"><div class="label">🔗 LINK M3U</div><div class="val green" id="copy-m3u">${m3u}</div></div>
+        <div class="box"><div class="label">🔗 LINK M3U</div><div class="val green" id="copy-target">${m3u}</div></div>
         <div class="box"><div class="label">🌐 HOST</div><div class="val blue">${c.host}</div></div>
         <div class="row">
             <div class="box col"><div class="label">👤 USUÁRIO</div><div class="val white">${c.user}</div></div>
@@ -136,22 +151,22 @@ function exibirResultado(){
     `;
 
     out.style.display = "block";
-    document.getElementById("btnGerar").innerText = "🚀 GERAR LISTA IPTV";
+    document.getElementById("btnGerar").innerText = "🚀 GERAR ACESSO";
     processando = false;
 }
 
 function copiar(){
-    let m3u = document.getElementById("copy-m3u");
-    if(!m3u) return alert("Gere uma lista primeiro!");
+    let target = document.getElementById("copy-target");
+    if(!target) return alert("Gere um acesso primeiro!");
     
-    const el = document.createElement('textarea');
-    el.value = m3u.innerText;
-    document.body.appendChild(el);
-    el.select();
+    const temp = document.createElement('textarea');
+    temp.value = target.innerText;
+    document.body.appendChild(temp);
+    temp.select();
     document.execCommand('copy');
-    document.body.removeChild(el);
+    document.body.removeChild(temp);
     
-    alert("Link M3U copiado com sucesso!");
+    alert("Copiado para a área de transferência!");
 }
 </script>
 </body>

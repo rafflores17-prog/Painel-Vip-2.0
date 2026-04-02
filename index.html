@@ -77,7 +77,7 @@ document.getElementById("painel").style.display="block";
 carregar();
 }
 
-/* SMARTLINK (melhorado) */
+/* SMARTLINK */
 function abrirAd(){
 if(!abriuAd){
 window.open("https://encouragingjawsordinarily.com/wazwpzwvxa?key=20c27c4105f08438a698b55802257507","_blank");
@@ -108,7 +108,7 @@ let c=l.toLowerCase();
 if(c.includes("scan")||c.includes("criado")) continue;
 
 let d=l.match(/(\d{2}\/\d{2}\/\d{4})/);
-if(d && (c.includes("exp")||c.includes("venc"))){
+if(d && (c.includes("exp")||c.includes("venc")||c.includes("expira")){
 exp=d[1];
 break;
 }
@@ -123,7 +123,20 @@ return {host,user,pass,exp};
 status.innerHTML="✔ Sistema pronto<br>";
 }
 
-/* BOTÃO INTELIGENTE */
+/* TESTE REAL */
+async function testarReal(m3u){
+
+try{
+let r = await fetch("https://checkpainel.rf.gd/check.php?url="+encodeURIComponent(m3u));
+let j = await r.json();
+return j.status === "online";
+}catch{
+return false;
+}
+
+}
+
+/* BOTÃO */
 function startGerar(){
 
 if(gerando) return;
@@ -135,7 +148,6 @@ btn.innerText="⏳ CARREGANDO...";
 btn.disabled=true;
 
 abrirAd();
-
 gerar();
 }
 
@@ -190,20 +202,25 @@ ads.appendChild(s2);
 }
 
 /* GERAR */
-function gerar(){
+async function gerar(){
 
 out.style.display="none";
 out.innerHTML="";
 ads.innerHTML="";
 status.innerHTML="";
 
-fakeScan(function(){
+fakeScan(async function(){
 
 carregarAds();
 
 let c=lista[Math.floor(Math.random()*lista.length)];
 
 let m3u=`${c.host}/get.php?username=${c.user}&password=${c.pass}&type=m3u_plus&output=ts`;
+
+let online = await testarReal(m3u);
+
+let statusIcon = online ? "🟢 ONLINE" : "🔴 OFFLINE";
+let statusColor = online ? "green" : "red";
 
 out.innerHTML=`
 <div class="box">
@@ -236,14 +253,13 @@ out.innerHTML=`
 
 <div class="box col">
 <div class="label">📡 STATUS</div>
-<div class="val green">🟢 ONLINE</div>
+<div class="val ${statusColor}">${statusIcon}</div>
 </div>
 </div>
 `;
 
 out.style.display="block";
 
-/* RESET BOTÃO */
 let btn=document.getElementById("btnGerar");
 btn.innerText="🚀 GERAR ACESSO";
 btn.disabled=false;

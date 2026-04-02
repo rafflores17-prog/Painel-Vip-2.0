@@ -66,21 +66,23 @@ input{width:100%;padding:15px;border-radius:12px;border:1px solid #111;backgroun
 
 <script>
 /* CONFIGURAÇÕES DO MESTRE */
-const URL_BASE_PHP = "http://checkpainel.rf.gd/"; // Caminho do seu InfinityFree
+const PROXY = "https://api.allorigins.win/raw?url=";
+const URL_BASE_PHP = "http://checkpainel.rf.gd/"; // Seu InfinityFree (via HTTP no Proxy)
 const URL_LISTA_GITHUB = "https://raw.githubusercontent.com/rafflores17-prog/Painel-Vip-2.0/main/listas.txt";
 
 let lista=[];
 let abriuAd=false;
 let gerando=false;
 
-/* LOGIN CORRIGIDO */
+/* LOGIN COM PROXY - RESOLVE ERRO DE CONEXÃO NO VERCEL */
 async function logar(){
     let senha = document.getElementById("senha").value.trim();
     if(!senha) return alert("Digite a chave!");
 
     try{
-        // Usando o seu validador no InfinityFree
-        let r = await fetch(`${URL_BASE_PHP}login.php?key=${encodeURIComponent(senha)}`);
+        // O Proxy engana o Vercel permitindo acessar o seu PHP sem HTTPS
+        let urlFinal = PROXY + encodeURIComponent(`${URL_BASE_PHP}login.php?key=${senha}`);
+        let r = await fetch(urlFinal);
         let j = await r.json();
 
         if(j.status === "ok"){
@@ -91,14 +93,14 @@ async function logar(){
             alert("❌ Chave inválida!");
         }
     }catch(e){
-        alert("Erro de conexão com o validador.");
+        alert("Erro técnico: O servidor do validador não respondeu ou o Proxy falhou.");
     }
 }
 
 /* CARREGAR LISTA DO GITHUB */
 async function carregar(){
     let s = document.getElementById("status");
-    s.innerHTML = "⏳ Carregando banco de dados...";
+    s.innerHTML = "⏳ Sincronizando banco de dados...";
 
     try{
         let r = await fetch(URL_LISTA_GITHUB + "?" + Date.now());
@@ -124,21 +126,20 @@ async function carregar(){
                     break;
                 }
             }
-
             if(host && user && pass) return { host, user, pass, exp };
         }).filter(x => x);
 
-        s.innerHTML = `✔ ${lista.length} Listas prontas!<br>`;
+        s.innerHTML = `✔ ${lista.length} Listas carregadas!<br>`;
     } catch(e) {
-        s.innerHTML = "❌ Erro ao sincronizar com GitHub.<br>";
+        s.innerHTML = "❌ Erro ao baixar listas do GitHub.<br>";
     }
 }
 
-/* TESTE REAL VIA PHP */
+/* TESTE REAL VIA PHP + PROXY */
 async function testarReal(m3u){
     try{
-        // Envia a URL para o check.php no seu host fazer o teste de rede
-        let r = await fetch(`${URL_BASE_PHP}check.php?url=${encodeURIComponent(m3u)}`);
+        let urlFinal = PROXY + encodeURIComponent(`${URL_BASE_PHP}check.php?url=${m3u}`);
+        let r = await fetch(urlFinal);
         let j = await r.json();
         return j.status === "online";
     }catch{
@@ -151,7 +152,7 @@ function startGerar(){
     if(gerando || lista.length === 0) return;
     gerando = true;
     let btn = document.getElementById("btnGerar");
-    btn.innerText = "⏳ CARREGANDO...";
+    btn.innerText = "⏳ PROCESSANDO...";
     btn.disabled = true;
     abrirAd();
     gerar();
@@ -192,7 +193,7 @@ function abrirAd(){
     }
 }
 
-/* LÓGICA DE GERAÇÃO */
+/* GERAR IPTV */
 async function gerar(){
     let out = document.getElementById("out");
     let status = document.getElementById("status");
@@ -204,7 +205,6 @@ async function gerar(){
         let c = lista[Math.floor(Math.random() * lista.length)];
         let m3u = `${c.host}/get.php?username=${c.user}&password=${c.pass}&type=m3u_plus&output=ts`;
 
-        // Chama o validador real
         let online = await testarReal(m3u);
         let statusIcon = online ? "🟢 ONLINE" : "🔴 OFFLINE";
         let statusColor = online ? "green" : "red";
@@ -252,7 +252,7 @@ async function gerar(){
 function copiar(){
     let out = document.getElementById("out");
     navigator.clipboard.writeText(out.innerText);
-    document.getElementById("status").innerHTML += "✔ Copiado com sucesso!<br>";
+    document.getElementById("status").innerHTML += "✔ Copiado!<br>";
 }
 </script>
 

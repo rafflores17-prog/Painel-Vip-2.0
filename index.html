@@ -16,7 +16,7 @@ input{width:100%;padding:15px;border-radius:12px;border:1px solid #111;backgroun
 .main{background:linear-gradient(135deg,#00ff9c,#008f58);color:#000;}
 .grid{display:flex;gap:10px; margin-bottom: 10px;}
 .status{margin-top:10px;font-size:12px;background:#000;padding:10px;border-radius:10px;height:120px;overflow-y:auto;color:#00ff9c; border: 1px solid #111;}
-#ads{margin:15px 0;text-align:center;}
+#ads{margin:15px 0;text-align:center; min-height: 50px;}
 #out{display:none;margin-top:15px;}
 .box{background:#111;padding:12px;border-radius:10px;margin-bottom:8px; border: 1px solid #222;}
 .label{font-size:10px;color:#0088cc; font-weight: bold; margin-bottom: 4px;}
@@ -62,68 +62,64 @@ a{text-decoration: none; flex: 1;}
 let listaContas = [];
 let processando = false;
 
-// LOGIN 100% JAVASCRIPT
 function logar(){
     let senha = document.getElementById("senha").value.trim();
     if(senha === "VIP2030") {
         document.getElementById("login").style.display="none";
         document.getElementById("painel").style.display="block";
         carregarLista();
-    } else {
-        alert("Chave VIP inválida!");
-    }
+    } else { alert("Chave VIP inválida!"); }
 }
 
-// CARREGAR LISTA DO GITHUB SEM PHP
 async function carregarLista(){
     const statusDiv = document.getElementById("statusLog");
     try {
-        // Link direto do seu arquivo TXT
         let r = await fetch("https://raw.githubusercontent.com/rafflores17-prog/Painel-Vip-2.0/main/listas.txt?" + Date.now());
         let txt = await r.text();
-
-        // Regex para o seu formato de SCAN
         let blocos = txt.split(/┏●/);
         listaContas = blocos.map(b => {
             let h = b.match(/Host\s*►\s*(https?:\/\/[^\s\n\r]+)/i);
             let u = b.match(/Usuário\s*►\s*([^\s\n\r]+)/i);
             let p = b.match(/Senha\s*►\s*([^\s\n\r]+)/i);
             let e = b.match(/Expira\s*►\s*([^\s\n\r]+)/i);
-            
             if(h && u && p) {
                 return { host: h[1].trim(), user: u[1].trim(), pass: p[1].trim(), exp: e ? e[1].trim() : "Ilimitada" };
             }
         }).filter(x => x);
-
         statusDiv.innerHTML = "✔ Sistema pronto!<br>✔ " + listaContas.length + " Contas carregadas.";
-    } catch(e) {
-        statusDiv.innerHTML = "❌ Erro ao carregar listas.txt";
-    }
+    } catch(e) { statusDiv.innerHTML = "❌ Erro ao carregar listas.txt"; }
 }
 
 function startGerar(){
     if(processando || listaContas.length === 0) return;
-    processando = true;
-    document.getElementById("btnGerar").innerText = "⏳ GERANDO...";
     
-    // Abre seu Adsterra (Monetização)
+    // RESET DE TELA: Esconde o resultado anterior antes de começar o novo scan
+    processando = true;
+    document.getElementById("out").style.display = "none"; 
+    document.getElementById("statusLog").innerHTML = "";
+    document.getElementById("btnGerar").innerText = "⏳ SCANNEANDO...";
+    
+    // Abre seu Adsterra Link
     window.open("https://encouragingjawsordinarily.com/wazwpzwvxa?key=20c27c4105f08438a698b55802257507", "_blank");
     
-    // Efeito de Scan
+    executarScanFake();
+}
+
+function executarScanFake(){
     let s = document.getElementById("statusLog");
-    let etapas = ["🔍 Conectando...", "📡 Analisando...", "⚡ Gerando Link...", "✅ Concluído!"];
+    let etapas = ["🔍 Conectando...", "📡 Estabelecendo Link...", "🔐 Validando Token...", "⚡ Gerando Acesso...", "✅ Concluído!"];
     let i = 0;
-    s.innerHTML = "";
-    
+
     let interval = setInterval(() => {
         if(i < etapas.length){
             s.innerHTML += etapas[i] + "<br>";
+            s.scrollTop = s.scrollHeight;
             i++;
         } else {
             clearInterval(interval);
             exibirResultado();
         }
-    }, 400);
+    }, 450);
 }
 
 function exibirResultado(){
@@ -141,15 +137,16 @@ function exibirResultado(){
         <div class="box"><div class="label">📅 VALIDADE</div><div class="val purple">${c.exp}</div></div>
     `;
 
-    out.style.display = "block";
+    out.style.display = "block"; // Só aparece agora, depois do scan
     document.getElementById("btnGerar").innerText = "🚀 GERAR LISTA IPTV";
     processando = false;
 }
 
 function copiar(){
-    let texto = document.getElementById("out").innerText;
-    navigator.clipboard.writeText(texto);
-    alert("Copiado!");
+    let out = document.getElementById("out");
+    if(out.style.display === "none") return alert("Gere uma lista primeiro!");
+    navigator.clipboard.writeText(out.innerText);
+    alert("Dados copiados!");
 }
 </script>
 </body>

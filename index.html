@@ -10,21 +10,21 @@ body{background:#050505;color:#fff;font-family:'Share Tech Mono', monospace;disp
 .card{width:100%;max-width:420px;background:#0a0a0a;padding:20px;border-radius:20px;box-shadow:0 0 40px #000;border: 1px solid #1a1a1a;box-sizing: border-box;}
 .title{text-align:center;font-family:'Orbitron';color:#00ff9c;margin-bottom:20px;text-transform: uppercase; font-size: 1.1rem; letter-spacing: 1px;}
 input{width:100%;padding:15px;border-radius:12px;border:1px solid #111;background:#000;color:#00ff9c;text-align:center;box-sizing: border-box; font-size: 18px; margin-bottom: 10px; outline: none;}
-input:focus{border-color: #00ff9c;}
 .btn{width:100%;padding:15px;border:none;border-radius:12px;cursor:pointer;font-weight:bold;margin-top:10px; transition: 0.3s; font-family: 'Orbitron'; text-transform: uppercase;}
 .vip{background:linear-gradient(135deg,#bc13fe,#7a00aa); color: #fff;}
 .free{background:linear-gradient(135deg,#00d2ff,#006a80); color: #fff;}
 .main{background:linear-gradient(135deg,#00ff9c,#008f58);color:#000;}
-.btn:active{transform: scale(0.95);}
 .grid{display:flex;gap:10px; margin-bottom: 10px;}
 .status{margin-top:10px;font-size:11px;background:#000;padding:12px;border-radius:10px;height:90px;overflow-y:auto;color:#00ff9c; border: 1px solid #111; line-height: 1.5;}
-#ads-area{margin:15px 0;text-align:center; min-height: 55px; background: #070707; border-radius: 10px; display: flex; align-items: center; justify-content: center; border: 1px dashed #222;}
+
+/* DESTAQUE NEON NO CONTADOR */
+#contagemHosts{font-size: 11px; color: #00ff9c; text-align: right; margin-top: 8px; text-transform: uppercase; font-weight: bold; text-shadow: 0 0 8px #00ff9c;}
+
+#ads-area{margin:15px 0; text-align:center; min-height: 60px; display: flex; flex-direction: column; align-items: center; justify-content: center;}
 #out{display:none;margin-top:15px; animation: fadeIn 0.5s;}
 .box{background:#111;padding:12px;border-radius:10px;margin-bottom:8px; border: 1px solid #222;}
 .label{font-size:10px;color:#0088cc; font-weight: bold; margin-bottom: 4px; text-transform: uppercase;}
 .val{font-size:13px;word-break:break-all; color: #eee;}
-.info-discreta{font-size: 9px; color: #444; text-align: right; margin-top: 5px; text-transform: uppercase;}
-.green{color:#00ff9c;} .blue{color:#00d2ff;} .white{color:#fff;} .purple{color:#bc13fe;}
 .row{display:flex;gap:10px;} .col{flex:1;}
 a{text-decoration: none; flex: 1;}
 @keyframes fadeIn { from{opacity:0; transform: translateY(10px);} to{opacity:1; transform: translateY(0);} }
@@ -42,7 +42,7 @@ a{text-decoration: none; flex: 1;}
 
 <div id="painel" style="display:none;">
     <div class="grid">
-        <a href="https://t.me/ApkBugado" target="_blank"><button class="btn vip">💎 GRUPO VIP</button></a>
+        <a href="https://rafflores17-prog.github.io/vip-apk/" target="_blank"><button class="btn vip">💎 GRUPO VIP</button></a>
         <a href="https://t.me/ApkBugado" target="_blank"><button class="btn free">📢 GRUPO FREE</button></a>
     </div>
 
@@ -50,13 +50,19 @@ a{text-decoration: none; flex: 1;}
     <button class="btn main" onclick="copiar()" style="background: #333; color: #fff;">📋 COPIAR DADOS</button>
 
     <div class="status" id="statusLog">Aguardando comando...</div>
-    <div id="contagemHosts" class="info-discreta"></div>
+    <div id="contagemHosts"></div>
     
     <div id="ads-area">
         <script type="text/javascript">
-            atOptions = { 'key' : 'a8a116d252f41a02d16bcf030d61ce58', 'format' : 'iframe', 'height' : 50, 'width' : 320, 'params' : {} };
+            atOptions = {
+                'key' : '714f9e613ed8e8cf70c650639f2379da',
+                'format' : 'iframe',
+                'height' : 50,
+                'width' : 320,
+                'params' : {}
+            };
         </script>
-        <script type="text/javascript" src="//encouragingjawsordinarily.com/invoke.js"></script>
+        <script src="https://encouragingjawsordinarily.com/714f9e613ed8e8cf70c650639f2379da/invoke.js"></script>
     </div>
 
     <div id="out"></div>
@@ -67,23 +73,17 @@ a{text-decoration: none; flex: 1;}
 let listaContas = [];
 let processando = false;
 
-// Busca a senha no config.json
 async function logar(){
     const inputSenha = document.getElementById("senha").value.trim();
     try {
         const response = await fetch('config.json?' + Date.now());
         const config = await response.json();
-        
         if(inputSenha === config.chave_mestre) {
             document.getElementById("login").style.display="none";
             document.getElementById("painel").style.display="block";
             carregarLista();
-        } else { 
-            alert("Chave VIP incorreta!"); 
-        }
-    } catch(e) { 
-        alert("Erro ao validar configuração."); 
-    }
+        } else { alert("Chave VIP incorreta!"); }
+    } catch(e) { alert("Erro ao carregar config.json"); }
 }
 
 async function carregarLista(){
@@ -92,41 +92,42 @@ async function carregarLista(){
     try {
         let r = await fetch("https://raw.githubusercontent.com/rafflores17-prog/Painel-Vip-2.0/main/listas.txt?" + Date.now());
         let txt = await r.text();
-        let blocos = txt.split(/┏●/);
+        
+        // Filtra apenas blocos válidos
+        let blocos = txt.split(/┏●/).filter(b => b.includes("Host"));
+        
         listaContas = blocos.map(b => {
             let h = b.match(/Host\s*►\s*(https?:\/\/[^\s\n\r]+)/i);
             let u = b.match(/Usuário\s*►\s*([^\s\n\r]+)/i);
             let p = b.match(/Senha\s*►\s*([^\s\n\r]+)/i);
-            let e = b.match(/Expira\s*►\s*([^\s\n\r]+)/i);
-            if(h && u && p) return { host: h[1].trim(), user: u[1].trim(), pass: p[1].trim(), exp: e ? e[1].trim() : "Ilimitada" };
+            if(h && u && p) return { host: h[1].trim().replace(/\/$/, ""), user: u[1].trim(), pass: p[1].trim() };
         }).filter(x => x);
+
+        // LÓGICA DE HOST ÚNICO (Remove duplicatas para a contagem)
+        const servidoresUnicos = [...new Set(listaContas.map(item => item.host))];
         
-        log.innerHTML = "✔ Sistema inicializado.<br>✔ Banco de dados conectado.";
-        countDiv.innerHTML = listaContas.length + " HOSTS LOCALIZADOS";
-    } catch(e) { 
-        log.innerHTML = "❌ Falha na conexão externa."; 
-    }
+        log.innerHTML = "✔ Sistema pronto!<br>✔ Banco de dados carregado.";
+        countDiv.innerHTML = servidoresUnicos.length + " SERVIDORES ÚNICOS ATIVOS"; 
+
+    } catch(e) { log.innerHTML = "❌ Erro ao ler listas.txt."; }
 }
 
 function startGerar(){
     if(processando || listaContas.length === 0) return;
-    
     processando = true;
     document.getElementById("out").style.display = "none"; 
     document.getElementById("statusLog").innerHTML = "";
-    document.getElementById("btnGerar").innerText = "⏳ GERANDO...";
+    document.getElementById("btnGerar").innerText = "⏳ PROCESSANDO...";
     
-    // SMART LINK ADSTERRA
+    // SMART LINK
     window.open("https://encouragingjawsordinarily.com/wazwpzwvxa?key=20c27c4105f08438a698b55802257507", "_blank");
     
     let s = document.getElementById("statusLog");
-    let etapas = ["🔍 Localizando host...", "📡 Extraindo credenciais...", "🔐 Validando acesso...", "⚡ Gerando Link M3U...", "✅ Concluído!"];
+    let etapas = ["🔍 Localizando...", "📡 Extraindo...", "🔐 Validando...", "✅ Concluído!"];
     let i = 0;
-
     let interval = setInterval(() => {
         if(i < etapas.length){
             s.innerHTML += etapas[i] + "<br>";
-            s.scrollTop = s.scrollHeight;
             i++;
         } else {
             clearInterval(interval);
@@ -147,9 +148,7 @@ function exibirResultado(){
             <div class="box col"><div class="label">👤 USUÁRIO</div><div class="val white">${c.user}</div></div>
             <div class="box col"><div class="label">🔑 SENHA</div><div class="val white">${c.pass}</div></div>
         </div>
-        <div class="box"><div class="label">📅 VALIDADE</div><div class="val purple">${c.exp}</div></div>
     `;
-
     out.style.display = "block";
     document.getElementById("btnGerar").innerText = "🚀 GERAR ACESSO";
     processando = false;
@@ -158,15 +157,13 @@ function exibirResultado(){
 function copiar(){
     let target = document.getElementById("copy-target");
     if(!target) return alert("Gere um acesso primeiro!");
-    
     const temp = document.createElement('textarea');
     temp.value = target.innerText;
     document.body.appendChild(temp);
     temp.select();
     document.execCommand('copy');
     document.body.removeChild(temp);
-    
-    alert("Copiado para a área de transferência!");
+    alert("Copiado!");
 }
 </script>
 </body>

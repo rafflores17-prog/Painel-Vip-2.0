@@ -3,32 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GERADOR VIP - APKBUGADO</title>
+    <title>GERADOR VIP IPTV PRO</title>
     <style>
-        body { background: #000; color: #fff; font-family: sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; }
-        .container { background: #0a0a0a; padding: 20px; border-radius: 15px; width: 90%; max-width: 400px; border: 1px solid #1a1a1a; }
-        .title { color: #00ff88; text-align: center; font-weight: bold; margin-bottom: 20px; text-transform: uppercase; }
+        :root { --primary: #00ff88; --bg: #050505; --card: #0f0f0f; --text: #0088cc; }
+        body { background: var(--bg); color: #fff; font-family: 'Segoe UI', sans-serif; margin: 0; display: flex; justify-content: center; padding: 20px; }
+        .container { width: 100%; max-width: 420px; background: var(--card); border-radius: 20px; padding: 15px; border: 1px solid #1a1a1a; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
         
-        /* LOGIN */
-        #login-screen { text-align: center; }
-        input { width: 100%; padding: 15px; margin: 10px 0; border-radius: 8px; border: 1px solid #333; background: #111; color: #00ff88; box-sizing: border-box; text-align: center; font-size: 16px; }
+        .title { color: var(--primary); text-align: center; font-weight: bold; font-size: 18px; margin: 15px 0; text-transform: uppercase; letter-spacing: 1px; }
         
-        /* PAINEL */
-        #main-panel { display: none; }
-        .btn { width: 100%; padding: 12px; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; margin-bottom: 10px; }
-        .btn-main { background: #00ff88; color: #000; }
+        /* ADS SLOTS */
+        .ad-slot { background: #111; border: 1px dashed #333; height: 60px; margin: 10px 0; display: flex; align-items: center; justify-content: center; color: #444; font-size: 12px; border-radius: 8px; }
+
+        /* BOTOES ORIGINAIS */
+        .btn-group { display: flex; gap: 10px; margin-bottom: 15px; }
+        .btn-top { flex: 1; padding: 12px; border-radius: 10px; border: none; font-weight: bold; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 13px; }
+        .btn-vip { background: #8a2be2; color: #fff; }
+        .btn-free { background: #1e90ff; color: #fff; }
         
-        /* RESULTADO ESTILO O QUE VOCÊ PEDIU */
-        .box { background: #111; padding: 12px; border-radius: 8px; margin-bottom: 10px; border: 1px solid #222; }
-        .label { font-size: 10px; color: #0088cc; font-weight: bold; margin-bottom: 4px; text-transform: uppercase; }
-        .val { font-size: 13px; word-break: break-all; color: #eee; }
+        .btn-action { width: 100%; padding: 15px; border-radius: 12px; border: none; background: var(--primary); color: #000; font-weight: bold; font-size: 15px; cursor: pointer; margin-bottom: 10px; transition: 0.3s; }
+        .btn-copy { background: #00ff88; opacity: 0.9; }
+
+        /* TERMINAL DE LOGS */
+        #logs { background: #000; border-radius: 10px; padding: 15px; font-family: monospace; font-size: 13px; color: var(--primary); margin-bottom: 15px; min-height: 80px; border: 1px solid #111; }
+        
+        /* CREDENCIAIS COM CORES DO SCAN */
+        .box-info { background: #141414; padding: 12px; border-radius: 10px; margin-bottom: 10px; border-left: 4px solid var(--text); }
+        .label { font-size: 11px; color: var(--text); font-weight: bold; margin-bottom: 5px; display: flex; align-items: center; gap: 5px; }
+        .val { font-size: 13px; color: #eee; word-break: break-all; }
+        
         .row { display: flex; gap: 10px; }
         .col { flex: 1; }
         
-        .green { color: #00ff88; }
-        .red { color: #ff4444; }
-        #out { display: none; margin-top: 15px; }
-        #loader { display: none; text-align: center; color: #00ff88; font-size: 14px; margin: 10px 0; }
+        #login-screen { text-align: center; padding: 40px 20px; }
+        input { width: 100%; padding: 15px; background: #000; border: 1px solid #333; color: var(--primary); border-radius: 10px; text-align: center; font-size: 18px; margin-bottom: 15px; }
     </style>
 </head>
 <body>
@@ -36,117 +43,107 @@
 <div class="container">
     <div id="login-screen">
         <div class="title">ACESSO RESTRITO</div>
-        <input type="password" id="keyInput" placeholder="Sua Chave Mestre">
-        <button class="btn btn-main" onclick="validarChave()">ENTRAR NO PAINEL</button>
+        <input type="password" id="keyInput" placeholder="••••••">
+        <button class="btn-action" onclick="validar()">ENTRAR NO PAINEL</button>
     </div>
 
-    <div id="main-panel">
-        <div class="title">GERADOR APKBUGADO</div>
-        <button id="btnGerar" class="btn btn-main" onclick="gerar()">🚀 SORTEAR NOVO ACESSO</button>
+    <div id="main-panel" style="display:none">
+        <div class="title">GERADOR VIP IPTV PRO</div>
         
-        <div id="loader">⚡ PROCESSANDO...</div>
+        <div class="ad-slot">SUA ADS AQUI (TOP)</div>
 
-        <div id="out">
+        <div class="btn-group">
+            <button class="btn-top btn-vip">💎 GRUPO VIP</button>
+            <button class="btn-top btn-free">📢 GRUPO FREE</button>
+        </div>
+
+        <button class="btn-action" onclick="sortear()">🚀 GERAR ACESSO</button>
+        <button class="btn-top btn-copy" onclick="copiar()">📋 COPIAR</button>
+
+        <div class="ad-slot">SUA ADS AQUI (CENTER)</div>
+
+        <div id="logs">Esperando comando...</div>
+
+        <div id="resultado" style="display:none">
+            <div class="box-info">
+                <div class="label">🔗 M3U</div>
+                <div id="res-m3u" class="val" style="color: #00ff88;"></div>
             </div>
+            <div class="row">
+                <div class="box-info col">
+                    <div class="label">👤 LOGIN</div>
+                    <div id="res-user" class="val"></div>
+                </div>
+                <div class="box-info col">
+                    <div class="label">🔑 SENHA</div>
+                    <div id="res-pass" class="val"></div>
+                </div>
+            </div>
+            <div class="box-info">
+                <div class="label">📡 STATUS</div>
+                <div id="res-status" class="val" style="color: #00ff88;">🟢 ONLINE</div>
+            </div>
+        </div>
     </div>
 </div>
 
 <script>
-    // URL do seu GitHub
-    const BASE_URL = "https://raw.githubusercontent.com/rafflores17-prog/Painel-Vip-2.0/main/";
-    let contas = [];
+    const GITHUB_URL = "https://raw.githubusercontent.com/rafflores17-prog/Painel-Vip-2.0/main/";
+    let listaContas = [];
 
-    async function validarChave() {
-        const input = document.getElementById("keyInput").value;
+    async function validar() {
+        const key = document.getElementById("keyInput").value;
         try {
-            const res = await fetch(BASE_URL + "config.json?" + Date.now());
-            const config = await res.json();
-            if (input === config.chave_mestre) {
+            const r = await fetch(GITHUB_URL + "config.json?" + Date.now());
+            const cfg = await r.json();
+            if(key === cfg.chave_mestre) {
                 document.getElementById("login-screen").style.display = "none";
                 document.getElementById("main-panel").style.display = "block";
-                carregarLista();
-            } else { alert("Chave incorreta!"); }
-        } catch (e) { alert("Erro ao conectar ao servidor."); }
+                carregarDados();
+            } else { alert("Chave inválida!"); }
+        } catch(e) { alert("Erro de conexão."); }
     }
 
-    async function carregarLista() {
+    async function carregarDados() {
+        const logs = document.getElementById("logs");
         try {
-            const res = await fetch(BASE_URL + "lista.txt?" + Date.now());
-            const data = await res.text();
-            
-            // EXPLICAÇÃO: O Regex abaixo ignora os símbolos e pega só o texto após a seta ►
-            const blocos = data.split(/┏●/);
-            contas = blocos.map(b => {
-                const host = b.match(/Host\s*►\s*(https?:\/\/[^\s\n\r]+)/i);
-                const user = b.match(/Usuário\s*►\s*([^\s\n\r]+)/i);
-                const pass = b.match(/Senha\s*►\s*([^\s\n\r]+)/i);
-                const exp  = b.match(/Expira\s*►\s*([^\s\n\r]+)/i);
-
-                if (host && user && pass) {
-                    return {
-                        host: host[1].trim(),
-                        user: user[1].trim(),
-                        pass: pass[1].trim(),
-                        exp:  exp ? exp[1].trim() : "Não informada"
-                    };
-                }
-                return null;
-            }).filter(c => c !== null);
-        } catch (e) { console.error("Erro na carga"); }
+            const r = await fetch(GITHUB_URL + "lista.txt?" + Date.now());
+            const txt = await r.text();
+            // Split pelo seu marcador de início do Scan
+            const blocos = txt.split(/┏●/);
+            listaContas = blocos.map(b => {
+                const h = b.match(/Host\s*►\s*(https?:\/\/[^\s\n\r]+)/i);
+                const u = b.match(/Usuário\s*►\s*([^\s\n\r]+)/i);
+                const p = b.match(/Senha\s*►\s*([^\s\n\r]+)/i);
+                return (h && u && p) ? {h: h[1], u: u[1], p: p[1]} : null;
+            }).filter(x => x);
+            logs.innerHTML = `✅ ${listaContas.length} Listas carregadas!`;
+        } catch(e) { logs.innerHTML = "❌ Erro ao ler lista.txt"; }
     }
 
-    function gerar() {
-        if (contas.length === 0) return;
+    function sortear() {
+        if(listaContas.length === 0) return;
+        const logs = document.getElementById("logs");
+        const res = document.getElementById("resultado");
+        res.style.display = "none";
+        logs.innerHTML = "🔍 Conectando...<br>📡 Analisando...<br>⚡ Buscando...";
         
-        document.getElementById("out").style.display = "none";
-        document.getElementById("loader").style.display = "block";
+        setTimeout(() => {
+            const c = listaContas[Math.floor(Math.random() * listaContas.length)];
+            document.getElementById("res-m3u").innerText = `${c.h}/get.php?username=${c.u}&password=${c.p}&type=m3u_plus&output=ts`;
+            document.getElementById("res-user").innerText = c.u;
+            document.getElementById("res-pass").innerText = c.p;
+            logs.innerHTML = "🔍 Conectando...<br>📡 Analisando...<br>⚡ Buscando...<br>✅ Concluído";
+            res.style.display = "block";
+        }, 1500);
+    }
 
-        setTimeout(async () => {
-            const c = contas[Math.floor(Math.random() * contas.length)];
-            const m3u = `${c.host}/get.php?username=${c.user}&password=${c.pass}&type=m3u_plus&output=ts`;
-            
-            // Teste Online/Offline
-            let status = "🟢 ONLINE";
-            let cor = "green";
-            try {
-                const check = await fetch(c.host, { method: 'HEAD', mode: 'no-cors' });
-            } catch(e) { status = "🔴 OFFLINE"; cor = "red"; }
-
-            const out = document.getElementById("out");
-            out.innerHTML = `
-                <div class="box">
-                    <div class="label">HOST</div>
-                    <div class="val">${c.host}</div>
-                </div>
-                <div class="box">
-                    <div class="label">M3U</div>
-                    <div class="val green">${m3u}</div>
-                </div>
-                <div class="row">
-                    <div class="box col">
-                        <div class="label">LOGIN</div>
-                        <div class="val">${c.user}</div>
-                    </div>
-                    <div class="box col">
-                        <div class="label">SENHA</div>
-                        <div class="val">${c.pass}</div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="box col">
-                        <div class="label">VALIDADE</div>
-                        <div class="val">${c.exp}</div>
-                    </div>
-                    <div class="box col">
-                        <div class="label">STATUS</div>
-                        <div class="val ${cor}">${status}</div>
-                    </div>
-                </div>
-            `;
-            
-            document.getElementById("loader").style.display = "none";
-            out.style.display = "block";
-        }, 1000);
+    function copiar() {
+        const text = document.getElementById("res-m3u").innerText;
+        if(text) {
+            navigator.clipboard.writeText(text);
+            alert("Link M3U Copiado!");
+        }
     }
 </script>
 </body>

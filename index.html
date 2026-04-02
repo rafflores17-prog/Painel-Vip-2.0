@@ -3,177 +3,150 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GERADOR VIP IPTV PRO</title>
+    <title>GERADOR VIP - APKBUGADO</title>
     <style>
-        /* SEU LAYOUT ORIGINAL PRESERVADO */
-        body { background: #000; color: #fff; font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        body { background: #000; color: #fff; font-family: sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; }
         .container { background: #0a0a0a; padding: 20px; border-radius: 15px; width: 90%; max-width: 400px; border: 1px solid #1a1a1a; }
-        .title { color: #00ff88; text-align: center; font-weight: bold; margin-bottom: 20px; }
+        .title { color: #00ff88; text-align: center; font-weight: bold; margin-bottom: 20px; text-transform: uppercase; }
         
-        /* TELA DE LOGIN */
+        /* LOGIN */
         #login-screen { text-align: center; }
-        input { width: 100%; padding: 12px; margin: 10px 0; border-radius: 8px; border: 1px solid #333; background: #000; color: #fff; box-sizing: border-box; }
+        input { width: 100%; padding: 15px; margin: 10px 0; border-radius: 8px; border: 1px solid #333; background: #111; color: #00ff88; box-sizing: border-box; text-align: center; font-size: 16px; }
         
-        /* PAINEL PRINCIPAL */
+        /* PAINEL */
         #main-panel { display: none; }
-        .btn-group { display: flex; gap: 10px; margin-bottom: 15px; }
-        .btn { flex: 1; padding: 12px; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; color: #fff; }
-        .btn-vip { background: #a020f0; }
-        .btn-free { background: #0088cc; }
-        .btn-main { background: #00ff88; width: 100%; color: #000; margin-bottom: 10px; }
-        .btn-copy { background: #00ff88; width: 100%; color: #000; }
+        .btn { width: 100%; padding: 12px; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; margin-bottom: 10px; }
+        .btn-main { background: #00ff88; color: #000; }
         
-        #console { background: #000; padding: 10px; border-radius: 8px; font-family: monospace; font-size: 14px; margin-bottom: 15px; min-height: 80px; display: none; border: 1px solid #1a1a1a; }
-        .green { color: #00ff88; }
-        .white { color: #fff; }
-        .red { color: #ff4444; }
-
-        .box { background: #111; padding: 10px; border-radius: 8px; margin-bottom: 10px; border: 1px solid #222; }
+        /* RESULTADO ESTILO O QUE VOCÊ PEDIU */
+        .box { background: #111; padding: 12px; border-radius: 8px; margin-bottom: 10px; border: 1px solid #222; }
         .label { font-size: 10px; color: #0088cc; font-weight: bold; margin-bottom: 4px; text-transform: uppercase; }
-        .val { font-size: 13px; word-break: break-all; }
+        .val { font-size: 13px; word-break: break-all; color: #eee; }
         .row { display: flex; gap: 10px; }
         .col { flex: 1; }
-        #out { display: none; }
+        
+        .green { color: #00ff88; }
+        .red { color: #ff4444; }
+        #out { display: none; margin-top: 15px; }
+        #loader { display: none; text-align: center; color: #00ff88; font-size: 14px; margin: 10px 0; }
     </style>
 </head>
 <body>
 
 <div class="container">
     <div id="login-screen">
-        <div class="title">GERADOR VIP IPTV PRO</div>
-        <input type="text" id="keyInput" placeholder="Digite a chave de acesso...">
-        <button class="btn btn-main" onclick="validarChave()">DESBLOQUEAR</button>
+        <div class="title">ACESSO RESTRITO</div>
+        <input type="password" id="keyInput" placeholder="Sua Chave Mestre">
+        <button class="btn btn-main" onclick="validarChave()">ENTRAR NO PAINEL</button>
     </div>
 
     <div id="main-panel">
-        <div class="title">GERADOR VIP IPTV PRO</div>
-        <div class="btn-group">
-            <button class="btn btn-vip">💎 GRUPO VIP</button>
-            <button class="btn btn-free">📢 GRUPO FREE</button>
-        </div>
+        <div class="title">GERADOR APKBUGADO</div>
+        <button id="btnGerar" class="btn btn-main" onclick="gerar()">🚀 SORTEAR NOVO ACESSO</button>
+        
+        <div id="loader">⚡ PROCESSANDO...</div>
 
-        <button id="btnGerar" class="btn btn-main" onclick="gerar()">🚀 GERAR ACESSO</button>
-        <button class="btn btn-copy" onclick="copy()">📋 COPIAR</button>
-
-        <div id="console"></div>
-        <div id="out"></div>
+        <div id="out">
+            </div>
     </div>
 </div>
 
 <script>
-    // CHAVE DE ACESSO
-    const CHAVE_MESTRE = "apkbugado"; // Altere aqui a sua senha
+    // URL do seu GitHub
+    const BASE_URL = "https://raw.githubusercontent.com/rafflores17-prog/Painel-Vip-2.0/main/";
+    let contas = [];
 
-    // LISTA DE SERVIDORES (Sorteio aleatório real)
-    const lista = [
-        {host: "http://bluebox.click:80", user: "d18786c2b11082af3d72eea8112cd1bf", pass: "19ef113d5671a146ddbb"},
-        {host: "http://exemplo2.com:80", user: "user_teste_2", pass: "pass_teste_2"},
-        {host: "http://exemplo3.com:80", user: "user_teste_3", pass: "pass_teste_3"}
-        // Adicione as outras 40 aqui...
-    ];
-
-    function validarChave() {
+    async function validarChave() {
         const input = document.getElementById("keyInput").value;
-        if (input === CHAVE_MESTRE) {
-            document.getElementById("login-screen").style.display = "none";
-            document.getElementById("main-panel").style.display = "block";
-        } else {
-            alert("Chave incorreta, Mestre!");
-        }
+        try {
+            const res = await fetch(BASE_URL + "config.json?" + Date.now());
+            const config = await res.json();
+            if (input === config.chave_mestre) {
+                document.getElementById("login-screen").style.display = "none";
+                document.getElementById("main-panel").style.display = "block";
+                carregarLista();
+            } else { alert("Chave incorreta!"); }
+        } catch (e) { alert("Erro ao conectar ao servidor."); }
     }
 
-    let gerando = false;
+    async function carregarLista() {
+        try {
+            const res = await fetch(BASE_URL + "lista.txt?" + Date.now());
+            const data = await res.text();
+            
+            // EXPLICAÇÃO: O Regex abaixo ignora os símbolos e pega só o texto após a seta ►
+            const blocos = data.split(/┏●/);
+            contas = blocos.map(b => {
+                const host = b.match(/Host\s*►\s*(https?:\/\/[^\s\n\r]+)/i);
+                const user = b.match(/Usuário\s*►\s*([^\s\n\r]+)/i);
+                const pass = b.match(/Senha\s*►\s*([^\s\n\r]+)/i);
+                const exp  = b.match(/Expira\s*►\s*([^\s\n\r]+)/i);
 
-    function fakeScan(callback) {
-        const cons = document.getElementById("console");
-        cons.style.display = "block";
-        cons.innerHTML = "";
-        const steps = [
-            {t: "🔍 Conectando...", c: "white"},
-            {t: "📡 Analisando...", c: "white"},
-            {t: "⚡ Buscando conta disponível...", c: "white"},
-            {t: "✅ Concluído!", c: "green"}
-        ];
-
-        let i = 0;
-        let interval = setInterval(() => {
-            cons.innerHTML += `<div class="${steps[i].c}">${steps[i].t}</div>`;
-            i++;
-            if (i >= steps.length) {
-                clearInterval(interval);
-                setTimeout(() => {
-                    cons.style.display = "none";
-                    callback();
-                }, 500);
-            }
-        }, 600);
+                if (host && user && pass) {
+                    return {
+                        host: host[1].trim(),
+                        user: user[1].trim(),
+                        pass: pass[1].trim(),
+                        exp:  exp ? exp[1].trim() : "Não informada"
+                    };
+                }
+                return null;
+            }).filter(c => c !== null);
+        } catch (e) { console.error("Erro na carga"); }
     }
 
-    async function gerar() {
-        if (gerando) return;
-        gerando = true;
-
-        const out = document.getElementById("out");
-        const btn = document.getElementById("btnGerar");
+    function gerar() {
+        if (contas.length === 0) return;
         
-        // LIMPA O RESULTADO ANTERIOR PARA NÃO REPETIR NA TELA
-        out.style.display = "none";
-        out.innerHTML = "";
-        btn.innerText = "⏳ PROCESSANDO...";
-        btn.disabled = true;
+        document.getElementById("out").style.display = "none";
+        document.getElementById("loader").style.display = "block";
 
-        fakeScan(async function() {
-            // SORTEIO ALEATÓRIO REAL
-            let c = lista[Math.floor(Math.random() * lista.length)];
-            let m3u = `${c.host}/get.php?username=${c.user}&password=${c.pass}&type=m3u_plus&output=ts`;
-
-            let statusTexto = "🔴 OFFLINE";
-            let corStatus = "red";
-
+        setTimeout(async () => {
+            const c = contas[Math.floor(Math.random() * contas.length)];
+            const m3u = `${c.host}/get.php?username=${c.user}&password=${c.pass}&type=m3u_plus&output=ts`;
+            
+            // Teste Online/Offline
+            let status = "🟢 ONLINE";
+            let cor = "green";
             try {
-                // TESTE DE CONEXÃO DIRETO (SEM PROXY)
-                await fetch(c.host, { method: 'HEAD', mode: 'no-cors' });
-                statusTexto = "🟢 ONLINE";
-                corStatus = "green";
-            } catch (e) {
-                statusTexto = "🔴 OFFLINE";
-                corStatus = "red";
-            }
+                const check = await fetch(c.host, { method: 'HEAD', mode: 'no-cors' });
+            } catch(e) { status = "🔴 OFFLINE"; cor = "red"; }
 
+            const out = document.getElementById("out");
             out.innerHTML = `
                 <div class="box">
-                    <div class="label">🔗 M3U</div>
+                    <div class="label">HOST</div>
+                    <div class="val">${c.host}</div>
+                </div>
+                <div class="box">
+                    <div class="label">M3U</div>
                     <div class="val green">${m3u}</div>
                 </div>
                 <div class="row">
                     <div class="box col">
-                        <div class="label">👤 LOGIN</div>
-                        <div class="val white">${c.user}</div>
+                        <div class="label">LOGIN</div>
+                        <div class="val">${c.user}</div>
                     </div>
                     <div class="box col">
-                        <div class="label">🔑 SENHA</div>
-                        <div class="val white">${c.pass}</div>
+                        <div class="label">SENHA</div>
+                        <div class="val">${c.pass}</div>
                     </div>
                 </div>
-                <div class="box">
-                    <div class="label">📡 STATUS</div>
-                    <div class="val ${corStatus}">${statusTexto}</div>
+                <div class="row">
+                    <div class="box col">
+                        <div class="label">VALIDADE</div>
+                        <div class="val">${c.exp}</div>
+                    </div>
+                    <div class="box col">
+                        <div class="label">STATUS</div>
+                        <div class="val ${cor}">${status}</div>
+                    </div>
                 </div>
             `;
             
+            document.getElementById("loader").style.display = "none";
             out.style.display = "block";
-            btn.innerText = "🚀 GERAR ACESSO";
-            btn.disabled = false;
-            gerando = false;
-        });
-    }
-
-    function copy() {
-        const val = document.querySelector(".val.green");
-        if (val) {
-            navigator.clipboard.writeText(val.innerText);
-            alert("M3U copiado!");
-        }
+        }, 1000);
     }
 </script>
 </body>

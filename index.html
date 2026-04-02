@@ -6,24 +6,27 @@
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 
 <style>
-body{background:#050505;color:#fff;font-family:'Share Tech Mono', monospace;display:flex;justify-content:center;align-items:center;min-height:100vh;margin:0;}
-.card{width:100%;max-width:420px;background:#0a0a0a;padding:20px;border-radius:20px;box-shadow:0 0 40px #000;border: 1px solid #1a1a1a;}
-.title{text-align:center;font-family:'Orbitron';color:#00ff9c;margin-bottom:20px;text-transform: uppercase; font-size: 1.1rem;}
-input{width:100%;padding:15px;border-radius:12px;border:1px solid #111;background:#000;color:#00ff9c;text-align:center;box-sizing: border-box; font-size: 18px; margin-bottom: 10px;}
-.btn{width:100%;padding:15px;border:none;border-radius:12px;cursor:pointer;font-weight:bold;margin-top:10px; transition: 0.3s;}
+body{background:#050505;color:#fff;font-family:'Share Tech Mono', monospace;display:flex;justify-content:center;align-items:center;min-height:100vh;margin:0;padding: 10px;}
+.card{width:100%;max-width:420px;background:#0a0a0a;padding:20px;border-radius:20px;box-shadow:0 0 40px #000;border: 1px solid #1a1a1a;box-sizing: border-box;}
+.title{text-align:center;font-family:'Orbitron';color:#00ff9c;margin-bottom:20px;text-transform: uppercase; font-size: 1.1rem; letter-spacing: 1px;}
+input{width:100%;padding:15px;border-radius:12px;border:1px solid #111;background:#000;color:#00ff9c;text-align:center;box-sizing: border-box; font-size: 18px; margin-bottom: 10px; outline: none;}
+input:focus{border-color: #00ff9c;}
+.btn{width:100%;padding:15px;border:none;border-radius:12px;cursor:pointer;font-weight:bold;margin-top:10px; transition: 0.3s; font-family: 'Orbitron'; text-transform: uppercase;}
 .vip{background:linear-gradient(135deg,#bc13fe,#7a00aa); color: #fff;}
 .free{background:linear-gradient(135deg,#00d2ff,#006a80); color: #fff;}
 .main{background:linear-gradient(135deg,#00ff9c,#008f58);color:#000;}
+.btn:active{transform: scale(0.95);}
 .grid{display:flex;gap:10px; margin-bottom: 10px;}
-.status{margin-top:10px;font-size:12px;background:#000;padding:10px;border-radius:10px;height:120px;overflow-y:auto;color:#00ff9c; border: 1px solid #111;}
-#ads{margin:15px 0;text-align:center; min-height: 50px;}
-#out{display:none;margin-top:15px;}
+.status{margin-top:10px;font-size:12px;background:#000;padding:12px;border-radius:10px;height:100px;overflow-y:auto;color:#00ff9c; border: 1px solid #111; line-height: 1.6;}
+#ads-area{margin:15px 0;text-align:center; min-height: 55px; background: #000; border-radius: 10px; display: flex; align-items: center; justify-content: center;}
+#out{display:none;margin-top:15px; animation: fadeIn 0.5s;}
 .box{background:#111;padding:12px;border-radius:10px;margin-bottom:8px; border: 1px solid #222;}
-.label{font-size:10px;color:#0088cc; font-weight: bold; margin-bottom: 4px;}
-.val{font-size:13px;word-break:break-all;}
+.label{font-size:10px;color:#0088cc; font-weight: bold; margin-bottom: 4px; text-transform: uppercase;}
+.val{font-size:13px;word-break:break-all; color: #eee;}
 .green{color:#00ff9c;} .blue{color:#00d2ff;} .white{color:#fff;} .purple{color:#bc13fe;}
 .row{display:flex;gap:10px;} .col{flex:1;}
 a{text-decoration: none; flex: 1;}
+@keyframes fadeIn { from{opacity:0; transform: translateY(10px);} to{opacity:1; transform: translateY(0);} }
 </style>
 </head>
 
@@ -33,7 +36,7 @@ a{text-decoration: none; flex: 1;}
 
 <div id="login">
 <input type="password" id="senha" placeholder="DIGITE A CHAVE VIP">
-<button class="btn main" onclick="logar()">DESBLOQUEAR ACESSO</button>
+<button class="btn main" onclick="logar()">DESBLOQUEAR</button>
 </div>
 
 <div id="painel" style="display:none;">
@@ -43,11 +46,11 @@ a{text-decoration: none; flex: 1;}
     </div>
 
     <button class="btn main" id="btnGerar" onclick="startGerar()">🚀 GERAR LISTA IPTV</button>
-    <button class="btn main" onclick="copiar()">📋 COPIAR DADOS</button>
+    <button class="btn main" onclick="copiar()" style="background: #444; color: #fff;">📋 COPIAR DADOS</button>
 
     <div class="status" id="statusLog">Aguardando comando...</div>
     
-    <div id="ads">
+    <div id="ads-area">
         <script type="text/javascript">
             atOptions = { 'key' : 'a8a116d252f41a02d16bcf030d61ce58', 'format' : 'iframe', 'height' : 50, 'width' : 320, 'params' : {} };
         </script>
@@ -72,7 +75,7 @@ function logar(){
 }
 
 async function carregarLista(){
-    const statusDiv = document.getElementById("statusLog");
+    const s = document.getElementById("statusLog");
     try {
         let r = await fetch("https://raw.githubusercontent.com/rafflores17-prog/Painel-Vip-2.0/main/listas.txt?" + Date.now());
         let txt = await r.text();
@@ -82,32 +85,27 @@ async function carregarLista(){
             let u = b.match(/Usuário\s*►\s*([^\s\n\r]+)/i);
             let p = b.match(/Senha\s*►\s*([^\s\n\r]+)/i);
             let e = b.match(/Expira\s*►\s*([^\s\n\r]+)/i);
-            if(h && u && p) {
-                return { host: h[1].trim(), user: u[1].trim(), pass: p[1].trim(), exp: e ? e[1].trim() : "Ilimitada" };
-            }
+            if(h && u && p) return { host: h[1].trim(), user: u[1].trim(), pass: p[1].trim(), exp: e ? e[1].trim() : "Ilimitada" };
         }).filter(x => x);
-        statusDiv.innerHTML = "✔ Sistema pronto!<br>✔ " + listaContas.length + " Contas carregadas.";
-    } catch(e) { statusDiv.innerHTML = "❌ Erro ao carregar listas.txt"; }
+        s.innerHTML = "✔ Sistema pronto!<br>✔ " + listaContas.length + " Listas carregadas.";
+    } catch(e) { s.innerHTML = "❌ Erro ao conectar com o banco de dados."; }
 }
 
 function startGerar(){
     if(processando || listaContas.length === 0) return;
     
-    // RESET DE TELA: Esconde o resultado anterior antes de começar o novo scan
+    // RESET TOTAL ANTES DE COMEÇAR
     processando = true;
     document.getElementById("out").style.display = "none"; 
     document.getElementById("statusLog").innerHTML = "";
     document.getElementById("btnGerar").innerText = "⏳ SCANNEANDO...";
     
-    // Abre seu Adsterra Link
+    // SMART LINK (ADS TERRA) - ABRE AO CLICAR
     window.open("https://encouragingjawsordinarily.com/wazwpzwvxa?key=20c27c4105f08438a698b55802257507", "_blank");
     
-    executarScanFake();
-}
-
-function executarScanFake(){
+    // INICIA O SCAN FAKE
     let s = document.getElementById("statusLog");
-    let etapas = ["🔍 Conectando...", "📡 Estabelecendo Link...", "🔐 Validando Token...", "⚡ Gerando Acesso...", "✅ Concluído!"];
+    let etapas = ["🔍 Localizando host...", "📡 Extraindo credenciais...", "🔐 Validando token...", "⚡ Gerando Link M3U...", "✅ Pronto!"];
     let i = 0;
 
     let interval = setInterval(() => {
@@ -119,7 +117,7 @@ function executarScanFake(){
             clearInterval(interval);
             exibirResultado();
         }
-    }, 450);
+    }, 500);
 }
 
 function exibirResultado(){
@@ -128,7 +126,7 @@ function exibirResultado(){
     let m3u = `${c.host}/get.php?username=${c.user}&password=${c.pass}&type=m3u_plus&output=ts`;
 
     out.innerHTML = `
-        <div class="box"><div class="label">🔗 LINK M3U</div><div class="val green">${m3u}</div></div>
+        <div class="box"><div class="label">🔗 LINK M3U</div><div class="val green" id="copy-m3u">${m3u}</div></div>
         <div class="box"><div class="label">🌐 HOST</div><div class="val blue">${c.host}</div></div>
         <div class="row">
             <div class="box col"><div class="label">👤 USUÁRIO</div><div class="val white">${c.user}</div></div>
@@ -137,16 +135,23 @@ function exibirResultado(){
         <div class="box"><div class="label">📅 VALIDADE</div><div class="val purple">${c.exp}</div></div>
     `;
 
-    out.style.display = "block"; // Só aparece agora, depois do scan
+    out.style.display = "block";
     document.getElementById("btnGerar").innerText = "🚀 GERAR LISTA IPTV";
     processando = false;
 }
 
 function copiar(){
-    let out = document.getElementById("out");
-    if(out.style.display === "none") return alert("Gere uma lista primeiro!");
-    navigator.clipboard.writeText(out.innerText);
-    alert("Dados copiados!");
+    let m3u = document.getElementById("copy-m3u");
+    if(!m3u) return alert("Gere uma lista primeiro!");
+    
+    const el = document.createElement('textarea');
+    el.value = m3u.innerText;
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand('copy');
+    document.body.removeChild(el);
+    
+    alert("Link M3U copiado com sucesso!");
 }
 </script>
 </body>

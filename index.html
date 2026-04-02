@@ -65,206 +65,195 @@ input{width:100%;padding:15px;border-radius:12px;border:1px solid #111;backgroun
 </div>
 
 <script>
+/* CONFIGURAÇÕES DO MESTRE */
+const URL_BASE_PHP = "http://checkpainel.rf.gd/"; // Caminho do seu InfinityFree
+const URL_LISTA_GITHUB = "https://raw.githubusercontent.com/rafflores17-prog/Painel-Vip-2.0/main/listas.txt";
 
 let lista=[];
 let abriuAd=false;
 let gerando=false;
 
-/* LOGIN */
+/* LOGIN CORRIGIDO */
 async function logar(){
+    let senha = document.getElementById("senha").value.trim();
+    if(!senha) return alert("Digite a chave!");
 
-let senha = document.getElementById("senha").value.trim();
+    try{
+        // Usando o seu validador no InfinityFree
+        let r = await fetch(`${URL_BASE_PHP}login.php?key=${encodeURIComponent(senha)}`);
+        let j = await r.json();
 
-try{
-let r = await fetch("https://checkpainel.rf.gd/login.php?key="+encodeURIComponent(senha));
-let j = await r.json();
-
-if(j.status === "ok"){
-document.getElementById("login").style.display="none";
-document.getElementById("painel").style.display="block";
-carregar();
-}else{
-alert("Senha inválida");
+        if(j.status === "ok"){
+            document.getElementById("login").style.display="none";
+            document.getElementById("painel").style.display="block";
+            carregar();
+        }else{
+            alert("❌ Chave inválida!");
+        }
+    }catch(e){
+        alert("Erro de conexão com o validador.");
+    }
 }
-}catch{
-alert("Erro no servidor");
-}
 
-}
-
-/* CARREGAR LISTA */
+/* CARREGAR LISTA DO GITHUB */
 async function carregar(){
+    let s = document.getElementById("status");
+    s.innerHTML = "⏳ Carregando banco de dados...";
 
-let txt=await (await fetch("listas.txt?"+Date.now())).text();
+    try{
+        let r = await fetch(URL_LISTA_GITHUB + "?" + Date.now());
+        let txt = await r.text();
 
-let blocos=txt.split(/┏|Host/g);
+        let blocos = txt.split(/┏|Host/g);
 
-lista=blocos.map(b=>{
+        lista = blocos.map(b => {
+            let host = b.match(/http:\/\/[^\s]+:\d+/i)?.[0];
+            let user = b.match(/Usu[aá]rio[^a-z0-9]*([a-z0-9@._-]+)/i)?.[1];
+            let pass = b.match(/Senha[^a-z0-9]*([a-z0-9@._-]+)/i)?.[1];
 
-let host=b.match(/http:\/\/[^\s]+:\d+/i)?.[0];
-let user=b.match(/Usu[aá]rio[^a-z0-9]*([a-z0-9@._-]+)/i)?.[1];
-let pass=b.match(/Senha[^a-z0-9]*([a-z0-9@._-]+)/i)?.[1];
+            let m = b.match(/username=([^\s&]+)&password=([^\s&]+)/i);
+            if(m){ user = m[1]; pass = m[2]; }
 
-let m=b.match(/username=([^\s&]+)&password=([^\s&]+)/i);
-if(m){user=m[1];pass=m[2];}
+            let exp = null;
+            for(let l of b.split("\n")){
+                let c = l.toLowerCase();
+                if(c.includes("scan") || c.includes("criado")) continue;
+                let d = l.match(/(\d{2}\/\d{2}\/\d{4})/);
+                if(d && (c.includes("exp") || c.includes("venc") || c.includes("expira"))){
+                    exp = d[1];
+                    break;
+                }
+            }
 
-let exp=null;
+            if(host && user && pass) return { host, user, pass, exp };
+        }).filter(x => x);
 
-for(let l of b.split("\n")){
-let c=l.toLowerCase();
-if(c.includes("scan")||c.includes("criado")) continue;
-
-let d=l.match(/(\d{2}\/\d{2}\/\d{4})/);
-
-if(d && (c.includes("exp")||c.includes("venc")||c.includes("expira"))){
-exp=d[1];
-break;
+        s.innerHTML = `✔ ${lista.length} Listas prontas!<br>`;
+    } catch(e) {
+        s.innerHTML = "❌ Erro ao sincronizar com GitHub.<br>";
+    }
 }
-}
 
-if(host&&user&&pass){
-return {host,user,pass,exp};
-}
-
-}).filter(x=>x);
-
-status.innerHTML="✔ Sistema pronto<br>";
-}
-
-/* TESTE REAL */
+/* TESTE REAL VIA PHP */
 async function testarReal(m3u){
-try{
-let r = await fetch("https://checkpainel.rf.gd/check.php?url="+encodeURIComponent(m3u));
-let j = await r.json();
-return j.status === "online";
-}catch{
-return false;
-}
+    try{
+        // Envia a URL para o check.php no seu host fazer o teste de rede
+        let r = await fetch(`${URL_BASE_PHP}check.php?url=${encodeURIComponent(m3u)}`);
+        let j = await r.json();
+        return j.status === "online";
+    }catch{
+        return false;
+    }
 }
 
-/* BOTÃO */
+/* BOTÃO GERAR */
 function startGerar(){
-
-if(gerando) return;
-
-gerando=true;
-
-let btn=document.getElementById("btnGerar");
-btn.innerText="⏳ CARREGANDO...";
-btn.disabled=true;
-
-abrirAd();
-gerar();
+    if(gerando || lista.length === 0) return;
+    gerando = true;
+    let btn = document.getElementById("btnGerar");
+    btn.innerText = "⏳ CARREGANDO...";
+    btn.disabled = true;
+    abrirAd();
+    gerar();
 }
 
-/* SCAN */
+/* ANIMAÇÃO DE SCAN */
 function fakeScan(callback){
+    let s = document.getElementById("status");
+    let etapas = [
+        "🔍 Conectando servidor...",
+        "📡 Estabelecendo conexão...",
+        "🔐 Descriptografando dados...",
+        "🧠 Analisando base...",
+        "⚡ Buscando listas online...",
+        "📦 Processando dados...",
+        "✅ Concluído"
+    ];
 
-let s=document.getElementById("status");
+    let i = 0;
+    s.innerHTML = "";
 
-let etapas=[
-"🔍 Conectando servidor...",
-"📡 Estabelecendo conexão...",
-"🔐 Descriptografando dados...",
-"🧠 Analisando base...",
-"⚡ Buscando listas online...",
-"📦 Processando dados...",
-"✅ Concluído"
-];
-
-let i=0;
-s.innerHTML="";
-
-function loop(){
-if(i<etapas.length){
-s.innerHTML+=etapas[i]+"<br>";
-s.scrollTop=s.scrollHeight;
-i++;
-setTimeout(loop,350);
-}else callback();
-}
-
-loop();
+    function loop(){
+        if(i < etapas.length){
+            s.innerHTML += etapas[i] + "<br>";
+            s.scrollTop = s.scrollHeight;
+            i++;
+            setTimeout(loop, 350);
+        } else callback();
+    }
+    loop();
 }
 
 /* ADS */
 function abrirAd(){
-if(!abriuAd){
-window.open("https://encouragingjawsordinarily.com/wazwpzwvxa?key=20c27c4105f08438a698b55802257507","_blank");
-abriuAd=true;
-}
+    if(!abriuAd){
+        window.open("https://encouragingjawsordinarily.com/wazwpzwvxa?key=20c27c4105f08438a698b55802257507","_blank");
+        abriuAd = true;
+    }
 }
 
-/* GERAR */
+/* LÓGICA DE GERAÇÃO */
 async function gerar(){
+    let out = document.getElementById("out");
+    let status = document.getElementById("status");
+    out.style.display = "none";
+    out.innerHTML = "";
+    status.innerHTML = "";
 
-out.style.display="none";
-out.innerHTML="";
-status.innerHTML="";
+    fakeScan(async function(){
+        let c = lista[Math.floor(Math.random() * lista.length)];
+        let m3u = `${c.host}/get.php?username=${c.user}&password=${c.pass}&type=m3u_plus&output=ts`;
 
-fakeScan(async function(){
+        // Chama o validador real
+        let online = await testarReal(m3u);
+        let statusIcon = online ? "🟢 ONLINE" : "🔴 OFFLINE";
+        let statusColor = online ? "green" : "red";
 
-let c=lista[Math.floor(Math.random()*lista.length)];
+        out.innerHTML = `
+            <div class="box">
+                <div class="label">🔗 M3U</div>
+                <div class="val green">${m3u}</div>
+            </div>
+            <div class="box">
+                <div class="label">🌐 HOST</div>
+                <div class="val blue">${c.host}</div>
+            </div>
+            <div class="row">
+                <div class="box col">
+                    <div class="label">👤 LOGIN</div>
+                    <div class="val white">${c.user}</div>
+                </div>
+                <div class="box col">
+                    <div class="label">🔑 SENHA</div>
+                    <div class="val white">${c.pass}</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="box col">
+                    <div class="label">📅 VALIDADE</div>
+                    <div class="val purple">${c.exp || "Desconhecida"}</div>
+                </div>
+                <div class="box col">
+                    <div class="label">📡 STATUS</div>
+                    <div class="val ${statusColor}">${statusIcon}</div>
+                </div>
+            </div>
+        `;
 
-let m3u=`${c.host}/get.php?username=${c.user}&password=${c.pass}&type=m3u_plus&output=ts`;
-
-let online = await testarReal(m3u);
-
-let statusIcon = online ? "🟢 ONLINE" : "🔴 OFFLINE";
-let statusColor = online ? "green" : "red";
-
-out.innerHTML=`
-<div class="box">
-<div class="label">🔗 M3U</div>
-<div class="val green">${m3u}</div>
-</div>
-
-<div class="box">
-<div class="label">🌐 HOST</div>
-<div class="val blue">${c.host}</div>
-</div>
-
-<div class="row">
-<div class="box col">
-<div class="label">👤 LOGIN</div>
-<div class="val white">${c.user}</div>
-</div>
-
-<div class="box col">
-<div class="label">🔑 SENHA</div>
-<div class="val white">${c.pass}</div>
-</div>
-</div>
-
-<div class="row">
-<div class="box col">
-<div class="label">📅 VALIDADE</div>
-<div class="val purple">${c.exp||"Desconhecida"}</div>
-</div>
-
-<div class="box col">
-<div class="label">📡 STATUS</div>
-<div class="val ${statusColor}">${statusIcon}</div>
-</div>
-</div>
-`;
-
-out.style.display="block";
-
-let btn=document.getElementById("btnGerar");
-btn.innerText="🚀 GERAR ACESSO";
-btn.disabled=false;
-gerando=false;
-
-});
+        out.style.display = "block";
+        let btn = document.getElementById("btnGerar");
+        btn.innerText = "🚀 GERAR ACESSO";
+        btn.disabled = false;
+        gerando = false;
+    });
 }
 
 /* COPIAR */
 function copiar(){
-navigator.clipboard.writeText(out.innerText);
-status.innerHTML+="✔ Copiado<br>";
+    let out = document.getElementById("out");
+    navigator.clipboard.writeText(out.innerText);
+    document.getElementById("status").innerHTML += "✔ Copiado com sucesso!<br>";
 }
-
 </script>
 
 </body>

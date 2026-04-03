@@ -1419,6 +1419,607 @@
 ┣─⏱️Scan ► 01:39:34 ⁃ 26/03/2026
 ┗●▬▬▬▬▬▬▬▬▬▬▬▬▬▬
 
+┏●•~¹°”ˆ˜¨ 𝙏𝙚𝙨𝙩𝙚 𝙙𝙤 𝙎𝙚𝙧𝙫𝙞𝙙𝙤𝙧 ¨˜ˆ”°¹~•
+┣─⭐Desempenho ► ★★★☆☆ MÉDIO
+┣─⚡Velocidade ► Média de 0.54s
+┣─📡Teste ► 20 Canais OK | 0 Falhas
+┣─🏢Hospedagem ► Cloudflare, Inc.
+┣─🗺️Região ► Toronto, Canada 🇨🇦
+┣─📍IP do Host ► 172.67.135.151
+┣─📺Canais ► 1803
+┣─🎬Filmes ► 39292
+┣─🎞️Séries ► 8604
+┣─📦Conteúdo Total ► 49699
+┣─✨Qualidade do VOD ► ᴱˣᶜᵉˡᵉⁿᵗᵉ(💎)
+┗●▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+┏●•~¹°”ˆ˜¨ 𝙏𝙚𝙨𝙩𝙚 𝙙𝙤 𝙎𝙚𝙧𝙫𝙞𝙙𝙤𝙧 ¨˜ˆ”°¹~•
+┣─⭐Desempenho ► ★★★☆☆ MÉDIO
+┣─⚡Velocidade ► Média de 0.50s
+┣─📡Teste ► 20 Canais OK | 0 Falhas
+┣─🏢Hospedagem ► Cloudflare, Inc.
+┣─🗺️Região ► Toronto, Canada 🇨🇦
+┣─📍IP do Host ► 172.67.135.151
+┣─📺Canais ► 1803
+┣─🎬Filmes ► 39292
+┣─🎞️Séries ► 8604
+┣─📦Conteúdo Total ► 49699
+┣─✨Qualidade do VOD ► ᴱˣᶜᵉˡᵉⁿᵗᵉ(💎)
+┗●▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+┏●-•~¹°”ˆ˜¨ 𝙏𝙤𝙥 𝙎𝙘𝙖𝙣𝙣𝙚𝙧 ¨˜ˆ”°¹~•-
+┣─🌐Host ► http://p2bin.pro:80
+┣─📍IP do Host ► 172.67.135.151
+┣─🗺️Região ► Toronto, Canada 🇨🇦
+┣─🏢Hospedagem ► Cloudflare, Inc.
+┣─👤Usuário ► danielgnu
+┣─🔒Senha ► d5565778650
+┣─🟢Status ► Online
+┣─🗓️Criado ► 25/01/2026
+┣─⏳Expira ► 25/04/2026
+┣─⌛Dias Restantes ► 34 dias
+┣─📶Conexões Ativas ► 0
+┣─📊Conexōes Máximas ► 1
+┣─🔗Link M3u⭏
+┃ ► http://p2bin.pro:80/get.php?username=danielgnu&password=d5565778650&type=m3u_plus&output=ts
+┣─📄Combo ► Combo_Online3
+┣─👽Hits Por ► ApkBugado
+┣─⏱️Scan ► 08:25:50 ⁃ 22/03/2026
+┗●▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+┏●-•~¹°”ˆ˜¨ 𝙏𝙤𝙥 𝙎𝙘𝙖𝙣𝙣𝙚𝙧 ¨˜ˆ”°¹~•-
+┣─🌐Host ► http://p2bin.pro:80
+┣─📍IP do Host ► 172.67.135.151
+┣─🗺️Região ► Toronto, Canada 🇨🇦
+┣─🏢Hospedagem ► Cloudflare, Inc.
+┣─👤Usuário ► 369292200
+┣─🔒Senha ► 176471735
+┣─🟢Status ► Online
+┣─🗓️Criado ► 07/03/2026
+┣─⏳Expira ► 10/04/2026
+┣─⌛Dias Restantes ► 19 dias
+┣─📶Conexões Ativas ► 0
+┣─📊Conexōes Máximas ► 1
+┣─🔗Link M3u⭏
+┃ ► http://p2bin.pro:80/get.php?username=369292200&password=176471735&type=m3u_plus&output=ts
+┣─📄Combo ► Combo_Online3
+┣─👽Hits Por ► ApkBugado
+┣─⏱️Scan ► 08:32:41 ⁃ 22/03/2026
+┗●▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+┏●-•~¹°”ˆ˜¨ 𝙏𝙤𝙥 𝙎𝙘𝙖𝙣𝙣𝙚𝙧 ¨˜ˆ”°¹~•-
+┣─🌐Host ► http://p2bin.pro:80
+┣─📍IP do Host ► 172.67.135.151
+┣─🗺️Região ► Toronto, Canada 🇨🇦
+┣─🏢Hospedagem ► Cloudflare, Inc.
+┣─👤Usuário ► 642797441
+┣─🔒Senha ► 682250644
+┣─🟢Status ► Online
+┣─🗓️Criado ► 06/03/2026
+┣─⏳Expira ► 27/03/2026
+┣─⌛Dias Restantes ► 5 dias
+┣─📶Conexões Ativas ► 0
+┣─📊Conexōes Máximas ► 1
+┣─🔗Link M3u⭏
+┃ ► http://p2bin.pro:80/get.php?username=642797441&password=682250644&type=m3u_plus&output=ts
+┣─📄Combo ► Combo_Online3
+┣─👽Hits Por ► ApkBugado
+┣─⏱️Scan ► 08:35:43 ⁃ 22/03/2026
+┗●▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+┏●-•~¹°”ˆ˜¨ 𝙏𝙤𝙥 𝙎𝙘𝙖𝙣𝙣𝙚𝙧 ¨˜ˆ”°¹~•-
+┣─🌐Host ► http://p2bin.pro:80
+┣─📍IP do Host ► 172.67.135.151
+┣─🗺️Região ► Toronto, Canada 🇨🇦
+┣─🏢Hospedagem ► Cloudflare, Inc.
+┣─👤Usuário ► danielgnu
+┣─🔒Senha ► d5565778650
+┣─🟢Status ► Online
+┣─🗓️Criado ► 25/01/2026
+┣─⏳Expira ► 25/04/2026
+┣─⌛Dias Restantes ► 34 dias
+┣─📶Conexões Ativas ► 1
+┣─📊Conexōes Máximas ► 1
+┣─🔗Link M3u⭏
+┃ ► http://p2bin.pro:80/get.php?username=danielgnu&password=d5565778650&type=m3u_plus&output=ts
+┣─📄Combo ► Combo_Online3
+┣─👽Hits Por ► ApkBugado
+┣─⏱️Scan ► 10:00:32 ⁃ 22/03/2026
+┗●▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+┏●-•~¹°”ˆ˜¨ 𝙏𝙤𝙥 𝙎𝙘𝙖𝙣𝙣𝙚𝙧 ¨˜ˆ”°¹~•-
+┣─🌐Host ► http://p2bin.pro:80
+┣─📍IP do Host ► 172.67.135.151
+┣─🗺️Região ► Toronto, Canada 🇨🇦
+┣─🏢Hospedagem ► Cloudflare, Inc.
+┣─👤Usuário ► 369292200
+┣─🔒Senha ► 176471735
+┣─🟢Status ► Online
+┣─🗓️Criado ► 07/03/2026
+┣─⏳Expira ► 10/04/2026
+┣─⌛Dias Restantes ► 19 dias
+┣─📶Conexões Ativas ► 1
+┣─📊Conexōes Máximas ► 1
+┣─🔗Link M3u⭏
+┃ ► http://p2bin.pro:80/get.php?username=369292200&password=176471735&type=m3u_plus&output=ts
+┣─📄Combo ► Combo_Online3
+┣─👽Hits Por ► ApkBugado
+┣─⏱️Scan ► 10:00:37 ⁃ 22/03/2026
+┗●▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+┏●-•~¹°”ˆ˜¨ 𝙏𝙤𝙥 𝙎𝙘𝙖𝙣𝙣𝙚𝙧 ¨˜ˆ”°¹~•-
+┣─🌐Host ► http://p2bin.pro:80
+┣─📍IP do Host ► 172.67.135.151
+┣─🗺️Região ► Toronto, Canada 🇨🇦
+┣─🏢Hospedagem ► Cloudflare, Inc.
+┣─👤Usuário ► 642797441
+┣─🔒Senha ► 682250644
+┣─🟢Status ► Online
+┣─🗓️Criado ► 06/03/2026
+┣─⏳Expira ► 27/03/2026
+┣─⌛Dias Restantes ► 5 dias
+┣─📶Conexões Ativas ► 0
+┣─📊Conexōes Máximas ► 1
+┣─🔗Link M3u⭏
+┃ ► http://p2bin.pro:80/get.php?username=642797441&password=682250644&type=m3u_plus&output=ts
+┣─📄Combo ► Combo_Online3
+┣─👽Hits Por ► ApkBugado
+┣─⏱️Scan ► 10:05:23 ⁃ 22/03/2026
+┗●▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+
+┏●•~¹°”ˆ˜¨ 𝙏𝙚𝙨𝙩𝙚 𝙙𝙤 𝙎𝙚𝙧𝙫𝙞𝙙𝙤𝙧 ¨˜ˆ”°¹~•
+┣─⭐Desempenho ► ☆☆☆☆☆ FALHOU
+┣─⚡Velocidade ► Teste Falhou
+┣─📡Teste ► 0 Canais OK | 0 Falhas
+┣─🏢Hospedagem ► Cloudflare, Inc.
+┣─🗺️Região ► Toronto, Canada 🇨🇦
+┣─📍IP do Host ► 172.67.156.128
+┣─📺Canais ► 1897
+┣─🎬Filmes ► 15243
+┣─🎞️Séries ► 5598
+┣─📦Conteúdo Total ► 22738
+┣─✨Qualidade do VOD ► ᴮᵒᵃ(👍)
+┗●▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+┏●-•~¹°”ˆ˜¨ 𝙏𝙤𝙥 𝙎𝙘𝙖𝙣𝙣𝙚𝙧 ¨˜ˆ”°¹~•-
+┣─🌐Host ► http://stmax.top:80
+┣─📍IP do Host ► 172.67.156.128
+┣─🗺️Região ► Toronto, Canada 🇨🇦
+┣─🏢Hospedagem ► Cloudflare, Inc.
+┣─👤Usuário ► XmYaYV
+┣─🔒Senha ► CrfW5k
+┣─🟢Status ► Online
+┣─🗓️Criado ► 30/10/2025
+┣─⏳Expira ► 07/04/2026
+┣─⌛Dias Restantes ► 21 dias
+┣─📶Conexões Ativas ► 1
+┣─📊Conexōes Máximas ► 1
+┣─🔗Link M3u⭏
+┃ ► http://stmax.top:80/get.php?username=XmYaYV&password=CrfW5k&type=m3u_plus&output=ts
+┣─📄Combo ► Combo_Online3
+┣─👽Hits Por ► ApkBugado
+┣─⏱️Scan ► 07:20:58 ⁃ 17/03/2026
+┗●▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+┏●-•~¹°”ˆ˜¨ 𝙏𝙤𝙥 𝙎𝙘𝙖𝙣𝙣𝙚𝙧 ¨˜ˆ”°¹~•-
+┣─🌐Host ► http://stmax.top:80
+┣─📍IP do Host ► 172.67.156.128
+┣─🗺️Região ► Toronto, Canada 🇨🇦
+┣─🏢Hospedagem ► Cloudflare, Inc.
+┣─👤Usuário ► yfbdn8
+┣─🔒Senha ► UZGaj5
+┣─🟢Status ► Online
+┣─🗓️Criado ► 04/10/2024
+┣─⏳Expira ► 04/04/2026
+┣─⌛Dias Restantes ► 18 dias
+┣─📶Conexões Ativas ► 0
+┣─📊Conexōes Máximas ► 1
+┣─🔗Link M3u⭏
+┃ ► http://stmax.top:80/get.php?username=yfbdn8&password=UZGaj5&type=m3u_plus&output=ts
+┣─📄Combo ► Combo_Online3
+┣─👽Hits Por ► ApkBugado
+┣─⏱️Scan ► 07:21:12 ⁃ 17/03/2026
+┗●▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+┏●-•~¹°”ˆ˜¨ 𝙏𝙤𝙥 𝙎𝙘𝙖𝙣𝙣𝙚𝙧 ¨˜ˆ”°¹~•-
+┣─🌐Host ► http://stmax.top:80
+┣─📍IP do Host ► 172.67.156.128
+┣─🗺️Região ► Toronto, Canada 🇨🇦
+┣─🏢Hospedagem ► Cloudflare, Inc.
+┣─👤Usuário ► CtmBVe
+┣─🔒Senha ► zk8hrH
+┣─🟢Status ► Online
+┣─🗓️Criado ► 11/10/2024
+┣─⏳Expira ► 11/04/2026
+┣─⌛Dias Restantes ► 25 dias
+┣─📶Conexões Ativas ► 0
+┣─📊Conexōes Máximas ► 1
+┣─🔗Link M3u⭏
+┃ ► http://stmax.top:80/get.php?username=CtmBVe&password=zk8hrH&type=m3u_plus&output=ts
+┣─📄Combo ► Combo_Online3
+┣─👽Hits Por ► ApkBugado
+┣─⏱️Scan ► 07:21:25 ⁃ 17/03/2026
+┗●▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+┏●-•~¹°”ˆ˜¨ 𝙏𝙤𝙥 𝙎𝙘𝙖𝙣𝙣𝙚𝙧 ¨˜ˆ”°¹~•-
+┣─🌐Host ► http://stmax.top:80
+┣─📍IP do Host ► 172.67.156.128
+┣─🗺️Região ► Toronto, Canada 🇨🇦
+┣─🏢Hospedagem ► Cloudflare, Inc.
+┣─👤Usuário ► edilucia32512
+┣─🔒Senha ► 184729472847
+┣─🟢Status ► Online
+┣─🗓️Criado ► 03/01/2023
+┣─⏳Expira ► 03/05/2026
+┣─⌛Dias Restantes ► 47 dias
+┣─📶Conexões Ativas ► 1
+┣─📊Conexōes Máximas ► 1
+┣─🔗Link M3u⭏
+┃ ► http://stmax.top:80/get.php?username=edilucia32512&password=184729472847&type=m3u_plus&output=ts
+┣─📄Combo ► Combo_Online3
+┣─👽Hits Por ► ApkBugado
+┣─⏱️Scan ► 07:21:39 ⁃ 17/03/2026
+┗●▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+┏●-•~¹°”ˆ˜¨ 𝙏𝙤𝙥 𝙎𝙘𝙖𝙣𝙣𝙚𝙧 ¨˜ˆ”°¹~•-
+┣─🌐Host ► http://stmax.top:80
+┣─📍IP do Host ► 172.67.156.128
+┣─🗺️Região ► Toronto, Canada 🇨🇦
+┣─🏢Hospedagem ► Cloudflare, Inc.
+┣─👤Usuário ► YPzbb6
+┣─🔒Senha ► 1B4SzK
+┣─🟢Status ► Online
+┣─🗓️Criado ► 18/01/2026
+┣─⏳Expira ► 18/03/2026
+┣─⌛Dias Restantes ► 1 dias
+┣─📶Conexões Ativas ► 0
+┣─📊Conexōes Máximas ► 1
+┣─🔗Link M3u⭏
+┃ ► http://stmax.top:80/get.php?username=YPzbb6&password=1B4SzK&type=m3u_plus&output=ts
+┣─📄Combo ► Combo_Online3
+┣─👽Hits Por ► ApkBugado
+┣─⏱️Scan ► 07:22:47 ⁃ 17/03/2026
+┗●▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+┏●-•~¹°”ˆ˜¨ 𝙏𝙤𝙥 𝙎𝙘𝙖𝙣𝙣𝙚𝙧 ¨˜ˆ”°¹~•-
+┣─🌐Host ► http://stmax.top:80
+┣─📍IP do Host ► 172.67.156.128
+┣─🗺️Região ► Toronto, Canada 🇨🇦
+┣─🏢Hospedagem ► Cloudflare, Inc.
+┣─👤Usuário ► 4PVbxq
+┣─🔒Senha ► 1kkXsA
+┣─🟢Status ► Online
+┣─🗓️Criado ► 12/03/2026
+┣─⏳Expira ► 09/04/2026
+┣─⌛Dias Restantes ► 23 dias
+┣─📶Conexões Ativas ► 0
+┣─📊Conexōes Máximas ► 1
+┣─🔗Link M3u⭏
+┃ ► http://stmax.top:80/get.php?username=4PVbxq&password=1kkXsA&type=m3u_plus&output=ts
+┣─📄Combo ► Combo_Online3
+┣─👽Hits Por ► ApkBugado
+┣─⏱️Scan ► 07:27:50 ⁃ 17/03/2026
+┗●▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+┏●-•~¹°”ˆ˜¨ 𝙏𝙤𝙥 𝙎𝙘𝙖𝙣𝙣𝙚𝙧 ¨˜ˆ”°¹~•-
+┣─🌐Host ► http://stmax.top:80
+┣─📍IP do Host ► 172.67.156.128
+┣─🗺️Região ► Toronto, Canada 🇨🇦
+┣─🏢Hospedagem ► Cloudflare, Inc.
+┣─👤Usuário ► s2Ahz9
+┣─🔒Senha ► krt3F9
+┣─🟢Status ► Online
+┣─🗓️Criado ► 04/11/2024
+┣─⏳Expira ► 05/04/2026
+┣─⌛Dias Restantes ► 19 dias
+┣─📶Conexões Ativas ► 0
+┣─📊Conexōes Máximas ► 1
+┣─🔗Link M3u⭏
+┃ ► http://stmax.top:80/get.php?username=s2Ahz9&password=krt3F9&type=m3u_plus&output=ts
+┣─📄Combo ► Combo_Online3
+┣─👽Hits Por ► ApkBugado
+┣─⏱️Scan ► 07:29:00 ⁃ 17/03/2026
+┗●▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+┏●-•~¹°”ˆ˜¨ 𝙏𝙤𝙥 𝙎𝙘𝙖𝙣𝙣𝙚𝙧 ¨˜ˆ”°¹~•-
+┣─🌐Host ► http://stmax.top:80
+┣─📍IP do Host ► 172.67.156.128
+┣─🗺️Região ► Toronto, Canada 🇨🇦
+┣─🏢Hospedagem ► Cloudflare, Inc.
+┣─👤Usuário ► lelezago
+┣─🔒Senha ► lelezago@2021
+┣─🟢Status ► Online
+┣─🗓️Criado ► 30/10/2021
+┣─⏳Expira ► 04/11/2026
+┣─⌛Dias Restantes ► 232 dias
+┣─📶Conexões Ativas ► 2
+┣─📊Conexōes Máximas ► 2
+┣─🔗Link M3u⭏
+┃ ► http://stmax.top:80/get.php?username=lelezago&password=lelezago@2021&type=m3u_plus&output=ts
+┣─📄Combo ► Combo_Online3
+┣─👽Hits Por ► ApkBugado
+┣─⏱️Scan ► 07:29:00 ⁃ 17/03/2026
+┗●▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+┏●-•~¹°”ˆ˜¨ 𝙏𝙤𝙥 𝙎𝙘𝙖𝙣𝙣𝙚𝙧 ¨˜ˆ”°¹~•-
+┣─🌐Host ► http://stmax.top:80
+┣─📍IP do Host ► 172.67.156.128
+┣─🗺️Região ► Toronto, Canada 🇨🇦
+┣─🏢Hospedagem ► Cloudflare, Inc.
+┣─👤Usuário ► edevaldoceuazul
+┣─🔒Senha ► 47859652
+┣─🟢Status ► Online
+┣─🗓️Criado ► 08/11/2021
+┣─⏳Expira ► 19/03/2026
+┣─⌛Dias Restantes ► 2 dias
+┣─📶Conexões Ativas ► 0
+┣─📊Conexōes Máximas ► 1
+┣─🔗Link M3u⭏
+┃ ► http://stmax.top:80/get.php?username=edevaldoceuazul&password=47859652&type=m3u_plus&output=ts
+┣─📄Combo ► Combo_Online3
+┣─👽Hits Por ► ApkBugado
+┣─⏱️Scan ► 07:30:12 ⁃ 17/03/2026
+┗●▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+┏●-•~¹°”ˆ˜¨ 𝙏𝙤𝙥 𝙎𝙘𝙖𝙣𝙣𝙚𝙧 ¨˜ˆ”°¹~•-
+┣─🌐Host ► http://stmax.top:80
+┣─📍IP do Host ► 172.67.156.128
+┣─🗺️Região ► Toronto, Canada 🇨🇦
+┣─🏢Hospedagem ► Cloudflare, Inc.
+┣─👤Usuário ► Egna85041897
+┣─🔒Senha ► Zyg729Frd
+┣─🟢Status ► Online
+┣─🗓️Criado ► 28/08/2022
+┣─⏳Expira ► 28/03/2026
+┣─⌛Dias Restantes ► 11 dias
+┣─📶Conexões Ativas ► 1
+┣─📊Conexōes Máximas ► 1
+┣─🔗Link M3u⭏
+┃ ► http://stmax.top:80/get.php?username=Egna85041897&password=Zyg729Frd&type=m3u_plus&output=ts
+┣─📄Combo ► Combo_Online3
+┣─👽Hits Por ► ApkBugado
+┣─⏱️Scan ► 07:31:58 ⁃ 17/03/2026
+┗●▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+┏●-•~¹°”ˆ˜¨ 𝙏𝙤𝙥 𝙎𝙘𝙖𝙣𝙣𝙚𝙧 ¨˜ˆ”°¹~•-
+┣─🌐Host ► http://stmax.top:80
+┣─📍IP do Host ► 172.67.156.128
+┣─🗺️Região ► Toronto, Canada 🇨🇦
+┣─🏢Hospedagem ► Cloudflare, Inc.
+┣─👤Usuário ► adilsoncarlos39
+┣─🔒Senha ► Ppan095722
+┣─🟢Status ► Online
+┣─🗓️Criado ► 08/03/2025
+┣─⏳Expira ► 08/04/2026
+┣─⌛Dias Restantes ► 22 dias
+┣─📶Conexões Ativas ► 1
+┣─📊Conexōes Máximas ► 1
+┣─🔗Link M3u⭏
+┃ ► http://stmax.top:80/get.php?username=adilsoncarlos39&password=Ppan095722&type=m3u_plus&output=ts
+┣─📄Combo ► Combo_Online3
+┣─👽Hits Por ► ApkBugado
+┣─⏱️Scan ► 07:32:36 ⁃ 17/03/2026
+┗●▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+┏●-•~¹°”ˆ˜¨ 𝙏𝙤𝙥 𝙎𝙘𝙖𝙣𝙣𝙚𝙧 ¨˜ˆ”°¹~•-
+┣─🌐Host ► http://stmax.top:80
+┣─📍IP do Host ► 172.67.156.128
+┣─🗺️Região ► Toronto, Canada 🇨🇦
+┣─🏢Hospedagem ► Cloudflare, Inc.
+┣─👤Usuário ► mmZBDs
+┣─🔒Senha ► nQ7FGz
+┣─🟢Status ► Online
+┣─🗓️Criado ► 20/06/2024
+┣─⏳Expira ► 23/03/2026
+┣─⌛Dias Restantes ► 5 dias
+┣─📶Conexões Ativas ► 0
+┣─📊Conexōes Máximas ► 1
+┣─🔗Link M3u⭏
+┃ ► http://stmax.top:80/get.php?username=mmZBDs&password=nQ7FGz&type=m3u_plus&output=ts
+┣─📄Combo ► Combo_Online3
+┣─👽Hits Por ► ApkBugado
+┣─⏱️Scan ► 07:32:50 ⁃ 17/03/2026
+┗●▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+┏●-•~¹°”ˆ˜¨ 𝙏𝙤𝙥 𝙎𝙘𝙖𝙣𝙣𝙚𝙧 ¨˜ˆ”°¹~•-
+┣─🌐Host ► http://stmax.top:80
+┣─📍IP do Host ► 172.67.156.128
+┣─🗺️Região ► Toronto, Canada 🇨🇦
+┣─🏢Hospedagem ► Cloudflare, Inc.
+┣─👤Usuário ► QjytIp
+┣─🔒Senha ► jxXW05
+┣─🟢Status ► Online
+┣─🗓️Criado ► 28/10/2024
+┣─⏳Expira ► 01/04/2026
+┣─⌛Dias Restantes ► 15 dias
+┣─📶Conexões Ativas ► 0
+┣─📊Conexōes Máximas ► 1
+┣─🔗Link M3u⭏
+┃ ► http://stmax.top:80/get.php?username=QjytIp&password=jxXW05&type=m3u_plus&output=ts
+┣─📄Combo ► Combo_Online3
+┣─👽Hits Por ► ApkBugado
+┣─⏱️Scan ► 07:35:15 ⁃ 17/03/2026
+┗●▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+┏●-•~¹°”ˆ˜¨ 𝙏𝙤𝙥 𝙎𝙘𝙖𝙣𝙣𝙚𝙧 ¨˜ˆ”°¹~•-
+┣─🌐Host ► http://stmax.top:80
+┣─📍IP do Host ► 172.67.156.128
+┣─🗺️Região ► Toronto, Canada 🇨🇦
+┣─🏢Hospedagem ► Cloudflare, Inc.
+┣─👤Usuário ► CvkKCt
+┣─🔒Senha ► TbCvjD
+┣─🟢Status ► Online
+┣─🗓️Criado ► 23/10/2024
+┣─⏳Expira ► 08/04/2026
+┣─⌛Dias Restantes ► 22 dias
+┣─📶Conexões Ativas ► 0
+┣─📊Conexōes Máximas ► 1
+┣─🔗Link M3u⭏
+┃ ► http://stmax.top:80/get.php?username=CvkKCt&password=TbCvjD&type=m3u_plus&output=ts
+┣─📄Combo ► Combo_Online3
+┣─👽Hits Por ► ApkBugado
+┣─⏱️Scan ► 07:35:28 ⁃ 17/03/2026
+┗●▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+┏●-•~¹°”ˆ˜¨ 𝙏𝙤𝙥 𝙎𝙘𝙖𝙣𝙣𝙚𝙧 ¨˜ˆ”°¹~•-
+┣─🌐Host ► http://stmax.top:80
+┣─📍IP do Host ► 172.67.156.128
+┣─🗺️Região ► Toronto, Canada 🇨🇦
+┣─🏢Hospedagem ► Cloudflare, Inc.
+┣─👤Usuário ► fulano100200
+┣─🔒Senha ► tvbox300400
+┣─🟢Status ► Online
+┣─🗓️Criado ► 18/09/2024
+┣─⏳Expira ► 18/03/2026
+┣─⌛Dias Restantes ► 1 dias
+┣─📶Conexões Ativas ► 1
+┣─📊Conexōes Máximas ► 1
+┣─🔗Link M3u⭏
+┃ ► http://stmax.top:80/get.php?username=fulano100200&password=tvbox300400&type=m3u_plus&output=ts
+┣─📄Combo ► Combo_Online3
+┣─👽Hits Por ► ApkBugado
+┣─⏱️Scan ► 07:36:54 ⁃ 17/03/2026
+┗●▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+┏●-•~¹°”ˆ˜¨ 𝙏𝙤𝙥 𝙎𝙘𝙖𝙣𝙣𝙚𝙧 ¨˜ˆ”°¹~•-
+┣─🌐Host ► http://stmax.top:80
+┣─📍IP do Host ► 172.67.156.128
+┣─🗺️Região ► Toronto, Canada 🇨🇦
+┣─🏢Hospedagem ► Cloudflare, Inc.
+┣─👤Usuário ► 1cGGtx
+┣─🔒Senha ► 9zaMMC
+┣─🟢Status ► Online
+┣─🗓️Criado ► 26/12/2023
+┣─⏳Expira ► 26/03/2026
+┣─⌛Dias Restantes ► 9 dias
+┣─📶Conexões Ativas ► 1
+┣─📊Conexōes Máximas ► 1
+┣─🔗Link M3u⭏
+┃ ► http://stmax.top:80/get.php?username=1cGGtx&password=9zaMMC&type=m3u_plus&output=ts
+┣─📄Combo ► Combo_Online3
+┣─👽Hits Por ► ApkBugado
+┣─⏱️Scan ► 07:38:44 ⁃ 17/03/2026
+┗●▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+┏●-•~¹°”ˆ˜¨ 𝙏𝙤𝙥 𝙎𝙘𝙖𝙣𝙣𝙚𝙧 ¨˜ˆ”°¹~•-
+┣─🌐Host ► http://stmax.top:80
+┣─📍IP do Host ► 172.67.156.128
+┣─🗺️Região ► Toronto, Canada 🇨🇦
+┣─🏢Hospedagem ► Cloudflare, Inc.
+┣─👤Usuário ► jJNtWr
+┣─🔒Senha ► vbhnqH
+┣─🟢Status ► Online
+┣─🗓️Criado ► 10/07/2024
+┣─⏳Expira ► 09/08/2027
+┣─⌛Dias Restantes ► 510 dias
+┣─📶Conexões Ativas ► 1
+┣─📊Conexōes Máximas ► 1
+┣─🔗Link M3u⭏
+┃ ► http://stmax.top:80/get.php?username=jJNtWr&password=vbhnqH&type=m3u_plus&output=ts
+┣─📄Combo ► Combo_Online3
+┣─👽Hits Por ► ApkBugado
+┣─⏱️Scan ► 07:40:47 ⁃ 17/03/2026
+┗●▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+┏●-•~¹°”ˆ˜¨ 𝙏𝙤𝙥 𝙎𝙘𝙖𝙣𝙣𝙚𝙧 ¨˜ˆ”°¹~•-
+┣─🌐Host ► http://stmax.top:80
+┣─📍IP do Host ► 172.67.156.128
+┣─🗺️Região ► Toronto, Canada 🇨🇦
+┣─🏢Hospedagem ► Cloudflare, Inc.
+┣─👤Usuário ► Thiago462962
+┣─🔒Senha ► Gomes6395293
+┣─🟢Status ► Online
+┣─🗓️Criado ► 12/08/2023
+┣─⏳Expira ► 15/04/2026
+┣─⌛Dias Restantes ► 29 dias
+┣─📶Conexões Ativas ► 0
+┣─📊Conexōes Máximas ► 1
+┣─🔗Link M3u⭏
+┃ ► http://stmax.top:80/get.php?username=Thiago462962&password=Gomes6395293&type=m3u_plus&output=ts
+┣─📄Combo ► Combo_Online3
+┣─👽Hits Por ► ApkBugado
+┣─⏱️Scan ► 07:47:11 ⁃ 17/03/2026
+┗●▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+┏●-•~¹°”ˆ˜¨ 𝙏𝙤𝙥 𝙎𝙘𝙖𝙣𝙣𝙚𝙧 ¨˜ˆ”°¹~•-
+┣─🌐Host ► http://stmax.top:80
+┣─📍IP do Host ► 172.67.156.128
+┣─🗺️Região ► Toronto, Canada 🇨🇦
+┣─🏢Hospedagem ► Cloudflare, Inc.
+┣─👤Usuário ► YN1YkD
+┣─🔒Senha ► A9TfDq
+┣─🟢Status ► Online
+┣─🗓️Criado ► 14/07/2024
+┣─⏳Expira ► 07/04/2026
+┣─⌛Dias Restantes ► 21 dias
+┣─📶Conexões Ativas ► 0
+┣─📊Conexōes Máximas ► 1
+┣─🔗Link M3u⭏
+┃ ► http://stmax.top:80/get.php?username=YN1YkD&password=A9TfDq&type=m3u_plus&output=ts
+┣─📄Combo ► Combo_Online3
+┣─👽Hits Por ► ApkBugado
+┣─⏱️Scan ► 07:49:50 ⁃ 17/03/2026
+┗●▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+┏●-•~¹°”ˆ˜¨ 𝙏𝙤𝙥 𝙎𝙘𝙖𝙣𝙣𝙚𝙧 ¨˜ˆ”°¹~•-
+┣─🌐Host ► http://stmax.top:80
+┣─📍IP do Host ► 172.67.156.128
+┣─🗺️Região ► Toronto, Canada 🇨🇦
+┣─🏢Hospedagem ► Cloudflare, Inc.
+┣─👤Usuário ► lucas6043
+┣─🔒Senha ► px2926br
+┣─🟢Status ► Online
+┣─🗓️Criado ► 04/02/2022
+┣─⏳Expira ► 26/03/2026
+┣─⌛Dias Restantes ► 9 dias
+┣─📶Conexões Ativas ► 0
+┣─📊Conexōes Máximas ► 1
+┣─🔗Link M3u⭏
+┃ ► http://stmax.top:80/get.php?username=lucas6043&password=px2926br&type=m3u_plus&output=ts
+┣─📄Combo ► Combo_Online3
+┣─👽Hits Por ► ApkBugado
+┣─⏱️Scan ► 07:50:58 ⁃ 17/03/2026
+┗●▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+
+-•~¹°”ˆ˜¨ 𝙏𝙤𝙥 𝙎𝙘𝙖𝙣𝙣𝙚𝙧 ¨˜ˆ”°¹~•-
+┣─🌐Host ► http://p2s.shrs.dad:80
+┣─📍IP do Host ► 172.67.129.81
+┣─🗺️Região ► Toronto, Canada 🇨🇦
+┣─🏢Hospedagem ► Cloudflare, Inc.
+┣─👤Usuário ► 117626960
+┣─🔒Senha ► 668876451
+┣─🟢Status ► Online
+┣─🗓️Criado ► 04/02/2026
+┣─⏳Expira ► 24/03/2026
+┣─⌛Dias Restantes ► 21 dias
+┣─📶Conexões Ativas ► 3
+┣─📊Conexōes Máximas ► 2
+┣─🔗Link M3u⭏
+┃ ► http://p2s.shrs.dad:80/get.php?username=117626960&password=668876451&type=m3u_plus&output=ts
+┣─📄Combo ► Combo_Online1
+┣─👽Hits Por ► ApkBugado
+┣─⏱️Scan ► 19:12:51 ⁃ 03/03/2026
+
+-•~¹°”ˆ˜¨ 𝙏𝙤𝙥 𝙎𝙘𝙖𝙣𝙣𝙚𝙧 ¨˜ˆ”°¹~•-
+┣─🌐Host ► http://astrm.online:80
+┣─📍IP do Host ► 172.67.173.149
+┣─🗺️Região ► Toronto, Canada 🇨🇦
+┣─🏢Hospedagem ► Cloudflare, Inc.
+┣─👤Usuário ► 5518997505280
+┣─🔒Senha ► ZQX8oNjL
+┣─🟢Status ► Online
+┣─🗓️Criado ► 21/01/2026
+┣─⏳Expira ► 21/07/2026
+┣─⌛Dias Restantes ► 151 dias
+┣─📶Conexões Ativas ► 0
+┣─📊Conexōes Máximas ► 1
+┣─🔗Link M3u⭏
+┃ ► http://astrm.online:80/get.php?username=5518997505280&password=ZQX8oNjL&type=m3u_plus&output=ts
+
+
+
 
 
 

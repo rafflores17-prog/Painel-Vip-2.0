@@ -225,7 +225,8 @@ async function exibirResultado(){
 
     let status = teste.online ? "ONLINE ✅" : "OFFLINE ❌";
     let velocidade = classificarVelocidade(teste.tempo);
-
+    let statusReal = traduzirStatus(teste.statusReal);
+    
     out.innerHTML = `
         <div class="box">
             <div class="label blue">📡 STATUS</div>

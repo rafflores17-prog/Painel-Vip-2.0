@@ -19,7 +19,7 @@ input{width:100%;padding:15px;border-radius:12px;border:1px solid #111;backgroun
 .grid{display:flex;gap:10px;}
 .status{margin-top:10px;font-size:11px;background:#000;padding:12px;border-radius:10px;height:90px;overflow-y:auto;}
 #out{display:none;margin-top:15px;}
-.box{background:#111;padding:12px;border-radius:10px;margin-bottom:8px;}
+.box{background:#111;padding:12px;border-radius:10px;margin-bottom:8px;border:1px solid #222;}
 .label{font-size:10px;}
 .val{font-size:13px;word-break:break-all;}
 .row{display:flex;gap:10px;}
@@ -61,11 +61,11 @@ input{width:100%;padding:15px;border-radius:12px;border:1px solid #111;backgroun
 
 <script>
 
-// ================= VARIÁVEIS =================
+// ===== VARIÁVEIS =====
 let listaContas = [];
 let processando = false;
 
-// ================= LOGIN =================
+// ===== LOGIN =====
 async function logar(){
     const senha = document.getElementById("senha").value.trim();
 
@@ -85,7 +85,7 @@ async function logar(){
     }
 }
 
-// ================= CARREGAR LISTA =================
+// ===== LISTA =====
 async function carregarLista(){
 
     let log = document.getElementById("statusLog");
@@ -102,6 +102,7 @@ async function carregarLista(){
             let u = b.match(/Usu[aá]rio[^\d]*(\d{4,})/i);
             let p = b.match(/Senha[^\d]*(\d{4,})/i);
             let v = b.match(/(?:Validade|Vencimento|Expira|EXPIRA|Exp|📅|⏳)[^\d]*([\d\/:\s]{8,})/i);
+
             if(h && u && p){
 
                 if(h[1].includes("t.me")) return null;
@@ -110,28 +111,28 @@ async function carregarLista(){
                     host: h[1].trim().replace(/\/$/, ""),
                     user: u[1].trim(),
                     pass: p[1].trim(),
-                    validade: v ? v[1].trim() : "DESCONHECIDA"
+                    validade: v ? v[1].trim() : "ILIMITADA"
                 };
             }
 
         }).filter(Boolean);
 
-        log.innerHTML = `✔ ${listaContas.length} contas carregadas`;
+        log.innerHTML = `<span style="color:#00ff9c">✔ ${listaContas.length} contas carregadas</span>`;
 
     }catch{
         log.innerHTML = "Erro ao carregar lista";
     }
 }
 
-// ================= GERAR =================
+// ===== GERAR =====
 function startGerar(){
-    
-document.getElementById("out").style.display = "none";
-document.getElementById("out").innerHTML = "";
-    
+
     if(processando || listaContas.length === 0) return;
 
     processando = true;
+
+    document.getElementById("out").style.display = "none";
+    document.getElementById("out").innerHTML = "";
 
     let log = document.getElementById("statusLog");
     log.innerHTML = "";
@@ -149,7 +150,7 @@ document.getElementById("out").innerHTML = "";
 
     let interval = setInterval(()=>{
         if(i < etapas.length){
-            log.innerHTML += etapas[i]+"<br>";
+            log.innerHTML += `<span style="color:#00ff9c">${etapas[i]}</span><br>`;
             i++;
         }else{
             clearInterval(interval);
@@ -158,10 +159,16 @@ document.getElementById("out").innerHTML = "";
     }, 400);
 }
 
-// ================= RESULTADO =================
+// ===== RESULTADO =====
 function exibir(){
 
     let c = listaContas[Math.floor(Math.random()*listaContas.length)];
+
+    if(!c || !c.host || !c.user || !c.pass){
+        alert("Erro ao gerar conta.");
+        processando = false;
+        return;
+    }
 
     let m3u = `${c.host}/get.php?username=${c.user}&password=${c.pass}&type=m3u_plus&output=ts`;
 
@@ -177,11 +184,10 @@ function exibir(){
     `;
 
     document.getElementById("out").style.display="block";
-    document.getElementById("btnGerar").innerText="🚀 GERAR ACESSO";
     processando = false;
 }
 
-// ================= COPIAR =================
+// ===== COPIAR =====
 function copiar(){
     let t = document.getElementById("copy-target");
     if(!t) return alert("Gere primeiro");

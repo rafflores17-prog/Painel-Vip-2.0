@@ -101,8 +101,7 @@ async function carregarLista(){
             let h = b.match(/Host\s*(?:►|:|➨)\s*(https?:\/\/[^\s\n\r]+)/i);
             let u = b.match(/Usu[aá]rio[^\d]*(\d{4,})/i);
             let p = b.match(/Senha[^\d]*(\d{4,})/i);
-            let v = b.match(/(?:Expira|Validade)[^\n\r]*([0-9\/:\s]+)/i);
-
+            let v = b.match(/(?:Validade|Vencimento|Expira|EXPIRA|Exp|📅|⏳)[^\d]*([\d\/:\s]{8,})/i);
             if(h && u && p){
 
                 if(h[1].includes("t.me")) return null;
@@ -111,7 +110,7 @@ async function carregarLista(){
                     host: h[1].trim().replace(/\/$/, ""),
                     user: u[1].trim(),
                     pass: p[1].trim(),
-                    validade: v ? v[1].trim() : "NÃO INFORMADA"
+                    validade: v ? v[1].trim() : "DESCONHECIDA"
                 };
             }
 

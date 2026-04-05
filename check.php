@@ -1,30 +1,32 @@
 <?php
-// Libera o acesso para o Vercel
-header("Access-Control-Allow-Origin: *");
-header("Content-Type: application/json");
+header('Content-Type: application/json');
 
-$url = $_GET['url'] ?? '';
+$host = $_GET['host'];
+$user = $_GET['user'];
+$pass = $_GET['pass'];
 
-if (!$url) {
-    echo json_encode(["status" => "erro"]);
-    exit;
-}
+$url = "$host/player_api.php?username=$user&password=$pass";
 
-// Configuração de teste real
-$ch = curl_init($url);
-curl_setopt($ch, CURLOPT_NOBODY, true); // Não baixa o vídeo, só testa o link
-curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, $url);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_TIMEOUT, 5); // Espera 5 segundos
-curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+curl_setopt($ch, CURLOPT_TIMEOUT, 5);
 
-curl_exec($ch);
-$code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+$response = curl_exec($ch);
+$httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+$time = curl_getinfo($ch, CURLINFO_TOTAL_TIME);
+
 curl_close($ch);
 
-// Se o servidor responder 200 OK, a lista está viva
-if ($code == 200) {
-    echo json_encode(["status" => "online"]);
+if($httpCode == 200 && $response){
+    echo json_encode([
+        "online" => true,
+        "tempo" => round($time * 1000)
+    ]);
 } else {
-    echo json_encode(["status" => "offline"]);
+    echo json_encode([
+        "online" => false,
+        "tempo" => null
+    ]);
 }
+?>

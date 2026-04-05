@@ -22,7 +22,6 @@ input{width:100%;padding:15px;border-radius:12px;border:1px solid #111;backgroun
 #ads-area{margin:15px 0; text-align:center; min-height: 60px; display: flex; flex-direction: column; align-items: center; justify-content: center;}
 #out{display:none;margin-top:15px; animation: fadeIn 0.5s;}
 
-/* CREDENCIAIS FORMATADAS */
 .box{background:#111;padding:12px;border-radius:10px;margin-bottom:8px; border: 1px solid #222;}
 .label{font-size:10px; font-weight: bold; margin-bottom: 4px; text-transform: uppercase; display: flex; align-items: center; gap: 5px;}
 .val{font-size:13px;word-break:break-all; font-family: 'Share Tech Mono';}
@@ -98,25 +97,33 @@ async function carregarLista(){
     try {
         let r = await fetch("https://raw.githubusercontent.com/rafflores17-prog/Painel-Vip-2.0/main/listas.txt?" + Date.now());
         let txt = await r.text();
-        let blocos = txt.split(/┏●/).filter(b => b.includes("Host"));
+        
+        // Split flexível para aceitar os diferentes separadores do arquivo
+        let blocos = txt.split(/(?:┏●|━──────|─•~¹°)/).filter(b => b.includes("Host") || b.includes("ʜᴏsᴛ"));
         
         listaContas = blocos.map(b => {
-            let h = b.match(/Host\s*►\s*(https?:\/\/[^\s\n\r]+)/i);
-            let u = b.match(/Usuário\s*►\s*([^\s\n\r]+)/i);
-            let p = b.match(/Senha\s*►\s*([^\s\n\r]+)/i);
-            let v = b.match(/Validade\s*►\s*([^\s\n\r]+)/i) || b.match(/Expira\s*►\s*([^\s\n\r]+)/i);
-            if(h && u && p) return { 
-                host: h[1].trim().replace(/\/$/, ""), 
-                user: u[1].trim(), 
-                pass: p[1].trim(),
-                validade: v ? v[1].trim() : "ILIMITADA"
-            };
+            // Captura Hosts, Usuários e Senhas mesmo com fontes diferentes (ʜᴏsᴛ, ᴜsᴜᴀʀɪᴏ) ou emojis
+            let h = b.match(/(?:Host|ʜᴏsᴛ|🌐\s*Host)\s*(?:►|:|➨)\s*(https?:\/\/[^\s\n\r]+)/i);
+            let u = b.match(/(?:Usuário|ᴜsᴜᴀʀɪᴏ|👤\s*ᴜsᴜᴀʀɪᴏ|👤\s*Usuário)\s*(?:►|:|➨)\s*([^\s\n\r]+)/i);
+            let p = b.match(/(?:Senha|sᴇɴʜᴀ|🔑\s*sᴇɴʜᴀ|🔐\s*Senha|🔒\s*Senha)\s*(?:►|:|➨)\s*([^\s\n\r]+)/i);
+            let v = b.match(/(?:Validade|Expira|ᴇxᴘɪʀᴀ|📅\s*ᴇxᴘɪʀᴀ|⏳\s*Expira)\s*(?:►|:|➨)\s*([^\s\n\r]+)/i);
+
+            if(h && u && p) {
+                return { 
+                    host: h[1].trim().replace(/\/$/, ""), 
+                    user: u[1].trim(), 
+                    pass: p[1].trim(),
+                    validade: v ? v[1].trim() : "ILIMITADA"
+                };
+            }
         }).filter(x => x);
 
         const servidoresUnicos = [...new Set(listaContas.map(item => item.host))];
-        log.innerHTML = "✔ Sistema pronto!<br>✔ Banco de dados carregado.";
+        log.innerHTML = `✔ Sistema pronto!<br>✔ ${listaContas.length} contas carregadas.`;
         countDiv.innerHTML = servidoresUnicos.length + " SERVIDORES ÚNICOS ATIVOS"; 
-    } catch(e) { log.innerHTML = "❌ Erro ao ler listas.txt."; }
+    } catch(e) { 
+        log.innerHTML = "❌ Erro ao ler listas.txt."; 
+    }
 }
 
 function startGerar(){
@@ -125,10 +132,8 @@ function startGerar(){
     document.getElementById("out").style.display = "none"; 
     document.getElementById("btnGerar").innerText = "⏳ PROCESSANDO...";
     
-    // MELHORIA DE ANÚNCIO: Abre em nova aba e mantém o app logado
     if(!adsAberto) {
         const urlAds = "https://encouragingjawsordinarily.com/wazwpzwvxa?key=20c27c4105f08438a698b55802257507";
-        // Cria um link invisível para forçar o sistema a abrir fora do Webview
         const a = document.createElement("a");
         a.href = urlAds;
         a.target = "_blank";

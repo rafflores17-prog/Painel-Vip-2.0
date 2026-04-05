@@ -99,8 +99,8 @@ async function carregarLista(){
         listaContas = blocos.map(b => {
 
             let h = b.match(/Host\s*(?:►|:|➨)\s*(https?:\/\/[^\s\n\r]+)/i);
-            let u = b.match(/Usu[aá]rio[^\d]*(\d{4,})/i);
-            let p = b.match(/Senha[^\d]*(\d{4,})/i);
+            let u = b.match(/Usu[aá]rio\s*(?:►|:|➨)\s*([^\n\r]+)/i);
+            let p = b.match(/Senha\s*(?:►|:|➨)\s*([^\n\r]+)/i);
             let v = b.match(/(?:Validade|Vencimento|Expira|EXPIRA|Exp|📅|⏳)[^\d]*([\d\/:\s]{8,})/i);
 
             if(h && u && p){
@@ -109,16 +109,20 @@ async function carregarLista(){
 
                 return {
                     host: h[1].trim().replace(/\/$/, ""),
-                    user: u[1].trim(),
-                    pass: p[1].trim(),
-                    validade: v ? v[1].trim() : "ILIMITADA"
+                    user: u[1].trim().replace(/[^\w@.\-]/g, ""),
+                    pass: p[1].trim().replace(/[^\w@.\-]/g, ""),
+                    validade: v ? v[1].trim() : "DESCONHECIDO"
                 };
             }
 
         }).filter(Boolean);
 
-        log.innerHTML = `<span style="color:#00ff9c">✔ ${listaContas.length} contas carregadas</span>`;
+        const hostsUnicos = [...new Set(listaContas.map(i => i.host))];
 
+         log.innerHTML = `
+         <span style="color:#00ff9c">✔ ${listaContas.length} CONTAS CARREGADAS</span><br>
+         <span style="color:#00d2ff">🌐 ${hostsUnicos.length} HOSTS ÚNICOS</span>
+`;
     }catch{
         log.innerHTML = "Erro ao carregar lista";
     }

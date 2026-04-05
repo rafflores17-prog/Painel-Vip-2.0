@@ -125,7 +125,10 @@ async function carregarLista(){
 
 // ================= GERAR =================
 function startGerar(){
-
+    
+document.getElementById("out").style.display = "none";
+document.getElementById("out").innerHTML = "";
+    
     if(processando || listaContas.length === 0) return;
 
     processando = true;

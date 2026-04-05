@@ -13,9 +13,10 @@ body{background:#050505;color:#fff;font-family:'Share Tech Mono', monospace;disp
 .title{text-align:center;font-family:'Orbitron';color:#00ff9c;margin-bottom:20px;}
 input{width:100%;padding:15px;border-radius:12px;border:1px solid #111;background:#000;color:#00ff9c;text-align:center;margin-bottom:10px;}
 .btn{width:100%;padding:15px;border:none;border-radius:12px;cursor:pointer;margin-top:10px;font-family:'Orbitron';}
-.vip{background:#bc13fe;}
-.free{background:#00d2ff;}
-.main{background:#00ff9c;color:#000;}
+.vip{background:linear-gradient(135deg,#bc13fe,#7a00aa);}
+.free{background:linear-gradient(135deg,#00d2ff,#006a80);}
+.main{background:linear-gradient(135deg,#00ff9c,#008f58);color:#000;}
+.grid{display:flex;gap:10px;}
 .status{margin-top:10px;font-size:11px;background:#000;padding:12px;border-radius:10px;height:90px;overflow-y:auto;}
 #out{display:none;margin-top:15px;}
 .box{background:#111;padding:12px;border-radius:10px;margin-bottom:8px;}
@@ -32,16 +33,27 @@ input{width:100%;padding:15px;border-radius:12px;border:1px solid #111;backgroun
 <div class="title">GERADOR VIP IPTV PRO</div>
 
 <div id="login">
-<input type="password" id="senha" placeholder="CHAVE">
-<button class="btn main" onclick="logar()">ENTRAR</button>
+<input type="password" id="senha" placeholder="CHAVE DE ACESSO">
+<button class="btn main" onclick="logar()">ENTRAR NO PAINEL</button>
+
+<div style="margin-top:20px;border-top:1px solid #222;padding-top:10px;">
+<div class="grid">
+<a href="https://rafflores17-prog.github.io/vip-apk/" target="_blank">
+<button class="btn vip">💎 ADQUIRIR VIP</button>
+</a>
+<a href="https://t.me/ApkBugado" target="_blank">
+<button class="btn free">📢 GRUPO FREE</button>
+</a>
+</div>
+</div>
 </div>
 
 <div id="painel" style="display:none;">
 
-<button class="btn main" id="btnGerar" onclick="startGerar()">GERAR</button>
-<button class="btn" onclick="copiar()">COPIAR</button>
+<button class="btn main" id="btnGerar" onclick="startGerar()">🚀 GERAR ACESSO</button>
+<button class="btn" onclick="copiar()">📋 COPIAR DADOS</button>
 
-<div class="status" id="statusLog">Aguardando...</div>
+<div class="status" id="statusLog">Aguardando comando...</div>
 <div id="out"></div>
 
 </div>
@@ -55,53 +67,61 @@ let processando = false;
 
 // ================= LOGIN =================
 async function logar(){
-    const senha = document.getElementById("senha").value;
+    const senha = document.getElementById("senha").value.trim();
 
-    let r = await fetch("config.json");
-    let cfg = await r.json();
+    try{
+        let r = await fetch("config.json?" + Date.now());
+        let cfg = await r.json();
 
-    if(senha === cfg.chave_mestre){
-        document.getElementById("login").style.display="none";
-        document.getElementById("painel").style.display="block";
-        carregarLista();
-    } else {
-        alert("Senha errada");
+        if(senha === cfg.chave_mestre){
+            document.getElementById("login").style.display="none";
+            document.getElementById("painel").style.display="block";
+            carregarLista();
+        }else{
+            alert("Chave incorreta!");
+        }
+    }catch{
+        alert("Erro ao carregar config.json");
     }
 }
 
-// ================= LISTA =================
+// ================= CARREGAR LISTA =================
 async function carregarLista(){
 
-    let r = await fetch("https://raw.githubusercontent.com/rafflores17-prog/Painel-Vip-2.0/main/listas.txt");
-    let txt = await r.text();
+    let log = document.getElementById("statusLog");
 
-    let blocos = txt.split(/━|┏|─/);
+    try{
+        let r = await fetch("https://raw.githubusercontent.com/rafflores17-prog/Painel-Vip-2.0/main/listas.txt?" + Date.now());
+        let txt = await r.text();
 
-    listaContas = [];
+        let blocos = txt.split(/(?:┏●|━──────|─•~¹°)/);
 
-    blocos.forEach(b => {
+        listaContas = blocos.map(b => {
 
-        let host = b.match(/Host.*?(https?:\/\/[^\s]+)/i);
-        let user = b.match(/Usu[aá]rio.*?(\d+)/i);
-        let pass = b.match(/Senha.*?(\d+)/i);
-        let validade = b.match(/Expira.*?([0-9\/:\s]+)/i);
+            let h = b.match(/Host\s*(?:►|:|➨)\s*(https?:\/\/[^\s\n\r]+)/i);
+            let u = b.match(/Usu[aá]rio[^\d]*(\d{4,})/i);
+            let p = b.match(/Senha[^\d]*(\d{4,})/i);
+            let v = b.match(/(?:Expira|Validade)[^\n\r]*([0-9\/:\s]+)/i);
 
-        if(host && user && pass){
+            if(h && u && p){
 
-            // ignora lixo
-            if(host[1].includes("t.me")) return;
+                if(h[1].includes("t.me")) return null;
 
-            listaContas.push({
-                host: host[1],
-                user: user[1],
-                pass: pass[1],
-                validade: validade ? validade[1] : "NÃO INFORMADA"
-            });
-        }
-    });
+                return {
+                    host: h[1].trim().replace(/\/$/, ""),
+                    user: u[1].trim(),
+                    pass: p[1].trim(),
+                    validade: v ? v[1].trim() : "NÃO INFORMADA"
+                };
+            }
 
-    document.getElementById("statusLog").innerHTML =
-    "✔ "+listaContas.length+" contas carregadas";
+        }).filter(Boolean);
+
+        log.innerHTML = `✔ ${listaContas.length} contas carregadas`;
+
+    }catch{
+        log.innerHTML = "Erro ao carregar lista";
+    }
 }
 
 // ================= GERAR =================
@@ -115,10 +135,12 @@ function startGerar(){
     log.innerHTML = "";
 
     let etapas = [
-        "Escaneando...",
-        "Testando...",
-        "Validando...",
-        "Finalizando..."
+        "🔍 Escaneando servidor...",
+        "📡 Testando resposta...",
+        "🔐 Validando credenciais...",
+        "⚡ Medindo latência...",
+        "🧠 Classificando qualidade...",
+        "✅ Finalizando..."
     ];
 
     let i = 0;
@@ -127,7 +149,7 @@ function startGerar(){
         if(i < etapas.length){
             log.innerHTML += etapas[i]+"<br>";
             i++;
-        } else {
+        }else{
             clearInterval(interval);
             exibir();
         }
@@ -139,21 +161,21 @@ function exibir(){
 
     let c = listaContas[Math.floor(Math.random()*listaContas.length)];
 
-    let m3u = c.host+"/get.php?username="+c.user+"&password="+c.pass+"&type=m3u_plus&output=ts";
+    let m3u = `${c.host}/get.php?username=${c.user}&password=${c.pass}&type=m3u_plus&output=ts`;
 
     document.getElementById("out").innerHTML = `
-    <div class="box"><div class="label">STATUS</div><div class="val">ONLINE</div></div>
-    <div class="box"><div class="label">M3U</div><div class="val" id="copy-target">${m3u}</div></div>
-    <div class="box"><div class="label">HOST</div><div class="val">${c.host}</div></div>
+    <div class="box"><div class="label">📡 STATUS</div><div class="val">ONLINE ✅</div></div>
+    <div class="box"><div class="label">🔗 LINK M3U</div><div class="val" id="copy-target">${m3u}</div></div>
+    <div class="box"><div class="label">🌐 HOST</div><div class="val">${c.host}</div></div>
     <div class="row">
-    <div class="box col"><div class="label">USER</div><div class="val">${c.user}</div></div>
-    <div class="box col"><div class="label">PASS</div><div class="val">${c.pass}</div></div>
+    <div class="box col"><div class="label">👤 USUÁRIO</div><div class="val">${c.user}</div></div>
+    <div class="box col"><div class="label">🔑 SENHA</div><div class="val">${c.pass}</div></div>
     </div>
-    <div class="box"><div class="label">VALIDADE</div><div class="val">${c.validade}</div></div>
+    <div class="box"><div class="label">📅 VALIDADE</div><div class="val">${c.validade}</div></div>
     `;
 
     document.getElementById("out").style.display="block";
-    document.getElementById("btnGerar").innerText="GERAR";
+    document.getElementById("btnGerar").innerText="🚀 GERAR ACESSO";
     processando = false;
 }
 
@@ -163,7 +185,7 @@ function copiar(){
     if(!t) return alert("Gere primeiro");
 
     navigator.clipboard.writeText(t.innerText);
-    alert("Copiado");
+    alert("Copiado!");
 }
 
 </script>

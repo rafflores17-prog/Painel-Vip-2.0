@@ -11,16 +11,18 @@
 body{background:#050505;color:#fff;font-family:'Share Tech Mono', monospace;display:flex;justify-content:center;align-items:center;min-height:100vh;margin:0;padding:10px;}
 .card{width:100%;max-width:420px;background:#0a0a0a;padding:20px;border-radius:20px;box-shadow:0 0 40px #000;border:1px solid #1a1a1a;}
 .title{text-align:center;font-family:'Orbitron';color:#00ff9c;margin-bottom:20px;}
-input{width:100%;padding:15px;border-radius:12px;border:1px solid #111;background:#000;color:#00ff9c;text-align:center;}
-.btn{width:100%;padding:15px;border:none;border-radius:12px;cursor:pointer;font-weight:bold;margin-top:10px;}
+input{width:100%;padding:15px;border-radius:12px;border:1px solid #111;background:#000;color:#00ff9c;text-align:center;margin-bottom:10px;}
+.btn{width:100%;padding:15px;border:none;border-radius:12px;cursor:pointer;margin-top:10px;font-family:'Orbitron';}
+.vip{background:#bc13fe;}
+.free{background:#00d2ff;}
 .main{background:#00ff9c;color:#000;}
 .status{margin-top:10px;font-size:11px;background:#000;padding:12px;border-radius:10px;height:90px;overflow-y:auto;}
+#out{display:none;margin-top:15px;}
 .box{background:#111;padding:12px;border-radius:10px;margin-bottom:8px;}
-.label{font-size:10px;font-weight:bold;margin-bottom:4px;}
+.label{font-size:10px;}
 .val{font-size:13px;word-break:break-all;}
-.green{color:#00ff9c;}
-.white{color:#fff;}
-.purple{color:#bc13fe;}
+.row{display:flex;gap:10px;}
+.col{flex:1;}
 </style>
 </head>
 
@@ -30,149 +32,137 @@ input{width:100%;padding:15px;border-radius:12px;border:1px solid #111;backgroun
 <div class="title">GERADOR VIP IPTV PRO</div>
 
 <div id="login">
-<input type="password" id="senha" placeholder="CHAVE DE ACESSO">
+<input type="password" id="senha" placeholder="CHAVE">
 <button class="btn main" onclick="logar()">ENTRAR</button>
 </div>
 
 <div id="painel" style="display:none;">
+
 <button class="btn main" id="btnGerar" onclick="startGerar()">GERAR</button>
-<button class="btn main" onclick="copiar()" style="background:#333;color:#fff;">COPIAR</button>
+<button class="btn" onclick="copiar()">COPIAR</button>
 
 <div class="status" id="statusLog">Aguardando...</div>
 <div id="out"></div>
-</div>
 
+</div>
 </div>
 
 <script>
 
+// ================= VARIÁVEIS =================
 let listaContas = [];
 let processando = false;
 
 // ================= LOGIN =================
 async function logar(){
-    let senha = document.getElementById("senha").value.trim();
+    const senha = document.getElementById("senha").value;
 
     let r = await fetch("config.json");
-    let c = await r.json();
+    let cfg = await r.json();
 
-    if(senha === c.chave_mestre){
+    if(senha === cfg.chave_mestre){
         document.getElementById("login").style.display="none";
         document.getElementById("painel").style.display="block";
         carregarLista();
-    }else{
+    } else {
         alert("Senha errada");
     }
 }
 
 // ================= LISTA =================
 async function carregarLista(){
-    let log = document.getElementById("statusLog");
 
     let r = await fetch("https://raw.githubusercontent.com/rafflores17-prog/Painel-Vip-2.0/main/listas.txt");
     let txt = await r.text();
 
-    let blocos = txt.split(/(?:┏●|━──────|─•~¹°)/);
+    let blocos = txt.split(/━|┏|─/);
 
-    listaContas = blocos.map(b => {
+    listaContas = [];
 
-        let h = b.match(/https?:\/\/[^\s\n\r]+/);
-        let u = b.match(/Usuário.*?([^\s\n\r]+)/i);
-        let p = b.match(/Senha.*?([^\s\n\r]+)/i);
-        let v = b.match(/(?:Validade|Vencimento|Expira|EXPIRA).*?([^\n\r]+)/i);
+    blocos.forEach(b => {
 
-        if(h && u && p){
-            return {
-                host: h[0].replace(/\/$/, ""),
-                user: u[1],
-                pass: p[1],
-                validade: v ? v[1].replace(/[^0-9\/:\s]/g,"") : "NÃO INFORMADA"
-            };
+        let host = b.match(/Host.*?(https?:\/\/[^\s]+)/i);
+        let user = b.match(/Usu[aá]rio.*?(\d+)/i);
+        let pass = b.match(/Senha.*?(\d+)/i);
+        let validade = b.match(/Expira.*?([0-9\/:\s]+)/i);
+
+        if(host && user && pass){
+
+            // ignora lixo
+            if(host[1].includes("t.me")) return;
+
+            listaContas.push({
+                host: host[1],
+                user: user[1],
+                pass: pass[1],
+                validade: validade ? validade[1] : "NÃO INFORMADA"
+            });
         }
+    });
 
-    }).filter(Boolean);
-
-    log.innerHTML = "Contas carregadas: " + listaContas.length;
-}
-
-// ================= TESTE =================
-async function testarServidor(host,user,pass){
-    try{
-        let r = await fetch(`/api/check?host=${encodeURIComponent(host)}&user=${user}&pass=${pass}`);
-        return await r.json();
-    }catch{
-        return {online:false};
-    }
-}
-
-// ================= HELPERS =================
-function classificarVelocidade(ms){
-    if(ms < 800) return "RÁPIDO ⚡";
-    if(ms < 2000) return "MÉDIO 🟡";
-    return "LENTO 🐢";
-}
-
-function traduzirStatus(s){
-    if(s === "Active") return "ATIVO ✅";
-    if(s === "Banned") return "BANIDO ❌";
-    if(s === "Expired") return "EXPIRADO ⏳";
-    return "DESCONHECIDO";
+    document.getElementById("statusLog").innerHTML =
+    "✔ "+listaContas.length+" contas carregadas";
 }
 
 // ================= GERAR =================
-async function startGerar(){
+function startGerar(){
 
     if(processando || listaContas.length === 0) return;
 
     processando = true;
-    document.getElementById("btnGerar").innerText="PROCESSANDO...";
 
-    let s = document.getElementById("statusLog");
-    s.innerHTML="Testando...";
+    let log = document.getElementById("statusLog");
+    log.innerHTML = "";
 
-    let c, teste;
+    let etapas = [
+        "Escaneando...",
+        "Testando...",
+        "Validando...",
+        "Finalizando..."
+    ];
 
-    for(let i=0;i<6;i++){
-        c = listaContas[Math.floor(Math.random()*listaContas.length)];
-        teste = await testarServidor(c.host,c.user,c.pass);
+    let i = 0;
 
-        if(teste.online && teste.statusReal==="Active") break;
-    }
-
-    let status = teste?.online ? "ONLINE ✅" : "OFFLINE ❌";
-    let velocidade = classificarVelocidade(teste?.tempo || 9999);
-    let statusReal = traduzirStatus(teste?.statusReal);
-
-    let cor = "green";
-    if(statusReal.includes("BANIDO")) cor="white";
-    if(statusReal.includes("EXPIRADO")) cor="purple";
-
-    let m3u = `${c.host}/get.php?username=${c.user}&password=${c.pass}&type=m3u_plus&output=ts`;
-
-    let out = document.getElementById("out");
-
-    out.innerHTML = `
-    <div class="box"><div class="label">STATUS</div><div class="val ${status.includes("ONLINE")?'green':'white'}">${status}</div></div>
-    <div class="box"><div class="label">VELOCIDADE</div><div class="val purple">${velocidade}</div></div>
-    <div class="box"><div class="label">STATUS REAL</div><div class="val ${cor}">${statusReal}</div></div>
-    <div class="box"><div class="label">M3U</div><div class="val green" id="copy-target">${m3u}</div></div>
-    <div class="box"><div class="label">HOST</div><div class="val white">${c.host}</div></div>
-    <div class="box"><div class="label">USER</div><div class="val white">${c.user}</div></div>
-    <div class="box"><div class="label">PASS</div><div class="val white">${c.pass}</div></div>
-    <div class="box"><div class="label">VALIDADE</div><div class="val purple">${c.validade}</div></div>
-    `;
-
-    out.style.display="block";
-    document.getElementById("btnGerar").innerText="GERAR";
-    processando=false;
+    let interval = setInterval(()=>{
+        if(i < etapas.length){
+            log.innerHTML += etapas[i]+"<br>";
+            i++;
+        } else {
+            clearInterval(interval);
+            exibir();
+        }
+    }, 400);
 }
 
-// ================= COPY =================
-async function copiar(){
+// ================= RESULTADO =================
+function exibir(){
+
+    let c = listaContas[Math.floor(Math.random()*listaContas.length)];
+
+    let m3u = c.host+"/get.php?username="+c.user+"&password="+c.pass+"&type=m3u_plus&output=ts";
+
+    document.getElementById("out").innerHTML = `
+    <div class="box"><div class="label">STATUS</div><div class="val">ONLINE</div></div>
+    <div class="box"><div class="label">M3U</div><div class="val" id="copy-target">${m3u}</div></div>
+    <div class="box"><div class="label">HOST</div><div class="val">${c.host}</div></div>
+    <div class="row">
+    <div class="box col"><div class="label">USER</div><div class="val">${c.user}</div></div>
+    <div class="box col"><div class="label">PASS</div><div class="val">${c.pass}</div></div>
+    </div>
+    <div class="box"><div class="label">VALIDADE</div><div class="val">${c.validade}</div></div>
+    `;
+
+    document.getElementById("out").style.display="block";
+    document.getElementById("btnGerar").innerText="GERAR";
+    processando = false;
+}
+
+// ================= COPIAR =================
+function copiar(){
     let t = document.getElementById("copy-target");
     if(!t) return alert("Gere primeiro");
 
-    await navigator.clipboard.writeText(t.innerText);
+    navigator.clipboard.writeText(t.innerText);
     alert("Copiado");
 }
 

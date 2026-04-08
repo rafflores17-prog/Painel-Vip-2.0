@@ -1,3 +1,336 @@
+┏●•~¹°”ˆ˜¨ 𝙏𝙚𝙨𝙩𝙚 𝙙𝙤 𝙎𝙚𝙧𝙫𝙞𝙙𝙤𝙧 ¨˜ˆ”°¹~•
+┣─⭐Desempenho ► ★★★☆☆ MÉDIO
+┣─⚡Velocidade ► Média de 0.76s
+┣─📡Teste ► 20 Canais OK | 0 Falhas
+┣─🏢Hospedagem ► Cloudflare, Inc.
+┣─🗺️Região ► Toronto, Canada 🇨🇦
+┣─📍IP do Host ► 104.21.30.215
+┣─📺Canais ► Falha
+┣─🎬Filmes ► Falha
+┣─🎞️Séries ► Falha
+┣─📦Conteúdo Total ► N/A
+┣─✨Qualidade do VOD ► Péssima
+┗●▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+┏●-•~¹°”ˆ˜¨ 𝙏𝙤𝙥 𝙎𝙘𝙖𝙣𝙣𝙚𝙧 ¨˜ˆ”°¹~•-
+┣─🌐Host ► http://varkcdn.online:80
+┣─📍IP do Host ► 104.21.30.215
+┣─🗺️Região ► Toronto, Canada 🇨🇦
+┣─🏢Hospedagem ► Cloudflare, Inc.
+┣─👤Usuário ► 732856993
+┣─🔒Senha ► 965879327
+┣─🟢Status ► Online
+┣─🗓️Criado ► 14/01/2026
+┣─⏳Expira ► 15/04/2026
+┣─⌛Dias Restantes ► 8 dias
+┣─📶Conexões Ativas ► 0
+┣─📊Conexōes Máximas ► 1
+┣─🔗Link M3u⭏
+┃ ► http://varkcdn.online:80/get.php?username=732856993&password=965879327&type=m3u_plus&output=ts
+┣─📄Combo ► Combo_Online4
+┣─👽Hits Por ► ApkBugado
+┣─⏱️Scan ► 23:10:56 ⁃ 07/04/2026
+┗●▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+┏●-•~¹°”ˆ˜¨ 𝙏𝙤𝙥 𝙎𝙘𝙖𝙣𝙣𝙚𝙧 ¨˜ˆ”°¹~•-
+┣─🌐Host ► http://varkcdn.online:80
+┣─📍IP do Host ► 104.21.30.215
+┣─🗺️Região ► Toronto, Canada 🇨🇦
+┣─🏢Hospedagem ► Cloudflare, Inc.
+┣─👤Usuário ► jorge971
+┣─🔒Senha ► jorge582692
+┣─🟢Status ► Online
+┣─🗓️Criado ► 20/01/2026
+┣─⏳Expira ► 21/04/2026
+┣─⌛Dias Restantes ► 14 dias
+┣─📶Conexões Ativas ► 0
+┣─📊Conexōes Máximas ► 1
+┣─🔗Link M3u⭏
+┃ ► http://varkcdn.online:80/get.php?username=jorge971&password=jorge582692&type=m3u_plus&output=ts
+┣─📄Combo ► Combo_Online4
+┣─👽Hits Por ► ApkBugado
+┣─⏱️Scan ► 23:13:23 ⁃ 07/04/2026
+┗●▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+┏●-•~¹°”ˆ˜¨ 𝙏𝙤𝙥 𝙎𝙘𝙖𝙣𝙣𝙚𝙧 ¨˜ˆ”°¹~•-
+┣─🌐Host ► http://varkcdn.online:80
+┣─📍IP do Host ► 104.21.30.215
+┣─🗺️Região ► Toronto, Canada 🇨🇦
+┣─🏢Hospedagem ► Cloudflare, Inc.
+┣─👤Usuário ► 289117175
+┣─🔒Senha ► 333042410
+┣─🟢Status ► Online
+┣─🗓️Criado ► 07/02/2026
+┣─⏳Expira ► 08/04/2026
+┣─⌛Dias Restantes ► 1 dias
+┣─📶Conexões Ativas ► 0
+┣─📊Conexōes Máximas ► 1
+┣─🔗Link M3u⭏
+┃ ► http://varkcdn.online:80/get.php?username=289117175&password=333042410&type=m3u_plus&output=ts
+┣─📄Combo ► Combo_Online4
+┣─👽Hits Por ► ApkBugado
+┣─⏱️Scan ► 23:13:34 ⁃ 07/04/2026
+┗●▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+┏●-•~¹°”ˆ˜¨ 𝙏𝙤𝙥 𝙎𝙘𝙖𝙣𝙣𝙚𝙧 ¨˜ˆ”°¹~•-
+┣─🌐Host ► http://varkcdn.online:80
+┣─📍IP do Host ► 104.21.30.215
+┣─🗺️Região ► Toronto, Canada 🇨🇦
+┣─🏢Hospedagem ► Cloudflare, Inc.
+┣─👤Usuário ► 748382877
+┣─🔒Senha ► 75939282659
+┣─🟢Status ► Online
+┣─🗓️Criado ► 13/01/2026
+┣─⏳Expira ► 15/04/2026
+┣─⌛Dias Restantes ► 8 dias
+┣─📶Conexões Ativas ► 0
+┣─📊Conexōes Máximas ► 1
+┣─🔗Link M3u⭏
+┃ ► http://varkcdn.online:80/get.php?username=748382877&password=75939282659&type=m3u_plus&output=ts
+┣─📄Combo ► Combo_Online4
+┣─👽Hits Por ► ApkBugado
+┣─⏱️Scan ► 23:15:34 ⁃ 07/04/2026
+┗●▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+┏●-•~¹°”ˆ˜¨ 𝙏𝙤𝙥 𝙎𝙘𝙖𝙣𝙣𝙚𝙧 ¨˜ˆ”°¹~•-
+┣─🌐Host ► http://varkcdn.online:80
+┣─📍IP do Host ► 104.21.30.215
+┣─🗺️Região ► Toronto, Canada 🇨🇦
+┣─🏢Hospedagem ► Cloudflare, Inc.
+┣─👤Usuário ► araujo050
+┣─🔒Senha ► c96196818b
+┣─🟢Status ► Online
+┣─🗓️Criado ► 12/02/2026
+┣─⏳Expira ► 11/05/2026
+┣─⌛Dias Restantes ► 34 dias
+┣─📶Conexões Ativas ► 0
+┣─📊Conexōes Máximas ► 1
+┣─🔗Link M3u⭏
+┃ ► http://varkcdn.online:80/get.php?username=araujo050&password=c96196818b&type=m3u_plus&output=ts
+┣─📄Combo ► Combo_Online4
+┣─👽Hits Por ► ApkBugado
+┣─⏱️Scan ► 23:16:33 ⁃ 07/04/2026
+┗●▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+┏●-•~¹°”ˆ˜¨ 𝙏𝙤𝙥 𝙎𝙘𝙖𝙣𝙣𝙚𝙧 ¨˜ˆ”°¹~•-
+┣─🌐Host ► http://varkcdn.online:80
+┣─📍IP do Host ► 104.21.30.215
+┣─🗺️Região ► Toronto, Canada 🇨🇦
+┣─🏢Hospedagem ► Cloudflare, Inc.
+┣─👤Usuário ► Solange20
+┣─🔒Senha ► Solange20
+┣─🟢Status ► Online
+┣─🗓️Criado ► 09/01/2026
+┣─⏳Expira ► 13/04/2026
+┣─⌛Dias Restantes ► 6 dias
+┣─📶Conexões Ativas ► 0
+┣─📊Conexōes Máximas ► 1
+┣─🔗Link M3u⭏
+┃ ► http://varkcdn.online:80/get.php?username=Solange20&password=Solange20&type=m3u_plus&output=ts
+┣─📄Combo ► Combo_Online4
+┣─👽Hits Por ► ApkBugado
+┣─⏱️Scan ► 23:17:07 ⁃ 07/04/2026
+┗●▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+┏●-•~¹°”ˆ˜¨ 𝙏𝙤𝙥 𝙎𝙘𝙖𝙣𝙣𝙚𝙧 ¨˜ˆ”°¹~•-
+┣─🌐Host ► http://varkcdn.online:80
+┣─📍IP do Host ► 104.21.30.215
+┣─🗺️Região ► Toronto, Canada 🇨🇦
+┣─🏢Hospedagem ► Cloudflare, Inc.
+┣─👤Usuário ► 910901269
+┣─🔒Senha ► 758692243
+┣─🟢Status ► Online
+┣─🗓️Criado ► 02/02/2026
+┣─⏳Expira ► 03/05/2026
+┣─⌛Dias Restantes ► 26 dias
+┣─📶Conexões Ativas ► 1
+┣─📊Conexōes Máximas ► 1
+┣─🔗Link M3u⭏
+┃ ► http://varkcdn.online:80/get.php?username=910901269&password=758692243&type=m3u_plus&output=ts
+┣─📄Combo ► Combo_Online4
+┣─👽Hits Por ► ApkBugado
+┣─⏱️Scan ► 23:17:52 ⁃ 07/04/2026
+┗●▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+┏●-•~¹°”ˆ˜¨ 𝙏𝙤𝙥 𝙎𝙘𝙖𝙣𝙣𝙚𝙧 ¨˜ˆ”°¹~•-
+┣─🌐Host ► http://varkcdn.online:80
+┣─📍IP do Host ► 104.21.30.215
+┣─🗺️Região ► Toronto, Canada 🇨🇦
+┣─🏢Hospedagem ► Cloudflare, Inc.
+┣─👤Usuário ► 349741069
+┣─🔒Senha ► 178290095
+┣─🟢Status ► Online
+┣─🗓️Criado ► 10/03/2026
+┣─⏳Expira ► 09/05/2026
+┣─⌛Dias Restantes ► 32 dias
+┣─📶Conexões Ativas ► 1
+┣─📊Conexōes Máximas ► 1
+┣─🔗Link M3u⭏
+┃ ► http://varkcdn.online:80/get.php?username=349741069&password=178290095&type=m3u_plus&output=ts
+┣─📄Combo ► Combo_Online4
+┣─👽Hits Por ► ApkBugado
+┣─⏱️Scan ► 23:18:39 ⁃ 07/04/2026
+┗●▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+┏●-•~¹°”ˆ˜¨ 𝙏𝙤𝙥 𝙎𝙘𝙖𝙣𝙣𝙚𝙧 ¨˜ˆ”°¹~•-
+┣─🌐Host ► http://varkcdn.online:80
+┣─📍IP do Host ► 104.21.30.215
+┣─🗺️Região ► Toronto, Canada 🇨🇦
+┣─🏢Hospedagem ► Cloudflare, Inc.
+┣─👤Usuário ► flaviaregina
+┣─🔒Senha ► c98013274b
+┣─🟢Status ► Online
+┣─🗓️Criado ► 12/02/2026
+┣─⏳Expira ► 23/05/2026
+┣─⌛Dias Restantes ► 45 dias
+┣─📶Conexões Ativas ► 1
+┣─📊Conexōes Máximas ► 1
+┣─🔗Link M3u⭏
+┃ ► http://varkcdn.online:80/get.php?username=flaviaregina&password=c98013274b&type=m3u_plus&output=ts
+┣─📄Combo ► Combo_Online4
+┣─👽Hits Por ► ApkBugado
+┣─⏱️Scan ► 23:20:07 ⁃ 07/04/2026
+┗●▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+┏●-•~¹°”ˆ˜¨ 𝙏𝙤𝙥 𝙎𝙘𝙖𝙣𝙣𝙚𝙧 ¨˜ˆ”°¹~•-
+┣─🌐Host ► http://varkcdn.online:80
+┣─📍IP do Host ► 104.21.30.215
+┣─🗺️Região ► Toronto, Canada 🇨🇦
+┣─🏢Hospedagem ► Cloudflare, Inc.
+┣─👤Usuário ► 8424951950
+┣─🔒Senha ► 2382686940
+┣─🟢Status ► Online
+┣─🗓️Criado ► 09/02/2026
+┣─⏳Expira ► 22/04/2026
+┣─⌛Dias Restantes ► 15 dias
+┣─📶Conexões Ativas ► 0
+┣─📊Conexōes Máximas ► 1
+┣─🔗Link M3u⭏
+┃ ► http://varkcdn.online:80/get.php?username=8424951950&password=2382686940&type=m3u_plus&output=ts
+┣─📄Combo ► Combo_Online4
+┣─👽Hits Por ► ApkBugado
+┣─⏱️Scan ► 23:21:39 ⁃ 07/04/2026
+┗●▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+┏●-•~¹°”ˆ˜¨ 𝙏𝙤𝙥 𝙎𝙘𝙖𝙣𝙣𝙚𝙧 ¨˜ˆ”°¹~•-
+┣─🌐Host ► http://varkcdn.online:80
+┣─📍IP do Host ► 104.21.30.215
+┣─🗺️Região ► Toronto, Canada 🇨🇦
+┣─🏢Hospedagem ► Cloudflare, Inc.
+┣─👤Usuário ► 3477739445
+┣─🔒Senha ► 6055905665
+┣─🟢Status ► Online
+┣─🗓️Criado ► 07/02/2026
+┣─⏳Expira ► 17/04/2026
+┣─⌛Dias Restantes ► 10 dias
+┣─📶Conexões Ativas ► 1
+┣─📊Conexōes Máximas ► 1
+┣─🔗Link M3u⭏
+┃ ► http://varkcdn.online:80/get.php?username=3477739445&password=6055905665&type=m3u_plus&output=ts
+┣─📄Combo ► Combo_Online4
+┣─👽Hits Por ► ApkBugado
+┣─⏱️Scan ► 23:21:41 ⁃ 07/04/2026
+┗●▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+┏●-•~¹°”ˆ˜¨ 𝙏𝙤𝙥 𝙎𝙘𝙖𝙣𝙣𝙚𝙧 ¨˜ˆ”°¹~•-
+┣─🌐Host ► http://varkcdn.online:80
+┣─📍IP do Host ► 104.21.30.215
+┣─🗺️Região ► Toronto, Canada 🇨🇦
+┣─🏢Hospedagem ► Cloudflare, Inc.
+┣─👤Usuário ► Bruno1234
+┣─🔒Senha ► Bruno1234
+┣─🟢Status ► Online
+┣─🗓️Criado ► 30/03/2026
+┣─⏳Expira ► 30/04/2026
+┣─⌛Dias Restantes ► 23 dias
+┣─📶Conexões Ativas ► 0
+┣─📊Conexōes Máximas ► 1
+┣─🔗Link M3u⭏
+┃ ► http://varkcdn.online:80/get.php?username=Bruno1234&password=Bruno1234&type=m3u_plus&output=ts
+┣─📄Combo ► Combo_Online4
+┣─👽Hits Por ► ApkBugado
+┣─⏱️Scan ► 23:22:00 ⁃ 07/04/2026
+┗●▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+┏●-•~¹°”ˆ˜¨ 𝙏𝙤𝙥 𝙎𝙘𝙖𝙣𝙣𝙚𝙧 ¨˜ˆ”°¹~•-
+┣─🌐Host ► http://varkcdn.online:80
+┣─📍IP do Host ► 104.21.30.215
+┣─🗺️Região ► Toronto, Canada 🇨🇦
+┣─🏢Hospedagem ► Cloudflare, Inc.
+┣─👤Usuário ► 470621523
+┣─🔒Senha ► 654814960
+┣─🟢Status ► Online
+┣─🗓️Criado ► 12/02/2026
+┣─⏳Expira ► 05/05/2026
+┣─⌛Dias Restantes ► 28 dias
+┣─📶Conexões Ativas ► 0
+┣─📊Conexōes Máximas ► 1
+┣─🔗Link M3u⭏
+┃ ► http://varkcdn.online:80/get.php?username=470621523&password=654814960&type=m3u_plus&output=ts
+┣─📄Combo ► Combo_Online4
+┣─👽Hits Por ► ApkBugado
+┣─⏱️Scan ► 23:22:33 ⁃ 07/04/2026
+┗●▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+┏●-•~¹°”ˆ˜¨ 𝙏𝙤𝙥 𝙎𝙘𝙖𝙣𝙣𝙚𝙧 ¨˜ˆ”°¹~•-
+┣─🌐Host ► http://varkcdn.online:80
+┣─📍IP do Host ► 104.21.30.215
+┣─🗺️Região ► Toronto, Canada 🇨🇦
+┣─🏢Hospedagem ► Cloudflare, Inc.
+┣─👤Usuário ► 1122334455
+┣─🔒Senha ► 1122334455
+┣─🟢Status ► Online
+┣─🗓️Criado ► 26/03/2026
+┣─⏳Expira ► 14/04/2026
+┣─⌛Dias Restantes ► 7 dias
+┣─📶Conexões Ativas ► 0
+┣─📊Conexōes Máximas ► 1
+┣─🔗Link M3u⭏
+┃ ► http://varkcdn.online:80/get.php?username=1122334455&password=1122334455&type=m3u_plus&output=ts
+┣─📄Combo ► Combo_Online4
+┣─👽Hits Por ► ApkBugado
+┣─⏱️Scan ► 23:24:07 ⁃ 07/04/2026
+┗●▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+┏●-•~¹°”ˆ˜¨ 𝙏𝙤𝙥 𝙎𝙘𝙖𝙣𝙣𝙚𝙧 ¨˜ˆ”°¹~•-
+┣─🌐Host ► http://varkcdn.online:80
+┣─📍IP do Host ► 104.21.30.215
+┣─🗺️Região ► Toronto, Canada 🇨🇦
+┣─🏢Hospedagem ► Cloudflare, Inc.
+┣─👤Usuário ► 283729391
+┣─🔒Senha ► 295553303
+┣─🟢Status ► Online
+┣─🗓️Criado ► 01/02/2026
+┣─⏳Expira ► 18/04/2026
+┣─⌛Dias Restantes ► 11 dias
+┣─📶Conexões Ativas ► 0
+┣─📊Conexōes Máximas ► 1
+┣─🔗Link M3u⭏
+┃ ► http://varkcdn.online:80/get.php?username=283729391&password=295553303&type=m3u_plus&output=ts
+┣─📄Combo ► Combo_Online4
+┣─👽Hits Por ► ApkBugado
+┣─⏱️Scan ► 23:26:04 ⁃ 07/04/2026
+┗●▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+┏●-•~¹°”ˆ˜¨ 𝙏𝙤𝙥 𝙎𝙘𝙖𝙣𝙣𝙚𝙧 ¨˜ˆ”°¹~•-
+┣─🌐Host ► http://varkcdn.online:80
+┣─📍IP do Host ► 104.21.30.215
+┣─🗺️Região ► Toronto, Canada 🇨🇦
+┣─🏢Hospedagem ► Cloudflare, Inc.
+┣─👤Usuário ► Itvsimeao
+┣─🔒Senha ► Imperio01
+┣─🟢Status ► Online
+┣─🗓️Criado ► 10/03/2026
+┣─⏳Expira ► 13/04/2026
+┣─⌛Dias Restantes ► 6 dias
+┣─📶Conexões Ativas ► 0
+┣─📊Conexōes Máximas ► 1
+┣─🔗Link M3u⭏
+┃ ► http://varkcdn.online:80/get.php?username=Itvsimeao&password=Imperio01&type=m3u_plus&output=ts
+┣─📄Combo ► Combo_Online4
+┣─👽Hits Por ► ApkBugado
+┣─⏱️Scan ► 23:27:07 ⁃ 07/04/2026
+┗●▬▬▬▬▬▬▬▬▬▬▬▬▬▬
 
 🤖 APKBUGADO
 

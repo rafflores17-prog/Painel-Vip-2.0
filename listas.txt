@@ -1,3 +1,39 @@
+┏●•~¹°”ˆ˜¨ 𝙏𝙚𝙨𝙩𝙚 𝙙𝙤 𝙎𝙚𝙧𝙫𝙞𝙙𝙤𝙧 ¨˜ˆ”°¹~•
+┣─⭐Desempenho ► ☆☆☆☆☆ FALHOU
+┣─⚡Velocidade ► Teste Falhou
+┣─📡Teste ► 0 Canais OK | 0 Falhas
+┣─🏢Hospedagem ► Cloudflare, Inc.
+┣─🗺️Região ► Toronto, Canada 🇨🇦
+┣─📍IP do Host ► 172.67.186.145
+┣─📺Canais ► Falha
+┣─🎬Filmes ► Falha
+┣─🎞️Séries ► Falha
+┣─📦Conteúdo Total ► N/A
+┣─✨Qualidade do VOD ► Péssima
+┗●▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+┏●-•~¹°”ˆ˜¨ 𝙏𝙤𝙥 𝙎𝙘𝙖𝙣𝙣𝙚𝙧 ¨˜ˆ”°¹~•-
+┣─🌐Host ► http://techon.one:80
+┣─📍IP do Host ► 172.67.186.145
+┣─🗺️Região ► Toronto, Canada 🇨🇦
+┣─🏢Hospedagem ► Cloudflare, Inc.
+┣─👤Usuário ► 003008
+┣─🔒Senha ► 440144634
+┣─🟢Status ► Online
+┣─🗓️Criado ► 09/05/2025
+┣─⏳Expira ► 19/01/2038
+┣─⌛Dias Restantes ► 4293 dias
+┣─📶Conexões Ativas ► 2
+┣─📊Conexōes Máximas ► 2
+┣─🔗Link M3u⭏
+┃ ► http://techon.one:80/get.php?username=003008&password=440144634&type=m3u_plus&output=ts
+┣─📄Combo ► Combo_Online4
+┣─👽Hits Por ► ApkBugado
+┣─⏱️Scan ► 21:33:56 ⁃ 18/04/2026
+┗●▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+
+
 
 ┏●•~¹°”ˆ˜¨ 𝙏𝙚𝙨𝙩𝙚 𝙙𝙤 𝙎𝙚𝙧𝙫𝙞𝙙𝙤𝙧 ¨˜ˆ”°¹~•
 ┣─⭐Desempenho ► ☆☆☆☆☆ FALHOU

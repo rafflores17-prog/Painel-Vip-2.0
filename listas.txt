@@ -1,3 +1,26 @@
+
+┏●-•~¹°”ˆ˜¨ 𝙏𝙤𝙥 𝙎𝙘𝙖𝙣𝙣𝙚𝙧 ¨˜ˆ”°¹~•-
+┣─🌐Host ► http://z3play.xyz:80
+┣─📍IP do Host ► 104.21.41.82
+┣─🗺️Região ► Toronto, Canada 🇨🇦
+┣─🏢Hospedagem ► Cloudflare, Inc.
+┣─👤Usuário ► 823762429
+┣─🔒Senha ► 430380829
+┣─🟢Status ► Online
+┣─🗓️Criado ► 12/04/2026
+┣─⏳Expira ► 28/04/2026
+┣─⌛Dias Restantes ► 14 dias
+┣─📶Conexões Ativas ► 0
+┣─📊Conexōes Máximas ► 2
+┣─🔗Link M3u⭏
+┃ ► http://z3play.xyz:80/get.php?username=823762429&password=430380829&type=m3u_plus&output=ts
+┣─📄Combo ► Combo_Online4
+┣─👽Hits Por ► ApkBugado
+┣─⏱️Scan ► 21:42:39 ⁃ 14/04/2026
+┗●▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+
+
 ┏●•~¹°”ˆ˜¨ 𝙏𝙚𝙨𝙩𝙚 𝙙𝙤 𝙎𝙚𝙧𝙫𝙞𝙙𝙤𝙧 ¨˜ˆ”°¹~•
 ┣─⭐Desempenho ► ☆☆☆☆☆ FALHOU
 ┣─⚡Velocidade ► Teste Falhou

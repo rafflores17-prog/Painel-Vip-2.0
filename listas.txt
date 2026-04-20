@@ -1,3 +1,420 @@
+┏●•~¹°”ˆ˜¨ 𝙏𝙚𝙨𝙩𝙚 𝙙𝙤 𝙎𝙚𝙧𝙫𝙞𝙙𝙤𝙧 ¨˜ˆ”°¹~•
+┣─⭐Desempenho ► ☆☆☆☆☆ FALHOU
+┣─⚡Velocidade ► Teste Falhou
+┣─📡Teste ► 0 Canais OK | 0 Falhas
+┣─🏢Hospedagem ► Cloudflare, Inc.
+┣─🗺️Região ► Toronto, Canada 🇨🇦
+┣─📍IP do Host ► 104.21.47.100
+┣─📺Canais ► 815
+┣─🎬Filmes ► 17159
+┣─🎞️Séries ► 8749
+┣─📦Conteúdo Total ► 26723
+┣─✨Qualidade do VOD ► ᴱˣᶜᵉˡᵉⁿᵗᵉ(💎)
+┗●▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+┏●-•~¹°”ˆ˜¨ 𝙏𝙤𝙥 𝙎𝙘𝙖𝙣𝙣𝙚𝙧 ¨˜ˆ”°¹~•-
+┣─🌐Host ► http://mainxs.site:80
+┣─📍IP do Host ► 104.21.47.100
+┣─🗺️Região ► Toronto, Canada 🇨🇦
+┣─🏢Hospedagem ► Cloudflare, Inc.
+┣─👤Usuário ► 131987870
+┣─🔒Senha ► 677189455
+┣─🟢Status ► Online
+┣─🗓️Criado ► 25/03/2026
+┣─⏳Expira ► 06/06/2026
+┣─⌛Dias Restantes ► 47 dias
+┣─📶Conexões Ativas ► 0
+┣─📊Conexōes Máximas ► 1
+┣─🔗Link M3u⭏
+┃ ► http://mainxs.site:80/get.php?username=131987870&password=677189455&type=m3u_plus&output=ts
+┣─📄Combo ► Combo_Online4
+┣─👽Hits Por ► ApkBugado
+┣─⏱️Scan ► 08:59:01 ⁃ 20/04/2026
+┗●▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+┏●-•~¹°”ˆ˜¨ 𝙏𝙤𝙥 𝙎𝙘𝙖𝙣𝙣𝙚𝙧 ¨˜ˆ”°¹~•-
+┣─🌐Host ► http://mainxs.site:80
+┣─📍IP do Host ► 104.21.47.100
+┣─🗺️Região ► Toronto, Canada 🇨🇦
+┣─🏢Hospedagem ► Cloudflare, Inc.
+┣─👤Usuário ► 615695539
+┣─🔒Senha ► 574463990
+┣─🟢Status ► Online
+┣─🗓️Criado ► 25/03/2026
+┣─⏳Expira ► 29/07/2026
+┣─⌛Dias Restantes ► 100 dias
+┣─📶Conexões Ativas ► 0
+┣─📊Conexōes Máximas ► 1
+┣─🔗Link M3u⭏
+┃ ► http://mainxs.site:80/get.php?username=615695539&password=574463990&type=m3u_plus&output=ts
+┣─📄Combo ► Combo_Online4
+┣─👽Hits Por ► ApkBugado
+┣─⏱️Scan ► 08:59:01 ⁃ 20/04/2026
+┗●▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+┏●-•~¹°”ˆ˜¨ 𝙏𝙤𝙥 𝙎𝙘𝙖𝙣𝙣𝙚𝙧 ¨˜ˆ”°¹~•-
+┣─🌐Host ► http://mainxs.site:80
+┣─📍IP do Host ► 104.21.47.100
+┣─🗺️Região ► Toronto, Canada 🇨🇦
+┣─🏢Hospedagem ► Cloudflare, Inc.
+┣─👤Usuário ► 313526652
+┣─🔒Senha ► 828396194
+┣─🟢Status ► Online
+┣─🗓️Criado ► 25/03/2026
+┣─⏳Expira ► 08/05/2026
+┣─⌛Dias Restantes ► 18 dias
+┣─📶Conexões Ativas ► 0
+┣─📊Conexōes Máximas ► 1
+┣─🔗Link M3u⭏
+┃ ► http://mainxs.site:80/get.php?username=313526652&password=828396194&type=m3u_plus&output=ts
+┣─📄Combo ► Combo_Online4
+┣─👽Hits Por ► ApkBugado
+┣─⏱️Scan ► 08:59:02 ⁃ 20/04/2026
+┗●▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+┏●-•~¹°”ˆ˜¨ 𝙏𝙤𝙥 𝙎𝙘𝙖𝙣𝙣𝙚𝙧 ¨˜ˆ”°¹~•-
+┣─🌐Host ► http://mainxs.site:80
+┣─📍IP do Host ► 104.21.47.100
+┣─🗺️Região ► Toronto, Canada 🇨🇦
+┣─🏢Hospedagem ► Cloudflare, Inc.
+┣─👤Usuário ► 648229236
+┣─🔒Senha ► 666342537
+┣─🟢Status ► Online
+┣─🗓️Criado ► 25/03/2026
+┣─⏳Expira ► 31/05/2026
+┣─⌛Dias Restantes ► 41 dias
+┣─📶Conexões Ativas ► 0
+┣─📊Conexōes Máximas ► 1
+┣─🔗Link M3u⭏
+┃ ► http://mainxs.site:80/get.php?username=648229236&password=666342537&type=m3u_plus&output=ts
+┣─📄Combo ► Combo_Online4
+┣─👽Hits Por ► ApkBugado
+┣─⏱️Scan ► 08:59:02 ⁃ 20/04/2026
+┗●▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+┏●-•~¹°”ˆ˜¨ 𝙏𝙤𝙥 𝙎𝙘𝙖𝙣𝙣𝙚𝙧 ¨˜ˆ”°¹~•-
+┣─🌐Host ► http://mainxs.site:80
+┣─📍IP do Host ► 104.21.47.100
+┣─🗺️Região ► Toronto, Canada 🇨🇦
+┣─🏢Hospedagem ► Cloudflare, Inc.
+┣─👤Usuário ► 473391351
+┣─🔒Senha ► 281469456
+┣─🟢Status ► Online
+┣─🗓️Criado ► 25/03/2026
+┣─⏳Expira ► 13/07/2026
+┣─⌛Dias Restantes ► 84 dias
+┣─📶Conexões Ativas ► 1
+┣─📊Conexōes Máximas ► 1
+┣─🔗Link M3u⭏
+┃ ► http://mainxs.site:80/get.php?username=473391351&password=281469456&type=m3u_plus&output=ts
+┣─📄Combo ► Combo_Online4
+┣─👽Hits Por ► ApkBugado
+┣─⏱️Scan ► 08:59:08 ⁃ 20/04/2026
+┗●▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+┏●-•~¹°”ˆ˜¨ 𝙏𝙤𝙥 𝙎𝙘𝙖𝙣𝙣𝙚𝙧 ¨˜ˆ”°¹~•-
+┣─🌐Host ► http://mainxs.site:80
+┣─📍IP do Host ► 104.21.47.100
+┣─🗺️Região ► Toronto, Canada 🇨🇦
+┣─🏢Hospedagem ► Cloudflare, Inc.
+┣─👤Usuário ► 74468590
+┣─🔒Senha ► 448420959
+┣─🟢Status ► Online
+┣─🗓️Criado ► 25/03/2026
+┣─⏳Expira ► 13/03/2027
+┣─⌛Dias Restantes ► 327 dias
+┣─📶Conexões Ativas ► 0
+┣─📊Conexōes Máximas ► 2
+┣─🔗Link M3u⭏
+┃ ► http://mainxs.site:80/get.php?username=74468590&password=448420959&type=m3u_plus&output=ts
+┣─📄Combo ► Combo_Online4
+┣─👽Hits Por ► ApkBugado
+┣─⏱️Scan ► 08:59:11 ⁃ 20/04/2026
+┗●▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+┏●-•~¹°”ˆ˜¨ 𝙏𝙤𝙥 𝙎𝙘𝙖𝙣𝙣𝙚𝙧 ¨˜ˆ”°¹~•-
+┣─🌐Host ► http://mainxs.site:80
+┣─📍IP do Host ► 104.21.47.100
+┣─🗺️Região ► Toronto, Canada 🇨🇦
+┣─🏢Hospedagem ► Cloudflare, Inc.
+┣─👤Usuário ► 461438115
+┣─🔒Senha ► 131936918
+┣─🟢Status ► Online
+┣─🗓️Criado ► 25/03/2026
+┣─⏳Expira ► 10/07/2026
+┣─⌛Dias Restantes ► 81 dias
+┣─📶Conexões Ativas ► 0
+┣─📊Conexōes Máximas ► 3
+┣─🔗Link M3u⭏
+┃ ► http://mainxs.site:80/get.php?username=461438115&password=131936918&type=m3u_plus&output=ts
+┣─📄Combo ► Combo_Online4
+┣─👽Hits Por ► ApkBugado
+┣─⏱️Scan ► 08:59:11 ⁃ 20/04/2026
+┗●▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+┏●-•~¹°”ˆ˜¨ 𝙏𝙤𝙥 𝙎𝙘𝙖𝙣𝙣𝙚𝙧 ¨˜ˆ”°¹~•-
+┣─🌐Host ► http://mainxs.site:80
+┣─📍IP do Host ► 104.21.47.100
+┣─🗺️Região ► Toronto, Canada 🇨🇦
+┣─🏢Hospedagem ► Cloudflare, Inc.
+┣─👤Usuário ► 687229999
+┣─🔒Senha ► 959218543
+┣─🟢Status ► Online
+┣─🗓️Criado ► 25/03/2026
+┣─⏳Expira ► 20/05/2026
+┣─⌛Dias Restantes ► 30 dias
+┣─📶Conexões Ativas ► 0
+┣─📊Conexōes Máximas ► 1
+┣─🔗Link M3u⭏
+┃ ► http://mainxs.site:80/get.php?username=687229999&password=959218543&type=m3u_plus&output=ts
+┣─📄Combo ► Combo_Online4
+┣─👽Hits Por ► ApkBugado
+┣─⏱️Scan ► 08:59:16 ⁃ 20/04/2026
+┗●▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+┏●-•~¹°”ˆ˜¨ 𝙏𝙤𝙥 𝙎𝙘𝙖𝙣𝙣𝙚𝙧 ¨˜ˆ”°¹~•-
+┣─🌐Host ► http://mainxs.site:80
+┣─📍IP do Host ► 104.21.47.100
+┣─🗺️Região ► Toronto, Canada 🇨🇦
+┣─🏢Hospedagem ► Cloudflare, Inc.
+┣─👤Usuário ► 954317628
+┣─🔒Senha ► 118245118
+┣─🟢Status ► Online
+┣─🗓️Criado ► 12/04/2026
+┣─⏳Expira ► 14/04/2027
+┣─⌛Dias Restantes ► 359 dias
+┣─📶Conexões Ativas ► 0
+┣─📊Conexōes Máximas ► 1
+┣─🔗Link M3u⭏
+┃ ► http://mainxs.site:80/get.php?username=954317628&password=118245118&type=m3u_plus&output=ts
+┣─📄Combo ► Combo_Online4
+┣─👽Hits Por ► ApkBugado
+┣─⏱️Scan ► 08:59:19 ⁃ 20/04/2026
+┗●▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+┏●-•~¹°”ˆ˜¨ 𝙏𝙤𝙥 𝙎𝙘𝙖𝙣𝙣𝙚𝙧 ¨˜ˆ”°¹~•-
+┣─🌐Host ► http://mainxs.site:80
+┣─📍IP do Host ► 104.21.47.100
+┣─🗺️Região ► Toronto, Canada 🇨🇦
+┣─🏢Hospedagem ► Cloudflare, Inc.
+┣─👤Usuário ► 393385413
+┣─🔒Senha ► 921973796
+┣─🟢Status ► Online
+┣─🗓️Criado ► 25/03/2026
+┣─⏳Expira ► 30/05/2026
+┣─⌛Dias Restantes ► 40 dias
+┣─📶Conexões Ativas ► 0
+┣─📊Conexōes Máximas ► 1
+┣─🔗Link M3u⭏
+┃ ► http://mainxs.site:80/get.php?username=393385413&password=921973796&type=m3u_plus&output=ts
+┣─📄Combo ► Combo_Online4
+┣─👽Hits Por ► ApkBugado
+┣─⏱️Scan ► 08:59:27 ⁃ 20/04/2026
+┗●▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+┏●-•~¹°”ˆ˜¨ 𝙏𝙤𝙥 𝙎𝙘𝙖𝙣𝙣𝙚𝙧 ¨˜ˆ”°¹~•-
+┣─🌐Host ► http://mainxs.site:80
+┣─📍IP do Host ► 104.21.47.100
+┣─🗺️Região ► Toronto, Canada 🇨🇦
+┣─🏢Hospedagem ► Cloudflare, Inc.
+┣─👤Usuário ► 259787753
+┣─🔒Senha ► 942122268
+┣─🟢Status ► Online
+┣─🗓️Criado ► 07/04/2026
+┣─⏳Expira ► 07/05/2026
+┣─⌛Dias Restantes ► 17 dias
+┣─📶Conexões Ativas ► 1
+┣─📊Conexōes Máximas ► 1
+┣─🔗Link M3u⭏
+┃ ► http://mainxs.site:80/get.php?username=259787753&password=942122268&type=m3u_plus&output=ts
+┣─📄Combo ► Combo_Online4
+┣─👽Hits Por ► ApkBugado
+┣─⏱️Scan ► 08:59:33 ⁃ 20/04/2026
+┗●▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+┏●-•~¹°”ˆ˜¨ 𝙏𝙤𝙥 𝙎𝙘𝙖𝙣𝙣𝙚𝙧 ¨˜ˆ”°¹~•-
+┣─🌐Host ► http://mainxs.site:80
+┣─📍IP do Host ► 104.21.47.100
+┣─🗺️Região ► Toronto, Canada 🇨🇦
+┣─🏢Hospedagem ► Cloudflare, Inc.
+┣─👤Usuário ► 365891139
+┣─🔒Senha ► 769832221
+┣─🟢Status ► Online
+┣─🗓️Criado ► 25/03/2026
+┣─⏳Expira ► 02/05/2026
+┣─⌛Dias Restantes ► 12 dias
+┣─📶Conexões Ativas ► 0
+┣─📊Conexōes Máximas ► 1
+┣─🔗Link M3u⭏
+┃ ► http://mainxs.site:80/get.php?username=365891139&password=769832221&type=m3u_plus&output=ts
+┣─📄Combo ► Combo_Online4
+┣─👽Hits Por ► ApkBugado
+┣─⏱️Scan ► 08:59:40 ⁃ 20/04/2026
+┗●▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+┏●-•~¹°”ˆ˜¨ 𝙏𝙤𝙥 𝙎𝙘𝙖𝙣𝙣𝙚𝙧 ¨˜ˆ”°¹~•-
+┣─🌐Host ► http://mainxs.site:80
+┣─📍IP do Host ► 104.21.47.100
+┣─🗺️Região ► Toronto, Canada 🇨🇦
+┣─🏢Hospedagem ► Cloudflare, Inc.
+┣─👤Usuário ► 525982679
+┣─🔒Senha ► 519895849
+┣─🟢Status ► Online
+┣─🗓️Criado ► 25/03/2026
+┣─⏳Expira ► 05/06/2026
+┣─⌛Dias Restantes ► 46 dias
+┣─📶Conexões Ativas ► 0
+┣─📊Conexōes Máximas ► 1
+┣─🔗Link M3u⭏
+┃ ► http://mainxs.site:80/get.php?username=525982679&password=519895849&type=m3u_plus&output=ts
+┣─📄Combo ► Combo_Online4
+┣─👽Hits Por ► ApkBugado
+┣─⏱️Scan ► 08:59:40 ⁃ 20/04/2026
+┗●▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+┏●-•~¹°”ˆ˜¨ 𝙏𝙤𝙥 𝙎𝙘𝙖𝙣𝙣𝙚𝙧 ¨˜ˆ”°¹~•-
+┣─🌐Host ► http://mainxs.site:80
+┣─📍IP do Host ► 104.21.47.100
+┣─🗺️Região ► Toronto, Canada 🇨🇦
+┣─🏢Hospedagem ► Cloudflare, Inc.
+┣─👤Usuário ► 755374263
+┣─🔒Senha ► 191384417
+┣─🟢Status ► Online
+┣─🗓️Criado ► 25/03/2026
+┣─⏳Expira ► 26/04/2026
+┣─⌛Dias Restantes ► 6 dias
+┣─📶Conexões Ativas ► 0
+┣─📊Conexōes Máximas ► 1
+┣─🔗Link M3u⭏
+┃ ► http://mainxs.site:80/get.php?username=755374263&password=191384417&type=m3u_plus&output=ts
+┣─📄Combo ► Combo_Online4
+┣─👽Hits Por ► ApkBugado
+┣─⏱️Scan ► 08:59:45 ⁃ 20/04/2026
+┗●▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+┏●-•~¹°”ˆ˜¨ 𝙏𝙤𝙥 𝙎𝙘𝙖𝙣𝙣𝙚𝙧 ¨˜ˆ”°¹~•-
+┣─🌐Host ► http://mainxs.site:80
+┣─📍IP do Host ► 104.21.47.100
+┣─🗺️Região ► Toronto, Canada 🇨🇦
+┣─🏢Hospedagem ► Cloudflare, Inc.
+┣─👤Usuário ► 195658283
+┣─🔒Senha ► 428881112
+┣─🟢Status ► Online
+┣─🗓️Criado ► 25/03/2026
+┣─⏳Expira ► 15/05/2026
+┣─⌛Dias Restantes ► 25 dias
+┣─📶Conexões Ativas ► 1
+┣─📊Conexōes Máximas ► 3
+┣─🔗Link M3u⭏
+┃ ► http://mainxs.site:80/get.php?username=195658283&password=428881112&type=m3u_plus&output=ts
+┣─📄Combo ► Combo_Online4
+┣─👽Hits Por ► ApkBugado
+┣─⏱️Scan ► 08:59:46 ⁃ 20/04/2026
+┗●▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+┏●-•~¹°”ˆ˜¨ 𝙏𝙤𝙥 𝙎𝙘𝙖𝙣𝙣𝙚𝙧 ¨˜ˆ”°¹~•-
+┣─🌐Host ► http://mainxs.site:80
+┣─📍IP do Host ► 104.21.47.100
+┣─🗺️Região ► Toronto, Canada 🇨🇦
+┣─🏢Hospedagem ► Cloudflare, Inc.
+┣─👤Usuário ► 877436571
+┣─🔒Senha ► 518461483
+┣─🟢Status ► Online
+┣─🗓️Criado ► 25/03/2026
+┣─⏳Expira ► 19/06/2026
+┣─⌛Dias Restantes ► 60 dias
+┣─📶Conexões Ativas ► 0
+┣─📊Conexōes Máximas ► 1
+┣─🔗Link M3u⭏
+┃ ► http://mainxs.site:80/get.php?username=877436571&password=518461483&type=m3u_plus&output=ts
+┣─📄Combo ► Combo_Online4
+┣─👽Hits Por ► ApkBugado
+┣─⏱️Scan ► 08:59:46 ⁃ 20/04/2026
+┗●▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+┏●-•~¹°”ˆ˜¨ 𝙏𝙤𝙥 𝙎𝙘𝙖𝙣𝙣𝙚𝙧 ¨˜ˆ”°¹~•-
+┣─🌐Host ► http://mainxs.site:80
+┣─📍IP do Host ► 104.21.47.100
+┣─🗺️Região ► Toronto, Canada 🇨🇦
+┣─🏢Hospedagem ► Cloudflare, Inc.
+┣─👤Usuário ► 162391532
+┣─🔒Senha ► 652779269
+┣─🟢Status ► Online
+┣─🗓️Criado ► 25/03/2026
+┣─⏳Expira ► 16/05/2026
+┣─⌛Dias Restantes ► 26 dias
+┣─📶Conexões Ativas ► 0
+┣─📊Conexōes Máximas ► 3
+┣─🔗Link M3u⭏
+┃ ► http://mainxs.site:80/get.php?username=162391532&password=652779269&type=m3u_plus&output=ts
+┣─📄Combo ► Combo_Online4
+┣─👽Hits Por ► ApkBugado
+┣─⏱️Scan ► 08:59:49 ⁃ 20/04/2026
+┗●▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+┏●-•~¹°”ˆ˜¨ 𝙏𝙤𝙥 𝙎𝙘𝙖𝙣𝙣𝙚𝙧 ¨˜ˆ”°¹~•-
+┣─🌐Host ► http://mainxs.site:80
+┣─📍IP do Host ► 104.21.47.100
+┣─🗺️Região ► Toronto, Canada 🇨🇦
+┣─🏢Hospedagem ► Cloudflare, Inc.
+┣─👤Usuário ► 621775793
+┣─🔒Senha ► 641528896
+┣─🟢Status ► Online
+┣─🗓️Criado ► 25/03/2026
+┣─⏳Expira ► 20/05/2026
+┣─⌛Dias Restantes ► 30 dias
+┣─📶Conexões Ativas ► 0
+┣─📊Conexōes Máximas ► 1
+┣─🔗Link M3u⭏
+┃ ► http://mainxs.site:80/get.php?username=621775793&password=641528896&type=m3u_plus&output=ts
+┣─📄Combo ► Combo_Online4
+┣─👽Hits Por ► ApkBugado
+┣─⏱️Scan ► 08:59:49 ⁃ 20/04/2026
+┗●▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+┏●-•~¹°”ˆ˜¨ 𝙏𝙤𝙥 𝙎𝙘𝙖𝙣𝙣𝙚𝙧 ¨˜ˆ”°¹~•-
+┣─🌐Host ► http://mainxs.site:80
+┣─📍IP do Host ► 104.21.47.100
+┣─🗺️Região ► Toronto, Canada 🇨🇦
+┣─🏢Hospedagem ► Cloudflare, Inc.
+┣─👤Usuário ► 927711461
+┣─🔒Senha ► 446692361
+┣─🟢Status ► Online
+┣─🗓️Criado ► 25/03/2026
+┣─⏳Expira ► 08/05/2026
+┣─⌛Dias Restantes ► 18 dias
+┣─📶Conexões Ativas ► 0
+┣─📊Conexōes Máximas ► 1
+┣─🔗Link M3u⭏
+┃ ► http://mainxs.site:80/get.php?username=927711461&password=446692361&type=m3u_plus&output=ts
+┣─📄Combo ► Combo_Online4
+┣─👽Hits Por ► ApkBugado
+┣─⏱️Scan ► 08:59:52 ⁃ 20/04/2026
+┗●▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+┏●-•~¹°”ˆ˜¨ 𝙏𝙤𝙥 𝙎𝙘𝙖𝙣𝙣𝙚𝙧 ¨˜ˆ”°¹~•-
+┣─🌐Host ► http://mainxs.site:80
+┣─📍IP do Host ► 104.21.47.100
+┣─🗺️Região ► Toronto, Canada 🇨🇦
+┣─🏢Hospedagem ► Cloudflare, Inc.
+┣─👤Usuário ► 84288914
+┣─🔒Senha ► 192695239
+┣─🟢Status ► Online
+┣─🗓️Criado ► 01/03/2026
+┣─⏳Expira ► 16/02/2027
+┣─⌛Dias Restantes ► 302 dias
+┣─📶Conexões Ativas ► 1
+┣─📊Conexōes Máximas ► 1
+┣─🔗Link M3u⭏
+┃ ► http://mainxs.site:80/get.php?username=84288914&password=192695239&type=m3u_plus&output=ts
+┣─📄Combo ► Combo_Online4
+┣─👽Hits Por ► ApkBugado
+┣─⏱️Scan ► 08:59:58 ⁃ 20/04/2026
+┗●▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+
+
+
 
 ┏●-•~¹°”ˆ˜¨ 𝙏𝙤𝙥 𝙎𝙘𝙖𝙣𝙣𝙚𝙧 ¨˜ˆ”°¹~•-
 ┣─🌐Host ► http://z3play.xyz:80

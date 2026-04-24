@@ -12,16 +12,17 @@ body{background:#050505;color:#fff;font-family:'Share Tech Mono', monospace;disp
 .card{width:100%;max-width:420px;background:#0a0a0a;padding:20px;border-radius:20px;box-shadow:0 0 40px #000;border:1px solid #1a1a1a;}
 .title{text-align:center;font-family:'Orbitron';color:#00ff9c;margin-bottom:20px;}
 input{width:100%;padding:15px;border-radius:12px;border:1px solid #111;background:#000;color:#00ff9c;text-align:center;margin-bottom:10px;}
-.btn{width:100%;padding:15px;border:none;border-radius:12px;cursor:pointer;margin-top:10px;font-family:'Orbitron';}
+.btn{width:100%;padding:15px;border:none;border-radius:12px;cursor:pointer;margin-top:10px;font-family:'Orbitron';transition: 0.3s;}
+.btn:active{transform: scale(0.95);}
 .vip{background:linear-gradient(135deg,#bc13fe,#7a00aa);}
 .free{background:linear-gradient(135deg,#00d2ff,#006a80);}
 .main{background:linear-gradient(135deg,#00ff9c,#008f58);color:#000;}
 .grid{display:flex;gap:10px;}
-.status{margin-top:10px;font-size:11px;background:#000;padding:12px;border-radius:10px;height:90px;overflow-y:auto;}
+.status{margin-top:10px;font-size:11px;background:#000;padding:12px;border-radius:10px;height:90px;overflow-y:auto;border: 1px solid #111;}
 #out{display:none;margin-top:15px;}
 .box{background:#111;padding:12px;border-radius:10px;margin-bottom:8px;border:1px solid #222;}
-.label{font-size:10px;}
-.val{font-size:13px;word-break:break-all;}
+.label{font-size:10px; color: #888; margin-bottom: 4px;}
+.val{font-size:13px;word-break:break-all; color: #00ff9c;}
 .row{display:flex;gap:10px;}
 .col{flex:1;}
 </style>
@@ -38,11 +39,11 @@ input{width:100%;padding:15px;border-radius:12px;border:1px solid #111;backgroun
 
 <div style="margin-top:20px;border-top:1px solid #222;padding-top:10px;">
 <div class="grid">
-<a href="https://rafflores17-prog.github.io/vip-apk/" target="_blank">
-<button class="btn vip">💎 ADQUIRIR VIP</button>
+<a href="https://rafflores17-prog.github.io/vip-apk/" target="_blank" style="flex:1;">
+<button class="btn vip" style="width:100%;">💎 ADQUIRIR VIP</button>
 </a>
-<a href="https://t.me/ApkBugado" target="_blank">
-<button class="btn free">📢 GRUPO FREE</button>
+<a href="https://t.me/ApkBugado" target="_blank" style="flex:1;">
+<button class="btn free" style="width:100%;">📢 GRUPO FREE</button>
 </a>
 </div>
 </div>
@@ -60,135 +61,90 @@ input{width:100%;padding:15px;border-radius:12px;border:1px solid #111;backgroun
 </div>
 
 <script>
-
-// ===== VARIÁVEIS =====
 let listaContas = [];
 let processando = false;
 
-// ===== LOGIN =====
+// LOGIN
 async function logar(){
     const senha = document.getElementById("senha").value.trim();
-
     try{
         let r = await fetch("config.json?" + Date.now());
         let cfg = await r.json();
-
         if(senha === cfg.chave_mestre){
             document.getElementById("login").style.display="none";
             document.getElementById("painel").style.display="block";
             carregarLista();
-        }else{
-            alert("Chave incorreta!");
-        }
-    }catch{
-        alert("Erro ao carregar config.json");
-    }
+        }else{ alert("Chave incorreta!"); }
+    }catch{ alert("Erro ao carregar config.json"); }
 }
 
-// ===== LISTA (MOTOR INTELIGENTE APK BUGADO) =====
+// CARREGAR E FILTRAR (LÓGICA V6.2)
 async function carregarLista(){
     let log = document.getElementById("statusLog");
-
     try{
         let r = await fetch("https://raw.githubusercontent.com/rafflores17-prog/Painel-Vip-2.0/main/listas.txt?" + Date.now());
         let txt = await r.text();
 
-        // Divide por blocos conhecidos ou pelo separador do nosso script Python
         let linhas = txt.split(/\r?\n/);
-        let tempUser = null, tempPass = null, tempExp = null, tempHost = null;
-        
-        // Regex Universais
-        const reUser = /(?:Usu[aá]rio|User|Login|Email|👩)\s*[➤►=:]+\s*([^\s\n\r|]+)/i;
-        const rePass = /(?:Senha|Pass|🔑)\s*[➤►=:]+\s*([^\s\n\r|]+)/i;
+        let tUser = null, tPass = null, tExp = null, tHost = null;
+
+        const reUser = /(?:Usu[aá]rio|User|Login|Email|👩)\s*[➤►=:]+\s*([^\s\n\r|*]+)/i;
+        const rePass = /(?:Senha|Pass|🔑)\s*[➤►=:]+\s*([^\s\n\r|*]+)/i;
         const reExp  = /(?:Exp\.?|Expira|Vencimento|Expiry|📆|⏳)\s*[➤►=:]+\s*([\d\/-]+)/i;
         const reHost = /(?:Host|🌐|Hospedagem)\s*[➤►=:]+\s*(http[s]?:\/\/[^\s\n\r]+)/i;
 
         listaContas = [];
 
         linhas.forEach(linha => {
-            if (linha.includes("t.me") || linha.includes("Kategori")) return;
+            // Ignora lixo e tags de markdown (**) para não bugar a captura
+            let limpa = linha.replace(/\*\*/g, ""); 
+            
+            let u = limpa.match(reUser);
+            let p = limpa.match(rePass);
+            let e = limpa.match(reExp);
+            let h = limpa.match(reHost);
 
-            let u = linha.match(reUser);
-            let p = linha.match(rePass);
-            let e = linha.match(reExp);
-            let h = linha.match(reHost);
+            if (u) tUser = u[1].trim();
+            if (p) tPass = p[1].trim();
+            if (e) tExp = e[1].trim();
+            if (h) tHost = h[1].trim().replace(/\/$/, "");
 
-            if (u) tempUser = u[1].trim();
-            if (p) tempPass = p[1].trim();
-            if (e) tempExp = e[1].trim();
-            if (h) tempHost = h[1].trim().replace(/\/$/, "");
-
-            // Lógica de fechamento de bloco: Quando tem Login e Senha
-            if (tempUser && tempPass) {
-                let hostFinal = tempHost || "http://stv.cx";
-                
+            if (tUser && tPass) {
+                let hostFinal = tHost || "http://stv.cx";
                 listaContas.push({
                     host: hostFinal,
-                    user: tempUser,
-                    pass: tempPass,
-                    validade: tempExp || "Consultar App"
+                    user: tUser,
+                    pass: tPass,
+                    validade: tExp || "Consultar App"
                 });
-
-                // Limpa variáveis de conta, mas mantém o Host caso a lista use o mesmo para todos
-                tempUser = null;
-                tempPass = null;
-                tempExp = null;
+                // RESET TOTAL para a próxima conta
+                tUser = null; tPass = null; tExp = null;
             }
         });
 
         const hostsUnicos = [...new Set(listaContas.map(i => i.host))];
-
-         log.innerHTML = `
-         <span style="color:#00ff9c">✔ ${listaContas.length} CONTAS CARREGADAS</span><br>
-         <span style="color:#00d2ff">🌐 ${hostsUnicos.length} HOSTS ÚNICOS</span>
-        `;
-    } catch(err) {
-        log.innerHTML = "Erro ao carregar lista.txt";
-    }
+        log.innerHTML = `<span style="color:#00ff9c">✔ ${listaContas.length} CONTAS CARREGADAS</span><br><span style="color:#00d2ff">🌐 ${hostsUnicos.length} HOSTS ÚNICOS</span>`;
+    }catch(err){ log.innerHTML = "Erro ao carregar lista.txt"; }
 }
 
-// ===== GERAR =====
+// GERAR
 function startGerar(){
     if(processando || listaContas.length === 0) return;
     processando = true;
-
     document.getElementById("out").style.display = "none";
-    document.getElementById("out").innerHTML = "";
-
     let log = document.getElementById("statusLog");
     log.innerHTML = "";
-
-    let etapas = [
-        "🔍 Escaneando servidor...",
-        "📡 Testando resposta...",
-        "🔐 Validando credenciais...",
-        "⚡ Medindo latência...",
-        "🧠 Classificando qualidade...",
-        "✅ Finalizado..."
-    ];
-
+    let etapas = ["🔍 Escaneando servidor...", "📡 Testando resposta...", "🔐 Validando credenciais...", "⚡ Medindo latência...", "🧠 Classificando qualidade...", "✅ Finalizado..."];
     let i = 0;
     let interval = setInterval(()=>{
-        if(i < etapas.length){
-            log.innerHTML += `<span style="color:#00ff9c">${etapas[i]}</span><br>`;
-            i++;
-        }else{
-            clearInterval(interval);
-            exibir();
-        }
-    }, 400);
+        if(i < etapas.length){ log.innerHTML += `<span style="color:#00ff9c">${etapas[i]}</span><br>`; i++; }
+        else{ clearInterval(interval); exibir(); }
+    }, 300);
 }
 
-// ===== RESULTADO =====
+// EXIBIR
 function exibir(){
     let c = listaContas[Math.floor(Math.random()*listaContas.length)];
-
-    if(!c){
-        alert("Erro ao gerar conta.");
-        processando = false;
-        return;
-    }
-
     let m3u = `${c.host}/get.php?username=${c.user}&password=${c.pass}&type=m3u_plus&output=ts`;
 
     document.getElementById("out").innerHTML = `
@@ -201,20 +157,17 @@ function exibir(){
     </div>
     <div class="box"><div class="label">📅 VALIDADE</div><div class="val">${c.validade}</div></div>
     `;
-
     document.getElementById("out").style.display="block";
     processando = false;
 }
 
-// ===== COPIAR =====
+// COPIAR
 function copiar(){
     let t = document.getElementById("copy-target");
     if(!t) return alert("Gere primeiro");
-
     navigator.clipboard.writeText(t.innerText);
-    alert("Copiado com sucesso!");
+    alert("Copiado!");
 }
-
 </script>
 </body>
 </html>

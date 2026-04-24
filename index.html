@@ -85,54 +85,71 @@ async function logar(){
     }
 }
 
-// ===== LISTA =====
+// ===== LISTA (MOTOR INTELIGENTE APK BUGADO) =====
 async function carregarLista(){
-
     let log = document.getElementById("statusLog");
 
     try{
         let r = await fetch("https://raw.githubusercontent.com/rafflores17-prog/Painel-Vip-2.0/main/listas.txt?" + Date.now());
         let txt = await r.text();
 
-        let blocos = txt.split(/(?:┏●|━──────|─•~¹°)/);
+        // Divide por blocos conhecidos ou pelo separador do nosso script Python
+        let linhas = txt.split(/\r?\n/);
+        let tempUser = null, tempPass = null, tempExp = null, tempHost = null;
+        
+        // Regex Universais
+        const reUser = /(?:Usu[aá]rio|User|Login|Email|👩)\s*[➤►=:]+\s*([^\s\n\r|]+)/i;
+        const rePass = /(?:Senha|Pass|🔑)\s*[➤►=:]+\s*([^\s\n\r|]+)/i;
+        const reExp  = /(?:Exp\.?|Expira|Vencimento|Expiry|📆|⏳)\s*[➤►=:]+\s*([\d\/-]+)/i;
+        const reHost = /(?:Host|🌐|Hospedagem)\s*[➤►=:]+\s*(http[s]?:\/\/[^\s\n\r]+)/i;
 
-        listaContas = blocos.map(b => {
+        listaContas = [];
 
-            let h = b.match(/Host\s*(?:►|:|➨)\s*(https?:\/\/[^\s\n\r]+)/i);
-            let u = b.match(/Usu[aá]rio\s*(?:►|:|➨)\s*([^\n\r]+)/i);
-            let p = b.match(/Senha\s*(?:►|:|➨)\s*([^\n\r]+)/i);
-            let v = b.match(/(?:Validade|Vencimento|Expira|EXPIRA|Exp|📅|⏳)[^\d]*([\d\/:\s]{8,})/i);
+        linhas.forEach(linha => {
+            if (linha.includes("t.me") || linha.includes("Kategori")) return;
 
-            if(h && u && p){
+            let u = linha.match(reUser);
+            let p = linha.match(rePass);
+            let e = linha.match(reExp);
+            let h = linha.match(reHost);
 
-                if(h[1].includes("t.me")) return null;
+            if (u) tempUser = u[1].trim();
+            if (p) tempPass = p[1].trim();
+            if (e) tempExp = e[1].trim();
+            if (h) tempHost = h[1].trim().replace(/\/$/, "");
 
-                return {
-                    host: h[1].trim().replace(/\/$/, ""),
-                    user: u[1].trim().replace(/[^\w@.\-]/g, ""),
-                    pass: p[1].trim().replace(/[^\w@.\-]/g, ""),
-                    validade: v ? v[1].trim() : "DESCONHECIDO"
-                };
+            // Lógica de fechamento de bloco: Quando tem Login e Senha
+            if (tempUser && tempPass) {
+                let hostFinal = tempHost || "http://stv.cx";
+                
+                listaContas.push({
+                    host: hostFinal,
+                    user: tempUser,
+                    pass: tempPass,
+                    validade: tempExp || "Consultar App"
+                });
+
+                // Limpa variáveis de conta, mas mantém o Host caso a lista use o mesmo para todos
+                tempUser = null;
+                tempPass = null;
+                tempExp = null;
             }
-
-        }).filter(Boolean);
+        });
 
         const hostsUnicos = [...new Set(listaContas.map(i => i.host))];
 
          log.innerHTML = `
          <span style="color:#00ff9c">✔ ${listaContas.length} CONTAS CARREGADAS</span><br>
          <span style="color:#00d2ff">🌐 ${hostsUnicos.length} HOSTS ÚNICOS</span>
-`;
-    }catch{
-        log.innerHTML = "Erro ao carregar lista";
+        `;
+    } catch(err) {
+        log.innerHTML = "Erro ao carregar lista.txt";
     }
 }
 
 // ===== GERAR =====
 function startGerar(){
-
     if(processando || listaContas.length === 0) return;
-
     processando = true;
 
     document.getElementById("out").style.display = "none";
@@ -151,7 +168,6 @@ function startGerar(){
     ];
 
     let i = 0;
-
     let interval = setInterval(()=>{
         if(i < etapas.length){
             log.innerHTML += `<span style="color:#00ff9c">${etapas[i]}</span><br>`;
@@ -165,10 +181,9 @@ function startGerar(){
 
 // ===== RESULTADO =====
 function exibir(){
-
     let c = listaContas[Math.floor(Math.random()*listaContas.length)];
 
-    if(!c || !c.host || !c.user || !c.pass){
+    if(!c){
         alert("Erro ao gerar conta.");
         processando = false;
         return;
@@ -197,7 +212,7 @@ function copiar(){
     if(!t) return alert("Gere primeiro");
 
     navigator.clipboard.writeText(t.innerText);
-    alert("Copiado!");
+    alert("Copiado com sucesso!");
 }
 
 </script>

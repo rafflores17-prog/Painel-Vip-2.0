@@ -78,7 +78,7 @@ async function logar(){
     }catch{ alert("Erro ao carregar config.json"); }
 }
 
-// CARREGAR E FILTRAR (LÓGICA V6.2)
+// CARREGAR E LIMPAR (VERSÃO ULTRA INTELIGENTE)
 async function carregarLista(){
     let log = document.getElementById("statusLog");
     try{
@@ -88,16 +88,17 @@ async function carregarLista(){
         let linhas = txt.split(/\r?\n/);
         let tUser = null, tPass = null, tExp = null, tHost = null;
 
-        const reUser = /(?:Usu[aá]rio|User|Login|Email|👩)\s*[➤►=:]+\s*([^\s\n\r|*]+)/i;
-        const rePass = /(?:Senha|Pass|🔑)\s*[➤►=:]+\s*([^\s\n\r|*]+)/i;
+        // Regex que ignoram qualquer símbolo que não seja o dado real
+        const reUser = /(?:Usu[aá]rio|User|Login|Email|👩)\s*[➤►=:]+\s*([^\s\n\r|`*]+)/i;
+        const rePass = /(?:Senha|Pass|🔑)\s*[➤►=:]+\s*([^\s\n\r|`*]+)/i;
         const reExp  = /(?:Exp\.?|Expira|Vencimento|Expiry|📆|⏳)\s*[➤►=:]+\s*([\d\/-]+)/i;
-        const reHost = /(?:Host|🌐|Hospedagem)\s*[➤►=:]+\s*(http[s]?:\/\/[^\s\n\r]+)/i;
+        const reHost = /(?:Host|🌐|Hospedagem)\s*[➤►=:]+\s*(http[s]?:\/\/[^\s\n\r`*]+)/i;
 
         listaContas = [];
 
         linhas.forEach(linha => {
-            // Ignora lixo e tags de markdown (**) para não bugar a captura
-            let limpa = linha.replace(/\*\*/g, ""); 
+            // Limpa formatação de Telegram (crases, asteriscos e aspas simples)
+            let limpa = linha.replace(/[`*']/g, ""); 
             
             let u = limpa.match(reUser);
             let p = limpa.match(rePass);
@@ -117,7 +118,6 @@ async function carregarLista(){
                     pass: tPass,
                     validade: tExp || "Consultar App"
                 });
-                // RESET TOTAL para a próxima conta
                 tUser = null; tPass = null; tExp = null;
             }
         });
@@ -127,7 +127,7 @@ async function carregarLista(){
     }catch(err){ log.innerHTML = "Erro ao carregar lista.txt"; }
 }
 
-// GERAR
+// ANIMAÇÃO DE GERAÇÃO
 function startGerar(){
     if(processando || listaContas.length === 0) return;
     processando = true;
@@ -142,9 +142,10 @@ function startGerar(){
     }, 300);
 }
 
-// EXIBIR
+// EXIBIÇÃO FINAL
 function exibir(){
     let c = listaContas[Math.floor(Math.random()*listaContas.length)];
+    // Monta o link 100% limpo para o player
     let m3u = `${c.host}/get.php?username=${c.user}&password=${c.pass}&type=m3u_plus&output=ts`;
 
     document.getElementById("out").innerHTML = `
@@ -164,9 +165,9 @@ function exibir(){
 // COPIAR
 function copiar(){
     let t = document.getElementById("copy-target");
-    if(!t) return alert("Gere primeiro");
+    if(!t) return alert("Gere primeiro!");
     navigator.clipboard.writeText(t.innerText);
-    alert("Copiado!");
+    alert("Dados copiados com sucesso!");
 }
 </script>
 </body>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GERADOR VIP IPTV PRO</title>
+<title>GERADOR VIP IPTV PRO - REAL TIME</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 
@@ -50,13 +50,11 @@ input{width:100%;padding:15px;border-radius:12px;border:1px solid #111;backgroun
 </div>
 
 <div id="painel" style="display:none;">
-
 <button class="btn main" id="btnGerar" onclick="startGerar()">🚀 GERAR ACESSO</button>
 <button class="btn" onclick="copiar()">📋 COPIAR DADOS</button>
 
 <div class="status" id="statusLog">Aguardando comando...</div>
 <div id="out"></div>
-
 </div>
 </div>
 
@@ -64,7 +62,6 @@ input{width:100%;padding:15px;border-radius:12px;border:1px solid #111;backgroun
 let listaContas = [];
 let processando = false;
 
-// LOGIN
 async function logar(){
     const senha = document.getElementById("senha").value.trim();
     try{
@@ -78,28 +75,22 @@ async function logar(){
     }catch{ alert("Erro ao carregar config.json"); }
 }
 
-// CARREGAR E LIMPAR (VERSÃO ULTRA INTELIGENTE)
 async function carregarLista(){
     let log = document.getElementById("statusLog");
     try{
         let r = await fetch("https://raw.githubusercontent.com/rafflores17-prog/Painel-Vip-2.0/main/listas.txt?" + Date.now());
         let txt = await r.text();
-
         let linhas = txt.split(/\r?\n/);
         let tUser = null, tPass = null, tExp = null, tHost = null;
 
-        // Regex que ignoram qualquer símbolo que não seja o dado real
         const reUser = /(?:Usu[aá]rio|User|Login|Email|👩)\s*[➤►=:]+\s*([^\s\n\r|`*]+)/i;
         const rePass = /(?:Senha|Pass|🔑)\s*[➤►=:]+\s*([^\s\n\r|`*]+)/i;
         const reExp  = /(?:Exp\.?|Expira|Vencimento|Expiry|📆|⏳)\s*[➤►=:]+\s*([\d\/-]+)/i;
         const reHost = /(?:Host|🌐|Hospedagem)\s*[➤►=:]+\s*(http[s]?:\/\/[^\s\n\r`*]+)/i;
 
         listaContas = [];
-
         linhas.forEach(linha => {
-            // Limpa formatação de Telegram (crases, asteriscos e aspas simples)
             let limpa = linha.replace(/[`*']/g, ""); 
-            
             let u = limpa.match(reUser);
             let p = limpa.match(rePass);
             let e = limpa.match(reExp);
@@ -111,63 +102,95 @@ async function carregarLista(){
             if (h) tHost = h[1].trim().replace(/\/$/, "");
 
             if (tUser && tPass) {
-                let hostFinal = tHost || "http://stv.cx";
                 listaContas.push({
-                    host: hostFinal,
+                    host: tHost || "http://stv.cx",
                     user: tUser,
                     pass: tPass,
-                    validade: tExp || "Consultar App"
+                    validade: tExp || "Pendente..."
                 });
                 tUser = null; tPass = null; tExp = null;
             }
         });
-
-        const hostsUnicos = [...new Set(listaContas.map(i => i.host))];
-        log.innerHTML = `<span style="color:#00ff9c">✔ ${listaContas.length} CONTAS CARREGADAS</span><br><span style="color:#00d2ff">🌐 ${hostsUnicos.length} HOSTS ÚNICOS</span>`;
+        log.innerHTML = `<span style="color:#00ff9c">✔ ${listaContas.length} CONTAS CARREGADAS</span>`;
     }catch(err){ log.innerHTML = "Erro ao carregar lista.txt"; }
 }
 
-// ANIMAÇÃO DE GERAÇÃO
-function startGerar(){
+async function startGerar(){
     if(processando || listaContas.length === 0) return;
     processando = true;
     document.getElementById("out").style.display = "none";
     let log = document.getElementById("statusLog");
     log.innerHTML = "";
-    let etapas = ["🔍 Escaneando servidor...", "📡 Testando resposta...", "🔐 Validando credenciais...", "⚡ Medindo latência...", "🧠 Classificando qualidade...", "✅ Finalizado..."];
+    
+    let conta = listaContas[Math.floor(Math.random()*listaContas.length)];
+    let etapas = ["🔍 Localizando servidor...", "📡 Verificando API...", "🔐 Autenticando..."];
     let i = 0;
-    let interval = setInterval(()=>{
-        if(i < etapas.length){ log.innerHTML += `<span style="color:#00ff9c">${etapas[i]}</span><br>`; i++; }
-        else{ clearInterval(interval); exibir(); }
-    }, 300);
+    let interval = setInterval(() => {
+        if(i < etapas.length){ 
+            log.innerHTML += `<span style="color:#00ff9c">${etapas[i]}</span><br>`; 
+            i++; 
+        } else { 
+            clearInterval(interval); 
+            validarReal(conta);
+        }
+    }, 400);
 }
 
-// EXIBIÇÃO FINAL
-function exibir(){
-    let c = listaContas[Math.floor(Math.random()*listaContas.length)];
-    // Monta o link 100% limpo para o player
+async function validarReal(c) {
+    let log = document.getElementById("statusLog");
+    let infoReal = { status: "OFFLINE ❌", validade: c.validade, conexoes: "0/0" };
+
+    try {
+        const proxy = "https://corsproxy.io/?"; 
+        const apiUrl = `${proxy}${encodeURIComponent(c.host)}/player_api.php?username=${c.user}&password=${c.pass}`;
+
+        let response = await fetch(apiUrl);
+        let data = await response.json();
+
+        if (data.user_info) {
+            let info = data.user_info;
+            infoReal.status = info.status === "Active" ? "ONLINE ✅" : "INATIVO ⚠️";
+            
+            if (info.exp_date && info.exp_date !== "null" && info.exp_date !== "0") {
+                let d = new Date(info.exp_date * 1000);
+                infoReal.validade = d.toLocaleDateString('pt-BR');
+            } else {
+                infoReal.validade = "ILIMITADA";
+            }
+            infoReal.conexoes = `${info.active_cons || 0} / ${info.max_connections || 1}`;
+            log.innerHTML += `<span style="color:#00ff9c">✅ DADOS ATUALIZADOS DO PAINEL!</span>`;
+        }
+    } catch (err) {
+        log.innerHTML += `<span style="color:#ffcc00">⚠️ SERVIDOR EM MANUTENÇÃO (CACHE)</span>`;
+    }
+    exibir(c, infoReal);
+}
+
+function exibir(c, infoReal){
     let m3u = `${c.host}/get.php?username=${c.user}&password=${c.pass}&type=m3u_plus&output=ts`;
 
     document.getElementById("out").innerHTML = `
-    <div class="box"><div class="label">📡 STATUS</div><div class="val">ONLINE ✅</div></div>
-    <div class="box"><div class="label">🔗 LINK M3U</div><div class="val" id="copy-target">${m3u}</div></div>
-    <div class="box"><div class="label">🌐 HOST</div><div class="val">${c.host}</div></div>
+    <div class="box"><div class="label">📡 STATUS DO SERVIDOR</div><div class="val">${infoReal.status}</div></div>
+    <div class="box"><div class="label">🔗 LINK M3U VIP</div><div class="val" id="copy-target">${m3u}</div></div>
     <div class="row">
-    <div class="box col"><div class="label">👤 USUÁRIO</div><div class="val">${c.user}</div></div>
-    <div class="box col"><div class="label">🔑 SENHA</div><div class="val">${c.pass}</div></div>
+        <div class="box col"><div class="label">👤 USUÁRIO</div><div class="val">${c.user}</div></div>
+        <div class="box col"><div class="label">🔑 SENHA</div><div class="val">${c.pass}</div></div>
     </div>
-    <div class="box"><div class="label">📅 VALIDADE</div><div class="val">${c.validade}</div></div>
+    <div class="row">
+        <div class="box col"><div class="label">📅 VALIDADE REAL</div><div class="val">${infoReal.validade}</div></div>
+        <div class="box col"><div class="label">👥 CONEXÕES</div><div class="val">${infoReal.conexoes}</div></div>
+    </div>
+    <div class="box"><div class="label">🌐 HOST ORIGINAL</div><div class="val">${c.host}</div></div>
     `;
     document.getElementById("out").style.display="block";
     processando = false;
 }
 
-// COPIAR
 function copiar(){
     let t = document.getElementById("copy-target");
     if(!t) return alert("Gere primeiro!");
     navigator.clipboard.writeText(t.innerText);
-    alert("Dados copiados com sucesso!");
+    alert("Copiado!");
 }
 </script>
 </body>

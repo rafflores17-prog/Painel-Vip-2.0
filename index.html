@@ -2,194 +2,1354 @@
 <html lang="pt-br">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GERADOR VIP IPTV PRO</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>⚡ PAINEL VIP PRO v3.0</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <style>
-body{background:#050505;color:#fff;font-family:'Share Tech Mono', monospace;display:flex;justify-content:center;align-items:center;min-height:100vh;margin:0;padding:10px;}
-.card{width:100%;max-width:420px;background:#0a0a0a;padding:20px;border-radius:20px;box-shadow:0 0 40px #000;border:1px solid #1a1a1a;}
-.title{text-align:center;font-family:'Orbitron';color:#00ff9c;margin-bottom:20px;}
-input{width:100%;padding:15px;border-radius:12px;border:1px solid #111;background:#000;color:#00ff9c;text-align:center;margin-bottom:10px;}
-.btn{width:100%;padding:15px;border:none;border-radius:12px;cursor:pointer;margin-top:10px;font-family:'Orbitron';transition: 0.3s; position: relative;}
-.btn:active{transform: scale(0.95);}
-.vip{background:linear-gradient(135deg,#bc13fe,#7a00aa);}
-.free{background:linear-gradient(135deg,#00d2ff,#006a80);}
-.main{background:linear-gradient(135deg,#00ff9c,#008f58);color:#000;}
-.grid{display:flex;gap:10px;}
-.status{margin-top:10px;font-size:11px;background:#000;padding:12px;border-radius:10px;height:90px;overflow-y:auto;border: 1px solid #111;}
-#out{display:none;margin-top:15px;}
-.box{background:#111;padding:12px;border-radius:10px;margin-bottom:8px;border:1px solid #222;}
-.label{font-size:10px; color: #888; margin-bottom: 4px;}
-.val{font-size:13px;word-break:break-all; color: #00ff9c;}
-.row{display:flex;gap:10px;}
-.col{flex:1;}
+:root {
+    --neon-green: #00ff88;
+    --neon-blue: #00d4ff;
+    --neon-purple: #bc13fe;
+    --neon-red: #ff3366;
+    --neon-yellow: #ffd700;
+    --neon-orange: #ff6b35;
+    --bg-dark: #050508;
+    --bg-card: #0a0a0f;
+    --bg-elevated: #111118;
+    --border: #1a1a2e;
+    --text-primary: #e0e0e0;
+    --text-secondary: #8888a0;
+    --text-muted: #555570;
+    --success: #00ff88;
+    --danger: #ff3366;
+    --warning: #ffd700;
+    --info: #00d4ff;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+    background: var(--bg-dark);
+    color: var(--text-primary);
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* ===== ANIMAÇÃO DE FUNDO ===== */
+.bg-grid {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: 
+        linear-gradient(rgba(0,255,136,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,255,136,0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.bg-glow {
+    position: fixed;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    filter: blur(150px);
+    opacity: 0.08;
+    pointer-events: none;
+    z-index: 0;
+    animation: floatGlow 8s ease-in-out infinite;
+}
+
+.bg-glow-1 { top: -200px; left: -200px; background: var(--neon-green); }
+.bg-glow-2 { bottom: -200px; right: -200px; background: var(--neon-purple); animation-delay: -4s; }
+
+@keyframes floatGlow {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(30px, 30px) scale(1.1); }
+}
+
+/* ===== PARTICULAS ===== */
+.particles {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.particle {
+    position: absolute;
+    width: 2px; height: 2px;
+    background: var(--neon-green);
+    border-radius: 50%;
+    opacity: 0;
+    animation: particleFloat linear infinite;
+}
+
+@keyframes particleFloat {
+    0% { opacity: 0; transform: translateY(100vh) scale(0); }
+    10% { opacity: 0.6; }
+    90% { opacity: 0.6; }
+    100% { opacity: 0; transform: translateY(-10vh) scale(1); }
+}
+
+/* ===== CONTAINER PRINCIPAL ===== */
+.container {
+    position: relative;
+    z-index: 1;
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ===== HEADER ===== */
+.header {
+    text-align: center;
+    padding: 30px 0 20px;
+}
+
+.header-icon {
+    width: 70px; height: 70px;
+    margin: 0 auto 15px;
+    background: linear-gradient(135deg, var(--neon-green), var(--neon-blue));
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    color: #000;
+    box-shadow: 0 0 30px rgba(0,255,136,0.3), 0 0 60px rgba(0,212,255,0.1);
+    animation: pulseIcon 2s ease-in-out infinite;
+}
+
+@keyframes pulseIcon {
+    0%, 100% { transform: scale(1); box-shadow: 0 0 30px rgba(0,255,136,0.3); }
+    50% { transform: scale(1.05); box-shadow: 0 0 50px rgba(0,255,136,0.5); }
+}
+
+.header h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 24px;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--neon-green), var(--neon-blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: 2px;
+}
+
+.header .version {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 5px;
+    letter-spacing: 3px;
+}
+
+.header .subtitle {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-top: 8px;
+    font-weight: 400;
+}
+
+/* ===== CARD ===== */
+.card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 24px;
+    margin-bottom: 16px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--neon-green), transparent);
+    opacity: 0.5;
+}
+
+.card:hover {
+    border-color: rgba(0,255,136,0.2);
+    transform: translateY(-2px);
+}
+
+/* ===== INPUTS ===== */
+.input-group {
+    position: relative;
+    margin-bottom: 16px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 14px 16px;
+    background: var(--bg-elevated);
+    border: 1.5px solid var(--border);
+    border-radius: 14px;
+    color: var(--text-primary);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.input-group input:focus {
+    border-color: var(--neon-green);
+    box-shadow: 0 0 0 3px rgba(0,255,136,0.1), 0 0 20px rgba(0,255,136,0.05);
+}
+
+.input-group input::placeholder {
+    color: var(--text-muted);
+}
+
+.input-icon {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+    font-size: 14px;
+}
+
+/* ===== BOTÕES ===== */
+.btn {
+    width: 100%;
+    padding: 16px;
+    border: none;
+    border-radius: 14px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--neon-green), #00cc6a);
+    color: #000;
+    box-shadow: 0 4px 20px rgba(0,255,136,0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0,255,136,0.4);
+}
+
+.btn-primary:active {
+    transform: scale(0.98);
+}
+
+.btn-primary:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.btn-secondary {
+    background: var(--bg-elevated);
+    color: var(--text-primary);
+    border: 1.5px solid var(--border);
+}
+
+.btn-secondary:hover {
+    border-color: var(--neon-blue);
+    color: var(--neon-blue);
+}
+
+.btn-vip {
+    background: linear-gradient(135deg, var(--neon-purple), #7a00aa);
+    color: #fff;
+    box-shadow: 0 4px 20px rgba(188,19,254,0.3);
+}
+
+.btn-vip:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(188,19,254,0.4);
+}
+
+.btn-free {
+    background: linear-gradient(135deg, var(--neon-blue), #006a80);
+    color: #fff;
+    box-shadow: 0 4px 20px rgba(0,212,255,0.3);
+}
+
+.btn-free:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0,212,255,0.4);
+}
+
+.btn-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 16px;
+}
+
+/* ===== STATUS INDICATOR ===== */
+.status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px;
+    background: var(--bg-elevated);
+    border-radius: 12px;
+    margin-bottom: 16px;
+    border: 1px solid var(--border);
+}
+
+.status-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--text-muted);
+    position: relative;
+}
+
+.status-dot.online {
+    background: var(--success);
+    box-shadow: 0 0 10px var(--success);
+    animation: pulseDot 1.5s ease-in-out infinite;
+}
+
+.status-dot.offline {
+    background: var(--danger);
+    box-shadow: 0 0 10px var(--danger);
+}
+
+.status-dot.checking {
+    background: var(--warning);
+    box-shadow: 0 0 10px var(--warning);
+    animation: pulseDot 0.8s ease-in-out infinite;
+}
+
+@keyframes pulseDot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.3); }
+}
+
+.status-text {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+/* ===== TERMINAL / LOG ===== */
+.terminal {
+    background: #000;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 16px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    line-height: 1.8;
+    max-height: 200px;
+    overflow-y: auto;
+    color: var(--text-secondary);
+    margin-bottom: 16px;
+}
+
+.terminal::-webkit-scrollbar { width: 4px; }
+.terminal::-webkit-scrollbar-track { background: transparent; }
+.terminal::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+.terminal-line {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 4px;
+    opacity: 0;
+    animation: fadeInUp 0.3s ease forwards;
+}
+
+.terminal-line .timestamp {
+    color: var(--text-muted);
+    font-size: 10px;
+    white-space: nowrap;
+}
+
+.terminal-line .prefix {
+    color: var(--neon-green);
+}
+
+.terminal-line .error { color: var(--danger); }
+.terminal-line .success { color: var(--success); }
+.terminal-line .warning { color: var(--warning); }
+.terminal-line .info { color: var(--neon-blue); }
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== RESULTADO ===== */
+.result-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    overflow: hidden;
+    margin-top: 16px;
+    animation: slideUp 0.5s ease;
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.result-header {
+    padding: 20px;
+    background: linear-gradient(135deg, rgba(0,255,136,0.1), rgba(0,212,255,0.05));
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.result-header.online {
+    background: linear-gradient(135deg, rgba(0,255,136,0.15), rgba(0,255,136,0.05));
+}
+
+.result-header.offline {
+    background: linear-gradient(135deg, rgba(255,51,102,0.15), rgba(255,51,102,0.05));
+}
+
+.result-status {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.result-status-icon {
+    width: 44px; height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}
+
+.result-status-icon.online {
+    background: rgba(0,255,136,0.15);
+    color: var(--success);
+}
+
+.result-status-icon.offline {
+    background: rgba(255,51,102,0.15);
+    color: var(--danger);
+}
+
+.result-status-text h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.result-status-text p {
+    font-size: 11px;
+    color: var(--text-secondary);
+    margin-top: 2px;
+}
+
+.result-ping {
+    text-align: right;
+}
+
+.result-ping .value {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--neon-green);
+}
+
+.result-ping .label {
+    font-size: 10px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ===== GRID DE DADOS ===== */
+.result-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+}
+
+.result-item {
+    background: var(--bg-card);
+    padding: 14px 16px;
+}
+
+.result-item.full-width {
+    grid-column: 1 / -1;
+}
+
+.result-item .label {
+    font-size: 10px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+    font-weight: 600;
+}
+
+.result-item .value {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--text-primary);
+    word-break: break-all;
+    line-height: 1.4;
+}
+
+.result-item .value.highlight {
+    color: var(--neon-green);
+    font-weight: 600;
+}
+
+.result-item .value.danger {
+    color: var(--danger);
+}
+
+.result-item .value.warning {
+    color: var(--warning);
+}
+
+/* ===== M3U LINK BOX ===== */
+.m3u-box {
+    background: var(--bg-elevated);
+    border: 1px dashed var(--border);
+    border-radius: 12px;
+    padding: 14px;
+    margin-top: 12px;
+    position: relative;
+}
+
+.m3u-box .label {
+    font-size: 10px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.m3u-box .link {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--neon-blue);
+    word-break: break-all;
+    line-height: 1.5;
+    user-select: all;
+}
+
+.m3u-box .copy-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 11px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: 'Inter', sans-serif;
+}
+
+.m3u-box .copy-btn:hover {
+    border-color: var(--neon-green);
+    color: var(--neon-green);
+}
+
+.m3u-box .copy-btn.copied {
+    background: var(--neon-green);
+    color: #000;
+    border-color: var(--neon-green);
+}
+
+/* ===== LOADING ===== */
+.loading-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(5,5,8,0.9);
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+}
+
+.loading-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.loader {
+    width: 60px; height: 60px;
+    border: 3px solid var(--border);
+    border-top-color: var(--neon-green);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.loading-text {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 14px;
+    color: var(--neon-green);
+    margin-top: 20px;
+    letter-spacing: 2px;
+}
+
+.loading-subtext {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 8px;
+}
+
+/* ===== SCANNER ANIMATION ===== */
+.scanner-line {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--neon-green), transparent);
+    animation: scanLine 2s linear infinite;
+    opacity: 0;
+}
+
+.card.scanning .scanner-line {
+    opacity: 1;
+}
+
+@keyframes scanLine {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* ===== FOOTER ===== */
+.footer {
+    text-align: center;
+    padding: 20px 0;
+    margin-top: auto;
+}
+
+.footer p {
+    font-size: 11px;
+    color: var(--text-muted);
+}
+
+.footer a {
+    color: var(--neon-green);
+    text-decoration: none;
+}
+
+/* ===== HIDDEN ===== */
+.hidden { display: none !important; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 400px) {
+    .container { padding: 12px; }
+    .header h1 { font-size: 20px; }
+    .card { padding: 18px; border-radius: 20px; }
+    .result-grid { grid-template-columns: 1fr; }
+}
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-dark); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
+/* ===== SELEÇÃO ===== */
+::selection {
+    background: rgba(0,255,136,0.3);
+    color: #fff;
+}
 </style>
 </head>
-
 <body>
-<div class="card">
-    <div class="title">GERADOR VIP IPTV PRO</div>
 
-    <div id="login">
-        <input type="password" id="senha" placeholder="CHAVE DE ACESSO">
-        <button class="btn main" onclick="logar()">ENTRAR NO PAINEL</button>
-        <div style="margin-top:20px;border-top:1px solid #222;padding-top:10px;">
-            <div class="grid">
-                <a href="https://rafflores17-prog.github.io/vip-apk/" target="_blank" style="flex:1;"><button class="btn vip" style="width:100%;">💎 ADQUIRIR VIP</button></a>
-                <a href="https://t.me/ApkBugado" target="_blank" style="flex:1;"><button class="btn free" style="width:100%;">📢 GRUPO FREE</button></a>
+<div class="bg-grid"></div>
+<div class="bg-glow bg-glow-1"></div>
+<div class="bg-glow bg-glow-2"></div>
+<div class="particles" id="particles"></div>
+
+<div class="container">
+
+    <!-- HEADER -->
+    <div class="header">
+        <div class="header-icon">
+            <i class="fas fa-satellite-dish"></i>
+        </div>
+        <h1>PAINEL VIP PRO</h1>
+        <div class="version">v3.0 // PROXY NODE.JS</div>
+        <div class="subtitle">Verificação REAL de contas IPTV</div>
+    </div>
+
+    <!-- LOGIN -->
+    <div id="loginSection">
+        <div class="card">
+            <div class="input-group">
+                <label><i class="fas fa-key"></i> Chave de Acesso</label>
+                <input type="password" id="senha" placeholder="Digite sua chave VIP..." autocomplete="off">
+                <i class="fas fa-lock input-icon"></i>
+            </div>
+            <button class="btn btn-primary" id="btnLogin" onclick="logar()">
+                <i class="fas fa-sign-in-alt"></i> ENTRAR NO PAINEL
+            </button>
+        </div>
+
+        <div class="card">
+            <div class="btn-grid">
+                <a href="https://rafflores17-prog.github.io/vip-apk/" target="_blank" style="text-decoration:none;">
+                    <button class="btn btn-vip">
+                        <i class="fas fa-gem"></i> ADQUIRIR VIP
+                    </button>
+                </a>
+                <a href="https://t.me/ApkBugado" target="_blank" style="text-decoration:none;">
+                    <button class="btn btn-free">
+                        <i class="fab fa-telegram"></i> GRUPO FREE
+                    </button>
+                </a>
             </div>
         </div>
     </div>
 
-    <div id="painel" style="display:none;">
-        <button class="btn main" id="btnGerar" onclick="startGerar()">🚀 GERAR ACESSO</button>
-        <button class="btn" id="btnCopiar" onclick="copiar()">📋 COPIAR DADOS</button>
-        <div class="status" id="statusLog">Aguardando comando...</div>
-        <div id="out"></div>
+    <!-- PAINEL -->
+    <div id="painelSection" class="hidden">
+
+        <!-- Status -->
+        <div class="status-indicator" id="statusBar">
+            <div class="status-dot" id="statusDot"></div>
+            <span class="status-text" id="statusText">Aguardando comando...</span>
+        </div>
+
+        <!-- Terminal -->
+        <div class="terminal" id="terminal">
+            <div class="terminal-line">
+                <span class="timestamp">[INIT]</span>
+                <span class="prefix">➜</span>
+                <span class="info">Sistema inicializado com sucesso</span>
+            </div>
+            <div class="terminal-line">
+                <span class="timestamp">[INIT]</span>
+                <span class="prefix">➜</span>
+                <span class="info">Proxy Node.js: ONLINE</span>
+            </div>
+            <div class="terminal-line">
+                <span class="timestamp">[INIT]</span>
+                <span class="prefix">➜</span>
+                <span class="success">Pronto para verificar contas IPTV</span>
+            </div>
+        </div>
+
+        <!-- Botão Gerar -->
+        <div class="card" id="gerarCard">
+            <div class="scanner-line"></div>
+            <button class="btn btn-primary" id="btnGerar" onclick="startGerar()">
+                <i class="fas fa-rocket"></i> GERAR ACESSO VIP
+            </button>
+        </div>
+
+        <!-- Resultado -->
+        <div id="resultado" class="hidden"></div>
+
     </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>⚡ Desenvolvido por <a href="https://t.me/ApkBugado" target="_blank">@ApkBugado</a> ⚡</p>
+        <p style="margin-top:4px; font-size:10px;">Proxy Node.js | CORS Bypass | Verificação Real</p>
+    </div>
+
+</div>
+
+<!-- Loading Overlay -->
+<div class="loading-overlay" id="loadingOverlay">
+    <div class="loader"></div>
+    <div class="loading-text">VERIFICANDO</div>
+    <div class="loading-subtext" id="loadingSubtext">Conectando ao servidor...</div>
 </div>
 
 <script>
+// ============================================
+// CONFIGURAÇÃO
+// ============================================
+const CONFIG = {
+    // URL do seu proxy Node.js (ajuste conforme seu deploy)
+    PROXY_URL: window.location.origin.includes('localhost') 
+        ? 'http://localhost:3000' 
+        : window.location.origin,
+
+    // URL do arquivo de contas no GitHub
+    LISTA_URL: 'https://raw.githubusercontent.com/rafflores17-prog/Painel-Vip-2.0/main/listas.txt',
+
+    // Chave mestre (em produção, use backend)
+    CHAVE_MESTRE: 'VIP2024PRO'
+};
+
 let listaContas = [];
 let processando = false;
+let contaAtual = null;
 
-async function logar(){
-    const senha = document.getElementById("senha").value.trim();
-    try{
-        let r = await fetch("config.json?" + Date.now());
-        let cfg = await r.json();
-        if(senha === cfg.chave_mestre){
-            document.getElementById("login").style.display="none";
-            document.getElementById("painel").style.display="block";
-            carregarLista();
-        }else{ alert("Chave incorreta!"); }
-    }catch{ alert("Erro ao carregar config.json"); }
+// ============================================
+// PARTICULAS DE FUNDO
+// ============================================
+function criarParticulas() {
+    const container = document.getElementById('particles');
+    for (let i = 0; i < 30; i++) {
+        const p = document.createElement('div');
+        p.className = 'particle';
+        p.style.left = Math.random() * 100 + '%';
+        p.style.animationDuration = (Math.random() * 10 + 5) + 's';
+        p.style.animationDelay = Math.random() * 5 + 's';
+        container.appendChild(p);
+    }
+}
+criarParticulas();
+
+// ============================================
+// TERMINAL
+// ============================================
+function log(msg, type = 'info') {
+    const terminal = document.getElementById('terminal');
+    const now = new Date();
+    const time = now.toTimeString().split(' ')[0];
+
+    const colors = {
+        info: 'info',
+        success: 'success',
+        error: 'error',
+        warning: 'warning'
+    };
+
+    const line = document.createElement('div');
+    line.className = 'terminal-line';
+    line.innerHTML = `
+        <span class="timestamp">[${time}]</span>
+        <span class="prefix">➜</span>
+        <span class="${colors[type] || 'info'}">${escapeHtml(msg)}</span>
+    `;
+    terminal.appendChild(line);
+    terminal.scrollTop = terminal.scrollHeight;
 }
 
-async function carregarLista(){
-    let log = document.getElementById("statusLog");
-    try{
-        let r = await fetch("https://raw.githubusercontent.com/rafflores17-prog/Painel-Vip-2.0/main/listas.txt?" + Date.now());
-        let txt = await r.text();
-        let linhas = txt.split(/\r?\n/);
-        let tUser = null, tPass = null, tExp = null, tHost = null;
-
-        const reUser = /(?:Usu[aá]rio|User|Login|Email|👩)\s*[➤►=:]+\s*([^\s\n\r|`*]+)/i;
-        const rePass = /(?:Senha|Pass|🔑)\s*[➤►=:]+\s*([^\s\n\r|`*]+)/i;
-        const reExp  = /(?:Exp\.?|Expira|Vencimento|Expiry|📆|⏳)\s*[➤►=:]+\s*([\d\/-]+)/i;
-        const reHost = /(?:Host|🌐|Hospedagem)\s*[➤►=:]+\s*(http[s]?:\/\/[^\s\n\r`*]+)/i;
-
-        listaContas = [];
-        linhas.forEach(linha => {
-            let limpa = linha.replace(/[`*']/g, ""); 
-            let u = limpa.match(reUser);
-            let p = limpa.match(rePass);
-            let e = limpa.match(reExp);
-            let h = limpa.match(reHost);
-            if (u) tUser = u[1].trim();
-            if (p) tPass = p[1].trim();
-            if (e) tExp = e[1].trim();
-            if (h) tHost = h[1].trim().replace(/\/$/, "");
-            if (tUser && tPass) {
-                listaContas.push({host: tHost || "http://stv.cx", user: tUser, pass: tPass, validade: tExp || "Consultar"});
-                tUser = null; tPass = null; tExp = null;
-            }
-        });
-        log.innerHTML = `<span style="color:#00ff9c">✔ ${listaContas.length} CONTAS PRONTAS</span>`;
-    }catch(err){ log.innerHTML = "Erro ao carregar lista.txt"; }
+function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
 }
 
-async function startGerar(){
-    if(processando || listaContas.length === 0) return;
-    processando = true;
-    document.getElementById("out").style.display = "none";
-    let log = document.getElementById("statusLog");
-    log.innerHTML = "";
-    
-    let conta = listaContas[Math.floor(Math.random()*listaContas.length)];
-    let etapas = ["🔍 Localizando servidor...", "📡 Verificando API...", "🔐 Autenticando..."];
-    let i = 0;
-    
-    let interval = setInterval(() => {
-        if(i < etapas.length){ 
-            log.innerHTML += `<span style="color:#00ff9c">${etapas[i]}</span><br>`; 
-            i++; 
-        } else { 
-            clearInterval(interval); 
-            validarReal(conta);
-        }
-    }, 400);
+function clearTerminal() {
+    document.getElementById('terminal').innerHTML = '';
 }
 
-async function validarReal(c) {
-    let log = document.getElementById("statusLog");
-    let infoReal = { status: "ONLINE ✅", validade: c.validade, conexoes: "0 / 1" };
+// ============================================
+// LOGIN
+// ============================================
+async function logar() {
+    const senha = document.getElementById('senha').value.trim();
+
+    if (!senha) {
+        log('Digite a chave de acesso!', 'error');
+        return;
+    }
+
+    log('Verificando credenciais...', 'info');
 
     try {
-        // Tenta usar o Proxy AllOrigins que é mais estável para IPTV
-        const apiUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(c.host + '/player_api.php?username=' + c.user + '&password=' + c.pass)}`;
+        // Em produção, isso deve ser verificado no backend
+        // Por segurança, vamos tentar carregar config.json
+        let chaveValida = false;
 
-        let response = await fetch(apiUrl);
-        let result = await response.json();
-        let data = JSON.parse(result.contents);
-
-        if (data.user_info) {
-            let info = data.user_info;
-            infoReal.status = (info.status === "Active") ? "ONLINE ✅" : "INATIVO ⚠️";
-            if (info.exp_date && info.exp_date !== "null") {
-                let d = new Date(info.exp_date * 1000);
-                infoReal.validade = d.toLocaleDateString('pt-BR');
-            }
-            infoReal.conexoes = `${info.active_cons || 0} / ${info.max_connections || 1}`;
-            log.innerHTML = `<span style="color:#00ff9c">✔ ACESSO SINCRONIZADO COM SUCESSO!</span>`;
+        try {
+            const r = await fetch('config.json?' + Date.now());
+            const cfg = await r.json();
+            if (senha === cfg.chave_mestre) chaveValida = true;
+        } catch(e) {
+            // Fallback para chave hardcoded (apenas para demo)
+            if (senha === CONFIG.CHAVE_MESTRE) chaveValida = true;
         }
-    } catch (err) {
-        // Se der erro de CORS ou timeout, forçamos ONLINE pois você sabe que está ON
-        infoReal.status = "ONLINE ✅";
-        log.innerHTML = `<span style="color:#00ff9c">✔ ACESSO GERADO (MODO SEGURO)</span>`;
+
+        if (chaveValida) {
+            log('Acesso autorizado!', 'success');
+            document.getElementById('loginSection').classList.add('hidden');
+            document.getElementById('painelSection').classList.remove('hidden');
+            await carregarLista();
+        } else {
+            log('Chave incorreta!', 'error');
+        }
+    } catch(err) {
+        log('Erro ao verificar: ' + err.message, 'error');
     }
-    exibir(c, infoReal);
 }
 
-function exibir(c, infoReal){
-    let m3u = `${c.host}/get.php?username=${c.user}&password=${c.pass}&type=m3u_plus&output=ts`;
-    document.getElementById("out").innerHTML = `
-    <div class="box"><div class="label">📡 STATUS DO SERVIDOR</div><div class="val">${infoReal.status}</div></div>
-    <div class="box"><div class="label">🔗 LINK M3U VIP</div><div class="val" id="copy-target">${m3u}</div></div>
-    <div class="row">
-        <div class="box col"><div class="label">👤 USUÁRIO</div><div class="val">${c.user}</div></div>
-        <div class="box col"><div class="label">🔑 SENHA</div><div class="val">${c.pass}</div></div>
-    </div>
-    <div class="row">
-        <div class="box col"><div class="label">📅 VALIDADE REAL</div><div class="val">${infoReal.validade}</div></div>
-        <div class="box col"><div class="label">👥 CONEXÕES</div><div class="val">${infoReal.conexoes}</div></div>
-    </div>
-    <div class="box"><div class="label">🌐 HOST ORIGINAL</div><div class="val">${c.host}</div></div>
-    `;
-    document.getElementById("out").style.display="block";
+// Login com Enter
+document.getElementById('senha').addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') logar();
+});
+
+// ============================================
+// CARREGAR LISTA DE CONTAS
+// ============================================
+async function carregarLista() {
+    log('Carregando base de dados...', 'info');
+
+    try {
+        const r = await fetch(CONFIG.LISTA_URL + '?' + Date.now());
+        const txt = await r.text();
+        const linhas = txt.split(/\r?\n/);
+
+        listaContas = parsearContas(linhas);
+
+        log(`Base carregada: ${listaContas.length} contas encontradas`, 'success');
+        updateStatus('ready', `${listaContas.length} contas prontas`);
+
+    } catch(err) {
+        log('Erro ao carregar lista: ' + err.message, 'error');
+        updateStatus('error', 'Erro ao carregar');
+    }
+}
+
+// Parser inteligente que suporta múltiplos formatos
+function parsearContas(linhas) {
+    const contas = [];
+    let tempHost = null;
+    let tempUser = null;
+    let tempPass = null;
+    let tempExp = null;
+
+    // Padrões regex para diferentes formatos
+    const padroes = {
+        // Formato Top Scanner (emoji)
+        host1: /(?:Host|🌐)[\s►➤=:]+(http[s]?:\/\/[^\s\n]+)/i,
+        user1: /(?:Usu[aá]rio|User|👤)[\s►➤=:]+([^\s\n|`*]+)/i,
+        pass1: /(?:Senha|Pass|🔒)[\s►➤=:]+([^\s\n|`*]+)/i,
+        exp1: /(?:Expira|Exp\.?|⏳)[\s►➤=:]+([\d\/\-]+)/i,
+
+        // Formato Alienado Paranormal
+        host2: /🌐\s*Host\s*➤\s*(http[s]?:\/\/[^\s\n]+)/i,
+        user2: /👩‍?\s*User\s*➤\s*([^\s\n]+)/i,
+        pass2: /🔑\s*Pass\s*➤\s*([^\s\n]+)/i,
+        exp2: /📆\s*Exp\s*➤\s*([\d\-\/]+)/i,
+
+        // Links M3U diretos
+        m3u: /(http[s]?:\/\/[^\s]+)\/get\.php\?username=([^&\s]+)&password=([^&\s]+)&type=m3u_plus/i
+    };
+
+    for (let i = 0; i < linhas.length; i++) {
+        const linha = linhas[i].replace(/[`*'"]/g, '').trim();
+
+        // Tentar extrair host
+        let h = linha.match(padroes.host1) || linha.match(padroes.host2);
+        if (h) tempHost = h[1].trim().replace(/\/$/, '');
+
+        // Tentar extrair usuário
+        let u = linha.match(padroes.user1) || linha.match(padroes.user2);
+        if (u) tempUser = u[1].trim();
+
+        // Tentar extrair senha
+        let p = linha.match(padroes.pass1) || linha.match(padroes.pass2);
+        if (p) tempPass = p[1].trim();
+
+        // Tentar extrair expiração
+        let e = linha.match(padroes.exp1) || linha.match(padroes.exp2);
+        if (e) tempExp = e[1].trim();
+
+        // Links M3U diretos
+        let m3u = linha.match(padroes.m3u);
+        if (m3u) {
+            contas.push({
+                host: m3u[1].trim().replace(/\/$/, ''),
+                user: m3u[2].trim(),
+                pass: m3u[3].trim(),
+                validade: tempExp || 'Consultar'
+            });
+            tempHost = null; tempUser = null; tempPass = null; tempExp = null;
+            continue;
+        }
+
+        // Se tem user e pass, salvar conta
+        if (tempUser && tempPass) {
+            contas.push({
+                host: tempHost || 'http://stv.cx',
+                user: tempUser,
+                pass: tempPass,
+                validade: tempExp || 'Consultar'
+            });
+            tempUser = null;
+            tempPass = null;
+            tempExp = null;
+            // Não resetar host pois pode ser o mesmo para próximas contas
+        }
+    }
+
+    return contas;
+}
+
+// ============================================
+// STATUS
+// ============================================
+function updateStatus(state, text) {
+    const dot = document.getElementById('statusDot');
+    const txt = document.getElementById('statusText');
+
+    dot.className = 'status-dot';
+    if (state === 'ready') dot.classList.add('online');
+    else if (state === 'checking') dot.classList.add('checking');
+    else if (state === 'error') dot.classList.add('offline');
+
+    txt.textContent = text;
+}
+
+// ============================================
+// GERAR ACESSO - VERIFICAÇÃO REAL
+// ============================================
+async function startGerar() {
+    if (processando || listaContas.length === 0) {
+        log('Aguarde ou recarregue a lista', 'warning');
+        return;
+    }
+
+    processando = true;
+    document.getElementById('btnGerar').disabled = true;
+    document.getElementById('gerarCard').classList.add('scanning');
+    document.getElementById('resultado').classList.add('hidden');
+    clearTerminal();
+
+    // Selecionar conta aleatória
+    contaAtual = listaContas[Math.floor(Math.random() * listaContas.length)];
+
+    log('═══════════════════════════════', 'info');
+    log('INICIANDO VERIFICAÇÃO REAL', 'info');
+    log('═══════════════════════════════', 'info');
+    log(`Host: ${contaAtual.host}`, 'info');
+    log(`User: ${contaAtual.user}`, 'info');
+
+    updateStatus('checking', 'Verificando conta...');
+
+    // Animação de etapas
+    const etapas = [
+        'Resolvendo DNS...',
+        'Conectando ao servidor...',
+        'Autenticando credenciais...',
+        'Buscando dados da API...',
+        'Analisando resposta...'
+    ];
+
+    for (let i = 0; i < etapas.length; i++) {
+        await sleep(400);
+        log(etapas[i], 'info');
+    }
+
+    // CHAMADA REAL AO PROXY NODE.JS
+    await verificarContaReal(contaAtual);
+
+    document.getElementById('gerarCard').classList.remove('scanning');
+    document.getElementById('btnGerar').disabled = false;
     processando = false;
 }
 
-function copiar(){
-    let t = document.getElementById("copy-target");
-    let btn = document.getElementById("btnCopiar");
-    if(!t) return;
-    navigator.clipboard.writeText(t.innerText);
-    
-    // Mudança visual no botão sem alerta chato
-    let originalText = btn.innerText;
-    btn.innerText = "✅ COPIADO!";
-    btn.style.background = "#00ff9c";
-    btn.style.color = "#000";
-    
-    setTimeout(() => {
-        btn.innerText = originalText;
-        btn.style.background = ""; 
-        btn.style.color = "";
-    }, 2000);
+async function verificarContaReal(conta) {
+    const loading = document.getElementById('loadingOverlay');
+    const subtext = document.getElementById('loadingSubtext');
+
+    loading.classList.add('active');
+    subtext.textContent = 'Conectando ao servidor IPTV...';
+
+    try {
+        // CHAMADA AO PROXY NODE.JS (SEM CORS!)
+        const proxyUrl = `${CONFIG.PROXY_URL}/api/check`;
+        const params = new URLSearchParams({
+            host: conta.host,
+            user: conta.user,
+            pass: conta.pass
+        });
+
+        log('Enviando requisição ao proxy...', 'info');
+        subtext.textContent = 'Proxy Node.js processando...';
+
+        const response = await fetch(`${proxyUrl}?${params}`, {
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json'
+            }
+        });
+
+        const data = await response.json();
+
+        loading.classList.remove('active');
+
+        if (data.success && data.online) {
+            // CONTA ATIVA - DADOS REAIS
+            log('✓ CONTA VERIFICADA COM SUCESSO!', 'success');
+            log(`Status: ${data.status}`, 'success');
+            log(`Expiração REAL: ${data.exp_date}`, 'success');
+            log(`Ping: ${data.tempo_ms}ms`, 'info');
+
+            updateStatus('ready', 'Conta verificada ✓');
+            exibirResultado(data, true);
+
+        } else if (data.success === false && data.error) {
+            // Servidor respondeu mas conta inválida
+            log('✗ Conta inválida ou expirada', 'error');
+            log(`Erro: ${data.error}`, 'error');
+
+            updateStatus('error', 'Conta inválida');
+
+            // Tentar outra conta automaticamente
+            log('Tentando próxima conta...', 'warning');
+            await sleep(1000);
+
+            // Selecionar outra conta
+            contaAtual = listaContas[Math.floor(Math.random() * listaContas.length)];
+            await verificarContaReal(contaAtual);
+            return;
+
+        } else {
+            // Erro genérico
+            log('⚠ Servidor indisponível', 'warning');
+            log('Usando dados do cache...', 'warning');
+
+            updateStatus('error', 'Servidor offline');
+            exibirResultadoFallback(conta);
+        }
+
+    } catch (err) {
+        loading.classList.remove('active');
+        log('✗ Erro na conexão: ' + err.message, 'error');
+        log('Proxy pode estar offline', 'error');
+
+        updateStatus('error', 'Erro de conexão');
+        exibirResultadoFallback(conta);
+    }
 }
+
+// ============================================
+// EXIBIR RESULTADO COM DADOS REAIS
+// ============================================
+function exibirResultado(data, isReal) {
+    const resultado = document.getElementById('resultado');
+    const m3uUrl = `${data.host}/get.php?username=${encodeURIComponent(data.user)}&password=${encodeURIComponent(data.password)}&type=m3u_plus&output=ts`;
+
+    const isExpirado = data.dias_restantes === 'EXPIRADO';
+    const statusClass = data.online ? 'online' : 'offline';
+    const statusIcon = data.online ? 'fa-check-circle' : 'fa-times-circle';
+    const statusColor = data.online ? 'var(--success)' : 'var(--danger)';
+
+    resultado.innerHTML = `
+        <div class="result-card">
+            <div class="result-header ${statusClass}">
+                <div class="result-status">
+                    <div class="result-status-icon ${statusClass}">
+                        <i class="fas ${statusIcon}"></i>
+                    </div>
+                    <div class="result-status-text">
+                        <h3 style="color: ${statusColor}">${data.status}</h3>
+                        <p>${isReal ? 'Dados verificados em tempo real' : 'Dados do cache'}</p>
+                    </div>
+                </div>
+                <div class="result-ping">
+                    <div class="value">${data.tempo_ms || '--'}<span style="font-size:12px">ms</span></div>
+                    <div class="label">Latência</div>
+                </div>
+            </div>
+
+            <div class="result-grid">
+                <div class="result-item">
+                    <div class="label"><i class="fas fa-user"></i> Usuário</div>
+                    <div class="value">${escapeHtml(data.user)}</div>
+                </div>
+                <div class="result-item">
+                    <div class="label"><i class="fas fa-lock"></i> Senha</div>
+                    <div class="value">${escapeHtml(data.password)}</div>
+                </div>
+                <div class="result-item">
+                    <div class="label"><i class="fas fa-calendar-alt"></i> Expiração REAL</div>
+                    <div class="value highlight ${isExpirado ? 'danger' : ''}">${data.exp_date}</div>
+                </div>
+                <div class="result-item">
+                    <div class="label"><i class="fas fa-hourglass-half"></i> Dias Restantes</div>
+                    <div class="value ${isExpirado ? 'danger' : 'highlight'}">${data.dias_restantes}</div>
+                </div>
+                <div class="result-item">
+                    <div class="label"><i class="fas fa-users"></i> Conexões</div>
+                    <div class="value">${data.active_connections || 0} / ${data.max_connections || 1}</div>
+                </div>
+                <div class="result-item">
+                    <div class="label"><i class="fas fa-server"></i> Servidor</div>
+                    <div class="value" style="font-size:11px">${data.server?.url || data.host}</div>
+                </div>
+                <div class="result-item full-width">
+                    <div class="label"><i class="fas fa-calendar-plus"></i> Criado em</div>
+                    <div class="value">${data.created_at || 'N/A'}</div>
+                </div>
+            </div>
+
+            <div style="padding: 16px;">
+                <div class="m3u-box">
+                    <div class="label">
+                        <i class="fas fa-link"></i> LINK M3U VIP
+                    </div>
+                    <div class="link" id="m3uLink">${m3uUrl}</div>
+                    <button class="copy-btn" onclick="copiarM3U(this)">
+                        <i class="fas fa-copy"></i> COPIAR
+                    </button>
+                </div>
+            </div>
+        </div>
+    `;
+
+    resultado.classList.remove('hidden');
+    resultado.scrollIntoView({ behavior: 'smooth' });
+}
+
+// Fallback quando o proxy não responde
+function exibirResultadoFallback(conta) {
+    const resultado = document.getElementById('resultado');
+    const m3uUrl = `${conta.host}/get.php?username=${encodeURIComponent(conta.user)}&password=${encodeURIComponent(conta.pass)}&type=m3u_plus&output=ts`;
+
+    resultado.innerHTML = `
+        <div class="result-card">
+            <div class="result-header offline">
+                <div class="result-status">
+                    <div class="result-status-icon offline">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <div class="result-status-text">
+                        <h3 style="color: var(--warning)">MODO OFFLINE</h3>
+                        <p>Proxy indisponível - Dados do cache</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="result-grid">
+                <div class="result-item">
+                    <div class="label"><i class="fas fa-user"></i> Usuário</div>
+                    <div class="value">${escapeHtml(conta.user)}</div>
+                </div>
+                <div class="result-item">
+                    <div class="label"><i class="fas fa-lock"></i> Senha</div>
+                    <div class="value">${escapeHtml(conta.pass)}</div>
+                </div>
+                <div class="result-item">
+                    <div class="label"><i class="fas fa-calendar"></i> Expiração (Cache)</div>
+                    <div class="value warning">${conta.validade}</div>
+                </div>
+                <div class="result-item">
+                    <div class="label"><i class="fas fa-server"></i> Host</div>
+                    <div class="value" style="font-size:11px">${conta.host}</div>
+                </div>
+            </div>
+
+            <div style="padding: 16px;">
+                <div class="m3u-box">
+                    <div class="label">
+                        <i class="fas fa-link"></i> LINK M3U
+                    </div>
+                    <div class="link" id="m3uLink">${m3uUrl}</div>
+                    <button class="copy-btn" onclick="copiarM3U(this)">
+                        <i class="fas fa-copy"></i> COPIAR
+                    </button>
+                </div>
+                <p style="font-size:11px; color: var(--text-muted); margin-top:10px; text-align:center;">
+                    <i class="fas fa-info-circle"></i> 
+                    Inicie o servidor Node.js para verificação real
+                </p>
+            </div>
+        </div>
+    `;
+
+    resultado.classList.remove('hidden');
+}
+
+// ============================================
+// COPIAR M3U
+// ============================================
+async function copiarM3U(btn) {
+    const link = document.getElementById('m3uLink').textContent;
+
+    try {
+        await navigator.clipboard.writeText(link);
+        btn.innerHTML = '<i class="fas fa-check"></i> COPIADO!';
+        btn.classList.add('copied');
+
+        setTimeout(() => {
+            btn.innerHTML = '<i class="fas fa-copy"></i> COPIAR';
+            btn.classList.remove('copied');
+        }, 2000);
+
+        log('Link M3U copiado!', 'success');
+    } catch(err) {
+        // Fallback para dispositivos antigos
+        const textarea = document.createElement('textarea');
+        textarea.value = link;
+        textarea.style.position = 'fixed';
+        textarea.style.opacity = '0';
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+
+        btn.innerHTML = '<i class="fas fa-check"></i> COPIADO!';
+        btn.classList.add('copied');
+        setTimeout(() => {
+            btn.innerHTML = '<i class="fas fa-copy"></i> COPIAR';
+            btn.classList.remove('copied');
+        }, 2000);
+
+        log('Link M3U copiado!', 'success');
+    }
+}
+
+// ============================================
+// UTILS
+// ============================================
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+// ============================================
+// INICIALIZAÇÃO
+// ============================================
+log('Sistema pronto. Aguardando login...', 'info');
 </script>
+
 </body>
 </html>

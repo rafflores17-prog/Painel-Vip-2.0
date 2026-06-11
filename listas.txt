@@ -1,100 +1,2090 @@
-# Total de links: 95
-# Filtrado em: 11-06-2026
-# Removido: nxpanelxr51.info
-#==================================================
-
-1. http://servbr.site:80/get.php?username=155631455&password=421716795&type=m3u_plus
-2. http://servbr.site:80/get.php?username=246216349&password=455615639&type=m3u_plus
-3. http://servbr.site:80/get.php?username=441925149&password=769849994&type=m3u_plus
-4. http://servbr.site:80/get.php?username=richardlucio&password=13992093823&type=m3u_plus
-5. http://servbr.site:80/get.php?username=782919947&password=913545294&type=m3u_plus
-6. http://servbr.site:80/get.php?username=179425534&password=336992862&type=m3u_plus
-7. http://servbr.site:80/get.php?username=yGGwf3tSg&password=6dXgyzTgt&type=m3u_plus
-8. http://servbr.site:80/get.php?username=436749593&password=936874765&type=m3u_plus
-9. http://servbr.site:80/get.php?username=334644272&password=737584340&type=m3u_plus
-10. http://servbr.site:80/get.php?username=151998523&password=414726440&type=m3u_plus
-11. http://servbr.site:80/get.php?username=477234288&password=589341676&type=m3u_plus
-12. http://servbr.site:80/get.php?username=636739138&password=125134928&type=m3u_plus
-13. http://servbr.site:80/get.php?username=343796947&password=494189841&type=m3u_plus
-14. http://servbr.site:80/get.php?username=09423508&password=51709437&type=m3u_plus
-15. http://servbr.site:80/get.php?username=819129558&password=882264110&type=m3u_plus
-16. http://servbr.site:80/get.php?username=824600&password=q4jigy5iy&type=m3u_plus
-17. http://servbr.site:80/get.php?username=tWVfVcZgf&password=CKRwv4duC&type=m3u_plus
-18. http://servbr.site:80/get.php?username=978441732&password=145981524&type=m3u_plus
-19. http://servbr.site:80/get.php?username=755249138&password=248526164&type=m3u_plus
-20. http://servbr.site:80/get.php?username=755374263&password=191384417&type=m3u_plus
-21. http://servbr.site:80/get.php?username=122543642&password=913598592&type=m3u_plus
-22. http://servbr.site:80/get.php?username=3UDthZUHh&password=rU4vFWZAV&type=m3u_plus
-23. http://servbr.site:80/get.php?username=879228630&password=835598968&type=m3u_plus
-24. http://servbr.site:80/get.php?username=583749853&password=995989816&type=m3u_plus
-25. http://servbr.site:80/get.php?username=962236591&password=888244313&type=m3u_plus
-26. http://servbr.site:80/get.php?username=663148891&password=863686576&type=m3u_plus
-27. http://servbr.site:80/get.php?username=949631178&password=167675332&type=m3u_plus
-28. http://servbr.site:80/get.php?username=439682265&password=672778629&type=m3u_plus
-29. http://servbr.site:80/get.php?username=347643955&password=738774717&type=m3u_plus
-30. http://servbr.site:80/get.php?username=952895885&password=142371863&type=m3u_plus
-31. http://servbr.site:80/get.php?username=899284560&password=651224481&type=m3u_plus
-32. http://servbr.site:80/get.php?username=6RAbTahh7&password=AvCDFZvhS&type=m3u_plus
-33. http://servbr.site:80/get.php?username=809747061&password=445540145&type=m3u_plus
-34. http://servbr.site:80/get.php?username=89754976281230&password=052088812300&type=m3u_plus
-35. http://servbr.site:80/get.php?username=Alexssandro&password=Alexssandro&type=m3u_plus
-36. http://servbr.site:80/get.php?username=RCYgPSWczTYz&password=WYfkE8m8QRcn&type=m3u_plus
-37. http://servbr.site:80/get.php?username=UUZYxF2HX&password=XRSVzwyak&type=m3u_plus
-38. http://servbr.site:80/get.php?username=U7Yhv3ruz&password=vxaTHgrEs&type=m3u_plus
-39. http://servbr.site:80/get.php?username=Pai203040&password=vG2UGR6RR&type=m3u_plus
-40. http://servbr.site:80/get.php?username=ZhFJfDDYY&password=tkFxxX2aT&type=m3u_plus
-41. http://servbr.site:80/get.php?username=724363875362&password=902632537535&type=m3u_plus
-42. http://pthdtvfull.sbs:80/get.php?username=782428270&password=276277997&type=m3u_plus&output=ts
-43. http://pthdtvfull.sbs:80/get.php?username=55599286&password=73735851&type=m3u_plus&output=ts
-44. http://pthdtvfull.sbs:80/get.php?username=95817159&password=26254819&type=m3u_plus&output=ts
-45. http://pthdtvfull.sbs:80/get.php?username=33764887&password=28763668&type=m3u_plus&output=ts
-46. http://pthdtvfull.sbs:80/get.php?username=42864586&password=35659645&type=m3u_plus&output=ts
-47. http://pthdtvfull.sbs:80/get.php?username=95322288&password=63175636&type=m3u_plus&output=ts
-48. http://pthdtvfull.sbs:80/get.php?username=Danivo0907&password=09072024&type=m3u_plus&output=ts
-49. http://play.pollarplay.com:80/get.php?username=Marcosfp05&password=nlybdft6fml&type=m3u_plus&output=ts
-50. http://play.pollarplay.com:80/get.php?username=Ricardoviviane35&password=gp8u1qhks6f&type=m3u_plus&output=ts
-51. http://play.pollarplay.com:80/get.php?username=clecimarijunges&password=l6cjcl9f67&type=m3u_plus&output=ts
-52. http://play.pollarplay.com:80/get.php?username=vilsonmiguel&password=vilsonmiguel1&type=m3u_plus&output=ts
-53. http://play.pollarplay.com:80/get.php?username=berticosta&password=88736259&type=m3u_plus&output=ts
-54. http://play.pollarplay.com:80/get.php?username=jacksongyn&password=dnnutcu6g2&type=m3u_plus&output=ts
-55. http://play.pollarplay.com:80/get.php?username=AndressaNovaes&password=2umrqs1u2dg&type=m3u_plus&output=ts
-56. http://play.pollarplay.com:80/get.php?username=Andrea112&password=87f44tms9n&type=m3u_plus&output=ts
-57. http://play.pollarplay.com:80/get.php?username=humbertotv24&password=ejlmq122hj&type=m3u_plus&output=ts
-58. http://play.pollarplay.com:80/get.php?username=macena&password=v335577&type=m3u_plus&output=ts
-59. http://play.pollarplay.com:80/get.php?username=Verajiboia&password=6c0qtfo6e4k&type=m3u_plus&output=ts
-60. http://play.pollarplay.com:80/get.php?username=valderedo35&password=lgw18cdlntu&type=m3u_plus&output=ts
-61. http://play.pollarplay.com:80/get.php?username=vanio30bm&password=tbabz3jbqx&type=m3u_plus&output=ts
-62. http://play.pollarplay.com:80/get.php?username=paulocerello&password=p5bbsnlufir&type=m3u_plus&output=ts
-63. http://play.pollarplay.com:80/get.php?username=conceicao261219&password=12345678&type=m3u_plus&output=ts
-64. http://play.pollarplay.com:80/get.php?username=Katia21973080519&password=a2327kyux2&type=m3u_plus&output=ts
-65. http://play.pollarplay.com:80/get.php?username=3298332071&password=8c0p61m2zi&type=m3u_plus&output=ts
-66. http://play.pollarplay.com:80/get.php?username=KRYSTYN&password=qee79zbpgs9&type=m3u_plus&output=ts
-67. http://play.pollarplay.com:80/get.php?username=janilda2030&password=gbkc0qoy6wv&type=m3u_plus&output=ts
-68. http://play.pollarplay.com:80/get.php?username=DANTETODERO&password=ju80k0k79nn&type=m3u_plus&output=ts
-69. http://auth.urltech.gy:80/get.php?username=Marcosfp05&password=nlybdft6fml&type=m3u_plus&output=ts
-70. http://auth.urltech.gy:80/get.php?username=clecimarijunges&password=l6cjcl9f67&type=m3u_plus&output=ts
-71. http://auth.urltech.gy:80/get.php?username=vilsonmiguel&password=vilsonmiguel1&type=m3u_plus&output=ts
-72. http://auth.urltech.gy:80/get.php?username=berticosta&password=88736259&type=m3u_plus&output=ts
-73. http://auth.urltech.gy:80/get.php?username=jacksongyn&password=dnnutcu6g2&type=m3u_plus&output=ts
-74. http://auth.urltech.gy:80/get.php?username=AndressaNovaes&password=2umrqs1u2dg&type=m3u_plus&output=ts
-75. http://auth.urltech.gy:80/get.php?username=Andrea112&password=87f44tms9n&type=m3u_plus&output=ts
-76. http://auth.urltech.gy:80/get.php?username=humbertotv24&password=ejlmq122hj&type=m3u_plus&output=ts
-77. http://auth.urltech.gy:80/get.php?username=macena&password=v335577&type=m3u_plus&output=ts
-78. http://auth.urltech.gy:80/get.php?username=Verajiboia&password=6c0qtfo6e4k&type=m3u_plus&output=ts
-79. http://auth.urltech.gy:80/get.php?username=valderedo35&password=lgw18cdlntu&type=m3u_plus&output=ts
-80. http://auth.urltech.gy:80/get.php?username=vanio30bm&password=tbabz3jbqx&type=m3u_plus&output=ts
-81. http://auth.urltech.gy:80/get.php?username=paulocerello&password=p5bbsnlufir&type=m3u_plus&output=ts
-82. http://auth.urltech.gy:80/get.php?username=conceicao261219&password=12345678&type=m3u_plus&output=ts
-83. http://auth.urltech.gy:80/get.php?username=3298332071&password=8c0p61m2zi&type=m3u_plus&output=ts
-84. http://auth.urltech.gy:80/get.php?username=KRYSTYN&password=qee79zbpgs9&type=m3u_plus&output=ts
-85. http://auth.urltech.gy:80/get.php?username=janilda2030&password=gbkc0qoy6wv&type=m3u_plus&output=ts
-86. http://auth.urltech.gy:80/get.php?username=DANTETODERO&password=ju80k0k79nn&type=m3u_plus&output=ts
-87. http://auth.urltech.gy:80/get.php?username=amandaapramos&password=3v4bmbf295&type=m3u_plus&output=ts
-88. http://auth.urltech.gy:80/get.php?username=angelacn2&password=j3nsblcjsz&type=m3u_plus&output=ts
-89. http://shazamparceiros.com/get.php?username=eyBCneviton&password=r61vNF&type=m3u_plus
-90. http://shazamparceiros.com/get.php?username=marcelo2807&password=4KAt7e&type=m3u_plus
-91. http://emporiopulse25.us:80/get.php?username=123456789&password=123456789&type=m3u_plus&output=ts
-92. http://emporiopulse25.us:80/get.php?username=joaoddd73&password=2021joao21&type=m3u_plus&output=ts
-93. http://emporiopulse25.us:80/get.php?username=marcelo2108&password=2108marcelo&type=m3u_plus&output=ts
-94. http://emporiopulse25.us:80/get.php?username=adalberto&password=123456&type=m3u_plus&output=ts
-95. http://emporiopulse25.us:80/get.php?username=123456789&password=123456789+&type=m3u_plus&output=ts
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://servbr.site:80
+├● 👩‍ User ➤ 155631455
+├● 🔑 Pass ➤ 421716795
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://servbr.site:80/get.php?username=155631455&password=421716795&type=m3u_plus
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://servbr.site:80
+├● 👩‍ User ➤ 246216349
+├● 🔑 Pass ➤ 455615639
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://servbr.site:80/get.php?username=246216349&password=455615639&type=m3u_plus
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://servbr.site:80
+├● 👩‍ User ➤ 441925149
+├● 🔑 Pass ➤ 769849994
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://servbr.site:80/get.php?username=441925149&password=769849994&type=m3u_plus
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://servbr.site:80
+├● 👩‍ User ➤ richardlucio
+├● 🔑 Pass ➤ 13992093823
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://servbr.site:80/get.php?username=richardlucio&password=13992093823&type=m3u_plus
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://servbr.site:80
+├● 👩‍ User ➤ 782919947
+├● 🔑 Pass ➤ 913545294
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://servbr.site:80/get.php?username=782919947&password=913545294&type=m3u_plus
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://servbr.site:80
+├● 👩‍ User ➤ 179425534
+├● 🔑 Pass ➤ 336992862
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://servbr.site:80/get.php?username=179425534&password=336992862&type=m3u_plus
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://servbr.site:80
+├● 👩‍ User ➤ yGGwf3tSg
+├● 🔑 Pass ➤ 6dXgyzTgt
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://servbr.site:80/get.php?username=yGGwf3tSg&password=6dXgyzTgt&type=m3u_plus
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://servbr.site:80
+├● 👩‍ User ➤ 436749593
+├● 🔑 Pass ➤ 936874765
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://servbr.site:80/get.php?username=436749593&password=936874765&type=m3u_plus
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://servbr.site:80
+├● 👩‍ User ➤ 334644272
+├● 🔑 Pass ➤ 737584340
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://servbr.site:80/get.php?username=334644272&password=737584340&type=m3u_plus
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://servbr.site:80
+├● 👩‍ User ➤ 151998523
+├● 🔑 Pass ➤ 414726440
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://servbr.site:80/get.php?username=151998523&password=414726440&type=m3u_plus
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://servbr.site:80
+├● 👩‍ User ➤ 477234288
+├● 🔑 Pass ➤ 589341676
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://servbr.site:80/get.php?username=477234288&password=589341676&type=m3u_plus
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://servbr.site:80
+├● 👩‍ User ➤ 636739138
+├● 🔑 Pass ➤ 125134928
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://servbr.site:80/get.php?username=636739138&password=125134928&type=m3u_plus
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://servbr.site:80
+├● 👩‍ User ➤ 343796947
+├● 🔑 Pass ➤ 494189841
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://servbr.site:80/get.php?username=343796947&password=494189841&type=m3u_plus
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://servbr.site:80
+├● 👩‍ User ➤ 09423508
+├● 🔑 Pass ➤ 51709437
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://servbr.site:80/get.php?username=09423508&password=51709437&type=m3u_plus
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://servbr.site:80
+├● 👩‍ User ➤ 819129558
+├● 🔑 Pass ➤ 882264110
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://servbr.site:80/get.php?username=819129558&password=882264110&type=m3u_plus
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://servbr.site:80
+├● 👩‍ User ➤ 824600
+├● 🔑 Pass ➤ q4jigy5iy
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://servbr.site:80/get.php?username=824600&password=q4jigy5iy&type=m3u_plus
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://servbr.site:80
+├● 👩‍ User ➤ tWVfVcZgf
+├● 🔑 Pass ➤ CKRwv4duC
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://servbr.site:80/get.php?username=tWVfVcZgf&password=CKRwv4duC&type=m3u_plus
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://servbr.site:80
+├● 👩‍ User ➤ 978441732
+├● 🔑 Pass ➤ 145981524
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://servbr.site:80/get.php?username=978441732&password=145981524&type=m3u_plus
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://servbr.site:80
+├● 👩‍ User ➤ 755249138
+├● 🔑 Pass ➤ 248526164
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://servbr.site:80/get.php?username=755249138&password=248526164&type=m3u_plus
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://servbr.site:80
+├● 👩‍ User ➤ 755374263
+├● 🔑 Pass ➤ 191384417
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://servbr.site:80/get.php?username=755374263&password=191384417&type=m3u_plus
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://servbr.site:80
+├● 👩‍ User ➤ 122543642
+├● 🔑 Pass ➤ 913598592
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://servbr.site:80/get.php?username=122543642&password=913598592&type=m3u_plus
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://servbr.site:80
+├● 👩‍ User ➤ 3UDthZUHh
+├● 🔑 Pass ➤ rU4vFWZAV
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://servbr.site:80/get.php?username=3UDthZUHh&password=rU4vFWZAV&type=m3u_plus
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://servbr.site:80
+├● 👩‍ User ➤ 879228630
+├● 🔑 Pass ➤ 835598968
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://servbr.site:80/get.php?username=879228630&password=835598968&type=m3u_plus
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://servbr.site:80
+├● 👩‍ User ➤ 583749853
+├● 🔑 Pass ➤ 995989816
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://servbr.site:80/get.php?username=583749853&password=995989816&type=m3u_plus
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://servbr.site:80
+├● 👩‍ User ➤ 962236591
+├● 🔑 Pass ➤ 888244313
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://servbr.site:80/get.php?username=962236591&password=888244313&type=m3u_plus
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://servbr.site:80
+├● 👩‍ User ➤ 663148891
+├● 🔑 Pass ➤ 863686576
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://servbr.site:80/get.php?username=663148891&password=863686576&type=m3u_plus
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://servbr.site:80
+├● 👩‍ User ➤ 949631178
+├● 🔑 Pass ➤ 167675332
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://servbr.site:80/get.php?username=949631178&password=167675332&type=m3u_plus
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://servbr.site:80
+├● 👩‍ User ➤ 439682265
+├● 🔑 Pass ➤ 672778629
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://servbr.site:80/get.php?username=439682265&password=672778629&type=m3u_plus
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://servbr.site:80
+├● 👩‍ User ➤ 347643955
+├● 🔑 Pass ➤ 738774717
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://servbr.site:80/get.php?username=347643955&password=738774717&type=m3u_plus
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://servbr.site:80
+├● 👩‍ User ➤ 952895885
+├● 🔑 Pass ➤ 142371863
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://servbr.site:80/get.php?username=952895885&password=142371863&type=m3u_plus
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://servbr.site:80
+├● 👩‍ User ➤ 899284560
+├● 🔑 Pass ➤ 651224481
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://servbr.site:80/get.php?username=899284560&password=651224481&type=m3u_plus
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://servbr.site:80
+├● 👩‍ User ➤ 6RAbTahh7
+├● 🔑 Pass ➤ AvCDFZvhS
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://servbr.site:80/get.php?username=6RAbTahh7&password=AvCDFZvhS&type=m3u_plus
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://servbr.site:80
+├● 👩‍ User ➤ 809747061
+├● 🔑 Pass ➤ 445540145
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://servbr.site:80/get.php?username=809747061&password=445540145&type=m3u_plus
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://servbr.site:80
+├● 👩‍ User ➤ 89754976281230
+├● 🔑 Pass ➤ 052088812300
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://servbr.site:80/get.php?username=89754976281230&password=052088812300&type=m3u_plus
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://servbr.site:80
+├● 👩‍ User ➤ Alexssandro
+├● 🔑 Pass ➤ Alexssandro
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://servbr.site:80/get.php?username=Alexssandro&password=Alexssandro&type=m3u_plus
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://servbr.site:80
+├● 👩‍ User ➤ RCYgPSWczTYz
+├● 🔑 Pass ➤ WYfkE8m8QRcn
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://servbr.site:80/get.php?username=RCYgPSWczTYz&password=WYfkE8m8QRcn&type=m3u_plus
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://servbr.site:80
+├● 👩‍ User ➤ UUZYxF2HX
+├● 🔑 Pass ➤ XRSVzwyak
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://servbr.site:80/get.php?username=UUZYxF2HX&password=XRSVzwyak&type=m3u_plus
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://servbr.site:80
+├● 👩‍ User ➤ U7Yhv3ruz
+├● 🔑 Pass ➤ vxaTHgrEs
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://servbr.site:80/get.php?username=U7Yhv3ruz&password=vxaTHgrEs&type=m3u_plus
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://servbr.site:80
+├● 👩‍ User ➤ Pai203040
+├● 🔑 Pass ➤ vG2UGR6RR
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://servbr.site:80/get.php?username=Pai203040&password=vG2UGR6RR&type=m3u_plus
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://servbr.site:80
+├● 👩‍ User ➤ ZhFJfDDYY
+├● 🔑 Pass ➤ tkFxxX2aT
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://servbr.site:80/get.php?username=ZhFJfDDYY&password=tkFxxX2aT&type=m3u_plus
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://servbr.site:80
+├● 👩‍ User ➤ 724363875362
+├● 🔑 Pass ➤ 902632537535
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://servbr.site:80/get.php?username=724363875362&password=902632537535&type=m3u_plus
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://pthdtvfull.sbs:80
+├● 👩‍ User ➤ 782428270
+├● 🔑 Pass ➤ 276277997
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://pthdtvfull.sbs:80/get.php?username=782428270&password=276277997&type=m3u_plus&output=ts
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://pthdtvfull.sbs:80
+├● 👩‍ User ➤ 55599286
+├● 🔑 Pass ➤ 73735851
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://pthdtvfull.sbs:80/get.php?username=55599286&password=73735851&type=m3u_plus&output=ts
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://pthdtvfull.sbs:80
+├● 👩‍ User ➤ 95817159
+├● 🔑 Pass ➤ 26254819
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://pthdtvfull.sbs:80/get.php?username=95817159&password=26254819&type=m3u_plus&output=ts
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://pthdtvfull.sbs:80
+├● 👩‍ User ➤ 33764887
+├● 🔑 Pass ➤ 28763668
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://pthdtvfull.sbs:80/get.php?username=33764887&password=28763668&type=m3u_plus&output=ts
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://pthdtvfull.sbs:80
+├● 👩‍ User ➤ 42864586
+├● 🔑 Pass ➤ 35659645
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://pthdtvfull.sbs:80/get.php?username=42864586&password=35659645&type=m3u_plus&output=ts
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://pthdtvfull.sbs:80
+├● 👩‍ User ➤ 95322288
+├● 🔑 Pass ➤ 63175636
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://pthdtvfull.sbs:80/get.php?username=95322288&password=63175636&type=m3u_plus&output=ts
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://pthdtvfull.sbs:80
+├● 👩‍ User ➤ Danivo0907
+├● 🔑 Pass ➤ 09072024
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://pthdtvfull.sbs:80/get.php?username=Danivo0907&password=09072024&type=m3u_plus&output=ts
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://play.pollarplay.com:80
+├● 👩‍ User ➤ Marcosfp05
+├● 🔑 Pass ➤ nlybdft6fml
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://play.pollarplay.com:80/get.php?username=Marcosfp05&password=nlybdft6fml&type=m3u_plus&output=ts
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://play.pollarplay.com:80
+├● 👩‍ User ➤ Ricardoviviane35
+├● 🔑 Pass ➤ gp8u1qhks6f
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://play.pollarplay.com:80/get.php?username=Ricardoviviane35&password=gp8u1qhks6f&type=m3u_plus&output=ts
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://play.pollarplay.com:80
+├● 👩‍ User ➤ clecimarijunges
+├● 🔑 Pass ➤ l6cjcl9f67
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://play.pollarplay.com:80/get.php?username=clecimarijunges&password=l6cjcl9f67&type=m3u_plus&output=ts
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://play.pollarplay.com:80
+├● 👩‍ User ➤ vilsonmiguel
+├● 🔑 Pass ➤ vilsonmiguel1
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://play.pollarplay.com:80/get.php?username=vilsonmiguel&password=vilsonmiguel1&type=m3u_plus&output=ts
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://play.pollarplay.com:80
+├● 👩‍ User ➤ berticosta
+├● 🔑 Pass ➤ 88736259
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://play.pollarplay.com:80/get.php?username=berticosta&password=88736259&type=m3u_plus&output=ts
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://play.pollarplay.com:80
+├● 👩‍ User ➤ jacksongyn
+├● 🔑 Pass ➤ dnnutcu6g2
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://play.pollarplay.com:80/get.php?username=jacksongyn&password=dnnutcu6g2&type=m3u_plus&output=ts
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://play.pollarplay.com:80
+├● 👩‍ User ➤ AndressaNovaes
+├● 🔑 Pass ➤ 2umrqs1u2dg
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://play.pollarplay.com:80/get.php?username=AndressaNovaes&password=2umrqs1u2dg&type=m3u_plus&output=ts
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://play.pollarplay.com:80
+├● 👩‍ User ➤ Andrea112
+├● 🔑 Pass ➤ 87f44tms9n
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://play.pollarplay.com:80/get.php?username=Andrea112&password=87f44tms9n&type=m3u_plus&output=ts
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://play.pollarplay.com:80
+├● 👩‍ User ➤ humbertotv24
+├● 🔑 Pass ➤ ejlmq122hj
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://play.pollarplay.com:80/get.php?username=humbertotv24&password=ejlmq122hj&type=m3u_plus&output=ts
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://play.pollarplay.com:80
+├● 👩‍ User ➤ macena
+├● 🔑 Pass ➤ v335577
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://play.pollarplay.com:80/get.php?username=macena&password=v335577&type=m3u_plus&output=ts
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://play.pollarplay.com:80
+├● 👩‍ User ➤ Verajiboia
+├● 🔑 Pass ➤ 6c0qtfo6e4k
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://play.pollarplay.com:80/get.php?username=Verajiboia&password=6c0qtfo6e4k&type=m3u_plus&output=ts
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://play.pollarplay.com:80
+├● 👩‍ User ➤ valderedo35
+├● 🔑 Pass ➤ lgw18cdlntu
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://play.pollarplay.com:80/get.php?username=valderedo35&password=lgw18cdlntu&type=m3u_plus&output=ts
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://play.pollarplay.com:80
+├● 👩‍ User ➤ vanio30bm
+├● 🔑 Pass ➤ tbabz3jbqx
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://play.pollarplay.com:80/get.php?username=vanio30bm&password=tbabz3jbqx&type=m3u_plus&output=ts
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://play.pollarplay.com:80
+├● 👩‍ User ➤ paulocerello
+├● 🔑 Pass ➤ p5bbsnlufir
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://play.pollarplay.com:80/get.php?username=paulocerello&password=p5bbsnlufir&type=m3u_plus&output=ts
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://play.pollarplay.com:80
+├● 👩‍ User ➤ conceicao261219
+├● 🔑 Pass ➤ 12345678
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://play.pollarplay.com:80/get.php?username=conceicao261219&password=12345678&type=m3u_plus&output=ts
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://play.pollarplay.com:80
+├● 👩‍ User ➤ Katia21973080519
+├● 🔑 Pass ➤ a2327kyux2
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://play.pollarplay.com:80/get.php?username=Katia21973080519&password=a2327kyux2&type=m3u_plus&output=ts
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://play.pollarplay.com:80
+├● 👩‍ User ➤ 3298332071
+├● 🔑 Pass ➤ 8c0p61m2zi
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://play.pollarplay.com:80/get.php?username=3298332071&password=8c0p61m2zi&type=m3u_plus&output=ts
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://play.pollarplay.com:80
+├● 👩‍ User ➤ KRYSTYN
+├● 🔑 Pass ➤ qee79zbpgs9
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://play.pollarplay.com:80/get.php?username=KRYSTYN&password=qee79zbpgs9&type=m3u_plus&output=ts
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://play.pollarplay.com:80
+├● 👩‍ User ➤ janilda2030
+├● 🔑 Pass ➤ gbkc0qoy6wv
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://play.pollarplay.com:80/get.php?username=janilda2030&password=gbkc0qoy6wv&type=m3u_plus&output=ts
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://play.pollarplay.com:80
+├● 👩‍ User ➤ DANTETODERO
+├● 🔑 Pass ➤ ju80k0k79nn
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://play.pollarplay.com:80/get.php?username=DANTETODERO&password=ju80k0k79nn&type=m3u_plus&output=ts
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://auth.urltech.gy:80
+├● 👩‍ User ➤ Marcosfp05
+├● 🔑 Pass ➤ nlybdft6fml
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://auth.urltech.gy:80/get.php?username=Marcosfp05&password=nlybdft6fml&type=m3u_plus&output=ts
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://auth.urltech.gy:80
+├● 👩‍ User ➤ clecimarijunges
+├● 🔑 Pass ➤ l6cjcl9f67
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://auth.urltech.gy:80/get.php?username=clecimarijunges&password=l6cjcl9f67&type=m3u_plus&output=ts
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://auth.urltech.gy:80
+├● 👩‍ User ➤ vilsonmiguel
+├● 🔑 Pass ➤ vilsonmiguel1
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://auth.urltech.gy:80/get.php?username=vilsonmiguel&password=vilsonmiguel1&type=m3u_plus&output=ts
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://auth.urltech.gy:80
+├● 👩‍ User ➤ berticosta
+├● 🔑 Pass ➤ 88736259
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://auth.urltech.gy:80/get.php?username=berticosta&password=88736259&type=m3u_plus&output=ts
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://auth.urltech.gy:80
+├● 👩‍ User ➤ jacksongyn
+├● 🔑 Pass ➤ dnnutcu6g2
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://auth.urltech.gy:80/get.php?username=jacksongyn&password=dnnutcu6g2&type=m3u_plus&output=ts
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://auth.urltech.gy:80
+├● 👩‍ User ➤ AndressaNovaes
+├● 🔑 Pass ➤ 2umrqs1u2dg
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://auth.urltech.gy:80/get.php?username=AndressaNovaes&password=2umrqs1u2dg&type=m3u_plus&output=ts
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://auth.urltech.gy:80
+├● 👩‍ User ➤ Andrea112
+├● 🔑 Pass ➤ 87f44tms9n
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://auth.urltech.gy:80/get.php?username=Andrea112&password=87f44tms9n&type=m3u_plus&output=ts
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://auth.urltech.gy:80
+├● 👩‍ User ➤ humbertotv24
+├● 🔑 Pass ➤ ejlmq122hj
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://auth.urltech.gy:80/get.php?username=humbertotv24&password=ejlmq122hj&type=m3u_plus&output=ts
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://auth.urltech.gy:80
+├● 👩‍ User ➤ macena
+├● 🔑 Pass ➤ v335577
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://auth.urltech.gy:80/get.php?username=macena&password=v335577&type=m3u_plus&output=ts
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://auth.urltech.gy:80
+├● 👩‍ User ➤ Verajiboia
+├● 🔑 Pass ➤ 6c0qtfo6e4k
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://auth.urltech.gy:80/get.php?username=Verajiboia&password=6c0qtfo6e4k&type=m3u_plus&output=ts
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://auth.urltech.gy:80
+├● 👩‍ User ➤ valderedo35
+├● 🔑 Pass ➤ lgw18cdlntu
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://auth.urltech.gy:80/get.php?username=valderedo35&password=lgw18cdlntu&type=m3u_plus&output=ts
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://auth.urltech.gy:80
+├● 👩‍ User ➤ vanio30bm
+├● 🔑 Pass ➤ tbabz3jbqx
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://auth.urltech.gy:80/get.php?username=vanio30bm&password=tbabz3jbqx&type=m3u_plus&output=ts
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://auth.urltech.gy:80
+├● 👩‍ User ➤ paulocerello
+├● 🔑 Pass ➤ p5bbsnlufir
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://auth.urltech.gy:80/get.php?username=paulocerello&password=p5bbsnlufir&type=m3u_plus&output=ts
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://auth.urltech.gy:80
+├● 👩‍ User ➤ conceicao261219
+├● 🔑 Pass ➤ 12345678
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://auth.urltech.gy:80/get.php?username=conceicao261219&password=12345678&type=m3u_plus&output=ts
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://auth.urltech.gy:80
+├● 👩‍ User ➤ 3298332071
+├● 🔑 Pass ➤ 8c0p61m2zi
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://auth.urltech.gy:80/get.php?username=3298332071&password=8c0p61m2zi&type=m3u_plus&output=ts
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://auth.urltech.gy:80
+├● 👩‍ User ➤ KRYSTYN
+├● 🔑 Pass ➤ qee79zbpgs9
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://auth.urltech.gy:80/get.php?username=KRYSTYN&password=qee79zbpgs9&type=m3u_plus&output=ts
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://auth.urltech.gy:80
+├● 👩‍ User ➤ janilda2030
+├● 🔑 Pass ➤ gbkc0qoy6wv
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://auth.urltech.gy:80/get.php?username=janilda2030&password=gbkc0qoy6wv&type=m3u_plus&output=ts
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://auth.urltech.gy:80
+├● 👩‍ User ➤ DANTETODERO
+├● 🔑 Pass ➤ ju80k0k79nn
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://auth.urltech.gy:80/get.php?username=DANTETODERO&password=ju80k0k79nn&type=m3u_plus&output=ts
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://auth.urltech.gy:80
+├● 👩‍ User ➤ amandaapramos
+├● 🔑 Pass ➤ 3v4bmbf295
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://auth.urltech.gy:80/get.php?username=amandaapramos&password=3v4bmbf295&type=m3u_plus&output=ts
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://auth.urltech.gy:80
+├● 👩‍ User ➤ angelacn2
+├● 🔑 Pass ➤ j3nsblcjsz
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://auth.urltech.gy:80/get.php?username=angelacn2&password=j3nsblcjsz&type=m3u_plus&output=ts
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://shazamparceiros.com
+├● 👩‍ User ➤ eyBCneviton
+├● 🔑 Pass ➤ r61vNF
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://shazamparceiros.com/get.php?username=eyBCneviton&password=r61vNF&type=m3u_plus
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://shazamparceiros.com
+├● 👩‍ User ➤ marcelo2807
+├● 🔑 Pass ➤ 4KAt7e
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://shazamparceiros.com/get.php?username=marcelo2807&password=4KAt7e&type=m3u_plus
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://emporiopulse25.us:80
+├● 👩‍ User ➤ 123456789
+├● 🔑 Pass ➤ 123456789
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://emporiopulse25.us:80/get.php?username=123456789&password=123456789&type=m3u_plus&output=ts
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://emporiopulse25.us:80
+├● 👩‍ User ➤ joaoddd73
+├● 🔑 Pass ➤ 2021joao21
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://emporiopulse25.us:80/get.php?username=joaoddd73&password=2021joao21&type=m3u_plus&output=ts
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://emporiopulse25.us:80
+├● 👩‍ User ➤ marcelo2108
+├● 🔑 Pass ➤ 2108marcelo
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://emporiopulse25.us:80/get.php?username=marcelo2108&password=2108marcelo&type=m3u_plus&output=ts
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://emporiopulse25.us:80
+├● 👩‍ User ➤ adalberto
+├● 🔑 Pass ➤ 123456
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://emporiopulse25.us:80/get.php?username=adalberto&password=123456&type=m3u_plus&output=ts
+╰─────────────────────
+    
+╭─➤ Alienado🛰 Paranormal
+├● 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+├● 🌐 Host ➤ http://emporiopulse25.us:80
+├● 👩‍ User ➤ 123456789
+├● 🔑 Pass ➤ 123456789 
+├● 📆 Exp ➤ 2027-12-31
+├● 📆 Restam ➤ 365 dias
+╰─➤ 𝗛𝗶𝘁𝘀 ʙʏ Dandireal®
+╭─➤Informacoes Adicionais
+├● 👪 Con Max ➤ 1
+├● 👩 Con Act ➤ 0
+├● 🌐 Status ➤ Active
+├● ⏰ Local➤ UTC
+├● 📆 Data da Lista➤ 11-06-2026
+╰─────────────────────
+╭─➤ Outras Informacoes
+├● 📺 Canais ➤ 1000
+├● 🎥 Filmes ➤ 30000
+├● 🎬 Series ➤ 10000
+├● 🔗 Lista M3u ➤ http://emporiopulse25.us:80/get.php?username=123456789&password=123456789+&type=m3u_plus&output=ts
+╰─────────────────────
+    

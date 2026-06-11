@@ -1,1 +1,10 @@
-{ "chave_mestre": "VIP1950@" }
+{
+    "chave_mestre": "APKBUGADO2024",
+    "versao": "2.0",
+    "autor": "ApkBugado",
+    "telegram": "https://t.me/ApkBugado",
+    "vip_link": "https://rafflores17-prog.github.io/vip-apk/",
+    "lista_url": "https://raw.githubusercontent.com/rafflores17-prog/Painel-Vip-2.0/main/listas.txt",
+    "check_timeout": 8000,
+    "modo_seguro": true
+}

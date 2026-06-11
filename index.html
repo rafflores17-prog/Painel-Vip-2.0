@@ -3,60 +3,99 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GERADOR VIP IPTV PRO</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
-
+<title>GERADOR VIP IPTV PRO v2.0</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 <style>
-body{background:#050505;color:#fff;font-family:'Share Tech Mono', monospace;display:flex;justify-content:center;align-items:center;min-height:100vh;margin:0;padding:10px;}
-.card{width:100%;max-width:420px;background:#0a0a0a;padding:20px;border-radius:20px;box-shadow:0 0 40px #000;border:1px solid #1a1a1a;}
-.title{text-align:center;font-family:'Orbitron';color:#00ff9c;margin-bottom:20px;}
-input{width:100%;padding:15px;border-radius:12px;border:1px solid #111;background:#000;color:#00ff9c;text-align:center;margin-bottom:10px;}
-.btn{width:100%;padding:15px;border:none;border-radius:12px;cursor:pointer;margin-top:10px;font-family:'Orbitron';transition: 0.3s; position: relative;}
-.btn:active{transform: scale(0.95);}
-.vip{background:linear-gradient(135deg,#bc13fe,#7a00aa);}
-.free{background:linear-gradient(135deg,#00d2ff,#006a80);}
-.main{background:linear-gradient(135deg,#00ff9c,#008f58);color:#000;}
-.grid{display:flex;gap:10px;}
-.status{margin-top:10px;font-size:11px;background:#000;padding:12px;border-radius:10px;height:90px;overflow-y:auto;border: 1px solid #111;}
-#out{display:none;margin-top:15px;}
-.box{background:#111;padding:12px;border-radius:10px;margin-bottom:8px;border:1px solid #222;}
-.label{font-size:10px; color: #888; margin-bottom: 4px;}
-.val{font-size:13px;word-break:break-all; color: #00ff9c;}
+:root{--neon:#00ff9c;--neon2:#bc13fe;--neon3:#00d2ff;--bg:#050505;--card:#0a0a0a;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:#fff;font-family:'Share Tech Mono',monospace;min-height:100vh;display:flex;justify-content:center;align-items:center;padding:15px;}
+.card{width:100%;max-width:480px;background:var(--card);padding:22px;border-radius:24px;box-shadow:0 0 60px rgba(0,255,156,0.08),inset 0 0 0 1px #1a1a1a;position:relative;overflow:hidden;}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--neon),var(--neon2),var(--neon3),transparent);}
+.title{text-align:center;font-family:'Orbitron';font-size:1.3rem;background:linear-gradient(90deg,var(--neon),var(--neon3));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:6px;}
+.subtitle{text-align:center;font-size:11px;color:#555;margin-bottom:20px;}
+input{width:100%;padding:14px;border-radius:14px;border:1px solid #1a1a1a;background:#000;color:var(--neon);text-align:center;font-family:'Share Tech Mono';font-size:14px;margin-bottom:10px;outline:none;transition:.3s;}
+input:focus{border-color:var(--neon);box-shadow:0 0 15px rgba(0,255,156,0.15);}
+.btn{width:100%;padding:14px;border:none;border-radius:14px;cursor:pointer;font-family:'Orbitron';font-size:13px;transition:.2s;position:relative;overflow:hidden;}
+.btn::after{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.15),transparent);transition:.4s;}
+.btn:hover::after{left:100%;}
+.btn:active{transform:scale(0.97);}
+.vip{background:linear-gradient(135deg,#bc13fe,#7a00aa);color:#fff;}
+.free{background:linear-gradient(135deg,#00d2ff,#006a80);color:#fff;}
+.main{background:linear-gradient(135deg,var(--neon),#008f58);color:#000;font-weight:800;}
+.grid{display:flex;gap:10px;margin-top:12px;}
+.status{margin-top:14px;font-size:11px;background:#000;padding:14px;border-radius:12px;height:110px;overflow-y:auto;border:1px solid #111;line-height:1.6;}
+.status::-webkit-scrollbar{width:4px;}
+.status::-webkit-scrollbar-thumb{background:var(--neon);border-radius:4px;}
+#out{display:none;margin-top:16px;animation:fadeIn .4s ease;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+.box{background:#0d0d0d;padding:12px 14px;border-radius:12px;margin-bottom:8px;border:1px solid #1a1a1a;transition:.2s;}
+.box:hover{border-color:#333;}
+.label{font-size:9px;color:#666;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;}
+.val{font-size:13px;word-break:break-all;color:var(--neon);font-weight:600;}
 .row{display:flex;gap:10px;}
 .col{flex:1;}
+.badge{display:inline-block;padding:2px 8px;border-radius:6px;font-size:10px;font-weight:700;margin-left:6px;}
+.badge-on{background:rgba(0,255,156,0.15);color:var(--neon);}
+.badge-off{background:rgba(255,50,50,0.15);color:#ff4444;}
+.badge-warn{background:rgba(255,200,0,0.15);color:#ffcc00;}
+.ping{font-size:10px;color:#888;}
+#login,#painel{animation:fadeIn .5s ease;}
+.footer{text-align:center;font-size:10px;color:#333;margin-top:16px;}
+.footer a{color:#444;text-decoration:none;}
+.footer a:hover{color:var(--neon);}
+/* Loading animation */
+.loader{display:inline-block;width:14px;height:14px;border:2px solid var(--neon);border-top-color:transparent;border-radius:50%;animation:spin .6s linear infinite;margin-right:6px;vertical-align:middle;}
+@keyframes spin{to{transform:rotate(360deg);}}
+/* Stats bar */
+.stats-bar{display:flex;justify-content:space-between;background:#000;padding:10px 14px;border-radius:10px;margin-bottom:12px;border:1px solid #111;font-size:11px;}
+.stats-bar span{color:#888;}
+.stats-bar strong{color:var(--neon);}
+/* Progress bar */
+.progress-bg{width:100%;height:4px;background:#111;border-radius:2px;margin-top:6px;overflow:hidden;}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--neon),var(--neon3));border-radius:2px;transition:width .5s ease;}
 </style>
 </head>
-
 <body>
 <div class="card">
     <div class="title">GERADOR VIP IPTV PRO</div>
+    <div class="subtitle">v2.0 • Powered by ApkBugado</div>
 
     <div id="login">
-        <input type="password" id="senha" placeholder="CHAVE DE ACESSO">
+        <input type="password" id="senha" placeholder="🔐 CHAVE DE ACESSO VIP" autocomplete="off">
         <button class="btn main" onclick="logar()">ENTRAR NO PAINEL</button>
-        <div style="margin-top:20px;border-top:1px solid #222;padding-top:10px;">
-            <div class="grid">
-                <a href="https://rafflores17-prog.github.io/vip-apk/" target="_blank" style="flex:1;"><button class="btn vip" style="width:100%;">💎 ADQUIRIR VIP</button></a>
-                <a href="https://t.me/ApkBugado" target="_blank" style="flex:1;"><button class="btn free" style="width:100%;">📢 GRUPO FREE</button></a>
-            </div>
+        <div class="grid">
+            <a href="https://rafflores17-prog.github.io/vip-apk/" target="_blank" style="flex:1;text-decoration:none;"><button class="btn vip" style="width:100%;">💎 ADQUIRIR VIP</button></a>
+            <a href="https://t.me/ApkBugado" target="_blank" style="flex:1;text-decoration:none;"><button class="btn free" style="width:100%;">📢 GRUPO FREE</button></a>
         </div>
     </div>
 
     <div id="painel" style="display:none;">
-        <button class="btn main" id="btnGerar" onclick="startGerar()">🚀 GERAR ACESSO</button>
-        <button class="btn" id="btnCopiar" onclick="copiar()">📋 COPIAR DADOS</button>
+        <div class="stats-bar">
+            <span>📦 Contas: <strong id="totalContas">0</strong></span>
+            <span>🟢 Online: <strong id="contasOnline" style="color:var(--neon3);">0</strong></span>
+            <span>🔴 Off: <strong id="contasOff" style="color:#ff4444;">0</strong></span>
+        </div>
+        <button class="btn main" id="btnGerar" onclick="startGerar()">🚀 GERAR ACESSO ALEATÓRIO</button>
+        <button class="btn" id="btnCopiar" onclick="copiar()" style="background:#111;color:#fff;margin-top:8px;">📋 COPIAR LINK M3U</button>
         <div class="status" id="statusLog">Aguardando comando...</div>
         <div id="out"></div>
+        <div class="footer">
+            <a href="#" onclick="location.reload()">🔄 Recarregar Painel</a> • 
+            <span id="lastUpdate">--</span>
+        </div>
     </div>
 </div>
 
 <script>
 let listaContas = [];
 let processando = false;
+let contaAtual = null;
 
+// ========== LOGIN ==========
 async function logar(){
     const senha = document.getElementById("senha").value.trim();
+    if(!senha){ alert("Digite a chave de acesso!"); return; }
+
     try{
         let r = await fetch("config.json?" + Date.now());
         let cfg = await r.json();
@@ -64,132 +103,352 @@ async function logar(){
             document.getElementById("login").style.display="none";
             document.getElementById("painel").style.display="block";
             carregarLista();
-        }else{ alert("Chave incorreta!"); }
-    }catch{ alert("Erro ao carregar config.json"); }
+        } else {
+            alert("❌ Chave incorreta!");
+        }
+    } catch(e){ 
+        alert("Erro ao carregar config.json
+" + e.message); 
+    }
 }
 
+// ========== CARREGAR LISTA FORMATADA ==========
 async function carregarLista(){
     let log = document.getElementById("statusLog");
+    log.innerHTML = '<span class="loader"></span> Carregando contas...';
+
     try{
-        let r = await fetch("https://raw.githubusercontent.com/rafflores17-prog/Painel-Vip-2.0/main/listas.txt?" + Date.now());
-        let txt = await r.text();
-        let linhas = txt.split(/\r?\n/);
-        let tUser = null, tPass = null, tExp = null, tHost = null;
+        // Tenta carregar do GitHub primeiro, depois local
+        let urls = [
+            "https://raw.githubusercontent.com/rafflores17-prog/Painel-Vip-2.0/main/listas.txt?" + Date.now(),
+            "listas.txt?" + Date.now(),
+            "listas_formato_painel.txt?" + Date.now()
+        ];
 
-        const reUser = /(?:Usu[aá]rio|User|Login|Email|👩)\s*[➤►=:]+\s*([^\s\n\r|`*]+)/i;
-        const rePass = /(?:Senha|Pass|🔑)\s*[➤►=:]+\s*([^\s\n\r|`*]+)/i;
-        const reExp  = /(?:Exp\.?|Expira|Vencimento|Expiry|📆|⏳)\s*[➤►=:]+\s*([\d\/-]+)/i;
-        const reHost = /(?:Host|🌐|Hospedagem)\s*[➤►=:]+\s*(http[s]?:\/\/[^\s\n\r`*]+)/i;
+        let txt = null;
+        for(let url of urls){
+            try{
+                let r = await fetch(url);
+                if(r.ok){ txt = await r.text(); break; }
+            }catch(e){}
+        }
 
-        listaContas = [];
-        linhas.forEach(linha => {
-            let limpa = linha.replace(/[`*']/g, ""); 
-            let u = limpa.match(reUser);
-            let p = limpa.match(rePass);
-            let e = limpa.match(reExp);
-            let h = limpa.match(reHost);
-            if (u) tUser = u[1].trim();
-            if (p) tPass = p[1].trim();
-            if (e) tExp = e[1].trim();
-            if (h) tHost = h[1].trim().replace(/\/$/, "");
-            if (tUser && tPass) {
-                listaContas.push({host: tHost || "http://stv.cx", user: tUser, pass: tPass, validade: tExp || "Consultar"});
-                tUser = null; tPass = null; tExp = null;
-            }
-        });
-        log.innerHTML = `<span style="color:#00ff9c">✔ ${listaContas.length} CONTAS PRONTAS</span>`;
-    }catch(err){ log.innerHTML = "Erro ao carregar lista.txt"; }
+        if(!txt) throw new Error("Nenhuma lista encontrada");
+
+        listaContas = parsearBlocos(txt);
+
+        document.getElementById("totalContas").innerText = listaContas.length;
+        document.getElementById("lastUpdate").innerText = new Date().toLocaleTimeString('pt-BR');
+
+        log.innerHTML = `<span style="color:var(--neon)">✅ ${listaContas.length} CONTAS CARREGADAS</span><br><span style="color:#666">Clique em GERAR para sortear uma conta online</span>`;
+
+    } catch(err){ 
+        log.innerHTML = `<span style="color:#ff4444">❌ Erro: ${err.message}</span>`; 
+    }
 }
 
+// ========== PARSER DE BLOCOS FORMATADOS ==========
+function parsearBlocos(texto){
+    let contas = [];
+    // Divide por blocos usando o separador visual
+    let blocos = texto.split(/(?=╭─➤ Alienado)/);
+
+    for(let bloco of blocos){
+        bloco = bloco.trim();
+        if(!bloco || bloco.length < 50) continue;
+
+        // Regex para extrair cada campo do bloco formatado
+        let host = extrairCampo(bloco, /[🌐]\s*Host\s*[➤►=:]+\s*(http[s]?:\/\/[^\s
+]+)/i);
+        let user = extrairCampo(bloco, /[👩‍]\s*User\s*[➤►=:]+\s*([^\s
+|`*]+)/i);
+        let pass = extrairCampo(bloco, /[🔑]\s*Pass\s*[➤►=:]+\s*([^\s
+|`*]+)/i);
+        let exp = extrairCampo(bloco, /[📆⏳]\s*(?:Exp|Expira|Restam)\s*[➤►=:]+\s*([^
+]+)/i);
+        let status = extrairCampo(bloco, /[🌐]\s*Status\s*[➤►=:]+\s*([^\s
+]+)/i);
+        let conMax = extrairCampo(bloco, /[👪]\s*Con\s*Max\s*[➤►=:]+\s*([^\s
+]+)/i);
+        let conAct = extrairCampo(bloco, /[👩]\s*Con\s*Act\s*[➤►=:]+\s*([^\s
+]+)/i);
+        let canais = extrairCampo(bloco, /[📺]\s*Canais\s*[➤►=:]+\s*([^\s
+]+)/i);
+        let filmes = extrairCampo(bloco, /[🎥]\s*Filmes\s*[➤►=:]+\s*([^\s
+]+)/i);
+        let series = extrairCampo(bloco, /[🎬]\s*Series\s*[➤►=:]+\s*([^\s
+]+)/i);
+        let linkM3u = extrairCampo(bloco, /[🔗]\s*Lista\s*M3u\s*[➤►=:]+\s*(http[s]?:\/\/[^\s
+]+)/i);
+
+        // Fallback: tenta extrair do link M3U se faltou algum dado
+        if(linkM3u && (!user || !pass || !host)){
+            let parsed = parsearLinkM3U(linkM3u);
+            if(parsed){
+                host = host || parsed.host;
+                user = user || parsed.user;
+                pass = pass || parsed.pass;
+            }
+        }
+
+        if(user && pass && host){
+            contas.push({
+                host: host.replace(/\/$/, ""),
+                user: user,
+                pass: pass,
+                validade: exp || "Consultar",
+                statusOriginal: status || "Active",
+                conMax: conMax || "1",
+                conAct: conAct || "0",
+                canais: canais || "?",
+                filmes: filmes || "?",
+                series: series || "?",
+                linkM3u: linkM3u || `${host}/get.php?username=${user}&password=${pass}&type=m3u_plus&output=ts`
+            });
+        }
+    }
+
+    return contas;
+}
+
+function extrairCampo(texto, regex){
+    let match = texto.match(regex);
+    return match ? match[1].trim() : null;
+}
+
+function parsearLinkM3U(link){
+    try{
+        let url = new URL(link);
+        let params = new URLSearchParams(url.search);
+        return {
+            host: url.origin,
+            user: params.get('username'),
+            pass: params.get('password')
+        };
+    }catch(e){ return null; }
+}
+
+// ========== GERAR / SORTEAR CONTA ==========
 async function startGerar(){
     if(processando || listaContas.length === 0) return;
     processando = true;
     document.getElementById("out").style.display = "none";
     let log = document.getElementById("statusLog");
-    log.innerHTML = "";
-    
-    let conta = listaContas[Math.floor(Math.random()*listaContas.length)];
-    let etapas = ["🔍 Localizando servidor...", "📡 Verificando API...", "🔐 Autenticando..."];
-    let i = 0;
-    
-    let interval = setInterval(() => {
-        if(i < etapas.length){ 
-            log.innerHTML += `<span style="color:#00ff9c">${etapas[i]}</span><br>`; 
-            i++; 
-        } else { 
-            clearInterval(interval); 
-            validarReal(conta);
-        }
-    }, 400);
+
+    // Sorteia uma conta aleatória
+    let conta = listaContas[Math.floor(Math.random() * listaContas.length)];
+    contaAtual = conta;
+
+    log.innerHTML = `
+        <span style="color:var(--neon3)">🔍 Servidor:</span> ${conta.host}<br>
+        <span style="color:var(--neon3)">👤 Usuário:</span> ${conta.user}<br>
+        <span class="loader"></span> Verificando status real via API...
+    `;
+
+    // Verifica via API
+    let resultado = await verificarConta(conta);
+    exibir(conta, resultado);
 }
 
-async function validarReal(c) {
-    let log = document.getElementById("statusLog");
-    let infoReal = { status: "ONLINE ✅", validade: c.validade, conexoes: "0 / 1" };
+// ========== VERIFICAR CONTA (API REAL) ==========
+async function verificarConta(c){
+    let info = {
+        online: false,
+        statusReal: "Desconhecido",
+        validade: c.validade,
+        conexoes: `${c.conAct} / ${c.conMax}`,
+        tempo: null,
+        canais: c.canais,
+        filmes: c.filmes,
+        series: c.series
+    };
 
-    try {
-        // Tenta usar o Proxy AllOrigins que é mais estável para IPTV
-        const apiUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(c.host + '/player_api.php?username=' + c.user + '&password=' + c.pass)}`;
+    // Tenta verificar via check.php local
+    try{
+        let checkUrl = `check.php?host=${encodeURIComponent(c.host)}&user=${encodeURIComponent(c.user)}&pass=${encodeURIComponent(c.pass)}`;
+        let r = await fetch(checkUrl, { signal: AbortSignal.timeout(8000) });
+        let data = await r.json();
 
-        let response = await fetch(apiUrl);
-        let result = await response.json();
+        if(data.online){
+            info.online = true;
+            info.tempo = data.tempo;
+            info.statusReal = data.statusReal || "Active";
+
+            // Se a API retornou dados extras
+            if(data.exp_date){
+                let d = new Date(data.exp_date * 1000);
+                info.validade = d.toLocaleDateString('pt-BR');
+            }
+            if(data.active_cons !== undefined && data.max_connections !== undefined){
+                info.conexoes = `${data.active_cons} / ${data.max_connections}`;
+            }
+            if(data.canais) info.canais = data.canais;
+            if(data.filmes) info.filmes = data.filmes;
+            if(data.series) info.series = data.series;
+
+            return info;
+        }
+    } catch(e){
+        // Fallback: tenta direto no player_api.php via proxy CORS
+    }
+
+    // Fallback: tenta via AllOrigins (proxy CORS público)
+    try{
+        let apiUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(c.host + '/player_api.php?username=' + c.user + '&password=' + c.pass)}`;
+        let r = await fetch(apiUrl, { signal: AbortSignal.timeout(10000) });
+        let result = await r.json();
         let data = JSON.parse(result.contents);
 
-        if (data.user_info) {
-            let info = data.user_info;
-            infoReal.status = (info.status === "Active") ? "ONLINE ✅" : "INATIVO ⚠️";
-            if (info.exp_date && info.exp_date !== "null") {
-                let d = new Date(info.exp_date * 1000);
-                infoReal.validade = d.toLocaleDateString('pt-BR');
+        if(data.user_info){
+            let ui = data.user_info;
+            info.online = (ui.status === "Active");
+            info.statusReal = ui.status || "Active";
+
+            if(ui.exp_date && ui.exp_date !== "null"){
+                let d = new Date(ui.exp_date * 1000);
+                info.validade = d.toLocaleDateString('pt-BR');
             }
-            infoReal.conexoes = `${info.active_cons || 0} / ${info.max_connections || 1}`;
-            log.innerHTML = `<span style="color:#00ff9c">✔ ACESSO SINCRONIZADO COM SUCESSO!</span>`;
+            info.conexoes = `${ui.active_cons || 0} / ${ui.max_connections || 1}`;
+
+            // Conta conteúdo se disponível
+            if(data.categories){
+                let live = data.categories.filter(c => c.category_type === "live").length;
+                let vod = data.categories.filter(c => c.category_type === "movie").length;
+                let ser = data.categories.filter(c => c.category_type === "series").length;
+                if(live) info.canais = live;
+                if(vod) info.filmes = vod;
+                if(ser) info.series = ser;
+            }
         }
-    } catch (err) {
-        // Se der erro de CORS ou timeout, forçamos ONLINE pois você sabe que está ON
-        infoReal.status = "ONLINE ✅";
-        log.innerHTML = `<span style="color:#00ff9c">✔ ACESSO GERADO (MODO SEGURO)</span>`;
+    } catch(e){
+        // Se falhar tudo, usa os dados do arquivo
+        info.online = (c.statusOriginal === "Active");
+        info.statusReal = c.statusOriginal;
     }
-    exibir(c, infoReal);
+
+    return info;
 }
 
-function exibir(c, infoReal){
-    let m3u = `${c.host}/get.php?username=${c.user}&password=${c.pass}&type=m3u_plus&output=ts`;
+// ========== EXIBIR RESULTADO ==========
+function exibir(c, info){
+    let m3u = c.linkM3u;
+    let statusBadge = info.online 
+        ? '<span class="badge badge-on">ONLINE ✅</span>' 
+        : '<span class="badge badge-off">OFFLINE ❌</span>';
+
+    let diasRestantes = calcularDiasRestantes(info.validade);
+    let diasColor = diasRestantes < 7 ? '#ff4444' : (diasRestantes < 30 ? '#ffcc00' : 'var(--neon)');
+
     document.getElementById("out").innerHTML = `
-    <div class="box"><div class="label">📡 STATUS DO SERVIDOR</div><div class="val">${infoReal.status}</div></div>
-    <div class="box"><div class="label">🔗 LINK M3U VIP</div><div class="val" id="copy-target">${m3u}</div></div>
-    <div class="row">
-        <div class="box col"><div class="label">👤 USUÁRIO</div><div class="val">${c.user}</div></div>
-        <div class="box col"><div class="label">🔑 SENHA</div><div class="val">${c.pass}</div></div>
+    <div class="box" style="border-color:${info.online ? 'rgba(0,255,156,0.3)' : 'rgba(255,68,68,0.3)'};">
+        <div class="label">📡 STATUS DO SERVIDOR ${statusBadge}</div>
+        <div class="val" style="font-size:16px;">${info.statusReal}</div>
+        ${info.tempo ? `<div class="ping">⏱️ Ping: ${info.tempo}ms</div>` : ''}
     </div>
-    <div class="row">
-        <div class="box col"><div class="label">📅 VALIDADE REAL</div><div class="val">${infoReal.validade}</div></div>
-        <div class="box col"><div class="label">👥 CONEXÕES</div><div class="val">${infoReal.conexoes}</div></div>
+
+    <div class="box">
+        <div class="label">🔗 LINK M3U VIP</div>
+        <div class="val" id="copy-target" style="font-size:12px;">${m3u}</div>
     </div>
-    <div class="box"><div class="label">🌐 HOST ORIGINAL</div><div class="val">${c.host}</div></div>
+
+    <div class="row">
+        <div class="box col">
+            <div class="label">👤 USUÁRIO</div>
+            <div class="val">${c.user}</div>
+        </div>
+        <div class="box col">
+            <div class="label">🔑 SENHA</div>
+            <div class="val">${c.pass}</div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="box col">
+            <div class="label">📅 VALIDADE</div>
+            <div class="val" style="color:${diasColor}">${info.validade}</div>
+            <div class="progress-bg"><div class="progress-fill" style="width:${Math.min(100, Math.max(5, diasRestantes))}%;background:${diasColor};"></div></div>
+        </div>
+        <div class="box col">
+            <div class="label">👥 CONEXÕES</div>
+            <div class="val">${info.conexoes}</div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="box col">
+            <div class="label">📺 CANAIS</div>
+            <div class="val">${info.canais}</div>
+        </div>
+        <div class="box col">
+            <div class="label">🎥 FILMES</div>
+            <div class="val">${info.filmes}</div>
+        </div>
+        <div class="box col">
+            <div class="label">🎬 SÉRIES</div>
+            <div class="val">${info.series}</div>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="label">🌐 HOST</div>
+        <div class="val" style="font-size:11px;color:#888;">${c.host}</div>
+    </div>
     `;
-    document.getElementById("out").style.display="block";
+
+    document.getElementById("out").style.display = "block";
     processando = false;
+
+    // Atualiza contador de online/offline
+    if(info.online){
+        let on = parseInt(document.getElementById("contasOnline").innerText) + 1;
+        document.getElementById("contasOnline").innerText = on;
+    } else {
+        let off = parseInt(document.getElementById("contasOff").innerText) + 1;
+        document.getElementById("contasOff").innerText = off;
+    }
 }
 
+function calcularDiasRestantes(dataStr){
+    try{
+        // Tenta vários formatos
+        let d = new Date(dataStr);
+        if(isNaN(d)){
+            // Tenta formato DD/MM/YYYY
+            let parts = dataStr.split(/[\/\-]/);
+            if(parts.length === 3){
+                d = new Date(parts[2], parts[1]-1, parts[0]);
+            }
+        }
+        let hoje = new Date();
+        let diff = Math.ceil((d - hoje) / (1000 * 60 * 60 * 24));
+        return Math.max(0, diff);
+    }catch(e){ return 30; }
+}
+
+// ========== COPIAR ==========
 function copiar(){
     let t = document.getElementById("copy-target");
     let btn = document.getElementById("btnCopiar");
     if(!t) return;
-    navigator.clipboard.writeText(t.innerText);
-    
-    // Mudança visual no botão sem alerta chato
-    let originalText = btn.innerText;
-    btn.innerText = "✅ COPIADO!";
-    btn.style.background = "#00ff9c";
-    btn.style.color = "#000";
-    
-    setTimeout(() => {
-        btn.innerText = originalText;
-        btn.style.background = ""; 
-        btn.style.color = "";
-    }, 2000);
+    navigator.clipboard.writeText(t.innerText).then(() => {
+        btn.innerText = "✅ COPIADO!";
+        btn.style.background = "var(--neon)";
+        btn.style.color = "#000";
+        setTimeout(() => {
+            btn.innerText = "📋 COPIAR LINK M3U";
+            btn.style.background = "#111";
+            btn.style.color = "#fff";
+        }, 2000);
+    });
 }
+
+// Auto-login se tiver chave no localStorage (opcional)
+window.addEventListener('load', () => {
+    let chave = localStorage.getItem('vip_chave');
+    if(chave){
+        document.getElementById("senha").value = chave;
+    }
+});
 </script>
 </body>
 </html>

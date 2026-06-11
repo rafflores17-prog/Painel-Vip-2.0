@@ -96,19 +96,13 @@ async function logar(){
     const senha = document.getElementById("senha").value.trim();
     if(!senha){ alert("Digite a chave de acesso!"); return; }
 
-    try{
-        let r = await fetch("config.json?" + Date.now());
-        let cfg = await r.json();
-        if(senha === cfg.chave_mestre){
-            document.getElementById("login").style.display="none";
-            document.getElementById("painel").style.display="block";
-            carregarLista();
-        } else {
-            alert("❌ Chave incorreta!");
-        }
-    } catch(e){ 
-        alert("Erro ao carregar config.json
-" + e.message); 
+    const chave_mestre = "VIP1950@";
+    if(senha === chave_mestre){
+        document.getElementById("login").style.display="none";
+        document.getElementById("painel").style.display="block";
+        carregarLista();
+    } else {
+        alert("❌ Chave incorreta!");
     }
 }
 

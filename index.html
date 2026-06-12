@@ -5,192 +5,223 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GERADOR VIP IPTV PRO</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=JetBrains+Mono:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=JetBrains+Mono:wght@400;700&display=swap');
+:root{
+  --bg:#0a0a0f;--bg2:#111118;--bg3:#1a1a24;--border:#2a2a3a;
+  --accent:#7c3aed;--accent2:#a855f7;--green:#22c55e;--red:#ef4444;
+  --yellow:#f59e0b;--text:#e2e8f0;--muted:#64748b;--card:#13131d;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;min-height:100vh;}
 
-  :root {
-    --bg: #0a0a0f;
-    --bg2: #111118;
-    --bg3: #1a1a24;
-    --border: #2a2a3a;
-    --accent: #7c3aed;
-    --accent2: #a855f7;
-    --green: #22c55e;
-    --red: #ef4444;
-    --text: #e2e8f0;
-    --muted: #64748b;
-    --card: #13131d;
-  }
+/* ── LOGIN ── */
+#tela-login{
+  min-height:100vh;display:flex;align-items:center;justify-content:center;
+  background:radial-gradient(ellipse at 50% 0%,#1e0a3c 0%,var(--bg) 60%);
+}
+.login-box{
+  background:var(--card);border:1px solid var(--border);border-radius:16px;
+  padding:48px 40px;width:100%;max-width:400px;text-align:center;
+  box-shadow:0 0 60px #7c3aed22;
+}
+.login-logo{font-size:13px;font-weight:700;letter-spacing:4px;color:var(--muted);margin-bottom:8px;}
 
-  * { margin:0; padding:0; box-sizing:border-box; }
-  body { background:var(--bg); color:var(--text); font-family:'Inter',sans-serif; min-height:100vh; }
+/* GLITCH */
+.glitch{
+  font-size:26px;font-weight:900;margin-bottom:32px;position:relative;
+  background:linear-gradient(135deg,#a855f7,#7c3aed);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  display:inline-block;
+}
+.glitch::before,.glitch::after{
+  content:attr(data-text);position:absolute;top:0;left:0;width:100%;
+  background:linear-gradient(135deg,#a855f7,#7c3aed);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+.glitch::before{animation:glitch1 2.5s infinite;clip-path:polygon(0 0,100% 0,100% 40%,0 40%);}
+.glitch::after {animation:glitch2 2.5s infinite;clip-path:polygon(0 60%,100% 60%,100% 100%,0 100%);}
+@keyframes glitch1{
+  0%,90%,100%{transform:translate(0);}
+  92%{transform:translate(-3px,1px);}
+  94%{transform:translate(3px,-1px);}
+  96%{transform:translate(-2px,2px);}
+}
+@keyframes glitch2{
+  0%,90%,100%{transform:translate(0);}
+  92%{transform:translate(3px,-1px);}
+  94%{transform:translate(-3px,1px);}
+  96%{transform:translate(2px,-2px);}
+}
 
-  /* LOGIN */
-  #tela-login {
-    min-height:100vh; display:flex; align-items:center; justify-content:center;
-    background: radial-gradient(ellipse at 50% 0%, #1e0a3c 0%, var(--bg) 60%);
-  }
-  .login-box {
-    background:var(--card); border:1px solid var(--border); border-radius:16px;
-    padding:48px 40px; width:100%; max-width:400px; text-align:center;
-    box-shadow:0 0 60px #7c3aed22;
-  }
-  .login-logo { font-size:13px; font-weight:700; letter-spacing:4px; color:var(--muted); margin-bottom:8px; }
-  .login-title {
-    font-size:26px; font-weight:900; margin-bottom:32px;
-    background:linear-gradient(135deg,#a855f7,#7c3aed);
-    -webkit-background-clip:text; -webkit-text-fill-color:transparent;
-  }
-  .login-input {
-    width:100%; background:var(--bg3); border:1px solid var(--border); border-radius:10px;
-    padding:14px 16px; font-size:15px; color:var(--text); outline:none; margin-bottom:12px;
-    font-family:'JetBrains Mono',monospace; letter-spacing:2px; transition:border-color .2s;
-  }
-  .login-input:focus { border-color:var(--accent2); }
-  .btn-entrar {
-    width:100%; background:linear-gradient(135deg,#7c3aed,#a855f7); border:none;
-    border-radius:10px; padding:14px; font-size:15px; font-weight:700; color:#fff;
-    cursor:pointer; letter-spacing:1px; transition:opacity .2s,transform .1s; margin-bottom:16px;
-  }
-  .btn-entrar:hover { opacity:.9; }
-  .btn-entrar:active { transform:scale(.98); }
-  .login-btns { display:flex; gap:10px; margin-top:4px; }
-  .btn-link {
-    flex:1; padding:10px; border-radius:8px; font-size:12px; font-weight:700;
-    cursor:pointer; text-decoration:none; text-align:center; transition:opacity .2s;
-  }
-  .btn-vip { background:#7c3aed22; border:1px solid #7c3aed66; color:var(--accent2); }
-  .btn-tg  { background:#0088cc22; border:1px solid #0088cc66; color:#38bdf8; }
-  .btn-link:hover { opacity:.8; }
-  .login-erro { color:var(--red); font-size:13px; min-height:18px; margin-top:8px; }
+.login-input{
+  width:100%;background:var(--bg3);border:1px solid var(--border);border-radius:10px;
+  padding:14px 16px;font-size:15px;color:var(--text);outline:none;margin-bottom:12px;
+  font-family:'JetBrains Mono',monospace;letter-spacing:2px;transition:border-color .2s;
+}
+.login-input:focus{border-color:var(--accent2);}
+.btn-entrar{
+  width:100%;background:linear-gradient(135deg,#7c3aed,#a855f7);border:none;
+  border-radius:10px;padding:14px;font-size:15px;font-weight:700;color:#fff;
+  cursor:pointer;letter-spacing:1px;transition:opacity .2s,transform .1s;margin-bottom:14px;
+}
+.btn-entrar:hover{opacity:.9;}
+.btn-entrar:active{transform:scale(.98);}
+.login-btns{display:flex;gap:10px;}
+.btn-link{
+  flex:1;padding:10px;border-radius:8px;font-size:12px;font-weight:700;
+  cursor:pointer;text-decoration:none;text-align:center;transition:opacity .2s;
+}
+.btn-vip{background:#7c3aed22;border:1px solid #7c3aed66;color:var(--accent2);}
+.btn-tg {background:#0088cc22;border:1px solid #0088cc66;color:#38bdf8;}
+.btn-link:hover{opacity:.8;}
+.login-erro{color:var(--red);font-size:13px;min-height:18px;margin-top:10px;}
 
-  /* PAINEL */
-  #tela-painel { display:none; }
-  .topbar {
-    background:var(--bg2); border-bottom:1px solid var(--border);
-    padding:14px 24px; display:flex; align-items:center; justify-content:space-between;
-    position:sticky; top:0; z-index:100;
-  }
-  .topbar-logo { font-size:14px; font-weight:800; letter-spacing:3px; color:var(--accent2); }
-  .topbar-right { display:flex; gap:10px; align-items:center; }
-  .stat-pill {
-    background:var(--bg3); border:1px solid var(--border); border-radius:20px;
-    padding:5px 14px; font-size:12px; font-weight:600; color:var(--muted);
-  }
-  .stat-pill span { color:var(--text); }
-  .btn-sair {
-    background:transparent; border:1px solid var(--border); border-radius:8px;
-    padding:6px 14px; font-size:12px; color:var(--muted); cursor:pointer; transition:all .2s;
-  }
-  .btn-sair:hover { border-color:var(--red); color:var(--red); }
+/* ── PAINEL ── */
+#tela-painel{display:none;}
+.topbar{
+  background:var(--bg2);border-bottom:1px solid var(--border);
+  padding:14px 24px;display:flex;align-items:center;justify-content:space-between;
+  position:sticky;top:0;z-index:100;
+}
+.topbar-logo{font-size:14px;font-weight:800;letter-spacing:3px;color:var(--accent2);}
+.topbar-right{display:flex;gap:10px;align-items:center;}
+.stat-pill{
+  background:var(--bg3);border:1px solid var(--border);border-radius:20px;
+  padding:5px 14px;font-size:12px;font-weight:600;color:var(--muted);
+}
+.stat-pill span{color:var(--text);}
+.btn-sair{
+  background:transparent;border:1px solid var(--border);border-radius:8px;
+  padding:6px 14px;font-size:12px;color:var(--muted);cursor:pointer;transition:all .2s;
+}
+.btn-sair:hover{border-color:var(--red);color:var(--red);}
 
-  .container { max-width:860px; margin:0 auto; padding:32px 20px; }
+.container{max-width:860px;margin:0 auto;padding:28px 20px;}
 
-  /* SEÇÃO GERAR */
-  .gerar-section {
-    background:var(--card); border:1px solid var(--border); border-radius:16px;
-    padding:28px; margin-bottom:24px;
-  }
-  .section-label {
-    font-size:11px; font-weight:700; letter-spacing:3px; color:var(--muted);
-    text-transform:uppercase; margin-bottom:20px;
-  }
-  .btn-gerar {
-    background:linear-gradient(135deg,#7c3aed,#a855f7); border:none; border-radius:10px;
-    padding:14px 32px; font-size:15px; font-weight:700; color:#fff; cursor:pointer;
-    letter-spacing:1px; transition:all .2s; display:inline-flex; align-items:center; gap:8px;
-  }
-  .btn-gerar:hover { transform:translateY(-1px); box-shadow:0 8px 24px #7c3aed44; }
-  .btn-gerar:active { transform:scale(.98); }
-  .btn-gerar:disabled { opacity:.5; cursor:not-allowed; transform:none; box-shadow:none; }
+/* VAGAS */
+.vagas-bar{
+  background:var(--card);border:1px solid var(--border);border-radius:12px;
+  padding:16px 20px;margin-bottom:20px;display:flex;align-items:center;gap:14px;
+}
+.vagas-label{font-size:11px;font-weight:700;letter-spacing:2px;color:var(--muted);text-transform:uppercase;white-space:nowrap;}
+.vagas-track{flex:1;background:var(--border);border-radius:4px;height:6px;overflow:hidden;}
+.vagas-fill{height:100%;background:linear-gradient(90deg,#22c55e,#7c3aed);border-radius:4px;transition:width 1s ease;}
+.vagas-num{font-size:12px;font-weight:700;color:var(--text);white-space:nowrap;font-family:'JetBrains Mono',monospace;}
 
-  /* SCANNER FAKE */
-  .scanner-wrap {
-    display:none; margin-top:20px;
-    background:var(--bg3); border:1px solid var(--border); border-radius:12px;
-    padding:28px; text-align:center;
-  }
-  .scanner-wrap.ativo { display:block; animation:fadeUp .3s ease; }
-  .scanner-title { font-size:12px; font-weight:700; letter-spacing:3px; color:var(--accent2); margin-bottom:20px; }
-  .scanner-box {
-    background:var(--bg); border:1px solid var(--border); border-radius:8px;
-    padding:16px; font-family:'JetBrains Mono',monospace; font-size:11px;
-    color:var(--green); text-align:left; min-height:110px; overflow:hidden;
-    position:relative;
-  }
-  .scanner-box::after {
-    content:''; position:absolute; bottom:0; left:0; right:0; height:40px;
-    background:linear-gradient(to top, var(--bg), transparent);
-  }
-  .scan-line { margin-bottom:3px; opacity:0; animation:aparecer .15s ease forwards; }
-  .scan-line.ok { color:var(--green); }
-  .scan-line.info { color:#38bdf8; }
-  .scan-line.warn { color:var(--accent2); }
-  @keyframes aparecer { to { opacity:1; } }
-  .scan-barra-wrap { margin-top:14px; }
-  .scan-barra-bg { background:var(--border); border-radius:4px; height:4px; overflow:hidden; }
-  .scan-barra { height:100%; background:linear-gradient(90deg,#7c3aed,#a855f7); width:0%; transition:width .08s linear; border-radius:4px; }
-  .scan-pct { font-size:11px; color:var(--muted); margin-top:6px; font-family:'JetBrains Mono',monospace; }
+/* GERAR */
+.gerar-section{
+  background:var(--card);border:1px solid var(--border);border-radius:16px;
+  padding:28px;margin-bottom:20px;
+}
+.section-label{font-size:11px;font-weight:700;letter-spacing:3px;color:var(--muted);text-transform:uppercase;margin-bottom:20px;}
+.btn-gerar{
+  background:linear-gradient(135deg,#7c3aed,#a855f7);border:none;border-radius:10px;
+  padding:14px 32px;font-size:15px;font-weight:700;color:#fff;cursor:pointer;
+  letter-spacing:1px;transition:all .2s;display:inline-flex;align-items:center;gap:8px;
+}
+.btn-gerar:hover{transform:translateY(-1px);box-shadow:0 8px 24px #7c3aed44;}
+.btn-gerar:active{transform:scale(.98);}
+.btn-gerar:disabled{opacity:.5;cursor:not-allowed;transform:none;box-shadow:none;}
 
-  /* CONTA CARD */
-  .conta-card {
-    display:none; margin-top:20px;
-    background:var(--bg3); border:1px solid var(--border); border-radius:12px;
-    padding:24px; animation:fadeUp .35s ease;
-  }
-  @keyframes fadeUp {
-    from { opacity:0; transform:translateY(8px); }
-    to   { opacity:1; transform:translateY(0); }
-  }
-  .conta-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:20px; }
-  .conta-status-wrap { display:flex; align-items:center; gap:8px; }
-  .dot { width:9px; height:9px; border-radius:50%; background:var(--green); box-shadow:0 0 8px var(--green); }
-  .dot.off { background:var(--red); box-shadow:0 0 8px var(--red); }
-  .status-txt { font-size:13px; font-weight:700; color:var(--green); }
-  .status-txt.off { color:var(--red); }
-  .conta-idx { font-size:11px; color:var(--muted); font-family:'JetBrains Mono',monospace; }
+/* COUNTDOWN */
+.countdown-wrap{
+  display:none;margin-top:14px;
+  background:var(--bg3);border:1px solid var(--border);border-radius:10px;
+  padding:12px 16px;font-size:13px;color:var(--muted);font-family:'JetBrains Mono',monospace;
+  align-items:center;gap:10px;
+}
+.countdown-wrap.ativo{display:flex;}
+.cd-num{color:var(--accent2);font-weight:700;font-size:16px;}
 
-  .campos-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:10px; margin-bottom:14px; }
-  .campo { background:var(--bg2); border:1px solid var(--border); border-radius:8px; padding:10px 14px; }
-  .campo-label { font-size:10px; font-weight:700; letter-spacing:2px; color:var(--muted); text-transform:uppercase; margin-bottom:5px; }
-  .campo-valor { font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--text); display:flex; align-items:center; justify-content:space-between; gap:6px; word-break:break-all; }
-  .btn-cp { background:transparent; border:none; color:var(--muted); cursor:pointer; padding:2px 4px; border-radius:4px; font-size:12px; flex-shrink:0; transition:color .2s; }
-  .btn-cp:hover { color:var(--accent2); }
+/* SCANNER */
+.scanner-wrap{
+  display:none;margin-top:20px;
+  background:var(--bg3);border:1px solid var(--border);border-radius:12px;
+  padding:24px;
+}
+.scanner-wrap.ativo{display:block;animation:fadeUp .3s ease;}
+.scanner-title{font-size:11px;font-weight:700;letter-spacing:3px;color:var(--accent2);margin-bottom:14px;text-align:center;}
+.scanner-box{
+  background:var(--bg);border:1px solid var(--border);border-radius:8px;
+  padding:14px;font-family:'JetBrains Mono',monospace;font-size:11px;
+  color:var(--green);text-align:left;min-height:100px;overflow:hidden;position:relative;
+}
+.scanner-box::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:36px;
+  background:linear-gradient(to top,var(--bg),transparent);
+}
+.scan-line{margin-bottom:3px;opacity:0;animation:aparecer .12s ease forwards;}
+.scan-line.ok  {color:var(--green);}
+.scan-line.info{color:#38bdf8;}
+.scan-line.warn{color:var(--accent2);}
+@keyframes aparecer{to{opacity:1;}}
+.scan-barra-bg{background:var(--border);border-radius:4px;height:4px;overflow:hidden;margin-top:12px;}
+.scan-barra{height:100%;background:linear-gradient(90deg,#7c3aed,#a855f7);width:0%;transition:width .08s linear;border-radius:4px;}
+.scan-pct{font-size:11px;color:var(--muted);margin-top:5px;font-family:'JetBrains Mono',monospace;text-align:right;}
 
-  .info-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-bottom:14px; }
-  .info-chip { background:var(--bg2); border:1px solid var(--border); border-radius:8px; padding:10px; text-align:center; }
-  .info-num { font-size:18px; font-weight:900; color:var(--accent2); font-family:'JetBrains Mono',monospace; }
-  .info-lbl { font-size:10px; color:var(--muted); text-transform:uppercase; letter-spacing:1px; margin-top:2px; }
+/* CARD CONTA */
+.conta-card{
+  display:none;margin-top:20px;
+  background:var(--bg3);border:1px solid var(--border);border-radius:12px;
+  padding:24px;animation:fadeUp .35s ease;
+}
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+.conta-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;flex-wrap:wrap;gap:10px;}
+.conta-status-wrap{display:flex;align-items:center;gap:8px;}
+.dot{width:9px;height:9px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green);}
+.dot.off{background:var(--red);box-shadow:0 0 8px var(--red);}
+.status-txt{font-size:13px;font-weight:700;color:var(--green);}
+.status-txt.off{color:var(--red);}
+.conta-meta{display:flex;align-items:center;gap:12px;}
+.conta-idx{font-size:11px;color:var(--muted);font-family:'JetBrains Mono',monospace;}
+.ping-badge{
+  background:var(--bg2);border:1px solid var(--border);border-radius:6px;
+  padding:3px 10px;font-size:11px;font-family:'JetBrains Mono',monospace;color:var(--green);
+}
 
-  .btn-cp-tudo {
-    width:100%; background:var(--bg2); border:1px solid var(--border); border-radius:8px;
-    padding:11px; font-size:13px; font-weight:600; color:var(--text); cursor:pointer; transition:all .2s;
-  }
-  .btn-cp-tudo:hover { border-color:var(--accent2); color:var(--accent2); }
+.campos-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin-bottom:14px;}
+.campo{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:10px 14px;}
+.campo-label{font-size:10px;font-weight:700;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin-bottom:5px;}
+.campo-valor{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--text);display:flex;align-items:center;justify-content:space-between;gap:6px;word-break:break-all;}
+.btn-cp{background:transparent;border:none;color:var(--muted);cursor:pointer;padding:2px 4px;border-radius:4px;font-size:12px;flex-shrink:0;transition:color .2s;}
+.btn-cp:hover{color:var(--accent2);}
 
-  /* MENU INFERIOR */
-  .menu-bottom { display:flex; gap:12px; margin-top:20px; }
-  .btn-menu {
-    flex:1; padding:12px; border-radius:10px; font-size:13px; font-weight:700;
-    cursor:pointer; text-decoration:none; text-align:center; transition:opacity .2s; display:block;
-  }
-  .btn-menu:hover { opacity:.8; }
+.acoes-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.btn-acao{
+  padding:11px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;
+  transition:all .2s;border:none;display:flex;align-items:center;justify-content:center;gap:6px;
+}
+.btn-cp-tudo{background:var(--bg2);border:1px solid var(--border);color:var(--text);}
+.btn-cp-tudo:hover{border-color:var(--accent2);color:var(--accent2);}
+.btn-wpp{background:#25d36622;border:1px solid #25d36644;color:#25d366;}
+.btn-wpp:hover{background:#25d36633;}
 
-  .spinner { width:17px; height:17px; border:2px solid #ffffff44; border-top-color:#fff; border-radius:50%; animation:spin .6s linear infinite; display:inline-block; }
-  @keyframes spin { to { transform:rotate(360deg); } }
+/* MENU */
+.menu-bottom{display:flex;gap:12px;margin-top:20px;}
+.btn-menu{
+  flex:1;padding:12px;border-radius:10px;font-size:13px;font-weight:700;
+  cursor:pointer;text-decoration:none;text-align:center;transition:opacity .2s;display:block;
+}
+.btn-menu:hover{opacity:.8;}
 
-  .toast {
-    position:fixed; bottom:24px; left:50%; transform:translateX(-50%) translateY(80px);
-    background:var(--bg3); border:1px solid var(--border); border-radius:10px;
-    padding:12px 24px; font-size:13px; font-weight:600; color:var(--text);
-    z-index:999; transition:transform .3s ease; pointer-events:none; white-space:nowrap;
-  }
-  .toast.show { transform:translateX(-50%) translateY(0); }
+.spinner{width:17px;height:17px;border:2px solid #ffffff44;border-top-color:#fff;border-radius:50%;animation:spin .6s linear infinite;display:inline-block;}
+@keyframes spin{to{transform:rotate(360deg);}}
 
-  @media(max-width:580px){
-    .login-box { padding:36px 20px; }
-    .campos-grid { grid-template-columns:1fr; }
-    .topbar .stat-pill { display:none; }
-  }
+.toast{
+  position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(80px);
+  background:var(--bg3);border:1px solid var(--border);border-radius:10px;
+  padding:12px 24px;font-size:13px;font-weight:600;color:var(--text);
+  z-index:999;transition:transform .3s ease;pointer-events:none;white-space:nowrap;
+}
+.toast.show{transform:translateX(-50%) translateY(0);}
+
+@media(max-width:580px){
+  .login-box{padding:36px 20px;}
+  .campos-grid{grid-template-columns:1fr;}
+  .acoes-grid{grid-template-columns:1fr;}
+  .topbar .stat-pill{display:none;}
+  .vagas-bar{flex-wrap:wrap;}
+}
 </style>
 </head>
 <body>
@@ -199,7 +230,7 @@
 <div id="tela-login">
   <div class="login-box">
     <div class="login-logo">🛰 IPTV PRO</div>
-    <div class="login-title">GERADOR VIP</div>
+    <h1 class="glitch" data-text="GERADOR VIP">GERADOR VIP</h1>
     <input type="password" id="input-senha" class="login-input"
       placeholder="🔐 CHAVE DE ACESSO VIP" autocomplete="off"
       onkeydown="if(event.key==='Enter')entrar()">
@@ -223,31 +254,46 @@
   </div>
 
   <div class="container">
+
+    <!-- VAGAS -->
+    <div class="vagas-bar">
+      <div class="vagas-label">🔴 Vagas hoje</div>
+      <div class="vagas-track"><div class="vagas-fill" id="vagas-fill"></div></div>
+      <div class="vagas-num" id="vagas-num">— / 100</div>
+    </div>
+
+    <!-- GERAR -->
     <div class="gerar-section">
       <div class="section-label">🎲 Gerador de Contas IPTV</div>
 
       <button class="btn-gerar" id="btn-gerar" onclick="iniciarGeracao()">
-        <span id="btn-txt">✦ GERAR CONTA ALEATÓRIA</span>
+        <span id="btn-txt">✦ GERAR CONTA</span>
       </button>
 
-      <!-- SCANNER FAKE -->
+      <!-- COUNTDOWN -->
+      <div class="countdown-wrap" id="cd-wrap">
+        ⏳ Próxima disponível em <span class="cd-num" id="cd-num">10</span>s
+      </div>
+
+      <!-- SCANNER -->
       <div class="scanner-wrap" id="scanner-wrap">
         <div class="scanner-title">◈ ESCANEANDO SERVIDORES ◈</div>
         <div class="scanner-box" id="scanner-log"></div>
-        <div class="scan-barra-wrap">
-          <div class="scan-barra-bg"><div class="scan-barra" id="scan-barra"></div></div>
-          <div class="scan-pct" id="scan-pct">0%</div>
-        </div>
+        <div class="scan-barra-bg"><div class="scan-barra" id="scan-barra"></div></div>
+        <div class="scan-pct" id="scan-pct">0%</div>
       </div>
 
-      <!-- CARD CONTA -->
+      <!-- CARD -->
       <div class="conta-card" id="conta-card">
         <div class="conta-header">
           <div class="conta-status-wrap">
             <div class="dot" id="dot-status"></div>
             <span class="status-txt" id="txt-status">ONLINE</span>
           </div>
-          <div class="conta-idx" id="txt-idx">#0 de 0</div>
+          <div class="conta-meta">
+            <div class="ping-badge" id="ping-badge">🌐 —ms</div>
+            <div class="conta-idx" id="txt-idx">#0 de 0</div>
+          </div>
         </div>
 
         <div class="campos-grid">
@@ -277,220 +323,243 @@
           </div>
         </div>
 
-        <div class="info-grid">
-          <div class="info-chip"><div class="info-num" id="v-canais">—</div><div class="info-lbl">📺 Canais</div></div>
-          <div class="info-chip"><div class="info-num" id="v-filmes">—</div><div class="info-lbl">🎥 Filmes</div></div>
-          <div class="info-chip"><div class="info-num" id="v-series">—</div><div class="info-lbl">🎬 Séries</div></div>
+        <div class="acoes-grid">
+          <button class="btn-acao btn-cp-tudo" onclick="cpTudo()">📋 COPIAR TUDO</button>
+          <button class="btn-acao btn-wpp" onclick="compartilharWpp()">📲 COMPARTILHAR</button>
         </div>
-
-        <button class="btn-cp-tudo" onclick="cpTudo()">📋 COPIAR CREDENCIAIS COMPLETAS</button>
       </div>
 
-      <!-- MENU LINKS -->
+      <!-- MENU -->
       <div class="menu-bottom">
         <a href="https://rafflores17-prog.github.io/vip-apk/" target="_blank" class="btn-menu btn-vip">💎 ADQUIRIR VIP</a>
         <a href="https://t.me/ApkBugado" target="_blank" class="btn-menu btn-tg">📢 GRUPO TELEGRAM</a>
       </div>
     </div>
+
   </div>
 </div>
 
 <div class="toast" id="toast"></div>
 
 <script>
-const CHAVE      = "VIP1950@";
-const LISTA_URL  = "https://raw.githubusercontent.com/rafflores17-prog/Painel-Vip-2.0/main/listas.txt";
+const CHAVE     = "VIP1950@";
+const LISTA_URL = "https://raw.githubusercontent.com/rafflores17-prog/Painel-Vip-2.0/main/listas.txt";
+const CD_SECS   = 10; // segundos entre gerações
 
-let contas      = [];
-let usadas      = new Set();
-let contaAtual  = null;
-let rodando     = false;
+let contas     = [];
+let usadas     = new Set();
+let contaAtual = null;
+let rodando    = false;
+let cdTimer    = null;
+let vagasUsadas= 0;
+const VAGAS_MAX = 100;
 
-// ─── LOGIN ───────────────────────────────────────────
-function entrar() {
+// ── LOGIN ──────────────────────────────────────────────
+function entrar(){
   const s = document.getElementById("input-senha").value.trim();
   const e = document.getElementById("erro-login");
-  if (!s) { e.textContent = "Digite a chave de acesso."; return; }
-  if (s !== CHAVE) { e.textContent = "❌ Chave incorreta."; return; }
-  e.textContent = "";
-  document.getElementById("tela-login").style.display = "none";
-  document.getElementById("tela-painel").style.display = "block";
+  if(!s){e.textContent="Digite a chave de acesso.";return;}
+  if(s!==CHAVE){e.textContent="❌ Chave incorreta.";return;}
+  e.textContent="";
+  document.getElementById("tela-login").style.display="none";
+  document.getElementById("tela-painel").style.display="block";
+  iniciarVagas();
   carregarLista();
 }
 
-function sair() {
-  document.getElementById("tela-painel").style.display = "none";
-  document.getElementById("tela-login").style.display  = "flex";
-  document.getElementById("input-senha").value = "";
-  contas = []; usadas.clear(); contaAtual = null;
-  document.getElementById("conta-card").style.display   = "none";
+function sair(){
+  document.getElementById("tela-painel").style.display="none";
+  document.getElementById("tela-login").style.display="flex";
+  document.getElementById("input-senha").value="";
+  clearInterval(cdTimer);
+  contas=[];usadas.clear();contaAtual=null;rodando=false;vagasUsadas=0;
+  document.getElementById("conta-card").style.display="none";
   document.getElementById("scanner-wrap").classList.remove("ativo");
+  document.getElementById("cd-wrap").classList.remove("ativo");
 }
 
-// ─── PARSER ──────────────────────────────────────────
-function parsarLista(txt) {
-  const out = [];
-  const blocos = txt.split(/(?=╭─➤)/);
-  for (const bloco of blocos) {
-    const g = (rx) => { const m = bloco.match(rx); return m ? m[1].trim() : null; };
-    const host   = g(/Host\s*[➤►:=]+\s*(https?:\/\/[^\s\n\r]+)/i);
-    const user   = g(/User\s*[➤►:=]+\s*([^\s\n\r|`*╰╭├●]+)/i);
-    const pass   = g(/Pass\s*[➤►:=]+\s*([^\s\n\r|`*╰╭├●]+)/i);
-    const exp    = g(/Exp\s*[➤►:=]+\s*([^\n\r╰╭├●]+)/i);
-    const restam = g(/Restam\s*[➤►:=]+\s*([^\n\r╰╭├●]+)/i);
-    const conMax = g(/Con\s*Max\s*[➤►:=]+\s*([^\s\n\r╰╭├●]+)/i);
-    const conAct = g(/Con\s*Act\s*[➤►:=]+\s*([^\s\n\r╰╭├●]+)/i);
-    const status = g(/Status\s*[➤►:=]+\s*([^\s\n\r╰╭├●]+)/i);
-    const canais = g(/Canais\s*[➤►:=]+\s*([^\s\n\r╰╭├●]+)/i);
-    const filmes = g(/Filmes\s*[➤►:=]+\s*([^\s\n\r╰╭├●]+)/i);
-    const series = g(/Series\s*[➤►:=]+\s*([^\s\n\r╰╭├●]+)/i);
-    const m3u    = g(/Lista\s*M3u\s*[➤►:=]+\s*(https?:\/\/[^\s\n\r]+)/i);
-    if (host && user && pass) out.push({
-      host: host.replace(/\/$/, ""), user, pass,
-      exp: exp || "?", restam: restam || "?",
-      conMax: conMax || "1", conAct: conAct || "0",
-      status: status || "Active",
-      canais: canais || "?", filmes: filmes || "?", series: series || "?",
-      m3u: m3u || `${host}/get.php?username=${user}&password=${pass}&type=m3u_plus&output=ts`
+// ── VAGAS FAKE ─────────────────────────────────────────
+function iniciarVagas(){
+  vagasUsadas = Math.floor(Math.random()*30)+20; // começa entre 20-50
+  atualizarVagas();
+}
+function atualizarVagas(){
+  const pct = (vagasUsadas/VAGAS_MAX)*100;
+  document.getElementById("vagas-fill").style.width = pct+"%";
+  document.getElementById("vagas-num").textContent  = vagasUsadas+" / "+VAGAS_MAX;
+}
+
+// ── PARSER ─────────────────────────────────────────────
+function parsarLista(txt){
+  const out=[];
+  for(const bloco of txt.split(/(?=╭─➤)/)){
+    const g=(rx)=>{const m=bloco.match(rx);return m?m[1].trim():null;};
+    const host  =g(/Host\s*[➤►:=]+\s*(https?:\/\/[^\s\n\r]+)/i);
+    const user  =g(/User\s*[➤►:=]+\s*([^\s\n\r|`*╰╭├●]+)/i);
+    const pass  =g(/Pass\s*[➤►:=]+\s*([^\s\n\r|`*╰╭├●]+)/i);
+    const exp   =g(/Exp\s*[➤►:=]+\s*([^\n\r╰╭├●]+)/i);
+    const restam=g(/Restam\s*[➤►:=]+\s*([^\n\r╰╭├●]+)/i);
+    const conMax=g(/Con\s*Max\s*[➤►:=]+\s*([^\s\n\r╰╭├●]+)/i);
+    const conAct=g(/Con\s*Act\s*[➤►:=]+\s*([^\s\n\r╰╭├●]+)/i);
+    const status=g(/Status\s*[➤►:=]+\s*([^\s\n\r╰╭├●]+)/i);
+    const m3u   =g(/Lista\s*M3u\s*[➤►:=]+\s*(https?:\/\/[^\s\n\r]+)/i);
+    if(host&&user&&pass) out.push({
+      host:host.replace(/\/$/,""),user,pass,
+      exp:exp||"?",restam:restam||"?",
+      conMax:conMax||"1",conAct:conAct||"0",
+      status:status||"Active",
+      m3u:m3u||`${host}/get.php?username=${user}&password=${pass}&type=m3u_plus&output=ts`
     });
   }
   return out;
 }
 
-async function carregarLista() {
-  try {
-    const r = await fetch(LISTA_URL + "?t=" + Date.now());
-    if (!r.ok) throw new Error("HTTP " + r.status);
-    contas = parsarLista(await r.text());
-    document.getElementById("stat-total").textContent = contas.length;
-  } catch(e) {
-    toast("⚠️ Erro ao carregar lista: " + e.message);
-  }
+async function carregarLista(){
+  try{
+    const r=await fetch(LISTA_URL+"?t="+Date.now());
+    if(!r.ok) throw new Error("HTTP "+r.status);
+    contas=parsarLista(await r.text());
+    document.getElementById("stat-total").textContent=contas.length;
+  }catch(e){ toast("⚠️ Erro ao carregar lista: "+e.message); }
 }
 
-// ─── SCANNER FAKE ─────────────────────────────────────
-const linhasFake = [
-  {t:"info", txt:"[INIT] Conectando aos servidores VIP..."},
-  {t:"ok",   txt:"[OK] Túnel seguro estabelecido"},
-  {t:"info", txt:"[SCAN] Varrendo banco de credenciais..."},
-  {t:"warn", txt:"[AUTH] Validando tokens de acesso..."},
-  {t:"ok",   txt:"[OK] Autenticação aprovada"},
-  {t:"info", txt:"[QUERY] Buscando conta disponível..."},
-  {t:"warn", txt:"[CHECK] Verificando conexões ativas..."},
-  {t:"ok",   txt:"[OK] Servidor respondeu em <Xms>"},
-  {t:"info", txt:"[DATA] Extraindo credenciais..."},
-  {t:"ok",   txt:"[OK] Conta verificada com sucesso ✓"},
+// ── SCANNER FAKE ───────────────────────────────────────
+const SCAN_LINES=[
+  {t:"info",txt:"[INIT] Conectando aos servidores VIP..."},
+  {t:"ok",  txt:"[OK] Túnel seguro estabelecido"},
+  {t:"info",txt:"[SCAN] Varrendo banco de credenciais..."},
+  {t:"warn",txt:"[AUTH] Validando tokens de acesso..."},
+  {t:"ok",  txt:"[OK] Autenticação aprovada"},
+  {t:"info",txt:"[QUERY] Buscando conta disponível..."},
+  {t:"warn",txt:"[CHECK] Verificando conexões ativas..."},
+  {t:"ok",  txt:"[OK] Servidor respondeu em <Xms>"},
+  {t:"info",txt:"[DATA] Extraindo credenciais..."},
+  {t:"ok",  txt:"[OK] Conta verificada com sucesso ✓"},
 ];
+const delay=ms=>new Promise(r=>setTimeout(r,ms));
 
-function delay(ms) { return new Promise(r => setTimeout(r, ms)); }
-
-async function animarScanner() {
-  const log    = document.getElementById("scanner-log");
-  const barra  = document.getElementById("scan-barra");
-  const pct    = document.getElementById("scan-pct");
-  const wrap   = document.getElementById("scanner-wrap");
-
-  log.innerHTML = "";
-  barra.style.width = "0%";
-  pct.textContent = "0%";
+async function animarScanner(){
+  const log  =document.getElementById("scanner-log");
+  const barra=document.getElementById("scan-barra");
+  const pct  =document.getElementById("scan-pct");
+  const wrap =document.getElementById("scanner-wrap");
+  log.innerHTML="";barra.style.width="0%";pct.textContent="0%";
   wrap.classList.add("ativo");
-
-  const total = linhasFake.length;
-  for (let i = 0; i < total; i++) {
-    await delay(i === 0 ? 100 : 260 + Math.random() * 180);
-    const linha = document.createElement("div");
-    linha.className = "scan-line " + linhasFake[i].t;
-    const ping = Math.floor(60 + Math.random() * 180);
-    linha.textContent = linhasFake[i].txt.replace("<Xms>", ping + "ms");
-    log.appendChild(linha);
-    const p = Math.round(((i + 1) / total) * 100);
-    barra.style.width = p + "%";
-    pct.textContent = p + "%";
+  for(let i=0;i<SCAN_LINES.length;i++){
+    await delay(i===0?80:240+Math.random()*160);
+    const el=document.createElement("div");
+    el.className="scan-line "+SCAN_LINES[i].t;
+    el.textContent=SCAN_LINES[i].txt.replace("<Xms>",Math.floor(60+Math.random()*180)+"ms");
+    log.appendChild(el);
+    const p=Math.round(((i+1)/SCAN_LINES.length)*100);
+    barra.style.width=p+"%";pct.textContent=p+"%";
   }
-  await delay(300);
+  await delay(280);
 }
 
-// ─── GERAR CONTA ──────────────────────────────────────
-async function iniciarGeracao() {
-  if (rodando) return;
-  if (contas.length === 0) { toast("⚠️ Lista ainda carregando..."); return; }
+// ── COUNTDOWN ─────────────────────────────────────────
+function iniciarCountdown(){
+  const wrap=document.getElementById("cd-wrap");
+  const num =document.getElementById("cd-num");
+  const btn =document.getElementById("btn-gerar");
+  let secs=CD_SECS;
+  num.textContent=secs;
+  wrap.classList.add("ativo");
+  btn.disabled=true;
+  cdTimer=setInterval(()=>{
+    secs--;
+    num.textContent=secs;
+    if(secs<=0){
+      clearInterval(cdTimer);
+      wrap.classList.remove("ativo");
+      btn.disabled=false;
+      document.getElementById("btn-txt").textContent="✦ GERAR CONTA";
+    }
+  },1000);
+}
 
-  // Recolhe card anterior
-  document.getElementById("conta-card").style.display = "none";
+// ── GERAR ─────────────────────────────────────────────
+async function iniciarGeracao(){
+  if(rodando) return;
+  if(contas.length===0){toast("⚠️ Lista ainda carregando...");return;}
+  document.getElementById("conta-card").style.display="none";
   document.getElementById("scanner-wrap").classList.remove("ativo");
+  clearInterval(cdTimer);
+  document.getElementById("cd-wrap").classList.remove("ativo");
 
-  // Se todas já foram usadas, reseta
-  if (usadas.size >= contas.length) usadas.clear();
+  if(usadas.size>=contas.length) usadas.clear();
 
-  rodando = true;
-  const btn = document.getElementById("btn-gerar");
-  btn.disabled = true;
-  document.getElementById("btn-txt").innerHTML = '<span class="spinner"></span> ESCANEANDO...';
+  rodando=true;
+  const btn=document.getElementById("btn-gerar");
+  btn.disabled=true;
+  document.getElementById("btn-txt").innerHTML='<span class="spinner"></span> ESCANEANDO...';
 
   await animarScanner();
 
-  // Sorteia conta não usada
   let idx;
-  do { idx = Math.floor(Math.random() * contas.length); } while (usadas.has(idx));
+  do{idx=Math.floor(Math.random()*contas.length);}while(usadas.has(idx));
   usadas.add(idx);
-  contaAtual = contas[idx];
-  const c = contaAtual;
+  contaAtual=contas[idx];
+  const c=contaAtual;
+  const ping=Math.floor(60+Math.random()*220);
 
-  // Preenche card
-  document.getElementById("v-host").textContent   = c.host;
-  document.getElementById("v-user").textContent   = c.user;
-  document.getElementById("v-pass").textContent   = c.pass;
-  document.getElementById("v-exp").textContent    = c.exp;
-  document.getElementById("v-restam").textContent = c.restam;
-  document.getElementById("v-cons").textContent   = `${c.conAct} / ${c.conMax}`;
-  document.getElementById("v-canais").textContent = c.canais;
-  document.getElementById("v-filmes").textContent = c.filmes;
-  document.getElementById("v-series").textContent = c.series;
-  document.getElementById("txt-idx").textContent  = `#${idx+1} de ${contas.length}`;
+  document.getElementById("v-host").textContent  =c.host;
+  document.getElementById("v-user").textContent  =c.user;
+  document.getElementById("v-pass").textContent  =c.pass;
+  document.getElementById("v-exp").textContent   =c.exp;
+  document.getElementById("v-restam").textContent=c.restam;
+  document.getElementById("v-cons").textContent  =c.conAct+" / "+c.conMax;
+  document.getElementById("txt-idx").textContent ="#"+(idx+1)+" de "+contas.length;
+  document.getElementById("ping-badge").textContent="🌐 "+ping+"ms";
 
-  const online = /active/i.test(c.status);
-  document.getElementById("dot-status").className   = "dot" + (online ? "" : " off");
-  document.getElementById("txt-status").textContent = online ? "ONLINE" : "OFFLINE";
-  document.getElementById("txt-status").className   = "status-txt" + (online ? "" : " off");
+  const online=/active/i.test(c.status);
+  document.getElementById("dot-status").className  ="dot"+(online?"":" off");
+  document.getElementById("txt-status").textContent=online?"ONLINE":"OFFLINE";
+  document.getElementById("txt-status").className  ="status-txt"+(online?"":" off");
 
-  // Esconde scanner, mostra card
+  // vagas
+  if(vagasUsadas<VAGAS_MAX){vagasUsadas++;atualizarVagas();}
+
   document.getElementById("scanner-wrap").classList.remove("ativo");
-  document.getElementById("conta-card").style.display = "block";
+  document.getElementById("conta-card").style.display="block";
 
-  btn.disabled = false;
-  document.getElementById("btn-txt").textContent = "✦ GERAR NOVA CONTA";
-  rodando = false;
+  rodando=false;
+  iniciarCountdown();
 }
 
-// ─── COPIAR ───────────────────────────────────────────
-function cp(id) {
+// ── COPIAR ────────────────────────────────────────────
+function cp(id){
   navigator.clipboard.writeText(document.getElementById(id).textContent)
-    .then(() => toast("Copiado!"));
+    .then(()=>toast("Copiado! ✅"));
 }
 
-function cpTudo() {
-  if (!contaAtual) return;
-  const c = contaAtual;
-  navigator.clipboard.writeText(
-`🛰 CONTA IPTV VIP
+function montarTexto(){
+  const c=contaAtual;
+  return `🛰 CONTA IPTV VIP
 🌐 Host: ${c.host}
 👤 User: ${c.user}
 🔑 Pass: ${c.pass}
-📆 Exp: ${c.exp}
+📆 Validade: ${c.exp}
 ⏳ Restam: ${c.restam}
-👪 Con Max: ${c.conMax}
-📺 Canais: ${c.canais}
-🎥 Filmes: ${c.filmes}
-🎬 Séries: ${c.series}
-🔗 M3U: ${c.m3u}`
-  ).then(() => toast("Credenciais copiadas! ✅"));
+👥 Con: ${c.conAct} / ${c.conMax}
+🔗 M3U: ${c.m3u}`;
 }
 
-function toast(msg) {
-  const el = document.getElementById("toast");
-  el.textContent = msg;
-  el.classList.add("show");
-  setTimeout(() => el.classList.remove("show"), 2400);
+function cpTudo(){
+  if(!contaAtual) return;
+  navigator.clipboard.writeText(montarTexto()).then(()=>toast("Credenciais copiadas! ✅"));
+}
+
+function compartilharWpp(){
+  if(!contaAtual) return;
+  const txt=encodeURIComponent(montarTexto());
+  window.open("https://wa.me/?text="+txt,"_blank");
+}
+
+function toast(msg){
+  const el=document.getElementById("toast");
+  el.textContent=msg;el.classList.add("show");
+  setTimeout(()=>el.classList.remove("show"),2400);
 }
 </script>
 </body>
